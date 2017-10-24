@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component should render big button 1`] = `<button class="fk-btn fk-btn--big"></button>`;
+
+exports[`Button component should render block button 1`] = `<button class="fk-btn fk-btn--block"></button>`;
+
+exports[`Button component should render component and match snapshot 1`] = `<button class="fk-btn"></button>`;
+
+exports[`Button component should render disabled button 1`] = `<button class="fk-btn"></button>`;
+
+exports[`Button component should render outline button 1`] = `<button class="fk-btn fk-btn--outline"></button>`;
+
+exports[`Button component should render primary button 1`] = `<button class="fk-btn fk-btn--primary"></button>`;
+
+exports[`Button component should render secondary button 1`] = `<button class="fk-btn fk-btn--secondary"></button>`;
+
+exports[`Button component should render small button 1`] = `<button class="fk-btn fk-btn--small"></button>`;
