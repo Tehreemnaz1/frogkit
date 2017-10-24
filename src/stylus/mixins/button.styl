@@ -1,0 +1,72 @@
+
+@require '../_vars'
+
+button-outline($color)
+  color: $color.base
+  // color: keys($color.color)
+  background: transparent
+  border: $color.base 2px solid
+  &:hover,
+  &:focus
+    color: $color.dark
+    border-color: $color.dark
+  &:disabled,
+  &[disabled]
+    color: $color.light
+    border-color: $color.light
+
+button-variation($color)
+  color: #ffffff
+  background-color: $color.base
+  &:hover,
+  &:focus
+    background-color: $color.dark
+  &:disabled,
+  &[disabled]
+    background-color: $color.light
+  &^[0]--outline
+    button-outline($color)
+
+button-mixin()
+  padding 0 10px
+  height 44px
+  border-radius 6px
+  // background-color: $colors.grey.base
+  font-family: Roboto Condensed,sans-serif
+  font-size: 20px
+  text-align: center
+  // color: #ffffff
+  border none
+  user-select none
+  vertical-align middle
+  outline none
+  text-transform capitalize
+
+  button-variation($colors.grey)
+
+  &:hover,
+  &:focus
+    background-color: $colors.grey.dark
+  &:disabled,
+  &[disabled]
+    background-color: $colors.grey.light
+    cursor: not-allowed
+  &&--small
+    padding 0 5px
+    height 36px
+    font-size: 18px
+    border-radius: 4px
+  &&--big
+    padding 0 20px
+    height 60px
+    font-size: 25px
+    border-radius: 8px
+  &&--block
+    width: 100%
+    display block
+  // &&--outline
+  //   button-outline($colors.grey)
+  &&--primary
+    button-variation($colors.orange)
+
+// $button-skeleton
