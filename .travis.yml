@@ -9,7 +9,7 @@ branches:
 
 script:
   - yarn
-  - yarn test
+  - yarn run test
 
 cache:
   yarn: true
