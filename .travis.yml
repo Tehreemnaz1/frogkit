@@ -11,7 +11,8 @@ install:
   - yarn
 
 script:
-  - npx jest
+  - yarn -v
+  - yarn jest
 
 env:
   global:
