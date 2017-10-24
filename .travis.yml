@@ -24,6 +24,12 @@ env:
   global:
   - NODE_ENV=production
 
+cache:
+  yarn: true
+  directories:
+    - ".eslintcache"
+    - "node_modules"
+
 notifications:
   email: false
   slack: smartfrog:wTTaFTzyp3xFG2Yw03Gnts6A
