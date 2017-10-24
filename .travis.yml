@@ -1,24 +1,25 @@
 language: node_js
 node_js:
-- '7.6.0'
-services:
-  - docker
+  - "8"
+
 branches:
   only:
   - master
   - development
-install:
-- yarn
+
 script:
-- yarn test
-sudo: false
+  - yarn
+  - yarn test
+
 cache:
   yarn: true
   directories:
     - node_modules
-notifications:
-  email: false
-  slack: smartfrog:wTTaFTzyp3xFG2Yw03Gnts6A
+
 env:
   global:
   - NODE_ENV=production
+
+notifications:
+  email: false
+  slack: smartfrog:wTTaFTzyp3xFG2Yw03Gnts6A
