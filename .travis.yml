@@ -11,6 +11,7 @@ install:
   - yarn
 
 script:
+  - ls node_modules
   - npm run test
 
 cache:
