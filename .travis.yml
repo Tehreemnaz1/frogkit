@@ -14,11 +14,6 @@ script:
   - ls node_modules
   - npm run test
 
-cache:
-  yarn: true
-  directories:
-    - node_modules
-
 env:
   global:
   - NODE_ENV=production
