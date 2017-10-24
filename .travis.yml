@@ -16,7 +16,7 @@ install:
 
 script:
   - yarn -v
-  - yarn jest
+  - yarn test
 
 env:
   global:
