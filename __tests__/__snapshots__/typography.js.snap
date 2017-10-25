@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text component should render 30px text font size  1`] = `<div class="fk-txt fk-txt--size-30"></div>`;
+
+exports[`Text component should render 38px text font size  1`] = `<div class="fk-txt fk-txt--size-38"></div>`;
+
+exports[`Text component should render 50px text font size  1`] = `<div class="fk-txt fk-txt--size-50"></div>`;
+
+exports[`Text component should render component and match snapshot 1`] = `<div class="fk-txt"></div>`;
+
+exports[`Text component should render light text color 1`] = `<div class="fk-txt fk-txt--light"></div>`;
+
+exports[`Text component should render primary text color 1`] = `<div class="fk-txt fk-txt--primary"></div>`;
