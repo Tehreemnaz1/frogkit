@@ -1,0 +1,28 @@
+@require '../_vars'
+
+$font-size-default = 2rem
+$font-weight-default = 400
+$font-sizes = 50, 38, 30, 25, 15
+$font-weights = 700, 300
+
+font-size()
+  for $size in $font-sizes
+    &&--size-{$size}
+      font-size: unit(($size / $font-size-root), 'rem')
+
+font-weight()
+  for $weight in $font-weights
+    &&--weight-{$weight}
+      font-weight: $weight
+
+txt-mixin()
+  font-family: $body-font-family
+  font-weight: $font-weight-default
+  font-size: $font-size-default
+  color: $colors-typography.grey.base
+  font-weight()
+  font-size()
+  &&--primary
+    color: $colors-typography.orange.base
+  &&--light
+    color: $colors-typography.grey.light
