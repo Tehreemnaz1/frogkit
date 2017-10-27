@@ -26,7 +26,10 @@ $button-skeleton
   font-family: $body-font-family
   text-align: center
   // border none
+  display: inline-block
+  text-decoration none
   user-select none
+  line-height @height
   vertical-align middle
   outline none
   text-transform capitalize
@@ -36,8 +39,10 @@ $button-skeleton
     cursor: not-allowed
   &&--small
     {small}
+    line-height @height
   &&--big
     {big}
+    line-height @height
   &&--block
     width: 100%
     display block

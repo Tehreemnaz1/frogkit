@@ -1,6 +1,6 @@
 {
-  "name": "frogkit",
-  "version": "0.0.1",
+  "name": "@smartfrog/frogkit",
+  "version": "0.0.2-alpha",
   "description": "Smartfrog Component Framework",
   "scripts": {
     "storybook": "start-storybook -p 5000 -c .storybook",
@@ -28,6 +28,9 @@
     "vue-template-compiler": "2.5.2",
     "vue-test-utils": "1.0.0-beta.3"
   },
+  "files": [
+    "src"
+  ],
   "jest": {
     "verbose": true,
     "moduleFileExtensions": [

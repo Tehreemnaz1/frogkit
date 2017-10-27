@@ -7,9 +7,9 @@
 </style>
 
 <template>
-  <button class="fk-btn" :class="classObject" @click="clicked" >
+  <component :is="elementTag" class="fk-btn" :class="classObject" @click="clicked" >
     <slot></slot>
-  </button>
+  </component>
 </template>
 
 <script>
@@ -31,7 +31,11 @@
       block: {
         type: Boolean,
         default: false
-      }
+      },
+      link: {
+        type: Boolean,
+        default: false
+      },
     },
     methods: {
       clicked () {
@@ -49,6 +53,9 @@
           'fk-btn--primary': this.color == 'primary',
           'fk-btn--secondary': this.color == 'secondary',
         }
+      },
+      elementTag() {
+        return this.link ? 'a' : 'button'
       }
     }
   }

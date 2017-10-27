@@ -6,7 +6,7 @@ const stories = storiesOf('button', module)
 
 
 stories.add('default', () => ({
-  template: `<fk-button @click="action" :disabled="disabled" :size="size" :block="block" :outline="outline" :color="color">
+  template: `<fk-button @click="action" :link="link" :disabled="disabled" :size="size" :block="block" :outline="outline" :color="color" href="//www.google.com" target="_blank">
               {{slot}}
             </fk-button>`,
   methods: { action: action('button-click') },
@@ -16,6 +16,7 @@ stories.add('default', () => ({
       disabled: boolean('Disabled', false),
       block: boolean('Full Width', false),
       outline: boolean('Outline', false),
+      link: boolean('Link', false),
       size: select('Size', ['small', 'normal', 'big'], 'normal'),
       color: select('Color', ['default', 'primary', 'secondary'], 'default')
     }
