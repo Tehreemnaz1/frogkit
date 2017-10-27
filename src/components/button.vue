@@ -7,14 +7,14 @@
 </style>
 
 <template>
-  <component :is="elementTag" class="fk-btn" :class="classObject" @click="clicked" >
+  <component :is="elementTag" class="fk-btn" :class="classObject" @click="clicked" rel="noopener noreferrer">
     <slot></slot>
   </component>
 </template>
 
 <script>
   export default {
-    name: 'fk-button',
+    name: 'Button',
     props: {
       size: {
         type: String,

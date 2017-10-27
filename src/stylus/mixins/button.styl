@@ -29,7 +29,9 @@ $button-skeleton
   display: inline-block
   text-decoration none
   user-select none
-  line-height @height
+  border-width: 2px
+  border-style: solid
+  line-height (@height - (@border-width * 2))
   vertical-align middle
   outline none
   text-transform capitalize
@@ -39,10 +41,10 @@ $button-skeleton
     cursor: not-allowed
   &&--small
     {small}
-    line-height @height
+    line-height (@height - (@border-width * 2))
   &&--big
     {big}
-    line-height @height
+    line-height (@height - (@border-width * 2))
   &&--block
     width: 100%
     display block
@@ -63,15 +65,15 @@ button-outline($color)
 button-variation($color)
   color: #ffffff
   background-color: $color.base
-  border: $color.base 2px solid
+  border-color: $color.base
   &:hover,
   &:focus
     background-color: $color.dark
-    border: $color.dark 2px solid
+    border-color: $color.dark
   &:disabled,
   &[disabled]
     background-color: $color.light
-    border: $color.light 2px solid
+    border-color: $color.light
   &^[0]--outline
     button-outline($color)
 
