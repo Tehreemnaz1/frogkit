@@ -1,0 +1,92 @@
+@require '../_vars'
+
+$sizes = {
+  default: {
+    font: 2rem,
+    height: 44px,
+    padding: 14px
+  },
+  small: {
+    font: 1.5rem,
+    height: 36px,
+    padding: 10px
+  }
+}
+
+$cut-sides = 'left', 'right'
+
+placeholder-color = {color: $colors-input.placeholder.base}
+
+set-size($size = 'default')
+  font-size: $sizes[$size].font
+  padding: 0 $sizes[$size].padding
+  height: $sizes[$size].height
+  line-height: @height
+
+cut-input()
+  for $side in $cut-sides
+    &&--cut-{$side}
+      border-top-{$side}-radius: 0
+      border-bottom-{$side}-radius: 0
+      border-{$side}: 0
+
+border($color)
+  border: solid 1px $color
+
+bg($color)
+  background-color: $color
+
+set-colors($state = 'default')
+  if $state == 'disabled'
+    bg($colors-input.disabled.bg)
+    border($colors-input.disabled.border)
+  else if $state == 'focus'
+    border($colors-input.focus.base)
+  else if $state == 'error'
+    border($colors-input.error.base)
+  else if $state == 'small'
+    bg($colors-input.small.bg)
+  else
+    bg($colors-input.default.bg)
+    border($colors-input.default.border)
+
+placeholder()
+  &::-moz-placeholder
+    {placeholder-color}
+    opacity: 1
+  &:-ms-input-placeholder
+    {placeholder-color}
+  &::-ms-input-placeholder
+    {placeholder-color}
+  &::-webkit-input-placeholder
+    {placeholder-color}
+  &::placeholder
+    {placeholder-color}
+
+$input-skeleton
+  set-size()
+  set-colors()
+  color: $colors-input.default.label
+  font-family: $body-font-family
+  font-weight: 400
+  display: inline-block
+  transition: border-color background-color color 300ms
+  -webkit-appearance: none
+  placeholder()
+  &:focus
+    set-colors('focus')
+  &:disabled
+    cursor: not-allowed
+    set-colors('disabled')
+  &&--block
+    width: 100%
+    display: block
+
+input-mixin()
+  @extends $input-skeleton
+  cut-input()
+  &&--small
+    set-size('small')
+    set-colors('small')
+  &&--error
+    set-colors('error')

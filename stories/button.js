@@ -10,7 +10,7 @@ stories.add('default', () => ({
               {{slot}}
             </fk-button>`,
   methods: { action: action('button-click') },
-  data(){
+  data() {
     return {
       slot: text('Text', 'click me'),
       disabled: boolean('Disabled', false),
