@@ -7,14 +7,14 @@
 </style>
 
 <template>
-  <button class="fk-btn" :class="classObject" @click="clicked" >
+  <component :is="elementTag" class="fk-btn" :class="classObject" @click="clicked" rel="noopener noreferrer">
     <slot></slot>
-  </button>
+  </component>
 </template>
 
 <script>
   export default {
-    name: 'fk-button',
+    name: 'Button',
     props: {
       size: {
         type: String,
@@ -31,7 +31,11 @@
       block: {
         type: Boolean,
         default: false
-      }
+      },
+      link: {
+        type: Boolean,
+        default: false
+      },
     },
     methods: {
       clicked () {
@@ -48,6 +52,9 @@
           'fk-btn--primary': this.color == 'primary',
           'fk-btn--secondary': this.color == 'secondary',
         }
+      },
+      elementTag() {
+        return this.link ? 'a' : 'button'
       }
     }
   }
