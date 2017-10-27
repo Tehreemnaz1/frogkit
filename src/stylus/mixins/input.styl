@@ -15,13 +15,12 @@ $sizes = {
 
 $cut-sides = 'left', 'right'
 
-placeholder-color = {color: $colors-input.placeholder.base}
-
 set-size($size = 'default')
   font-size: $sizes[$size].font
   padding: 0 $sizes[$size].padding
   height: $sizes[$size].height
   line-height: @height
+  border-radius: 4px
 
 cut-input()
   for $side in $cut-sides
@@ -30,63 +29,40 @@ cut-input()
       border-bottom-{$side}-radius: 0
       border-{$side}: 0
 
-border($color)
-  border: solid 1px $color
-
-bg($color)
-  background-color: $color
-
-set-colors($state = 'default')
-  if $state == 'disabled'
-    bg($colors-input.disabled.bg)
-    border($colors-input.disabled.border)
-  else if $state == 'focus'
-    border($colors-input.focus.base)
-  else if $state == 'error'
-    border($colors-input.error.base)
-  else if $state == 'small'
-    bg($colors-input.small.bg)
-  else
-    bg($colors-input.default.bg)
-    border($colors-input.default.border)
+set-color($variation)
+  if $colors-input[$variation].bg
+    background-color: $colors-input[$variation].bg
+  if $colors-input[$variation].border
+    border: 1px solid $colors-input[$variation].border
 
 placeholder()
-  &::-moz-placeholder
-    {placeholder-color}
-    opacity: 1
-  &:-ms-input-placeholder
-    {placeholder-color}
-  &::-ms-input-placeholder
-    {placeholder-color}
-  &::-webkit-input-placeholder
-    {placeholder-color}
   &::placeholder
-    {placeholder-color}
+    color: $colors-input.placeholder.text
 
 $input-skeleton
   set-size()
-  set-colors()
+  set-color('default')
   color: $colors-input.default.label
   font-family: $body-font-family
   font-weight: 400
   display: inline-block
-  transition: border-color background-color color 300ms
-  -webkit-appearance: none
+  user-select: none
+  outline: none
   placeholder()
+  cut-input()
+  &&--small
+    set-size('small')
+    set-color('small')
+  &&--error
+    set-color('error')
   &:focus
-    set-colors('focus')
+    set-color('focus')
   &:disabled
     cursor: not-allowed
-    set-colors('disabled')
+    set-color('disabled')
   &&--block
     width: 100%
     display: block
 
 input-mixin()
   @extends $input-skeleton
-  cut-input()
-  &&--small
-    set-size('small')
-    set-colors('small')
-  &&--error
-    set-colors('error')

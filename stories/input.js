@@ -2,14 +2,81 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { text, boolean, select } from '@storybook/addon-knobs'
 
-const stories = storiesOf('input', module)
+const stories = storiesOf('Input', module)
 
 
-stories.add('default', () => ({
-  template: `<fk-input v-model="value" :type="inputType" :size="size" :color="color" :block="block" :error="error" :disabled="disabled" :placeholder="placeholder"></fk-input>`,
+stories.add('Kitchen Sink', () => ({
+  template:
+  `<div>
+    <Input v-model="inputValue" :type="inputType" :size="size" :cutSide="cutSide" :block="block" :placeholder="placeholderText" :disabled="disabled" :required="required"></Input>
+  </div>`,
   data() {
     return {
-      inputType: select()
+      inputValue: text('Text', ''),
+      inputType: select('Input Type', ['text'], 'text'),
+      size: select('Size', ['normal', 'small'], 'normal'),
+      cutSide: select('Cut border', ['default', 'left', 'right'], 'default'),
+      disabled: boolean('Disabled', false),
+      block: boolean('Block', false),
+      required: boolean('Required', false),
+      placeholderText: text('Placeholder', 'Username')
+    }
+  }
+}))
+
+stories.add('Type Password', () => ({
+  template:
+  `<div>
+    <Input v-model="inputValue" :type="inputType" :size="size" :cutSide="cutSide" :block="block" :placeholder="placeholderText" :disabled="disabled" :required="required"></Input>
+  </div>`,
+  data() {
+    return {
+      inputValue: text('Text', ''),
+      inputType: select('Input Type', ['password'], 'password'),
+      size: select('Size', ['normal', 'small'], 'normal'),
+      cutSide: select('Cut border', ['default', 'left', 'right'], 'default'),
+      disabled: boolean('Disabled', false),
+      block: boolean('Block', false),
+      required: boolean('Required', false),
+      placeholderText: text('Placeholder', 'Password')
+    }
+  }
+}))
+
+stories.add('Type Phone Number', () => ({
+  template:
+  `<div>
+    <Input v-model="inputValue" :type="inputType" :size="size" :cutSide="cutSide" :block="block" :placeholder="placeholderText" :disabled="disabled" :required="required"></Input>
+  </div>`,
+  data() {
+    return {
+      inputValue: text('Text', ''),
+      inputType: select('Input Type', ['phone'], 'phone'),
+      size: select('Size', ['normal', 'small'], 'normal'),
+      cutSide: select('Cut border', ['default', 'left', 'right'], 'default'),
+      disabled: boolean('Disabled', false),
+      block: boolean('Block', false),
+      required: boolean('Required', false),
+      placeholderText: text('Placeholder', 'Phone Number')
+    }
+  }
+}))
+
+stories.add('Type Email', () => ({
+  template:
+  `<div>
+    <Input v-model="inputValue" :type="inputType" :size="size" :cutSide="cutSide" :block="block" :placeholder="placeholderText" :disabled="disabled" :required="required"></Input>
+  </div>`,
+  data() {
+    return {
+      inputValue: text('Text', ''),
+      inputType: select('Input Type', ['email'], 'email'),
+      size: select('Size', ['normal', 'small'], 'normal'),
+      cutSide: select('Cut border', ['default', 'left', 'right'], 'default'),
+      disabled: boolean('Disabled', false),
+      block: boolean('Block', false),
+      required: boolean('Required', false),
+      placeholderText: text('Placeholder', 'Email')
     }
   }
 }))

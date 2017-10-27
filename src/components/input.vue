@@ -7,20 +7,26 @@
 </style>
 
 <template>
-  <input class="fk-input" :class="classObject" />
+  <input :type="type" class="fk-input" :class="classObject" :value="value" @input="updateValue" @blur="validateInput"/>
 </template>
 
 <script>
+  const regex = {
+    text: /./,
+    phone: /^[0-9 \\+\\-\\(\\)\\/]{3,32}$/,
+    password: /^[\w ]{8,64}$/,
+    email: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+  }
   export default {
-    name: 'fk-input',
+    name: 'Input',
     props: {
+      type: {
+        type: String,
+        default: 'text'
+      },
       size: {
         type: String,
         default: ''
-      },
-      inputType: {
-        type: String,
-        default: 'text'
       },
       cutSide: {
         type: String,
@@ -30,9 +36,13 @@
         type: Boolean,
         default: false
       },
-      error: {
+      required: {
         type: Boolean,
         default: false
+      },
+      value: {
+        type: String,
+        default: ''
       }
     },
     computed: {
@@ -45,7 +55,25 @@
           'fk-input--error': !!this.error
         }
       }
+    },
+    data() {
+      return {
+        inputValue: this.value,
+        error: false,
+        validationRegex: regex[this.type]
+      }
+    },
+    methods: {
+      updateValue(e) {
+        this.inputValue = e.target.value
+        this.$emit('input', this.inputValue)
+        this.validateInput()
+      },
+      validateInput() {
+        if (!this.required && !this.inputValue.length) return
+        if (!this.validationRegex) return
+        this.error = !this.validationRegex.test(this.inputValue)
+      }
     }
   }
-
 </script>
