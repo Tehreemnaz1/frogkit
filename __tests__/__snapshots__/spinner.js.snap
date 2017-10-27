@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner component should render component and match snapshot 1`] = `
+<div class="loader">
+    <div class="circle"></div>
+</div>
+`;
