@@ -1,0 +1,45 @@
+$spinner = 100px
+$circle = 55px
+$border = 7px
+$orange = #F18713
+
+// body
+//   display flex
+//   height 100vh
+//   align-items center
+//   justify-content center
+//   background grey
+//   position: relative;
+spinner-mixin()
+  .loader
+    height: $spinner
+    width: $spinner
+    background $orange
+    border-radius 50%
+    border: $border solid white
+    box-shadow: 0 0 0 $border $orange
+    margin $border
+    box-sizing: content-box;
+    position: relative;
+    transform: scale(1)
+    .circle
+      height: 1px
+      width: ($spinner/2)
+      background blue
+      position: relative;
+      top ($spinner/2)
+      animation: spin 1.5s infinite linear;
+      transform-origin 100% 100%
+      &:before
+        content: ''
+        position absolute
+        background white
+        height: $circle
+        width: $circle
+        right 0
+        border-radius 50%
+        bottom -($circle/2)
+  @keyframes spin {
+     from {transform: rotate(0)}
+     to {transform: rotate(360deg)}
+  }
