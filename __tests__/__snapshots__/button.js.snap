@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button component should render big button 1`] = `<button class="fk-btn fk-btn--big"><span>click me</span></button>`;
+exports[`Button component should render big button 1`] = `<button rel="noopener noreferrer" class="fk-btn fk-btn--big"><span>click me</span></button>`;
 
-exports[`Button component should render block button 1`] = `<button class="fk-btn fk-btn--block"><span>click me</span></button>`;
+exports[`Button component should render block button 1`] = `<button rel="noopener noreferrer" class="fk-btn fk-btn--block"><span>click me</span></button>`;
 
-exports[`Button component should render component and match snapshot 1`] = `<button class="fk-btn"><span>click me</span></button>`;
+exports[`Button component should render component and match snapshot 1`] = `<button rel="noopener noreferrer" class="fk-btn"><span>click me</span></button>`;
 
-exports[`Button component should render disabled button 1`] = `<button class="fk-btn"><span>click me</span></button>`;
+exports[`Button component should render disabled button 1`] = `<button rel="noopener noreferrer" class="fk-btn"><span>click me</span></button>`;
 
-exports[`Button component should render outline button 1`] = `<button class="fk-btn fk-btn--outline"><span>click me</span></button>`;
+exports[`Button component should render outline button 1`] = `<button rel="noopener noreferrer" class="fk-btn fk-btn--outline"><span>click me</span></button>`;
 
-exports[`Button component should render primary button 1`] = `<button class="fk-btn fk-btn--primary"><span>click me</span></button>`;
+exports[`Button component should render primary button 1`] = `<button rel="noopener noreferrer" class="fk-btn fk-btn--primary"><span>click me</span></button>`;
 
-exports[`Button component should render secondary button 1`] = `<button class="fk-btn fk-btn--secondary"><span>click me</span></button>`;
+exports[`Button component should render secondary button 1`] = `<button rel="noopener noreferrer" class="fk-btn fk-btn--secondary"><span>click me</span></button>`;
 
-exports[`Button component should render small button 1`] = `<button class="fk-btn fk-btn--small"><span>click me</span></button>`;
+exports[`Button component should render small button 1`] = `<button rel="noopener noreferrer" class="fk-btn fk-btn--small"><span>click me</span></button>`;
