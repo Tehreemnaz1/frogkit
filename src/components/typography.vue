@@ -7,7 +7,7 @@
 </style>
 
 <template>
-  <div class="fk-txt" :class="classObject" @click="clicked" >
+  <div class="fk-txt" :class="classObject">
     <slot></slot>
   </div>
 </template>
@@ -27,11 +27,6 @@
       weight: {
         type: String,
         default: ''
-      }
-    },
-    methods: {
-      clicked () {
-        this.$emit('click')
       }
     },
     computed: {

@@ -2,14 +2,13 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { text, select } from '@storybook/addon-knobs'
 
-const stories = storiesOf('text', module)
+const stories = storiesOf('Typography', module)
 
 
-stories.add('default', () => ({
-  template: `<fk-text @click="action" :size="size" :color="color" :weight="weight">
+stories.add('kitchen sink', () => ({
+  template: `<fk-text :size="size" :color="color" :weight="weight">
               {{slot}}
             </fk-text>`,
-  methods: { action: action('text-click') },
   data(){
     return {
       slot: text('Text', 'Lorem ipsum dolorem'),
