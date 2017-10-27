@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { text, boolean, select } from '@storybook/addon-knobs'
 
-const stories = storiesOf('button', module)
+const stories = storiesOf('Button', module)
 
 
 stories.add('Kitchen Sink', () => ({

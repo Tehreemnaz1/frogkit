@@ -46,12 +46,4 @@ describe('Text component', () => {
     expect(wrapper.html()).toMatchSnapshot
   })
 
-  it('Text should emit click event when clicked', () => {
-    const stub = jest.fn()
-    const wrapper = mount(Text)
-    wrapper.vm.$on('click', stub)
-    wrapper.trigger('click')
-    expect(stub).toBeCalled()
-  })
-
 })
