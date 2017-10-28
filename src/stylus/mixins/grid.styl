@@ -1,0 +1,54 @@
+@require '../_vars'
+
+// Grid
+// ============================================================
+$grid-breakpoints := {
+  xs: 0
+  sm: 600px
+  md: 960px
+  lg: (1280px - 16px) // Desktop gets a 16dp reduction
+  xl: (1920px - 16px) // https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
+}
+
+$grid-gutter = 8px
+$grid-columns := 12
+$grid-gutters := {
+  xs: ($grid-gutter / 4)
+  sm: ($grid-gutter / 2)
+  md: $grid-gutter
+  lg: ($grid-gutter * 2)
+  xl: ($grid-gutter * 3)
+}
+
+$container-max-widths := {
+  sm: $grid-breakpoints.sm
+  md: $grid-breakpoints.md
+  lg: $grid-breakpoints.lg
+  xl: $grid-breakpoints.xl
+}
+
+grid-mixin()
+  flex: 1 1 100%
+  margin: auto
+  // padding: $grid-gutters.lg
+  width: 100%
+  flex-wrap: wrap;
+  display: flex;
+
+  for size, width in $container-max-widths
+    @media only screen and (min-width: width)
+      max-width: (width * 0.9375) // Credit to bootstrap
+
+row-mixin()
+  padding: $grid-gutters['md']px
+  for size, width in $grid-breakpoints
+    @media all and (min-width: width)
+      for n in (1..$grid-columns)
+        &.{size}{n}
+          // padding: $grid-gutters[size]px
+          flex-basis: (n / $grid-columns * 100)%
+          max-width: (n / $grid-columns * 100)%
+
+      for n in (0..$grid-columns)
+        &.offset-{size}{n}
+          margin-left: (n / $grid-columns * 100)%
