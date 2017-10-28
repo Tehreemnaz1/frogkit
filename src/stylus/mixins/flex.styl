@@ -1,0 +1,32 @@
+@require '../_vars'
+
+flex-mixin()
+  display: flex
+  // flex: 0 1 auto // this is the default
+  flex-direction: row
+  flex-wrap: wrap
+  flex: 1 //fill all the space
+  align-items: start
+  // & > *
+  //   flex: 1 1 0%;
+  &&--column
+    flex-direction: column
+  &&--justify-center
+    justify-content: center
+  &&--justify-end
+    justify-content: flex-end
+  &&--justify-space-around
+    justify-content: space-around
+  &&--justify-space-between
+    justify-content: space-between
+
+  &&--align-center
+    align-items: center
+  &&--align-end
+    align-items: flex-end
+  &&--align-stretch
+    align-items: stretch
+  // &&--align-space-around
+  //   align-content: space-around
+  // &&--align-space-between
+  //   align-content: space-between
