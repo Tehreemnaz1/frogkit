@@ -2,8 +2,6 @@ import { mount } from 'vue-test-utils'
 import Vue from 'vue'
 import Input from '@/components/input'
 
-const fs = require('fs')
-
 describe('Input component', () => {
 
   it('should render component and match snapshot', () => {
