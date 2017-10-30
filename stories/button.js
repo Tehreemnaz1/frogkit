@@ -10,7 +10,7 @@ stories.add('Kitchen Sink', () => ({
               {{slot}}
             </Button>`,
   methods: { action: action('button-click') },
-  data(){
+  data() {
     return {
       slot: text('Text', 'click me'),
       disabled: boolean('Disabled', false),

@@ -1,0 +1,68 @@
+@require '../_vars'
+
+$sizes = {
+  default: {
+    font: 2rem,
+    height: 44px,
+    padding: 14px
+  },
+  small: {
+    font: 1.5rem,
+    height: 36px,
+    padding: 10px
+  }
+}
+
+$cut-sides = 'left', 'right'
+
+set-size($size = 'default')
+  font-size: $sizes[$size].font
+  padding: 0 $sizes[$size].padding
+  height: $sizes[$size].height
+  line-height: @height
+  border-radius: 4px
+
+cut-input()
+  for $side in $cut-sides
+    &&--cut-{$side}
+      border-top-{$side}-radius: 0
+      border-bottom-{$side}-radius: 0
+      border-{$side}: 0
+
+set-color($variation)
+  if $colors-input[$variation].bg
+    background-color: $colors-input[$variation].bg
+  if $colors-input[$variation].border
+    border: 1px solid $colors-input[$variation].border
+
+placeholder()
+  &::placeholder
+    color: $colors-input.placeholder.text
+
+$input-skeleton
+  set-size()
+  set-color('default')
+  color: $colors-input.default.label
+  font-family: $body-font-family
+  font-weight: 400
+  display: inline-block
+  user-select: none
+  outline: none
+  placeholder()
+
+input-mixin()
+  @extends $input-skeleton
+  cut-input()
+  &&--small
+    set-size('small')
+    set-color('small')
+  &&--error
+    set-color('error')
+  &:focus
+    set-color('focus')
+  &:disabled
+    cursor: not-allowed
+    set-color('disabled')
+  &&--block
+    width: 100%
+    display: block

@@ -27,15 +27,15 @@ $button-skeleton
   text-align: center
   // border none
   display: inline-block
-  text-decoration none
+  text-decoration: none
   user-select none
   border-width: 2px
   border-style: solid
-  line-height (@height - (@border-width * 2))
-  vertical-align middle
-  outline none
-  text-transform capitalize
-  transition border-color background-color color 300ms
+  line-height: (@height - (@border-width * 2))
+  vertical-align: middle
+  outline: none
+  text-transform: capitalize
+  transition: border-color background-color color 300ms
   &:disabled,
   &[disabled]
     cursor: not-allowed
@@ -47,7 +47,7 @@ $button-skeleton
     line-height (@height - (@border-width * 2))
   &&--block
     width: 100%
-    display block
+    display: block
 
 button-outline($color)
   background: transparent

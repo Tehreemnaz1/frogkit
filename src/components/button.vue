@@ -1,8 +1,8 @@
 <style lang="stylus" scoped>
-@require '../stylus/mixins/button'
+  @require '../stylus/mixins/button'
 
-.fk-btn
-  button-mixin()
+  .fk-btn
+    button-mixin()
 
 </style>
 
@@ -49,7 +49,6 @@
           'fk-btn--big': this.size == 'big',
           'fk-btn--outline': !!this.outline,
           'fk-btn--block': !!this.block,
-          'fk-btn--outline': !!this.outline,
           'fk-btn--primary': this.color == 'primary',
           'fk-btn--secondary': this.color == 'secondary',
         }
