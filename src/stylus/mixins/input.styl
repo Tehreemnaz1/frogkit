@@ -49,6 +49,9 @@ $input-skeleton
   user-select: none
   outline: none
   placeholder()
+
+input-mixin()
+  @extends $input-skeleton
   cut-input()
   &&--small
     set-size('small')
@@ -63,6 +66,3 @@ $input-skeleton
   &&--block
     width: 100%
     display: block
-
-input-mixin()
-  @extends $input-skeleton

@@ -12,8 +12,8 @@ stories.add('Kitchen Sink', () => ({
   </div>`,
   data() {
     return {
-      inputValue: text('Text', ''),
-      inputType: select('Input Type', ['text'], 'text'),
+      inputValue: text('Text', 'tada'),
+      inputType: select('Input Type', ['text', 'email', 'phone', 'password'], 'text'),
       size: select('Size', ['normal', 'small'], 'normal'),
       cutSide: select('Cut border', ['default', 'left', 'right'], 'default'),
       disabled: boolean('Disabled', false),
@@ -27,12 +27,11 @@ stories.add('Kitchen Sink', () => ({
 stories.add('Type Password', () => ({
   template:
   `<div>
-    <Input v-model="inputValue" :type="inputType" :size="size" :cutSide="cutSide" :block="block" :placeholder="placeholderText" :disabled="disabled" :required="required"></Input>
+    <Input v-model="inputValue" type="password" :size="size" :cutSide="cutSide" :block="block" :placeholder="placeholderText" :disabled="disabled" :required="required"></Input>
   </div>`,
   data() {
     return {
-      inputValue: text('Text', ''),
-      inputType: select('Input Type', ['password'], 'password'),
+      inputValue: '',
       size: select('Size', ['normal', 'small'], 'normal'),
       cutSide: select('Cut border', ['default', 'left', 'right'], 'default'),
       disabled: boolean('Disabled', false),
@@ -46,12 +45,11 @@ stories.add('Type Password', () => ({
 stories.add('Type Phone Number', () => ({
   template:
   `<div>
-    <Input v-model="inputValue" :type="inputType" :size="size" :cutSide="cutSide" :block="block" :placeholder="placeholderText" :disabled="disabled" :required="required"></Input>
+    <Input v-model="inputValue" type="phone" :size="size" :cutSide="cutSide" :block="block" :placeholder="placeholderText" :disabled="disabled" :required="required"></Input>
   </div>`,
   data() {
     return {
-      inputValue: text('Text', ''),
-      inputType: select('Input Type', ['phone'], 'phone'),
+      inputValue: '',
       size: select('Size', ['normal', 'small'], 'normal'),
       cutSide: select('Cut border', ['default', 'left', 'right'], 'default'),
       disabled: boolean('Disabled', false),
@@ -65,12 +63,11 @@ stories.add('Type Phone Number', () => ({
 stories.add('Type Email', () => ({
   template:
   `<div>
-    <Input v-model="inputValue" :type="inputType" :size="size" :cutSide="cutSide" :block="block" :placeholder="placeholderText" :disabled="disabled" :required="required"></Input>
+    <Input v-model="inputValue" type="email" :size="size" :cutSide="cutSide" :block="block" :placeholder="placeholderText" :disabled="disabled" :required="required"></Input>
   </div>`,
   data() {
     return {
-      inputValue: text('Text', ''),
-      inputType: select('Input Type', ['email'], 'email'),
+      inputValue: '',
       size: select('Size', ['normal', 'small'], 'normal'),
       cutSide: select('Cut border', ['default', 'left', 'right'], 'default'),
       disabled: boolean('Disabled', false),
