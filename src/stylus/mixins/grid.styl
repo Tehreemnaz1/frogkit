@@ -41,6 +41,8 @@ grid-mixin()
 
 row-mixin()
   padding: $grid-gutters['md']px
+  flex: 1
+  max-width: 100%
   for size, width in $grid-breakpoints
     @media all and (min-width: width)
       for n in (1..$grid-columns)
