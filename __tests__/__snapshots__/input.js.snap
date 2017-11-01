@@ -4,8 +4,6 @@ exports[`Input component Input component | type email should render fine 1`] = `
 
 exports[`Input component Input component | type password should render fine 1`] = `<input type="password" class="fk-input">`;
 
-exports[`Input component Input component | type password should render input type password 1`] = `<input type="password" class="fk-input">`;
-
 exports[`Input component Input component | type phone should render fine 1`] = `<input type="phone" class="fk-input">`;
 
 exports[`Input component should render block input 1`] = `<input type="text" class="fk-input fk-input--block">`;
@@ -13,14 +11,6 @@ exports[`Input component should render block input 1`] = `<input type="text" cla
 exports[`Input component should render component and match snapshot 1`] = `<input type="text" class="fk-input">`;
 
 exports[`Input component should render disabled input 1`] = `<input type="text" class="fk-input">`;
-
-exports[`Input component should render input type email 1`] = `<input type="email" class="fk-input">`;
-
-exports[`Input component should render input type password 1`] = `<input type="password" class="fk-input">`;
-
-exports[`Input component should render input type phone number 1`] = `<input type="phone" class="fk-input">`;
-
-exports[`Input component should render input with error required 1`] = `<input type="text" class="fk-input">`;
 
 exports[`Input component should render input without left border 1`] = `<input type="text" class="fk-input">`;
 

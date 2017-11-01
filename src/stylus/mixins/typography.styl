@@ -5,6 +5,19 @@ $font-weight-default = 400
 $font-sizes = 50, 38, 30, 25, 15
 $font-weights = 700, 300
 
+$colors-typography := {
+  orange: {
+    base: #f18713
+  },
+  blue: {
+    base: #2f82c4
+  },
+  grey: {
+    base: #414141,
+    light: #7a7a7a
+  }
+}
+
 font-size()
   for $size in $font-sizes
     &&--size-{$size}
