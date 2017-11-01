@@ -2,7 +2,7 @@
 @require '../stylus/_vars'
 
 .btn
-  background-color: $colors.orange.base
+  background-color: orange
 
 </style>
 

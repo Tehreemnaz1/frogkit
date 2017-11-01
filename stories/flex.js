@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { boolean, select } from '@storybook/addon-knobs'
 
-const stories = storiesOf('Flex Layout', module)
+const stories = storiesOf('Layout / Flexbox', module)
 
 stories.add('kitchen Sink', () => ({
   template: `

@@ -12,13 +12,6 @@ $grid-breakpoints := {
 
 $grid-gutter = 8px
 $grid-columns := 12
-$grid-gutters := {
-  xs: ($grid-gutter / 4)
-  sm: ($grid-gutter / 2)
-  md: $grid-gutter
-  lg: ($grid-gutter * 2)
-  // xl: ($grid-gutter * 3)
-}
 
 $container-max-widths := {
   sm: $grid-breakpoints.sm
@@ -28,21 +21,28 @@ $container-max-widths := {
 }
 
 grid-mixin()
-  flex: 1 1 100%
-  margin: auto
-  // padding: $grid-gutters.lg
   width: 100%
-  flex-wrap: wrap;
-  display: flex;
-
+  display: flex
+  flex: 1 1 100%
+  flex-wrap: wrap
+  margin: auto
+  // padding: $grid-gutter
+  // flex-direction: column
   for size, width in $container-max-widths
     @media only screen and (min-width: width)
       max-width: (width * 0.9375) // Credit to bootstrap
+  &&--fluid
+    max-width: 100%
 
 row-mixin()
-  padding: $grid-gutters['md']px
-  flex: 1
-  max-width: 100%
+  width: 100%
+  display: flex
+  flex: 1 1 100%
+  flex-wrap: wrap
+
+col-mixin()
+  padding: ($grid-gutter)px
+  flex 1
   for size, width in $grid-breakpoints
     @media all and (min-width: width)
       for n in (1..$grid-columns)
