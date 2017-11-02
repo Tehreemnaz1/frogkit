@@ -1,0 +1,39 @@
+@require '../_vars'
+
+$white = #fff
+$borderColor = #e7e7e7
+
+$container-width := {
+  sm: 750px
+  md: 970px
+  lg: 1170px
+}
+
+soloheader-mixin()
+  background: $white
+  border-bottom: 1px solid $borderColor
+  &__container
+    height: 60px
+    margin: 0
+    padding: 0 15px
+    align-items: center
+    display: flex
+    @media only screen and (min-width: $bp-sm)
+      width: $container-width.sm
+      height: 120px
+      margin: 0 auto
+    @media only screen and (min-width: $bp-md)
+      width: $container-width.md
+      padding: 0 20px
+    @media only screen and (min-width: $bp-lg)
+      width: $container-width.lg
+      padding: 0
+    &__logo
+      display: flex
+      width: 175px
+      height: 34px
+      img
+        min-width: 175px
+      @media only screen and (min-width: $bp-md)
+        width: 235px
+        height: 45px
