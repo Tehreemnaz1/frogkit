@@ -23,9 +23,15 @@ module.exports = (baseConfig, env) => {
   // For example, add typescript loader:
   config.module.rules.push({
     test: /\.styl$/,
-    loaders: ["style-loader", "css-loader", "stylus-loader"],
+    loader: 'style-loader!css-loader!stylus-loader?resolve url',
     include: path.resolve(__dirname, '../src')
   })
+
+  // Object.assign(config.resolve, {
+  //   alias: {
+  //     'assets': path.resolve(__dirname, '../src/assets')
+  //   }
+  // })
 
   return config
 };

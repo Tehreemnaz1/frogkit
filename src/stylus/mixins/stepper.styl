@@ -1,0 +1,40 @@
+
+stepper-mixin()
+  color: white
+  display: inline-block
+  vertical-align: middle
+  width: 40px
+  height: 40px
+  border-radius: 50%
+  background: #f18713
+  font-size: 3rem
+  line-height: 4rem
+  text-align: center
+  font-weight: 700
+  opacity .5
+  transition 5000s all
+  &:not(:last-child)
+    margin-right: 14px
+  &&--active
+    opacity 1
+    animation: shade .3s
+  &&--done
+    opacity 1
+    background-image: url(../assets/checkmark-stepper.svg)
+    background-repeat: no-repeat
+    text-indent: -9999px
+    // font-size: 0
+    background-size: 22px auto
+    background-position: center
+  &&--big
+    width: 96px
+    height: 96px
+    font-size: 7rem
+    line-height: 9.6rem
+    &^[0]--done
+      background-size: 58px auto
+
+@keyframes shade {
+   from {opacity: .5}
+   to {opacity: 1}
+}
