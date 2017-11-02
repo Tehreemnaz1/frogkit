@@ -9,8 +9,8 @@
 <template functional>
   <header class="solo-header">
     <div class="solo-header__container">
-      <h1>
-        <a class="solo-header__container__logo" :href="props.logoUrl"><img src="../assets/logo.svg" /></a>
+      <h1 class="solo-header__container__logo">
+        <a :href="props.logoUrl"><img src="../assets/logo.svg" /></a>
       </h1>
     </div>
   </header>
