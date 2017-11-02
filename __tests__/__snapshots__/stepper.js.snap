@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Stepper component should render big step 1`] = `<button rel="noopener noreferrer" class="fk-btn"></button>`;
+exports[`Stepper component should render big step 1`] = `undefined`;
 
-exports[`Stepper component should render component and match snapshot 1`] = `<button rel="noopener noreferrer" class="fk-btn"></button>`;
+exports[`Stepper component should render component and match snapshot 1`] = `undefined`;
 
-exports[`Stepper component should render component with all props 1`] = `<button rel="noopener noreferrer" class="fk-btn"></button>`;
+exports[`Stepper component should render component with all props 1`] = `undefined`;
