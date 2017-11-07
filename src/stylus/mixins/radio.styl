@@ -1,0 +1,65 @@
+@require '../_vars'
+
+$colors-radio := {
+  default: {
+    label: #414141,
+    bg: #f4f4f4,
+    border: #d5d5d5,
+  },
+  default-checked: {
+   bg: #7a7a7a
+  },
+  disabled: {
+    label: #a7a7a7,
+    bg: #e7e7e7,
+    border: #d8d8d8
+  },
+  disabled-checked: {
+   bg: #a7a7a7
+  }
+}
+
+set-color($variation)
+  if $colors-radio[$variation].bg
+    background-color: $colors-radio[$variation].bg
+  if $colors-radio[$variation].border
+    border: 1px solid $colors-radio[$variation].border
+
+checked()
+  &:checked:after
+    position: absolute
+    width: 9px
+    height: 9px
+    border-radius: 50%
+    top: 6px
+    left: 6px
+    set-color('default-checked')
+
+$radio-skeleton
+  color: $colors-radio['default'].label
+  font-size: 2rem
+  display: flex
+  align-items: center
+  input
+    set-color('default')
+    border-radius: 50%
+    min-width: 23px
+    height: 23px
+    outline: none
+    display: inline-block
+    margin-right: 10px
+    position: relative
+    &:after
+      content: ""
+    checked()
+
+radio-mixin()
+  @extends $radio-skeleton
+  &--disabled
+    color: $colors-radio['disabled'].label
+    cursor: not-allowed
+    input
+      &:disabled
+        set-color('disabled')
+      &:checked:after
+       set-color('disabled-checked')
