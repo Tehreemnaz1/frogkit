@@ -8,7 +8,7 @@
 
 <template>
   <label class="fk-radio" :class="classObject">
-    <input type="radio" :name="name" :value="inputValue" v-model="updateValue" :disabled="disabled">
+    <input type="radio" :name="name" :value="value" @change="updateValue" :checked="value == checked" :disabled="disabled">
     <slot></slot>
   </label>
 </template>
@@ -16,6 +16,10 @@
 <script>
 export default {
   name: 'Radio',
+  model: {
+    prop: 'checked',
+    event: 'change'
+  },
   props: {
     name: {
       type: String,
@@ -25,7 +29,7 @@ export default {
       type: String,
       default: ''
     },
-    inputValue: {
+    checked: {
       type: String,
       default: ''
     },
@@ -39,15 +43,13 @@ export default {
       return {
         'fk-radio--disabled': !!this.disabled
       }
-    },
-    updateValue: {
-      get: function() {
-        return this.value
-      },
-      set: function() {
-        this.$emit('change', this.inputValue)
-      }
+    }
+  },
+  methods: {
+    updateValue(e) {
+      this.$emit('change', e.target.value)
     }
   }
+
 }
 </script>

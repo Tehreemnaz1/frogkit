@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Radio button component should render checked radio button 1`] = `<label class="fk-radio"><input type="radio"> </label>`;
+exports[`Radio button component should render checked radio button with value = "Value 2" 1`] = `<label class="fk-radio"><input type="radio" name=""> </label>`;
 
-exports[`Radio button component should render component and match snapshot 1`] = `<label class="fk-radio"><input type="radio"> </label>`;
+exports[`Radio button component should render component and match snapshot 1`] = `<label class="fk-radio"><input type="radio" name="radio-button"> </label>`;
 
-exports[`Radio button component should render disabled radio button 1`] = `<label class="fk-radio fk-radio--disabled"><input type="radio" disabled="disabled"> </label>`;
+exports[`Radio button component should render disabled radio button 1`] = `<label class="fk-radio fk-radio--disabled"><input type="radio" name="" disabled="disabled"> </label>`;

@@ -28,6 +28,7 @@ set-color($variation)
 checked()
   &:checked:after
     position: absolute
+    content: ""
     width: 9px
     height: 9px
     border-radius: 50%
@@ -49,8 +50,6 @@ $radio-skeleton
     display: inline-block
     margin-right: 10px
     position: relative
-    &:after
-      content: ""
     checked()
 
 radio-mixin()
