@@ -1,4 +1,1 @@
-<template><svg preserveAspectRatio="xMidYMid" viewBox="0 0 11 5">
-  <path fill-rule="evenodd" d="M0 5.002h11L5.5-.001 0 5.002z"/>
-</svg>
-</template>
+<template functional><svg preserveAspectRatio="xMidYMid" viewBox="0 0 11 5" :class="data.staticClass" is-static="true"><path fill-rule="evenodd" d="M0 5.002h11L5.5-.001 0 5.002z"/></svg></template>

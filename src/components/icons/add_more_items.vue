@@ -1,4 +1,1 @@
-<template><svg width="63.987" height="63.987">
-  <path fill-rule="evenodd" d="M45 21H27V3a3 3 0 1 0-6 0v18H3a3 3 0 1 0 0 6h18v18a3 3 0 1 0 6 0V27h18a3 3 0 1 0 0-6z"/>
-</svg>
-</template>
+<template functional><svg width="63.987" height="63.987" :class="data.staticClass" is-static="true"><path fill-rule="evenodd" d="M45 21H27V3a3 3 0 1 0-6 0v18H3a3 3 0 1 0 0 6h18v18a3 3 0 1 0 6 0V27h18a3 3 0 1 0 0-6z"/></svg></template>
