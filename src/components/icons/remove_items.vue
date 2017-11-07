@@ -1,0 +1,4 @@
+<template><svg width="63.987" height="8.013">
+  <path fill-rule="evenodd" d="M3 6a3 3 0 1 1 0-6h42a3 3 0 1 1 0 6H3z"/>
+</svg>
+</template>

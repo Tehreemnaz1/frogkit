@@ -1,0 +1,58 @@
+const path = require('path')
+const fs = require('fs')
+const {promisify} = require('util')
+
+const readdirAsync = promisify(fs.readdir)
+const readFileAsync = promisify(fs.readFile)
+const writeFileAsync = promisify(fs.writeFile)
+
+const workDir = process.cwd()
+
+let [,, inputPath, outputPath = inputPath] = process.argv
+
+inputPath = path.resolve(workDir, inputPath)
+outputPath = path.resolve(workDir, outputPath)
+
+console.log(inputPath, outputPath)
+
+async function findAll(startPath) {
+  if (!fs.existsSync(startPath)) {
+    console.log('ERROR finding ', startPath)
+    return
+  }
+
+  const files = (await readdirAsync(startPath)).filter(filename => /\.svg$/.test(filename))
+  files.forEach(async (filename) => await createComponent(startPath, filename))
+  await createIndex(files)
+  console.log('Done!')
+}
+
+async function createComponent(folder, filename) {
+  const filePath = path.resolve(folder, filename)
+  const svgContent = await readFileAsync(filePath)
+  const componentContent = componentTemplate(svgContent)
+  const writePath = path.resolve(outputPath, filename.replace('.svg', '.vue'))
+  await writeFileAsync(writePath, componentContent)
+}
+
+async function createIndex(files) {
+  // console.log(files)
+  const list = files.map(filename => filename.replace('.svg', ''))
+  const indexContent = indexTemplate(list)
+  const writePath = path.resolve(outputPath, 'index.js')
+  await writeFileAsync(writePath, indexContent)
+}
+
+
+findAll(inputPath)
+
+function componentTemplate(content) {
+  // return `<template functional>${content}</template>`
+  return `<template>${content}</template>`
+}
+
+function indexTemplate(list) {
+  return `import Vue from 'vue'
+${list.map(i => `Vue.component('${i}', () => import('./${i}.vue'))`).join('\n')}
+  `
+}
