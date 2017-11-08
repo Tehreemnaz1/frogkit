@@ -1,1 +1,1 @@
-<template functional><svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 11 5" v-bind="props" :class="[data.staticClass, data.class]"><path fill-rule="evenodd" d="M0 5.002h11L5.5-.001 0 5.002z"/></svg></template>
+<template functional><svg preserveAspectRatio="xMidYMid" viewBox="0 0 11 5" v-bind="props" :class="[data.staticClass, data.class]"><path fill-rule="evenodd" d="M0 5.002h11L5.5-.001 0 5.002z"/></svg></template>
