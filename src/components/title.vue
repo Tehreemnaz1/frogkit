@@ -6,10 +6,12 @@
 
 </style>
 
-<template>
-  <h1 class="fk-title" :class="getClasses" :style="getStyles">
+<template functional>
+  <component :is="$options.elementTag(props)" class="fk-title"
+  :class="[data.staticClass, data.class, $options.getClasses(props)]"
+  :style="$options.getStyles(props)" v-bind="props">
     <slot></slot>
-  </h1>
+  </component>
 </template>
 
 <script>
@@ -29,25 +31,34 @@
         default: ''
       }
     },
-    computed: {
-      getClasses() {
-        return {
-          'fk-title--xl': this.size == 'xl',
-          'fk-title--lg': this.size == 'lg',
-          'fk-title--md': this.size == 'md',
-          'fk-title--sm': this.size == 'sm',
-          'fk-title--xs': this.size == 'xs',
-          'fk-title--weight-700': this.weight == 'weight-700',
-          'fk-title--weight-300': this.weight == 'weight-300',
-          'fk-title--primary': this.color == 'primary',
-          'fk-title--light': this.color == 'light'
-        }
-      },
-      getStyles() {
-        return {
-          fontSize: typeof(this.size) === 'number' ? `${this.size}rem`: this.size
-        }
+    getClasses(props) {
+      return {
+        'fk-title--xl': props.size == 'xl',
+        'fk-title--lg': props.size == 'lg',
+        'fk-title--md': props.size == 'md',
+        'fk-title--sm': props.size == 'sm',
+        'fk-title--xs': props.size == 'xs',
+        'fk-title--weight-700': props.weight == 'weight-700',
+        'fk-title--weight-300': props.weight == 'weight-300',
+        'fk-title--primary': props.color == 'primary',
+        'fk-title--light': props.color == 'light'
       }
+    },
+    getStyles(props) {
+      return {
+        fontSize: typeof(props.size) === 'number' ? `${props.size}rem`: props.size
+      }
+    },
+    elementTag(props) {
+      const elements = {
+        xl: 'h1',
+        lg: 'h2',
+        md: 'h3',
+        sm: 'h4',
+        xs: 'h5',
+        default: 'h6'
+      }
+      return elements[props.size] || elements.default
     }
   }
 </script>
