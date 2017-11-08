@@ -9,6 +9,7 @@ stories.add('Kitchen Sink', () => ({
   template:
   `<div>
     <Input v-model="inputValue" :type="inputType" :size="size" :cutSide="cutSide" :block="block" :placeholder="placeholderText" :disabled="disabled" :required="required"></Input>
+    <h1>Value: {{inputValue}}
   </div>`,
   data() {
     return {
