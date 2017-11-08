@@ -1,0 +1,58 @@
+@require '../_vars'
+
+$font-size-default = 2rem
+$font-weight-default = 400
+$font-weights = 700, 300
+
+$font-sizes := {
+  xl: {
+    value: 50
+  },
+  lg: {
+    value: 35
+  },
+  md: {
+    value: 30
+  },
+  sm: {
+    value: 25
+  },
+  xs: {
+    value: 20
+  }
+}
+
+$colors-title := {
+  orange: {
+    base: #f18713
+  },
+  blue: {
+    base: #2f82c4
+  },
+  grey: {
+    base: #414141,
+    light: #7a7a7a
+  }
+}
+
+font-size()
+  for $size in $font-sizes
+    &&--{$size}
+      font-size: unit(($font-sizes[$size].value / $font-size-root), 'rem')
+
+font-weight()
+  for $weight in $font-weights
+    &&--weight-{$weight}
+      font-weight: $weight
+
+title-mixin()
+  font-family: $body-font-family
+  font-weight: $font-weight-default
+  font-size: $font-size-default
+  color: $colors-title.grey.base
+  font-weight()
+  font-size()
+  &&--primary
+    color: $colors-title.orange.base
+  &&--light
+    color: $colors-title.grey.light
