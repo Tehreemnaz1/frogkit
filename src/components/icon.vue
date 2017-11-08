@@ -7,7 +7,7 @@
 </style>
 
 <template >
-  <component :is="icon" class="fk-icon" />
+  <component :is="icon" :class="['fk-icon', getClasses]" tada="true"/>
 </template>
 
 <script>
@@ -22,6 +22,18 @@
       icon: {
         type: String,
         default: 'like'
+      },
+      color: {
+        type: String,
+        default: ''
+      }
+    },
+    computed: {
+      getClasses() {
+        const props = this
+        return {
+          [`fk-icon--${props.color}`]: !!props.color,
+        }
       }
     }
   }

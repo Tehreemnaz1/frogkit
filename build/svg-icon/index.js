@@ -9,8 +9,12 @@ const writeFileAsync = promisify(fs.writeFile)
 const svgo = new Svgo({
   plugins: [{
     addAttributesToSVGElement: {
-      attributes: [`:class="data.staticClass"`]
-    }
+      attributes: [`v-bind="props"`, `:class="[data.staticClass, data.class]"`]
+    },
+    // NOTE we need to move this to another Svgo instance
+    // removeAttrs: {
+    //   attrs: ['xmlns']
+    // }
   }]
 })
 
@@ -32,6 +36,7 @@ async function findAll(startPath) {
   const files = (await readdirAsync(startPath)).filter(filename => /\.svg$/.test(filename))
   files.forEach(async(filename) => await createComponent(startPath, filename))
   await createIndex(files)
+  console.log(files)
   console.log('Done!')
 }
 

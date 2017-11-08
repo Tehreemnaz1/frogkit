@@ -2,14 +2,14 @@ plugins:
   - mergePaths: true
   - transformsWithOnePath: true
   - removeTitle: true
-  - removeXMLNS: true
+  - removeXMLNS: false
   - removeDimensions: true
   - removeViewBox: false
   - sortAttrs: true
   - removeStyleElement: true
   - removeScriptElement: true
   - removeAttrs:
-      attrs: ['stroke', 'fill', 'style', 'xmlns', 'xmlns:xlink']
+      attrs: ['stroke', 'fill', 'style', 'xmlns:xlink']
 
 js2svg:
   pretty: true

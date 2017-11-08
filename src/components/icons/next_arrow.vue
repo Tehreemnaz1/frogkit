@@ -1,1 +1,0 @@
-<template functional><svg viewBox="0 0 20 32.062" :class="data.staticClass" is-static="true"><path fill-rule="evenodd" d="M2.68.013a2.818 2.818 0 0 1 1.91.73l14.62 13.529a2.361 2.361 0 0 1 0 3.525L4.59 31.331a2.852 2.852 0 0 1-3.81 0 2.351 2.351 0 0 1 0-3.525L13.5 16.031.78 4.264a2.351 2.351 0 0 1 0-3.525 2.775 2.775 0 0 1 1.9-.726z" data-name="drop arrow"/></svg></template>
