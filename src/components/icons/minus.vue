@@ -1,0 +1,1 @@
+<template functional><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63.987 8.013" v-bind="props" :class="[data.staticClass, data.class]"><path fill-rule="evenodd" d="M3 6a3 3 0 1 1 0-6h42a3 3 0 1 1 0 6H3z"/></svg></template>
