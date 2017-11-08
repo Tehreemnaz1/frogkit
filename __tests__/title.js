@@ -4,7 +4,7 @@ import Title from '@/components/title'
 
 const slots = { default: 'Lorem ipsum dolorem' }
 
-describe('Title component', () => {
+describe.skip('Title component', () => {
   it('should render component and match snapshot', () => {
     // const context = { propsData: { props: { size: 'md' } }}
     // const wrapper = shallow(Title, context)
