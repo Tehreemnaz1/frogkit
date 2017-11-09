@@ -27,11 +27,16 @@
       justify: {
         type: String,
         default: 'start'
+      },
+      grow: {
+        type: Boolean,
+        default: false
       }
     },
     classObject(props) {
       return {
         'fk-flex--column': props.column,
+        'fk-flex--grow': props.grow,
 
         'fk-flex--justify-center': props.justify == 'center',
         'fk-flex--justify-end': props.justify == 'end',

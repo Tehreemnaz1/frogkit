@@ -5,10 +5,12 @@ flex-mixin()
   // flex: 0 1 auto // this is the default
   flex-direction: row
   flex-wrap: wrap
-  flex: 1 //fill all the space
+  // flex: 1 // fill all the space; NOTE replaced with --grow
   align-items: start
   // & > *
-  //   flex: 1 1 0%;
+    // flex: 1 1 0%;
+  &&--grow
+    flex: 1
   &&--column
     flex-direction: column
   &&--justify-center

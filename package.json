@@ -6,7 +6,8 @@
     "storybook": "start-storybook -p 5000 -c .storybook",
     "build-storybook": "build-storybook",
     "precommit": "prettier --config .prettierrc '{,!(node_modules)/**/}*.js' --write",
-    "test": "jest"
+    "test": "jest",
+    "icon": "rimraf src/components/icons/* && node build/svg-icon src/assets/icons src/components/icons"
   },
   "dependencies": {},
   "peerDependencies": {
@@ -17,16 +18,19 @@
     "@storybook/addon-knobs": "3.2.13",
     "@storybook/vue": "^3.2.13",
     "babel-jest": "21.2.0",
+    "babel-plugin-transform-runtime": "6.23.0",
     "jest": "21.2.1",
     "jest-serializer-vue": "0.2.0",
     "prettier": "1.7.4",
     "stylus": "0.54.5",
     "stylus-loader": "3.0.1",
+    "svgo": "1.0.2",
     "vue": "2.5.2",
     "vue-jest": "^1.0.2",
     "vue-loader": "13.3.0",
     "vue-template-compiler": "2.5.2",
-    "vue-test-utils": "1.0.0-beta.3"
+    "vue-test-utils": "1.0.0-beta.3",
+    "webpack-merge": "4.1.1"
   },
   "files": [
     "src"
