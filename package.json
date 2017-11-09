@@ -7,9 +7,7 @@
     "build-storybook": "build-storybook",
     "precommit": "prettier --config .prettierrc '{,!(node_modules)/**/}*.js' --write",
     "test": "jest",
-    "svg:svgo": "svgo -f src/assets/icons-src -o src/assets/icons --config .svgo.yml",
-    "svg:icon": "node build/svg-icon src/assets/icons src/components/icons",
-    "icon": "rm src/components/icons/* && yarn svg:svgo && yarn svg:icon"
+    "icon": "rimraf src/components/icons/* && node build/svg-icon src/assets/icons src/components/icons"
   },
   "dependencies": {},
   "peerDependencies": {
