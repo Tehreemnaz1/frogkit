@@ -6,15 +6,15 @@ const stories = storiesOf('Typography', module)
 
 
 stories.add('kitchen sink', () => ({
-  template: `<fk-text :size="size" :color="color" :weight="weight">
+  template: `<FkText :size="size" :color="color" :weight="weight">
               {{slot}}
-            </fk-text>`,
+            </FkText>`,
   data(){
     return {
-      slot: text('Text', 'Lorem ipsum dolorem'),
-      size: select('Size', ['size-50', 'size-38', 'size-30', 'size-25', 'size-15'], 'size-50'),
+      slot: text('Text', 'Lorem ipsum dolorem sit amet aliquando'),
+      size: select('Size', ['xl', 'lg', 'md', 'sm', 'xs'], 'md'),
       color: select('Color', ['default', 'primary', 'light'], 'default'),
-      weight: select('Weight', ['default', 'weight-700', 'weight-300'])
+      weight: select('Weight', ['default', 'bold', 'slim'])
     }
   }
 }))

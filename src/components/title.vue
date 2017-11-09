@@ -38,8 +38,8 @@
         'fk-title--md': props.size == 'md',
         'fk-title--sm': props.size == 'sm',
         'fk-title--xs': props.size == 'xs',
-        'fk-title--weight-700': props.weight == 'weight-700',
-        'fk-title--weight-300': props.weight == 'weight-300',
+        'fk-title--bold': props.weight == 'bold',
+        'fk-title--slim': props.weight == 'slim',
         'fk-title--primary': props.color == 'primary',
         'fk-title--light': props.color == 'light'
       }

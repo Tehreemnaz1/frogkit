@@ -2,24 +2,18 @@
 
 $font-size-default = 2rem
 $font-weight-default = 400
-$font-weights = 700, 300
 
 $font-sizes := {
-  xl: {
-    value: 50
-  },
-  lg: {
-    value: 35
-  },
-  md: {
-    value: 30
-  },
-  sm: {
-    value: 25
-  },
-  xs: {
-    value: 20
-  }
+  xl: 50,
+  lg: 35,
+  md: 30,
+  sm: 25,
+  xs: 20
+}
+
+$font-weights := {
+  bold: 700,
+  slim: 300
 }
 
 $colors-title := {
@@ -38,12 +32,12 @@ $colors-title := {
 font-size()
   for $size in $font-sizes
     &&--{$size}
-      font-size: unit(($font-sizes[$size].value / $font-size-root), 'rem')
+      font-size: unit(($font-sizes[$size] / $font-size-root), 'rem')
 
 font-weight()
   for $weight in $font-weights
-    &&--weight-{$weight}
-      font-weight: $weight
+    &&--{$weight}
+      font-weight: $font-weights[$weight]
 
 title-mixin()
   font-family: $body-font-family

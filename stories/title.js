@@ -14,7 +14,7 @@ stories.add('kitchen sink', () => ({
       slot: text('Text', 'Lorem ipsum dolorem'),
       size: select('Size', ['larger', 'xx-small', '100px', '8px', 'xl', 'lg', 'md', 'sm', 'xs'], 'md'),
       color: select('Color', ['default', 'primary', 'light'], 'primary'),
-      weight: select('Weight', ['default', 'weight-700', 'weight-300'])
+      weight: select('Weight', ['default', 'bold', 'slim'])
     }
   }
 }))
@@ -28,7 +28,7 @@ stories.add('Custom size (type number)', () => ({
       slot: text('Text', 'Lorem ipsum dolorem'),
       size: number('Size', 1),
       color: select('Color', ['default', 'primary', 'light'], 'primary'),
-      weight: select('Weight', ['default', 'weight-700', 'weight-300'])
+      weight: select('Weight', ['default', 'bold', 'slim'])
     }
   }
 }))

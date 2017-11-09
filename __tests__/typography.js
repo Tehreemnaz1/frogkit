@@ -1,48 +1,48 @@
 import { mount } from 'vue-test-utils'
 import Vue from 'vue'
-import Text from '@/components/typography'
+import FkText from '@/components/typography'
 
 const slot = { default: 'Lorem ipsum dolorem'}
 
 describe('Text component', () => {
 
   it('should render component and match snapshot', () => {
-    const wrapper = mount(Text, { slot })
+    const wrapper = mount(FkText, { slot })
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  it('should render 50px text font size ', () => {
-    const wrapper = mount(Text, { slot, propsData: { size: 'size-50'} })
+  it('should render xl text', () => {
+    const wrapper = mount(FkText, { slot, propsData: { size: 'xl'} })
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  it('should render 38px text font size ', () => {
-    const wrapper = mount(Text, { slot, propsData: { size: 'size-38'} })
+  it('should render lg text', () => {
+    const wrapper = mount(FkText, { slot, propsData: { size: 'lg'} })
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  it('should render 30px text font size ', () => {
-    const wrapper = mount(Text, { slot, propsData: { size: 'size-30'} })
+  it('should render md text', () => {
+    const wrapper = mount(FkText, { slot, propsData: { size: 'md'} })
     expect(wrapper.html()).toMatchSnapshot()
   })
 
   it('should render primary text color', () => {
-    const wrapper = mount(Text, { slot, propsData: { color: 'primary'} })
+    const wrapper = mount(FkText, { slot, propsData: { color: 'primary'} })
     expect(wrapper.html()).toMatchSnapshot();
   })
 
   it('should render light text color', () => {
-    const wrapper = mount(Text, { slot, propsData: { color: 'light'} })
+    const wrapper = mount(FkText, { slot, propsData: { color: 'light'} })
     expect(wrapper.html()).toMatchSnapshot();
   })
 
-  it('should render 700 font weight text', () => {
-    const wrapper = mount(Text, { slot, propsData: { weight: 'weight-700' } })
+  it('should render bold text', () => {
+    const wrapper = mount(FkText, { slot, propsData: { weight: 'bold' } })
     expect(wrapper.html()).toMatchSnapshot
   })
 
-  it('should render 300 font weight text', () => {
-    const wrapper = mount(Text, { slot, propsData: { weight: 'weight-300' } })
+  it('should render slim text', () => {
+    const wrapper = mount(FkText, { slot, propsData: { weight: 'slim' } })
     expect(wrapper.html()).toMatchSnapshot
   })
 
