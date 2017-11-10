@@ -16,9 +16,9 @@ async function createIndex(files, outputPath) {
 }
 
 function indexTemplate(list) {
-  return `import Vue from 'vue'
-${list.map(i => `Vue.component('${i}', () => import('./${i}.vue'))`).join('\n')}
-  `
+  return `export default {
+${list.map(i => `'${i}': () => import('./${i}.vue')`).join(',\n')}
+}`
 }
 
 module.exports = createIndex

@@ -7,7 +7,7 @@
 </style>
 
 <template functional>
-  <div class="fk-stepper" :class="data.staticClass">
+  <div class="fk-stepper" :class="[data.staticClass, data.class]">
     <div v-for="i in props.count" :key="i" class="fk-step" :class="$options.classObject(props, i)">
       <span class="">{{i}}</span>
     </div>
