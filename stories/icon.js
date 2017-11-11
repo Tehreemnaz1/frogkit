@@ -23,7 +23,7 @@ stories.add('kitchen sink', () => ({
   template: `
   <Flex align="start">
     <Flex column align="center" class="icon-demo" v-for="icon in icons" :key="icon">
-      <Icon :icon="icon" :color="color" class="big"/>
+      <Icon :icon="icon" :color="color" :size="size"/>
       <span>{{icon}}</span>
     </Flex>
   </Flex>
@@ -33,6 +33,7 @@ stories.add('kitchen sink', () => ({
     return {
       icons: iconsList,
       color: select('Color', ['', 'orange', 'blue', 'red', 'grey'], ''),
+      size: select('Size', ['default', 'big', 'small'], 'big'),
     }
   },
 }))

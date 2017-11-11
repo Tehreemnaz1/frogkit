@@ -57,8 +57,8 @@ stories.add('Link as a button', () => ({
 }))
 
 stories.add('Button with icon on the left', () => ({
-  template: `<Button link :disabled="disabled" :size="size" :block="block" :outline="outline" :color="color" :href="href" target="_blank">
-              <Icon :icon="icon" />
+  template: `<Button link :disabled="disabled" :size="size" :block="block" :outline="outline" :color="color">
+              <Icon :icon="icon" :size="size"/>
               <span>{{slot}}</span>
             </Button>`,
   data(){
@@ -68,7 +68,6 @@ stories.add('Button with icon on the left', () => ({
       disabled: boolean('Disabled', false),
       block: boolean('Full Width', false),
       outline: boolean('Outline', false),
-      href: text('href', '//smartfrog.com'),
       size: select('Size', ['small', 'normal', 'big'], 'normal'),
       color: select('Color', ['default', 'primary', 'secondary'], 'primary')
     }
@@ -76,7 +75,7 @@ stories.add('Button with icon on the left', () => ({
 }))
 
 stories.add('Button with icon on the right', () => ({
-  template: `<Button link :disabled="disabled" :size="size" :block="block" :outline="outline" :color="color" :href="href" target="_blank">
+  template: `<Button link :disabled="disabled" :size="size" :block="block" :outline="outline" :color="color">
               <span>{{slot}}</span>
               <Icon :icon="icon" />
             </Button>`,
@@ -87,7 +86,6 @@ stories.add('Button with icon on the right', () => ({
       disabled: boolean('Disabled', false),
       block: boolean('Full Width', false),
       outline: boolean('Outline', false),
-      href: text('href', '//smartfrog.com'),
       size: select('Size', ['small', 'normal', 'big'], 'normal'),
       color: select('Color', ['default', 'primary', 'secondary'], 'primary')
     }

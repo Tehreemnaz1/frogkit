@@ -7,13 +7,14 @@
 </style>
 
 <template >
-  <component :is="icon" :class="['fk-icon', getClasses]" tada="true"/>
+  <component :is="icon" :class="['fk-icon', getClasses]"/>
 </template>
 
 <script>
-  import './icons'
+  import components from './icons'
   export default {
     name: 'Icon',
+    components,
     props: {
       size: {
         type: String,
@@ -33,6 +34,7 @@
         const props = this
         return {
           [`fk-icon--${props.color}`]: !!props.color,
+          [`fk-icon--${props.size}`]: !!props.size,
         }
       }
     }
