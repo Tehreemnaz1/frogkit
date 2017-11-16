@@ -1,0 +1,1 @@
+<template functional><svg viewBox="0 0 52.8 43.2" v-bind="props" :class="[data.staticClass, data.class]"><path d="M44.7 0L18.3 26.8 8.1 16.4 0 24.6l18.3 18.6 34.5-35z"/></svg></template>
