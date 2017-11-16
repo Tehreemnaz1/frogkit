@@ -1,4 +1,4 @@
-<style lang="stylus" scoped>
+<style lang="stylus">
 @require '../stylus/_vars'
 
 .btn

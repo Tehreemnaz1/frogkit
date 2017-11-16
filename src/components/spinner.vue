@@ -1,18 +1,26 @@
-<style lang="stylus" scoped>
+<style lang="stylus">
 @require '../stylus/mixins/spinner'
 
-spinner-mixin()
+.fk-spinner
+  spinner-mixin()
 
 </style>
 
 <template functional>
-  <div class="loader">
+  <!-- <div class="loader">
     <div class="circle"></div>
-  </div>
+  </div> -->
+  <div class="fk-spinner" :class="props.fullscreen ? 'fk-spinner--fullscreen' : ''"></div>
 </template>
 
 <script>
   export default {
-    name: 'Spinner'
+    name: 'Spinner',
+    props: {
+      fullscreen: {
+        type: Boolean,
+        default: false
+      }
+    }
   }
 </script>
