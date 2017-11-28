@@ -2,9 +2,12 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { boolean, select } from '@storybook/addon-knobs'
 
+import Flex from '@/components/flex'
+
+
 const stories = storiesOf('Layout / Flexbox', module)
 
-stories.add('kitchen Sink', () => ({
+stories.addCodeExampleStory('kitchen Sink', () => ({
   template: `
   <Grid style="height: 500px">
     <Flex :column="column" :justify="justify" :align="align">
@@ -19,9 +22,9 @@ stories.add('kitchen Sink', () => ({
       align: select('Align', ['start', 'center', 'end', 'stretch'], 'start')
     }
   }
-}))
+}), Flex)
 
-stories.add('Nested Flex', () => ({
+stories.addCodeExampleStory('Nested Flex', () => ({
   template: `
   <Grid style="height: 500px">
     <Flex :column="column" :justify="justify" :align="align">

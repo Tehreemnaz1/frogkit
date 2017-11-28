@@ -2,9 +2,12 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { text, boolean, select } from '@storybook/addon-knobs'
 
+import Radio from '@/components/radio'
+
+
 const stories = storiesOf('Radio', module)
 
-stories.add('Kitchen Sink', () => ({
+stories.addCodeExampleStory('Kitchen Sink', () => ({
   template: `<div>
               <Radio name="radio-buttons" value="Value 1" v-model="selectedValue">
                 {{slot}}
@@ -17,9 +20,9 @@ stories.add('Kitchen Sink', () => ({
       slot: text('Text', 'This is the label')
     }
   }
-}))
+}), Radio)
 
-stories.add('Multiple radio', () => ({
+stories.addCodeExampleStory('Multiple radio', () => ({
   template: `<div>
               <Radio name="radio-buttons" value="Value 1" v-model="selectedValue">
                 {{slot1}}
@@ -42,7 +45,7 @@ stories.add('Multiple radio', () => ({
   }
 }))
 
-stories.add('Multiple radio disabled', () => ({
+stories.addCodeExampleStory('Multiple radio disabled', () => ({
   template: `<div>
               <Radio name="radio-buttons" value="Value 1" v-model="selectedValue" :disabled="disabled" >
                   {{slot1}}

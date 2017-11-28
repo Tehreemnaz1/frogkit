@@ -2,9 +2,12 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { text, select, number, boolean } from '@storybook/addon-knobs'
 
+import Grid from '@/components/grid'
+
+
 const stories = storiesOf('Layout / Grid System', module)
 
-stories.add('kitchen Sink', () => {
+stories.addCodeExampleStory('kitchen Sink', () => {
   const bp = select('min breaking-point', ['xs', 'sm', 'md', 'lg', 'xl'], 'xs')
   const fluid = boolean('Fluid', false)
   return {
@@ -18,9 +21,9 @@ stories.add('kitchen Sink', () => {
       <Row><Col ${bp}1 v-for="i in 12" :key="i"><div class="demo">1 </div></Col></Row>
     </Grid>
     `}
-})
+}, Grid)
 
-stories.add('Fill space', () => {
+stories.addCodeExampleStory('Fill space', () => {
 const n = number('size', 1, {
    range: true,
    min: 1,
@@ -39,7 +42,7 @@ const n = number('size', 1, {
     `}
 })
 
-stories.add('Extra small', () => ({
+stories.addCodeExampleStory('Extra small', () => ({
   template: `
   <Grid>
     <Row><Col xs12><div class="demo"> 12 </div></Col></Row>
@@ -52,7 +55,7 @@ stories.add('Extra small', () => ({
   `
 }))
 
-stories.add('Small', () => ({
+stories.addCodeExampleStory('Small', () => ({
   template: `
   <Grid>
     <Row><Col xs12 sm12><div class="demo"> 12 </div></Col></Row>
@@ -65,7 +68,7 @@ stories.add('Small', () => ({
   `
 }))
 
-stories.add('Medium', () => ({
+stories.addCodeExampleStory('Medium', () => ({
   template: `
   <Grid>
     <Row><Col xs12 md12><div class="demo"> 12 </div></Col></Row>
@@ -78,7 +81,7 @@ stories.add('Medium', () => ({
   `
 }))
 
-stories.add('Large', () => ({
+stories.addCodeExampleStory('Large', () => ({
   template: `
   <Grid>
     <Row><Col xs12 lg12><div class="demo"> 12 </div></Col></Row>

@@ -25,14 +25,5 @@ cache:
     - ".eslintcache"
     - "node_modules"
 
-deploy:
-  provider: npm
-  email: "devops@smartfrog.com"
-  api_key: "YOUR_AUTH_TOKEN"
-  on:
-    branch: development
-  tag: next
-
 notifications:
   email: false
-  slack: smartfrog:wTTaFTzyp3xFG2Yw03Gnts6A

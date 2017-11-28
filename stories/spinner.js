@@ -5,10 +5,10 @@ import { text, boolean, select } from '@storybook/addon-knobs'
 const stories = storiesOf('Spinner', module)
 
 
-stories.add('Default', () => ({
+stories.addCodeExampleStory('Default', () => ({
   template: `<Spinner />`,
 }))
 
-stories.add('Fullscreen', () => ({
+stories.addCodeExampleStory('Fullscreen', () => ({
   template: `<Spinner fullscreen />`,
 }))

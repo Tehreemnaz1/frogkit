@@ -1,6 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { array, text, boolean, select } from '@storybook/addon-knobs'
+import Select from '@/components/select'
 
 const stories = storiesOf('Select', module)
 
@@ -12,7 +13,7 @@ const options = [
   { label: 'Option 5', value:'Value 5'}
 ]
 
-stories.add('Kitchen Sink', () => ({
+stories.addCodeExampleStory('Kitchen Sink', () => ({
   template: `
   <div>
     <Select v-model="value" :disabled="disabled" :block="block" :placeholder="placeholder" :options="options" :required="required"></Select>
@@ -29,4 +30,4 @@ stories.add('Kitchen Sink', () => ({
       value: select('Value', ['', ...options.map(i => i.value)], '')
     }
   }
-}))
+}), Select)

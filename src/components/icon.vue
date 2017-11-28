@@ -22,7 +22,7 @@
       },
       icon: {
         type: String,
-        default: 'like'
+        default: ''
       },
       color: {
         type: String,

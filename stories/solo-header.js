@@ -4,6 +4,6 @@ import { text, boolean, select } from '@storybook/addon-knobs'
 
 const stories = storiesOf('Soloheader', module)
 
-stories.add('Kitchen Sink', () => ({
+stories.addCodeExampleStory('Kitchen Sink', () => ({
   template: `<Soloheader />`
 }))
