@@ -23,9 +23,7 @@ fi
 
 echo "Releasing $VERSION ..."
 
-npm_config_commit_hooks=false
-
-
+# npm_config_commit_hooks=false
 
 # commit
 git add -A
