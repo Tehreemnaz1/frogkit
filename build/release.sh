@@ -21,7 +21,7 @@ if [[ $REPLY =~ ^[Nn]$ ]]; then
   exit
 fi
 
-echo "Releasing $VERSION ..."
+echo "Preparing Release $VERSION ..."
 
 # npm_config_commit_hooks=false
 
@@ -34,8 +34,10 @@ git commit -m "[release] $VERSION"
 
 # tag version
 VERSION=$(npm version $VERSION --message "[release] %s")
-echo "new VERSION $VERSION"
+
+echo "Publishing $VERSION ..."
+
 # publish
-# git tag -a $VERSION -m "[release] $VERSION"
-# git push upstream --tags
-# npm publish
+git tag -a $VERSION -m "[release] $VERSION"
+git push upstream --tags
+npm publish
