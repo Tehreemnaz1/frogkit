@@ -38,6 +38,7 @@ git commit -m "[release] $VERSION"
 echo "Publishing $VERSION ..."
 
 # publish
+git tag -d $VERSION #making sure to replcae the tag if it's already created
 git tag -a $VERSION -m "[release] $VERSION"
 git push upstream --tags
 npm publish
