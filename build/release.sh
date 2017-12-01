@@ -40,5 +40,5 @@ npm version $VERSION --message "[release] $VERSION"
 
 # publish
 git tag -a $VERSION -m "[release] $VERSION"
-git push --tags
+git push upstream --tags
 npm publish
