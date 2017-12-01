@@ -32,11 +32,10 @@ git add -A
 #   dist/*.css
 git commit -m "[release] $VERSION"
 
-
 # tag version
-npm version $VERSION --message "[release] $VERSION"
-
+VERSION=$(npm version $VERSION --message "[release] %s")
+echo "new VERSION $VERSION"
 # publish
 # git tag -a $VERSION -m "[release] $VERSION"
-git push upstream --tags
-npm publish
+# git push upstream --tags
+# npm publish
