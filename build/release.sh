@@ -21,6 +21,9 @@ if [[ $REPLY =~ ^[Nn]$ ]]; then
   exit
 fi
 
+# bump version
+VERSION=$(npm version $VERSION --message "[release] %s" --force)
+
 echo "Preparing Release $VERSION ..."
 
 # npm_config_commit_hooks=false
@@ -31,9 +34,6 @@ git add -A
 #   dist/*.js \
 #   dist/*.css
 git commit -m "[release] $VERSION"
-
-# tag version
-VERSION=$(npm version $VERSION --message "[release] %s")
 
 echo "Publishing $VERSION ..."
 
