@@ -2,14 +2,16 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { text, boolean, select } from '@storybook/addon-knobs'
 
+import Input from '@/components/input'
+
 const stories = storiesOf('Input', module)
 
 
-stories.add('Kitchen Sink', () => ({
+stories.addCodeExampleStory('Kitchen Sink', () => ({
   template:
   `<div>
     <Input v-model="inputValue" :type="inputType" :size="size" :cutSide="cutSide" :block="block" :placeholder="placeholderText" :disabled="disabled" :required="required"></Input>
-    <h1>Value: {{inputValue}}
+    <h1>Value: {{inputValue}}</h1>
   </div>`,
   data() {
     return {
@@ -23,9 +25,9 @@ stories.add('Kitchen Sink', () => ({
       placeholderText: text('Placeholder', 'Username')
     }
   }
-}))
+}), Input)
 
-stories.add('Type Password', () => ({
+stories.addCodeExampleStory('Type Password', () => ({
   template:
   `<div>
     <Input v-model="inputValue" type="password" :size="size" :cutSide="cutSide" :block="block" :placeholder="placeholderText" :disabled="disabled" :required="required"></Input>
@@ -43,7 +45,7 @@ stories.add('Type Password', () => ({
   }
 }))
 
-stories.add('Type Phone Number', () => ({
+stories.addCodeExampleStory('Type Phone Number', () => ({
   template:
   `<div>
     <Input v-model="inputValue" type="phone" :size="size" :cutSide="cutSide" :block="block" :placeholder="placeholderText" :disabled="disabled" :required="required"></Input>
@@ -61,7 +63,7 @@ stories.add('Type Phone Number', () => ({
   }
 }))
 
-stories.add('Type Email', () => ({
+stories.addCodeExampleStory('Type Email', () => ({
   template:
   `<div>
     <Input v-model="inputValue" type="email" :size="size" :cutSide="cutSide" :block="block" :placeholder="placeholderText" :disabled="disabled" :required="required"></Input>

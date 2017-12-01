@@ -2,10 +2,11 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { text, boolean, select, number } from '@storybook/addon-knobs'
 
+import Stepper from '@/components/stepper'
+
 const stories = storiesOf('Stepper', module)
 
-
-stories.add('Kitchen Sink', () => ({
+stories.addCodeExampleStory('Kitchen Sink', () => ({
   template: `<Stepper :count="count" :active="active" :big="big" />`,
   data() {
     return {
@@ -16,10 +17,10 @@ stories.add('Kitchen Sink', () => ({
   }
 }))
 
-stories.add('Default', () => ({
+stories.addCodeExampleStory('Default', () => ({
   template: `<Stepper />`
 }))
 
-stories.add('Big Status Step', () => ({
+stories.addCodeExampleStory('Big Status Step', () => ({
   template: `<Stepper big />`
 }))

@@ -1,6 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { text, select, number } from '@storybook/addon-knobs'
+import Title from '@/components/title'
 
 const stories = storiesOf('Title', module)
 
@@ -17,7 +18,7 @@ stories.add('kitchen sink', () => ({
       weight: select('Weight', ['default', 'bold', 'slim'])
     }
   }
-}))
+}), Title)
 
 stories.add('Custom size (type number)', () => ({
   template: `<Title :size="size" :color="color" :weight="weight">

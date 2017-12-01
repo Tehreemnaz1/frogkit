@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { text, select } from '@storybook/addon-knobs'
 
-const stories = storiesOf('Typography', module)
+const stories = storiesOf('Typography (deprecated)', module)
 
 
 stories.add('kitchen sink', () => ({

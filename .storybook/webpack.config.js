@@ -2,6 +2,10 @@ const path = require('path')
 const merge = require('webpack-merge')
 const srcPath = path.resolve(__dirname, '../src')
 
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 const customConfig = {
   module: {
     rules: [
@@ -16,6 +20,12 @@ const customConfig = {
       //   include: srcPath
       // }
     ]
+  },
+  resolve: {
+    extensions: [ '.vue' ],
+    alias: {
+      '@': resolve('src')
+    }
   }
 }
 
@@ -28,5 +38,8 @@ module.exports = (baseConfig, env) => {
   const config = merge(defaultConfig, customConfig)
   console.log('used rules')
   console.log(config.module.rules)
+
+  console.log('resolve')
+  console.log(config.resolve)
   return config
 }
