@@ -39,6 +39,6 @@ git commit -m "[release] $VERSION"
 npm version $VERSION --message "[release] $VERSION"
 
 # publish
-git push upstream refs/tags/v$VERSION
-git push
+git tag -a $VERSION -m "[release] $VERSION"
+git push --tags
 npm publish
