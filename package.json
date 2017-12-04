@@ -10,7 +10,7 @@
     "icon": "rimraf src/components/icons/* && node build/svg-icon src/assets/icons src/components/icons",
     "release": "bash build/release.sh"
   },
-  "author": "Mouafa Ahmed <b@rubble.com> (https://github.com/mouafa)",
+  "author": "Mouafa Ahmed (https://github.com/mouafa)",
   "peerDependencies": {
     "vue": "^2.5.2"
   },
