@@ -6,9 +6,6 @@ $colors-checkbox := {
     bg: #f4f4f4,
     border: #d5d5d5,
   },
-  default-checked: {
-   bg: #7a7a7a
-  },
   disabled: {
     label: #a7a7a7,
     bg: #e7e7e7,
@@ -16,37 +13,34 @@ $colors-checkbox := {
   }
 }
 
+$checkbox-size = 23px
+
 set-color($variation)
-  if $colors-checkbox[$variation].bg
-    background-color: $colors-checkbox[$variation].bg
-  if $colors-checkbox[$variation].border
-    border: 1px solid $colors-checkbox[$variation].border
-
-checked()
-  &:checked + i
-    &:after
-      background-image url('../assets/check_arrow.svg')
-
-
-$checkbox-skeleton
-  color: $colors-checkbox['default'].label
-  font-size: 2rem
-  display: flex
-  align-items: center
-  cursor: pointer
-  margin-bottom: 10px
+  $colors-checkbox[$variation].label
   input
-    display none
-    & + i
+    if $colors-checkbox[$variation].bg
+      background-color: $colors-checkbox[$variation].bg
+    if $colors-checkbox[$variation].border
+      border: 1px solid $colors-checkbox[$variation].border
+
+
+checkbox-mixin()
+  set-color('default')
+  font-size: unit((20 / $font-size-root), 'rem')
+  line-height: $checkbox-size
+  display: flex
+  cursor: pointer
+  align-items start
+  input
+      flex none
+      outline: none
       position relative
-      display inline-block
-      vertical-align middle
       margin-right 10px
-      width 23px
-      height 23px
-      set-color('default')
-      border-radius: 4px;
-      &:after
+      width $checkbox-size
+      height $checkbox-size
+      border-radius: 4px
+      -moz-appearance: none
+      &:checked:after
         content ''
         position relative
         display block
@@ -56,20 +50,9 @@ $checkbox-skeleton
         height 15px
         background-repeat no-repeat
         background-size cover
-
-    checked()
-
-checkbox-mixin()
-  @extends $checkbox-skeleton
+        background-image url('../assets/check_arrow.svg')
   &--disabled
-    color: $colors-checkbox['disabled'].label
+    set-color('disabled')
     cursor: not-allowed
-    input
-      &:disabled
-      & + i
-        set-color('disabled')
-        // & + i
-        //  set-color('disabled-checked')
-        &:checked + i
-          &:after
-            background-image url('../assets/check_arrow_disabled.svg')
+    input:disabled:checked:after
+      background-image url('../assets/check_arrow_disabled.svg')

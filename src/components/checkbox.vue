@@ -8,7 +8,7 @@
 
 <template>
   <label class="fk-checkbox" :class="classObject">
-    <input type="checkbox" :name="name" :value="value" @change="updateValue" :checked="checked" :disabled="disabled"><i></i>
+    <input type="checkbox" :name="name" :value="value" @change="updateValue" :checked="checked" :disabled="disabled">
     <slot></slot>
   </label>
 </template>
