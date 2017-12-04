@@ -1,0 +1,75 @@
+@require '../_vars'
+
+$colors-checkbox := {
+  default: {
+    label: #414141,
+    bg: #f4f4f4,
+    border: #d5d5d5,
+  },
+  default-checked: {
+   bg: #7a7a7a
+  },
+  disabled: {
+    label: #a7a7a7,
+    bg: #e7e7e7,
+    border: #d8d8d8
+  }
+}
+
+set-color($variation)
+  if $colors-checkbox[$variation].bg
+    background-color: $colors-checkbox[$variation].bg
+  if $colors-checkbox[$variation].border
+    border: 1px solid $colors-checkbox[$variation].border
+
+checked()
+  &:checked + i
+    &:after
+      background-image url('../assets/check_arrow.svg')
+
+
+$checkbox-skeleton
+  color: $colors-checkbox['default'].label
+  font-size: 2rem
+  display: flex
+  align-items: center
+  cursor: pointer
+  margin-bottom: 10px
+  input
+    display none
+    & + i
+      position relative
+      display inline-block
+      vertical-align middle
+      margin-right 10px
+      width 23px
+      height 23px
+      set-color('default')
+      border-radius: 4px;
+      &:after
+        content ''
+        position relative
+        display block
+        top 3px
+        left 2px
+        width 17px
+        height 15px
+        background-repeat no-repeat
+        background-size cover
+
+    checked()
+
+checkbox-mixin()
+  @extends $checkbox-skeleton
+  &--disabled
+    color: $colors-checkbox['disabled'].label
+    cursor: not-allowed
+    input
+      &:disabled
+      & + i
+        set-color('disabled')
+        // & + i
+        //  set-color('disabled-checked')
+        &:checked + i
+          &:after
+            background-image url('../assets/check_arrow_disabled.svg')
