@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox component should render component and match snapshot 1`] = `<label class="fk-checkbox"><input type="checkbox" name="checkbox-button"> </label>`;
+
+exports[`Checkbox component should render disabled checkbox 1`] = `<label class="fk-checkbox fk-checkbox--disabled"><input type="checkbox" name="" disabled="disabled"> </label>`;
