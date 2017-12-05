@@ -1,0 +1,63 @@
+<style lang="stylus">
+  @require '../stylus/mixins/grid'
+
+  .fk-col
+    col-mixin()
+
+
+</style>
+
+<template>
+  <form>
+    <slot></slot>
+  </form>
+</template>
+
+<script>
+  export default {
+    name: 'Form',
+    props: {
+      value: {
+        type: Boolean,
+        default: false
+      }
+    },
+    data () {
+      return {
+        inputs: [],
+        errors: {}
+      }
+    },
+    mounted () {
+      this.watchInputs()
+    },
+    methods: {
+      watchInputs() {
+        console.log('getInputs', this.getInputs())
+      },
+      getInputs () {
+        this.inputs = search(this.$children)
+        this.inputs.forEach(input => {
+          input.$watch('valid', this.validate)
+        })
+      },
+      validate() {
+        const isValid = this.inputs.every(input => input.valid)
+        console.log('validate called', isValid)
+        this.$emit('input', isValid)
+      }
+    }
+  }
+
+  function search (children, depth = 0, results = []) {
+    children.forEach(child => {
+      if (child.errors !== undefined) {
+        results.push(child)
+      } else {
+        search(child.$children, depth + 1, results)
+      }
+    })
+
+    if (depth === 0) return results
+  }
+</script>

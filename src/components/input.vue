@@ -7,19 +7,15 @@
 </style>
 
 <template>
-  <input :type="type" class="fk-input" :class="classObject" :value="value" @input="updateValue" @blur="validateInput"/>
+  <input :type="type" class="fk-input" :class="classObject" :value="value" @input="onInput" @blur="onBlur"/>
 </template>
 
 <script>
-  const regex = {
-    text: /./,
-    phone: /^[0-9 \\+\\-\\(\\)\\/]{3,32}$/,
-    password: /^[\w ]{8,64}$/,
-    email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    // email: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-  }
+  import validator from './validator.mixin'
+
   export default {
     name: 'Input',
+    mixins: [ validator ],
     props: {
       type: {
         type: String,
@@ -53,34 +49,18 @@
           'fk-input--cut-left': this.cutSide == 'left',
           'fk-input--cut-right': this.cutSide == 'right',
           'fk-input--block': !!this.block,
-          'fk-input--error': !!this.error
+          'fk-input--invalid': !!this.invalid && !!this.touched
         }
-      }
-    },
-    data() {
-      return {
-        inputValue: this.value,
-        error: false,
-        validationRegex: regex[this.type]
       }
     },
     methods: {
-      updateValue(e) {
-        this.inputValue = e.target.value
-        this.$emit('input', this.inputValue)
-        this.validateInput()
+      onInput(e) {
+        const value = e.target.value
+        this.$emit('input', value)
+        // this.validate()
       },
-      validateInput() {
-        this.error = false
-
-        if (this.required && !this.inputValue.length) {
-          this.error = true
-        }
-
-        if (this.validationRegex && this.inputValue.length) {
-          this.error = !this.validationRegex.test(this.inputValue)
-        }
-
+      onBlur() {
+        // this.validate()
       }
     }
   }
