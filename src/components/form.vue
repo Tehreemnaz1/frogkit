@@ -24,6 +24,7 @@
     },
     data () {
       return {
+        isValid: false,
         inputs: [],
         errors: {}
       }
@@ -37,17 +38,18 @@
         this.inputs.forEach(input => {
           input.$watch('valid', this.validate)
         })
+        this.validate()
       },
       validate() {
-        const isValid = this.inputs.every(input => input.valid)
-        this.$emit('input', isValid)
+        this.isValid = this.inputs.every(input => input.valid)
+        this.$emit('input', this.isValid)
       }
     }
   }
 
   function search (children = [], depth = 0, results = []) {
     children.forEach(child => {
-      if (child.$validatorElement !== undefined) {
+      if (child.validatorElement !== undefined) {
         results.push(child)
       } else {
         search(child.$children, depth + 1, results)
