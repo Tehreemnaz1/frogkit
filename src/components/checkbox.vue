@@ -61,7 +61,6 @@ export default {
       || this.value && this.checked === this.value
       || this.checked === true
     }
-
   },
   methods: {
     updateValue(e) {
@@ -75,6 +74,5 @@ export default {
       this.$emit('change', value)
     }
   }
-
 }
 </script>
