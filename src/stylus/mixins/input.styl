@@ -14,7 +14,7 @@ $colors-input := {
   focus: {
     border: #2f82c4
   },
-  error: {
+  invalid: {
     border: #e20d00
   },
   placeholder: {
@@ -82,8 +82,8 @@ input-mixin()
   &&--small
     set-size('small')
     set-color('small')
-  &&--error
-    set-color('error')
+  &&--invalid
+    set-color('invalid')
   &:focus
     set-color('focus')
   &:disabled

@@ -8,29 +8,41 @@
 
 <template>
   <label class="fk-checkbox" :class="classObject">
-    <input type="checkbox" :name="name" :value="value" @change="updateValue" :checked="checked" :disabled="disabled">
+    <input type="checkbox" :name="name" :value="value" @change="updateValue" :checked="isChecked" :disabled="disabled">
     <slot></slot>
   </label>
 </template>
 
 <script>
+import validator from './validator.mixin'
+
 export default {
   name: 'Checkbox',
+  mixins: [ validator ],
   model: {
     prop: 'checked',
     event: 'change'
   },
   props: {
+    checked: {
+      type: [Boolean, String],
+      default: false
+    },
+    required: {
+      type: Boolean,
+      default: false
+    },
     name: {
       type: String,
       default: ''
     },
     value: {
-      type: String,
-      default: ''
+      default: null
     },
-    checked: {
-      type: Boolean,
+    trueValue: {
+      default: true
+    },
+    falseValue: {
       default: false
     },
     disabled: {
@@ -43,13 +55,24 @@ export default {
       return {
         'fk-checkbox--disabled': !!this.disabled
       }
+    },
+    isChecked() {
+      return this.checked === this.trueValue
+      || this.value && this.checked === this.value
+      || this.checked === true
     }
   },
   methods: {
     updateValue(e) {
-      this.$emit('change', e.target.checked)
+      const checked = e.target.checked
+      let value
+      if (checked) {
+        value = this.value || this.trueValue
+      } else {
+        value =  (this.value && typeof this.value === 'string') ? '' : this.falseValue
+      }
+      this.$emit('change', value)
     }
   }
-
 }
 </script>

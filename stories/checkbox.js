@@ -9,73 +9,53 @@ const stories = storiesOf('Checkbox', module)
 
 stories.addCodeExampleStory('Kitchen Sink', () => ({
   template: `<div>
-              <Checkbox name="checkbox-buttons" :value="value" :checked="selectedValue" v-model="selectedValue">
+              <Checkbox :value="value" :disabled="disabled" v-model="selectedValue">
                 {{slot}}
               </Checkbox>
-              <h1>Value: <span v-if="selectedValue">{{value}}</span></h1>
+              <h1>Model: {{selectedValue}}</h1>
             </div>`,
   data() {
     return {
-      value: 'accepted',
-      selectedValue: true,
+      disabled: boolean('Disabled', true),
+      value: text('value', 'accepted'),
+      selectedValue: false,
       slot: text('Text', 'I accept terms of use')
     }
   }
 }), Checkbox)
 
-stories.addCodeExampleStory('Multiple checkbox', () => ({
-  template: `<div>
-              <Checkbox name="checkbox-buttons" value="value1" v-model="selectedValue1" :checked="selectedValue1">
-                {{slot1}}
-              </Checkbox>
-              <Checkbox name="checkbox-buttons" value="value2" v-model="selectedValue2" :checked="selectedValue2">
-                  {{slot2}}
-              </Checkbox>
-              <Checkbox name="checkbox-buttons" value="value3" v-model="selectedValue3" :checked="selectedValue3">
-                {{slot3}}
-              </Checkbox>
-              <h1>Value: <span v-if="selectedValue1">{{value1}}</span> <span v-if="selectedValue2">{{value2}}</span> <span v-if="selectedValue3">{{value3}}</span></h1>
-            </div>`,
+stories.addCodeExampleStory('Default Binding', () => ({
+  template: `<Checkbox v-model="selectedValue">
+                {{selectedValue}}
+              </Checkbox>`,
   data() {
     return {
-      selectedValue1: false,
-      selectedValue2: true,
-      selectedValue3: false,
-      value1: 'accepted',
-      value2: 'mail',
-      value3: 'other',
-      slot1: text('Label 1', 'Accept terms of use'),
-      slot2: text('Label 2', 'subscribe to mail list'),
-      slot3: text('Label 3', 'Other')
+      selectedValue: false
     }
   }
-}))
+}), Checkbox)
 
-stories.addCodeExampleStory('Multiple checkbox disabled', () => ({
-  template: `<div>
-              <Checkbox name="checkbox-buttons" value="value1" v-model="selectedValue1" :checked="selectedValue1" :disabled="disabled">
-                {{slot1}}
-              </Checkbox>
-              <Checkbox name="checkbox-buttons" value="value2" v-model="selectedValue2" :checked="selectedValue2" :disabled="disabled">
-                  {{slot2}}
-              </Checkbox>
-              <Checkbox name="checkbox-buttons" value="value3" v-model="selectedValue3" :checked="selectedValue3" :disabled="disabled">
-                {{slot3}}
-              </Checkbox>
-              <h1>Value: <span v-if="selectedValue1">{{value1}}</span> <span v-if="selectedValue2">{{value2}}</span> <span v-if="selectedValue3">{{value3}}</span></h1>
-            </div>`,
+stories.addCodeExampleStory('Value Binding', () => ({
+  template: `<Checkbox :value="value" v-model="selectedValue">
+                {{selectedValue}}
+              </Checkbox>`,
   data() {
     return {
-      disabled: true,
-      selectedValue1: false,
-      selectedValue2: true,
-      selectedValue3: false,
-      value1: 'accepted',
-      value2: 'mail',
-      value3: 'other',
-      slot1: text('Label 1', 'Accept terms of use'),
-      slot2: text('Label 2', 'subscribe to mail list'),
-      slot3: text('Label 3', 'Other')
+      value: text('Value', 'selected'),
+      selectedValue: ''
     }
   }
-}))
+}), Checkbox)
+
+stories.addCodeExampleStory('Binding other value ', () => ({
+  template: `<Checkbox :true-value="trueValue" :false-value="falseValue" v-model="selectedValue">
+                {{selectedValue}}
+              </Checkbox>`,
+  data() {
+    return {
+      trueValue: text('True Value', 'Yep'),
+      falseValue: text('False Value', 'Nope'),
+      selectedValue: 'Yep'
+    }
+  }
+}), Checkbox)
