@@ -7,7 +7,7 @@
 </style>
 
 <template>
-  <input :type="type" class="fk-input" :class="classObject" :value="value" @input="onInput" @blur="onBlur"/>
+  <input :type="type" class="fk-input" :class="classObject" :value="value" @input="onInput"/>
 </template>
 
 <script>
@@ -45,9 +45,9 @@
     computed: {
       classObject() {
         return {
-          'fk-input--small': this.size == 'small',
-          'fk-input--cut-left': this.cutSide == 'left',
-          'fk-input--cut-right': this.cutSide == 'right',
+          'fk-input--small': this.size === 'small',
+          'fk-input--cut-left': this.cutSide === 'left',
+          'fk-input--cut-right': this.cutSide === 'right',
           'fk-input--block': !!this.block,
           'fk-input--invalid': !!this.invalid && !!this.touched
         }
@@ -58,9 +58,7 @@
         const value = e.target.value
         this.$emit('input', value)
         // this.validate()
-      },
-      onBlur() {
-        // this.validate()
+        this.touched = true
       }
     }
   }

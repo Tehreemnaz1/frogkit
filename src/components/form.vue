@@ -32,10 +32,7 @@
       this.watchInputs()
     },
     methods: {
-      watchInputs() {
-        console.log('getInputs', this.getInputs())
-      },
-      getInputs () {
+      watchInputs () {
         this.inputs = search(this.$children)
         this.inputs.forEach(input => {
           input.$watch('valid', this.validate)
@@ -43,15 +40,14 @@
       },
       validate() {
         const isValid = this.inputs.every(input => input.valid)
-        console.log('validate called', isValid)
         this.$emit('input', isValid)
       }
     }
   }
 
-  function search (children, depth = 0, results = []) {
+  function search (children = [], depth = 0, results = []) {
     children.forEach(child => {
-      if (child.errors !== undefined) {
+      if (child.$validatorElement !== undefined) {
         results.push(child)
       } else {
         search(child.$children, depth + 1, results)

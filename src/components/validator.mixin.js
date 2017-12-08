@@ -9,6 +9,7 @@ const regex = {
 export default {
   data() {
     return {
+      $validatorElement: true,
       touched: false,
       errors: {
         pattern: false,
@@ -27,7 +28,6 @@ export default {
   },
   watch: {
     value() {
-      // console.log('value changed')
       this.touched = true
       this.validate()
     }
@@ -39,7 +39,6 @@ export default {
     validate() {
       this.errors.required = this.required && !this.value.length
       this.errors.pattern = this.pattern && !this.pattern.test(this.value)
-      console.log('errors', this.errors)
     }
   }
 }
