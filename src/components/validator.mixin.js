@@ -6,40 +6,45 @@ const regex = {
   // email: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 }
 
-export default {
-  data() {
-    return {
-      validatorElement: true,
-      touched: false,
-      errors: {
-        pattern: false,
-        required: false
-      },
-      pattern: regex[this.type]
-    }
-  },
-  computed: {
-    valid() {
-      return Object.values(this.errors || {}).every(error => !error)
+export default function validator (model = 'value') {
+  return {
+    data() {
+      return {
+        validatorElement: true,
+        touched: false,
+        pattern: regex[this.type],
+        errors: {
+          pattern: false,
+          required: false
+        }
+      }
     },
-    invalid() {
-      return !this.valid
-    }
-  },
-  watch: {
-    value() {
-      this.touched = true
-      this.validate()
-    }
-  },
-  mounted() {
-    this.validate()
-  },
-  methods: {
-    validate() {
-      this.errors.required = this.required && (this.checked === false || !this.value.length)
-      this.errors.pattern = this.pattern && !this.pattern.test(this.value)
-      // console.log('errors', this.errors)
+    computed: {
+      valid() {
+        return Object.values(this.errors || {}).every(error => !error)
+      },
+      invalid() {
+        return !this.valid
+      }
+    },
+    watch: {
+      [model]() {
+        this.runValidation()
+      }
+    },
+    mounted() {
+      this.runValidation()
+    },
+    methods: {
+      runValidation() {
+        this.errors = this.validate(this[model])
+      },
+      validate(value) {
+        const errors = {}
+        errors.required = this.required && (typeof value === 'string' ? !value.length : !value)
+        errors.pattern = this.pattern && !this.pattern.test(value)
+        return errors
+      }
     }
   }
 }

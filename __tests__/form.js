@@ -22,10 +22,13 @@ describe('Input component', () => {
 
   it('should be valid with input is valid', () => {
     const wrapper = mount(Form,
-      defaultSlot(Input, { required: true, value: 'tada' })
+      defaultSlot(Input, { required: true, value: '' })
     )
     const input = wrapper.find(Input)
-    // input.setProps({ value: 'tada' })
+
+    expect(input.vm.valid).toBe(false)
+    expect(wrapper.vm.isValid).toBe(false)
+    input.setProps({ value: 'tada' })
     expect(input.vm.valid).toBe(true)
     Vue.nextTick(() => {
       expect(wrapper.vm.isValid).toBe(true)
@@ -36,21 +39,24 @@ describe('Input component', () => {
     const wrapper = mount(Form,
       defaultSlot(Checkbox, { required: true })
     )
-    const input = wrapper.find(Checkbox)
+    const checkbox = wrapper.find(Checkbox)
     expect(wrapper.vm.isValid).toBe(false)
-    expect(input.vm.valid).toBe(false)
+    expect(checkbox.vm.valid).toBe(false)
   })
 
-  // it.only('should be valid when checkbox is valid', () => {
-  //   const wrapper = mount(Form,
-  //     defaultSlot(Checkbox, { required: true, value: true })
-  //   )
-  //   const input = wrapper.find(Checkbox)
-  //   // expect(wrapper.vm.isValid).toBe(true)
-  //   expect(input.vm.valid).toBe(true)
-  // })
-
-  // REQUIRE MORES TESTS
+  it.only('should be valid when checkbox is valid', () => {
+    const wrapper = mount(Form,
+      defaultSlot(Checkbox, { required: true, checked: false })
+    )
+    const checkbox = wrapper.find(Checkbox)
+    expect(wrapper.vm.isValid).toBe(false)
+    expect(checkbox.vm.valid).toBe(false)
+    checkbox.setProps({ checked: true })
+    expect(checkbox.vm.valid).toBe(true)
+    Vue.nextTick(() => {
+      expect(wrapper.vm.isValid).toBe(true)
+    })
+  })
 
 })
 

@@ -15,7 +15,7 @@
 
   export default {
     name: 'Input',
-    mixins: [ validator ],
+    mixins: [ validator() ],
     props: {
       type: {
         type: String,
@@ -57,7 +57,6 @@
       onInput(e) {
         const value = e.target.value
         this.$emit('input', value)
-        // this.validate()
         this.touched = true
       }
     }

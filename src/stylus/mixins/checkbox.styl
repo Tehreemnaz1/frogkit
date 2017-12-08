@@ -10,13 +10,17 @@ $colors-checkbox := {
     label: #a7a7a7,
     bg: #e7e7e7,
     border: #d8d8d8
+  },
+  invalid: {
+    border: #e20d00
   }
 }
 
 $checkbox-size = 23px
 
 set-color($variation)
-  $colors-checkbox[$variation].label
+  if $colors-checkbox[$variation].label
+    color: $colors-checkbox[$variation].label
   input
     if $colors-checkbox[$variation].bg
       background-color: $colors-checkbox[$variation].bg
@@ -51,8 +55,10 @@ checkbox-mixin()
         background-repeat no-repeat
         background-size cover
         background-image url('../assets/check_arrow.svg')
-  &--disabled
+  &&--disabled
     set-color('disabled')
     cursor: not-allowed
     input:disabled:checked:after
       background-image url('../assets/check_arrow_disabled.svg')
+  &&--invalid
+    set-color('invalid')
