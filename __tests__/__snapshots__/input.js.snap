@@ -10,7 +10,7 @@ exports[`Input component should render block input 1`] = `<input type="text" cla
 
 exports[`Input component should render component and match snapshot 1`] = `<input type="text" class="fk-input">`;
 
-exports[`Input component should render disabled input 1`] = `<input type="text" class="fk-input">`;
+exports[`Input component should render disabled input 1`] = `<input type="text" disabled="disabled" class="fk-input">`;
 
 exports[`Input component should render input without left border 1`] = `<input type="text" class="fk-input">`;
 

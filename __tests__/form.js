@@ -44,7 +44,7 @@ describe('Input component', () => {
     expect(checkbox.vm.valid).toBe(false)
   })
 
-  it.only('should be valid when checkbox is valid', () => {
+  it('should be valid when checkbox is valid', () => {
     const wrapper = mount(Form,
       defaultSlot(Checkbox, { required: true, checked: false })
     )
@@ -52,8 +52,8 @@ describe('Input component', () => {
     expect(wrapper.vm.isValid).toBe(false)
     expect(checkbox.vm.valid).toBe(false)
     checkbox.setProps({ checked: true })
-    expect(checkbox.vm.valid).toBe(true)
     Vue.nextTick(() => {
+      expect(checkbox.vm.valid).toBe(true)
       expect(wrapper.vm.isValid).toBe(true)
     })
   })

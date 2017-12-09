@@ -41,6 +41,7 @@ export default function validator (model = 'value') {
       },
       validate(value) {
         const errors = {}
+        if (this.disabled) return errors
         errors.required = this.required && (typeof value === 'string' ? !value.length : !value)
         errors.pattern = this.pattern && !this.pattern.test(value)
         return errors

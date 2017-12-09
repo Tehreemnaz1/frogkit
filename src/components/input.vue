@@ -7,7 +7,7 @@
 </style>
 
 <template>
-  <input :type="type" class="fk-input" :class="classObject" :value="value" @input="onInput"/>
+  <input :type="type" class="fk-input" :class="classObject" :value="value" @input="onInput" :disabled="disabled"/>
 </template>
 
 <script>
@@ -40,6 +40,10 @@
       value: {
         type: String,
         default: ''
+      },
+      disabled: {
+        type: Boolean,
+        default: false
       }
     },
     computed: {

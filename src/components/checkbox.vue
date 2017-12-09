@@ -18,7 +18,7 @@ import validator from './validator.mixin'
 
 export default {
   name: 'Checkbox',
-  mixins: [ validator('checked') ],
+  mixins: [ validator('isChecked') ],
   model: {
     prop: 'checked',
     event: 'change'
