@@ -9,7 +9,7 @@ const stories = storiesOf('Checkbox', module)
 
 stories.addCodeExampleStory('Kitchen Sink', () => ({
   template: `<div>
-              <Checkbox :value="value" :disabled="disabled" v-model="selectedValue">
+              <Checkbox :value="value" :disabled="disabled" v-model="selectedValue" :required="required">
                 {{slot}}
               </Checkbox>
               <h1>Model: {{selectedValue}}</h1>
@@ -17,6 +17,7 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
   data() {
     return {
       disabled: boolean('Disabled', true),
+      required: boolean('Required', true),
       value: text('value', 'accepted'),
       selectedValue: false,
       slot: text('Text', 'I accept terms of use')

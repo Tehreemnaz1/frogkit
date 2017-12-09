@@ -7,7 +7,7 @@
 </style>
 
 <template>
-  <input :type="type" class="fk-input" :class="classObject" :value="value" @input="onInput"/>
+  <input :type="type" class="fk-input" :class="classObject" :value="value" @input="onInput" :disabled="disabled"/>
 </template>
 
 <script>
@@ -15,7 +15,7 @@
 
   export default {
     name: 'Input',
-    mixins: [ validator ],
+    mixins: [ validator() ],
     props: {
       type: {
         type: String,
@@ -40,6 +40,10 @@
       value: {
         type: String,
         default: ''
+      },
+      disabled: {
+        type: Boolean,
+        default: false
       }
     },
     computed: {
@@ -57,7 +61,6 @@
       onInput(e) {
         const value = e.target.value
         this.$emit('input', value)
-        // this.validate()
         this.touched = true
       }
     }
