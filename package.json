@@ -1,6 +1,6 @@
 {
   "name": "@smartfrog/frogkit",
-  "version": "0.0.2-alpha",
+  "version": "0.0.12",
   "description": "Smartfrog Component Framework",
   "scripts": {
     "storybook": "start-storybook -p 5000 -c .storybook",
@@ -10,6 +10,7 @@
     "icon": "rimraf src/components/icons/* && node build/svg-icon src/assets/icons src/components/icons",
     "release": "bash build/release.sh"
   },
+  "author": "Mouafa Ahmed (https://github.com/mouafa)",
   "peerDependencies": {
     "vue": "^2.5.2"
   },

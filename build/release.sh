@@ -1,35 +1,43 @@
 #!/bin/bash
-
 set -e
+
+if [[ -z $1 ]]; then
+  echo "Enter new version: "
+  read VERSION
+else
+  VERSION=$1
+fi
 
 BRANCH=$(git symbolic-ref --short HEAD)
 LATEST=$(npm view vuetify version)
-echo #
-echo "Current branch is $BRANCH"
-echo "Last git version was $(git describe --abbrev=0 --tags)"
-echo "Latest npm version is $LATEST"
-echo #
 
-if [ "$BRANCH" != 'development' ]; then
-  echo "Releasing on a branch other than 'development'"
-  echo "This may have unintended side-effects"
-  options=("Switch to development" "Continue anyway")
-  select opt in "${options[@]}"; do
-    if [ "$opt" = "${options[0]}" ]; then
-      echo #
-      git checkout development
-      BRANCH=$(git symbolic-ref --short HEAD)
-      break
-    elif [ "$opt" = "${options[1]}" ]; then
-      break
-    fi
-  done
+echo "Releasing $VERSION on $BRANCH"
+
+read -p "Releasing $VERSION - are you sure? (y/n) " -n 1 -r
+echo
+
+if [[ $REPLY =~ ^[Nn]$ ]]; then
+  exit
 fi
 
-echo #
+# bump version
+VERSION=$(npm version $VERSION --message "[release] %s" --force)
 
-read -e -p "Enter release version: " VERSION
+echo "Preparing Release $VERSION ..."
 
-TAG=$(node -e "v=(require('semver').prerelease('$VERSION')||[])[0]||'';console.log(/^[a-zA-Z]+$/.test(v)?v:'latest')")
-echo "TAG is $TAG"
-echo #
+# npm_config_commit_hooks=false
+
+# commit
+git add -A
+# git add -f \
+#   dist/*.js \
+#   dist/*.css
+git commit -m "[release] $VERSION"
+
+echo "Publishing $VERSION ..."
+
+# publish
+git tag -d $VERSION #making sure to replcae the tag if it's already created
+git tag -a $VERSION -m "[release] $VERSION"
+git push upstream --tags
+npm publish
