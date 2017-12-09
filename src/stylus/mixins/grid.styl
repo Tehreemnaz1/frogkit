@@ -43,7 +43,7 @@ row-mixin()
     justify-content: center
 
 col-mixin()
-  padding: ($grid-gutter)px
+  padding: 0 ($grid-gutter)px
   flex 1
   for size, width in $grid-breakpoints
     @media all and (min-width: width)
