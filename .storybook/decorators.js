@@ -55,7 +55,7 @@ export const ComponentInfoDecorator = (storyFn, component = {}) => {
               </tr>
               <tr v-for="(value, key) in props" >
                 <td>{{key}}</td>
-                <td>{{value.type.name}}</td>
+                <td>{{value.type && value.type.name}}</td>
                 <td>{{value.default}}</td>
               </tr>
             </table>

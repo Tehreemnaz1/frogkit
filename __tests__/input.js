@@ -43,13 +43,13 @@ describe('Input component', () => {
     it('should render invalid password', () => {
       const wrapper = mount(Input, { propsData : { value:'123', type: 'password' } })
       wrapper.trigger('input')
-      expect(wrapper.hasClass('fk-input--error')).toBe(true)
+      expect(wrapper.hasClass('fk-input--invalid')).toBe(true)
     })
 
     it('should render valid password', () => {
       const wrapper = mount(Input, { propsData : { value:'123456789', required: true } })
       wrapper.trigger('input')
-      expect(wrapper.hasClass('fk-input--error')).toBe(false)
+      expect(wrapper.hasClass('fk-input--invalid')).toBe(false)
     })
   })
 
@@ -62,13 +62,13 @@ describe('Input component', () => {
     it('should render invalid phone', () => {
       const wrapper = mount(Input, { propsData : { value:'+2', type: 'phone' } })
       wrapper.trigger('input')
-      expect(wrapper.hasClass('fk-input--error')).toBe(true)
+      expect(wrapper.hasClass('fk-input--invalid')).toBe(true)
     })
 
     it('should render valid phone', () => {
       const wrapper = mount(Input, { propsData : { value:'+25', type: 'phone' } })
       wrapper.trigger('input')
-      expect(wrapper.hasClass('fk-input--error')).toBe(false)
+      expect(wrapper.hasClass('fk-input--invalid')).toBe(false)
     })
   })
 
@@ -81,13 +81,13 @@ describe('Input component', () => {
     it('should render invalid email', () => {
       const wrapper = mount(Input, { propsData : { value:'invalid@email', type: 'email' } })
       wrapper.trigger('input')
-      expect(wrapper.hasClass('fk-input--error')).toBe(true)
+      expect(wrapper.hasClass('fk-input--invalid')).toBe(true)
     })
 
     it('should render valid email', () => {
       const wrapper = mount(Input, { propsData : { value:'valid@email.com', type: 'email' } })
       wrapper.trigger('input')
-      expect(wrapper.hasClass('fk-input--error')).toBe(false)
+      expect(wrapper.hasClass('fk-input--invalid')).toBe(false)
     })
   })
 
@@ -95,13 +95,13 @@ describe('Input component', () => {
     it('should render with error', () => {
       const wrapper = mount(Input, { propsData : { value:'', required: true } })
       wrapper.trigger('input')
-      expect(wrapper.hasClass('fk-input--error')).toBe(true)
+      expect(wrapper.hasClass('fk-input--invalid')).toBe(true)
     })
 
     it('should render without error', () => {
       const wrapper = mount(Input, { propsData : { value:'tada', required: true } })
       wrapper.trigger('input')
-      expect(wrapper.hasClass('fk-input--error')).toBe(false)
+      expect(wrapper.hasClass('fk-input--invalid')).toBe(false)
     })
   })
 
