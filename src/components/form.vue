@@ -1,12 +1,3 @@
-<style lang="stylus">
-  @require '../stylus/mixins/grid'
-
-  .fk-col
-    col-mixin()
-
-
-</style>
-
 <template>
   <form>
     <slot></slot>
