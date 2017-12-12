@@ -8,9 +8,6 @@ const regex = {
 
 export default function validator (model = 'value') {
   return {
-    // props: {
-    //
-    // },
     data() {
       return {
         validatorElement: true,
