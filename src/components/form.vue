@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="showError">
     <slot></slot>
   </form>
 </template>
@@ -34,6 +34,11 @@
       validate() {
         this.isValid = this.inputs.every(input => input.valid)
         this.$emit('input', this.isValid)
+      },
+      showError() {
+        this.inputs.forEach(input => {
+          input.touched = true
+        })
       }
     }
   }

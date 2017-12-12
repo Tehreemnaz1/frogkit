@@ -23,6 +23,7 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
       <Checkbox v-model="inputs[3]" true-value="yep" false-value="nope" required>Accept TOS: {{inputs[3]}}</Checkbox>
     </div>
     <h1>Valid: {{isValid}}</h1>
+    <Button @click="submit" color="primary" block> Submit </Button>
   </Form>`,
   data() {
     return {
@@ -30,6 +31,12 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
       disabled: boolean('Disabled', false),
       inputValue: text('Text', 'tada'),
       isValid: null
+    }
+  },
+  methods: {
+    submit() {
+      if (!this.isValid) return
+      alert('Form Submitted!')
     }
   }
 }), Form)
