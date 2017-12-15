@@ -7,7 +7,7 @@
 </style>
 
 <template functional>
-  <div class="fk-flex" :class="[data.staticClass, $options.classObject(props)]">
+  <div class="fk-flex" :class="[data.staticClass, data.class, $options.classObject(props)]">
     <slot></slot>
   </div>
 </template>
