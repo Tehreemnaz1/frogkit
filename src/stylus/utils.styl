@@ -1,0 +1,15 @@
+margin-mixin(n)
+  for num in (1..n)
+    $margin = unit((num * 10), 'px')
+    .m-{$margin}
+      margin: $margin
+    .m-t-{$margin}
+      margin-top: $margin
+    .m-r-{$margin}
+      margin-right: $margin
+    .m-b-{$margin}
+      margin-bottom: $margin
+    .m-l-{$margin} 
+      margin-left: $margin
+
+margin-mixin(10)
