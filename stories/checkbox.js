@@ -12,7 +12,7 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
               <Checkbox :value="value" :disabled="disabled" v-model="selectedValue" :required="required">
                 {{slot}}
               </Checkbox>
-              <h1>Model: {{selectedValue}}</h1>
+              <h1 class="demo-title">Model: {{selectedValue}}</h1>
             </div>`,
   data() {
     return {

@@ -17,7 +17,7 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
   template: `
   <div>
     <Select v-model="value" :disabled="disabled" :block="block" :placeholder="placeholder" :options="options" :required="required"></Select>
-    <h1>Value: {{value}}</h1>
+    <h1 class="demo-title">Value: {{value}}</h1>
   </div>
     `,
   data() {
