@@ -15,12 +15,12 @@ $container-width = {
 
 // first n links to be displayed in main navigation on bigger breakpoints
 // links with index > $visibleNavItems are visible in the mobile menu only
-$visibleNavItems =  4
+$visibleNavItems = 4
 
 // helpers
 mobile-only()
   @media only screen and (min-width: $bp-sm)
-    display: none
+    display: none !important
 
 desktop-only()
   @media only screen and (max-width: $bp-sm)
@@ -42,7 +42,7 @@ containerResponsive()
     width: $container-width.lg
     padding: 0
 
-// top box (logo + mobile icons)
+// top box (logo + mobile buttons)
 header-top-box()
   @media only screen and (max-width: $bp-sm)
     display: flex
@@ -60,6 +60,15 @@ logo()
   @media only screen and (min-width: $bp-md)
     width: 235px
     height: 45px
+
+// nav links default
+nav-links-default()
+  a
+    display: block
+    color: $navColor
+    text-decoration: none
+    &:hover
+      color: $navColorPrimary
 
 // mobile toggle navigation
 mobile-nav()
@@ -83,20 +92,14 @@ mobile-nav()
 
 // desktop navigation
 desktop-nav()
-  a
-    display: block
-    color: $navColor
-    text-decoration: none
-    &:hover
-      color: $navColorPrimary
   @media only screen and (min-width: $bp-sm)
-    margin-left: 10px
+    display: flex
+    flex: 1
+    justify-content: center
     li
       display: none
       &:nth-child(-n + {$visibleNavItems})
         display: inline-block
-  @media only screen and (min-width: $bp-md)
-    margin-left: 16px
   a
     @media only screen and (min-width: $bp-sm)
       font-size: 1.6 rem
@@ -110,37 +113,23 @@ desktop-nav()
 toggle-nav-icon()
   // wrapper element needed because cursor styles and events handlers don't work if applied to svgs directly
   // https://stackoverflow.com/questions/26672936/cursor-pointer-on-svg-element-is-not-working
-  display: inline-block
+  display: flex
   cursor: pointer
-  margin-left: 18px
+  margin-left: 16px
   svg
-    width: 22px
-    height: 24px
-  mobile-only()
-
-// cart icon
-cart-icon()
-  display: inline-block
-  margin-left: auto
-  svg
-    width: 30px
-    height: 29px
-    fill: $navColor
+    width: 24px
+    height: 20.5px
   mobile-only()
 
 // buttons styles overriding frogkit default
 top-btn()
-  font-size: 1.8rem !important
-  padding: 0 10px !important
-  height: 33px !important
-  line-height: @height
-  border-width: 0 !important
+  padding: 0 !important
+  width: 60px
   float: right
 
 cart-btn()
-  top-btn()
   padding: 0 !important
-  width: 31px
+  width: 36px
   position relative
   svg
     width: 15px
@@ -148,7 +137,7 @@ cart-btn()
   &__counter
     display: block
     position: absolute
-    right: 5px
+    right: -9px
     top: -13px
     min-width: 18px
     height: @min-width
@@ -160,11 +149,11 @@ cart-btn()
     background: $navColorPrimary
     color: $white
 
-//  login form
+// login form
 login-form()
   display: none
   margin-left: auto
-  margin-right: 10px
+  margin-right: 9px
   justify-content: flex-end
   &__field
     padding-right: 10px
@@ -181,8 +170,6 @@ login-form()
         color: $navColorSecondary
   input
     display: block
-    height: 33px !important
-    line-height: @height
     &[type="email"]
       width: 150px
     &[type="password"]
@@ -204,11 +191,14 @@ header-mixin()
     header-top-box()
   &__logo
     logo()
+  &__btn-cart-mobile
+    cart-btn()
+    mobile-only()
+    margin-left: auto
   &__nav
+    nav-links-default()
     mobile-nav()
     desktop-nav()
-  &__cart
-    cart-icon()
   &__toggle
     toggle-nav-icon()
   &__btn
@@ -223,8 +213,10 @@ header-mixin()
     &__shop
       top-btn()
       desktop-only()
-      margin-right: 3px
+      width: 55px
+      margin-right: 2px
     &__cart
+      top-btn()
       cart-btn()
       desktop-only()
   &__form

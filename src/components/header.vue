@@ -9,13 +9,18 @@
 <template>
   <header class="fk-header">
     <div class="fk-header__container">
+      <!-- top box: logo, cart button mobile, burger menu icon -->
       <div class="fk-header__top">
+        <!-- logo -->
         <h1 class="fk-header__logo">
           <a :href="logoUrl"><img src="../assets/logo.svg" /></a>
         </h1>
-        <a class="fk-header__cart" :href="navButtonItems[2].url">
-          <Icon icon="shopping-cart-outline" />
-        </a>
+        <!-- cart button mobile -->
+        <Button link color="secondary" size="small" class="fk-header__btn-cart-mobile" :href="navButtonItems[2].url">
+          <Icon icon="basket" />
+          <span v-if="cartCounter > 0" class="fk-header__btn-cart-mobile__counter">{{ cartCounter }}</span>
+        </Button>
+        <!-- burger menu icon -->
         <span class="fk-header__toggle" @click="toggleNav">
           <Icon icon="hamburger-menu" />
         </span>
@@ -23,9 +28,11 @@
       <!-- navigation -->
       <nav class="fk-header__nav" :class="{ 'fk-header__nav--on': toggleOn }">
         <ul>
+          <!-- main links -->
           <li v-for="item in navMainItems">
             <a :href="item.url">{{ item.label }}</a>
           </li>
+          <!-- links visible only on mobile -->
           <li v-for="item in navButtonItems">
             <a :href="item.url">{{ item.label }}</a>
           </li>
@@ -41,18 +48,21 @@
               <Input v-model="password" name="password" type="password" size="small" :placeholder="formItems.passwordPlaceholder"></Input>
               <a :href="formItems.retriveUrl">{{ formItems.retriveLabel }}</a>
           </div>
-          <Button link color="primary" @click="login">{{ formItems.buttonLabel }}</Button>
+          <Button link color="primary" size="small" class="" @click="login">{{ formItems.buttonLabel }}</Button>
       </div>
       <!-- top right buttons -->
       <div class="fk-header__btn">
-        <Button link color="secondary" class="fk-header__btn__cart" :href="navButtonItems[2].url">
+        <!-- cart button -->
+        <Button link color="secondary" size="small" class="fk-header__btn__cart" :href="navButtonItems[2].url">
           <Icon icon="basket" />
           <span v-if="cartCounter > 0" class="fk-header__btn__cart__counter">{{ cartCounter }}</span>
         </Button>
-        <Button link color="secondary" class="fk-header__btn__shop" :href="navButtonItems[1].url">
+        <!-- shop button -->
+        <Button link color="secondary" size="small" class="fk-header__btn__shop" :href="navButtonItems[1].url">
           {{ navButtonItems[1].label }}
         </Button>
-        <Button link color="primary" class="fk-header__btn__login" :href="navButtonItems[0].url">
+        <!-- login button -->
+        <Button link color="primary" size="small" class="fk-header__btn__login" :href="navButtonItems[0].url">
           {{ navButtonItems[0].label }}
         </Button>
       </div>
