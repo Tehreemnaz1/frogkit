@@ -40,7 +40,7 @@
               <Input v-model="password" name="password" type="password" size="small" :placeholder="formItems.passwordPlaceholder"></Input>
               <a :href="formItems.retriveUrl">{{ formItems.retriveLabel }}</a>
           </div>
-          <Button link color="primary" size="small" class="" @click="login">{{ formItems.buttonLabel }}</Button>
+          <Button link color="primary" size="small" class="fk-header__form__btn" @click="login">{{ formItems.buttonLabel }}</Button>
       </div>
       <!-- standalone login button -->
       <Button link color="primary" size="small" class="fk-header__btn-login" :href="navButtonItems[0].url">

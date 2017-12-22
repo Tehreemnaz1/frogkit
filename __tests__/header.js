@@ -23,15 +23,30 @@ const formItems = {
   retriveUrl: '/de-de/shop/resetpassword'
 }
 
+const data = {
+  navMainItems: navMainItems,
+  navButtonItems: navButtonItems,
+  cartCounter: 1,
+  formItems: formItems
+}
+
 describe('Header component', () => {
-  it('should render component and match snapshot', () => {
-    const wrapper = mount(Text, { propsData: { 
-      logoUrl: 'https://www.smarfrog.com',
-      navMainItems: navMainItems,
-      navButtonItems: navButtonItems,
-      cartCounter: 1,
-      formItems: formItems
-    } })
+  it('Should render component and match snapshot', () => {
+    const wrapper = mount(Header, { propsData: data })
     expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  it('Login button should emit login event when clicked', () => {
+    const wrapper = mount(Header, { propsData: data })
+    wrapper.vm.$emit('login')
+    expect(wrapper.emitted().login).toBeTruthy()
+  })
+  
+  it('Login button should emit email and password values when clicked', () => {
+    const wrapper = mount(Header, { propsData: data })
+    wrapper.vm.$emit('login')
+    wrapper.vm.$emit('login', 'test@test.com', 'test-password')
+    expect(wrapper.emitted().login.length).toBe(2)
+    expect(wrapper.emitted().login[1]).toEqual(['test@test.com', 'test-password'])
   })
 })

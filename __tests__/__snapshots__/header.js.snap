@@ -1,3 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header component should render component and match snapshot 1`] = `undefined`;
+exports[`Header component Should render component and match snapshot 1`] = `
+<header class="fk-header">
+    <div class="fk-header__container">
+        <h1 class="fk-header__logo"><a href="/"><img src="../assets/logo.svg"></a></h1> <span class="fk-header__toggle"><icon icon="hamburger-menu"></icon></span>
+        <nav class="fk-header__nav">
+            <ul>
+                <li><a href="https://www.smartfrog.com/de-de/kamera/">Kamera</a></li>
+                <li><a href="https://www.smartfrog.com/de-de/videoaufnahme/">Videoaufnahme</a></li>
+                <li><a href="https://www.smartfrog.com/de-de/einsatzbereiche/">Einsatzbereiche</a></li>
+                <li><a href="https://www.smartfrog.com/de-de/so-gehts/">So geht's</a></li>
+                <li><a href="https://app.smartfrog.com/de-de/login">Login</a></li>
+                <li><a href="https://www.smartfrog.com/de-de/shop/products">Shop</a></li>
+                <li><a href="https://www.smartfrog.com/de-de/shop/cart">Warenkorb</a></li>
+            </ul>
+        </nav>
+        <div class="fk-header__form">
+            <div class="fk-header__form__field"><input name="email" type="email" size="small" placeholder="E-Mail Adresse"> <a href="https://www.smartfrog.com//de-de/shop/register">Noch kein Benutzerkonto?</a></div>
+            <div class="fk-header__form__field"><input name="password" type="password" size="small" placeholder="Passwort"> <a href="/de-de/shop/resetpassword">Passwort vergessen?</a></div> <button link="" color="primary" size="small" class="fk-header__form__btn">Login</button></div>
+        <button
+            link="" color="primary" size="small" href="https://app.smartfrog.com/de-de/login" class="fk-header__btn-login">
+            Login
+            </button> <button link="" color="secondary" size="small" href="https://www.smartfrog.com/de-de/shop/products" class="fk-header__btn-shop">
+      Shop
+    </button> <button link="" color="secondary" size="small" href="https://www.smartfrog.com/de-de/shop/cart" class="fk-header__btn-cart"><icon icon="basket"></icon> <span class="fk-header__btn-cart__counter">1</span></button></div>
+</header>
+`;
