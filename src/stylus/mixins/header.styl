@@ -7,17 +7,15 @@ $navColorPrimary = #f18713
 $navColorSecondary = #2f82c4
 $navColorMobile = #646464
 
-$container-width := {
+$container-width = {
   sm: 750px
   md: 970px
   lg: 1170px
 }
 
-// first n links to be displayed 
-// in main navigation on bigger breakpoints
-//  links with index > $visibleNavItems
-//  are visible in the mobile menu only
-$visibleNavItems := 1 2 3 4
+// first n links to be displayed in main navigation on bigger breakpoints
+// links with index > $visibleNavItems are visible in the mobile menu only
+$visibleNavItems =  4
 
 // helpers
 mobile-only()
@@ -44,6 +42,25 @@ containerResponsive()
     width: $container-width.lg
     padding: 0
 
+// top box (logo + mobile icons)
+header-top-box()
+  @media only screen and (max-width: $bp-sm)
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    height: 59px
+    padding: 0 15px
+
+// logo
+logo()
+  width: 175px
+  height: 34px
+  img
+    min-width: 175px
+  @media only screen and (min-width: $bp-md)
+    width: 235px
+    height: 45px
+
 // mobile toggle navigation
 mobile-nav()
   @media only screen and (max-width: $bp-sm)
@@ -51,7 +68,7 @@ mobile-nav()
     overflow: hidden
     transition: max-height 420ms ease-out
     &--on
-      max-height 4000px
+      max-height 100vh
       transition max-height 420ms ease-in-out
     ul
       border-top: 1px solid $borderColor
@@ -61,17 +78,22 @@ mobile-nav()
         padding: 10px 15px 11px
         font-size: 2rem
         color: $navColorMobile 
-        line-height: 22px
+        line-height: 1.1
         border-bottom: solid 1px $borderColor
 
 // desktop navigation
 desktop-nav()
+  a
+    display: block
+    color: $navColor
+    text-decoration: none
+    &:hover
+      color: $navColorPrimary
   @media only screen and (min-width: $bp-sm)
     margin-left: 10px
     li
       display: none
-    for i in $visibleNavItems
-      li:nth-child({i})
+      &:nth-child(-n + {$visibleNavItems})
         display: inline-block
   @media only screen and (min-width: $bp-md)
     margin-left: 16px
@@ -138,10 +160,40 @@ cart-btn()
     background: $navColorPrimary
     color: $white
 
+//  login form
+login-form()
+  display: none
+  margin-left: auto
+  margin-right: 10px
+  justify-content: flex-end
+  &__field
+    padding-right: 10px
+    max-width: 160px
+    position relative
+    a
+      display: block
+      position: absolute
+      top: 41px
+      font-size: 1.4rem
+      color: $navColor
+      text-decoration: none
+      &:hover
+        color: $navColorSecondary
+  input
+    display: block
+    height: 33px !important
+    line-height: @height
+    &[type="email"]
+      width: 150px
+    &[type="password"]
+      width: 120px
+  .fk-btn
+    top-btn()
+  @media only screen and (min-width: $bp-lg)
+    display: flex
+
 header-mixin()
   display: flex
-  flex: 1
-  width: 100%
   min-width: 320px
   background: $white
   border-bottom: 1px solid $borderColor
@@ -149,29 +201,12 @@ header-mixin()
   &__container
     containerResponsive()
   &__top
-    @media only screen and (max-width: $bp-sm)
-      display: flex
-      flex-wrap: wrap
-      align-items: center
-      height: 59px
-      padding: 0 15px
+    header-top-box()
   &__logo
-    width: 175px
-    height: 34px
-    img
-      min-width: 175px
-    @media only screen and (min-width: $bp-md)
-      width: 235px
-      height: 45px
+    logo()
   &__nav
     mobile-nav()
     desktop-nav()
-    a
-      display: block
-      color: $navColor
-      text-decoration: none
-      &:hover
-        color: $navColorPrimary
   &__cart
     cart-icon()
   &__toggle
@@ -193,36 +228,7 @@ header-mixin()
       cart-btn()
       desktop-only()
   &__form
-    display: none
-    margin-left: auto
-    margin-right: 10px
-    justify-content: flex-end
-    &__field
-      padding-right: 10px
-      max-width: 160px
-      position relative
-      a
-        display: block
-        position: absolute
-        top: 41px
-        font-size: 1.4rem
-        color: $navColor
-        text-decoration: none
-        &:hover
-          color: $navColorSecondary
-    input
-      display: block
-      height: 33px !important
-      line-height: @height
-      &[type="email"]
-        width: 150px
-      &[type="password"]
-        width: 120px
-    .fk-btn
-      top-btn()
-    @media only screen and (min-width: $bp-lg)
-      display: flex
-
+    login-form()
 
 
 

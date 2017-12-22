@@ -13,7 +13,7 @@
         <h1 class="fk-header__logo">
           <a :href="logoUrl"><img src="../assets/logo.svg" /></a>
         </h1>
-        <a class="fk-header__cart" href="">
+        <a class="fk-header__cart" :href="navButtonItems[2].url">
           <Icon icon="shopping-cart-outline" />
         </a>
         <span class="fk-header__toggle" @click="toggleNav">
