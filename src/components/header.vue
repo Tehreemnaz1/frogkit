@@ -9,22 +9,14 @@
 <template>
   <header class="fk-header">
     <div class="fk-header__container">
-      <!-- top box: logo, cart button mobile, burger menu icon -->
-      <div class="fk-header__top">
-        <!-- logo -->
-        <h1 class="fk-header__logo">
-          <a :href="logoUrl"><img src="../assets/logo.svg" /></a>
-        </h1>
-        <!-- cart button mobile -->
-        <Button link color="secondary" size="small" class="fk-header__btn-cart-mobile" :href="navButtonItems[2].url">
-          <Icon icon="basket" />
-          <span v-if="cartCounter > 0" class="fk-header__btn-cart-mobile__counter">{{ cartCounter }}</span>
-        </Button>
-        <!-- burger menu icon -->
-        <span class="fk-header__toggle" @click="toggleNav">
-          <Icon icon="hamburger-menu" />
-        </span>
-      </div>
+      <!-- logo -->
+      <h1 class="fk-header__logo">
+        <a :href="logoUrl"><img src="../assets/logo.svg" /></a>
+      </h1>
+      <!-- burger menu icon -->
+      <span class="fk-header__toggle" @click="toggleNav">
+        <Icon icon="hamburger-menu" />
+      </span>
       <!-- navigation -->
       <nav class="fk-header__nav" :class="{ 'fk-header__nav--on': toggleOn }">
         <ul>
@@ -50,22 +42,19 @@
           </div>
           <Button link color="primary" size="small" class="" @click="login">{{ formItems.buttonLabel }}</Button>
       </div>
-      <!-- top right buttons -->
-      <div class="fk-header__btn">
-        <!-- cart button -->
-        <Button link color="secondary" size="small" class="fk-header__btn__cart" :href="navButtonItems[2].url">
-          <Icon icon="basket" />
-          <span v-if="cartCounter > 0" class="fk-header__btn__cart__counter">{{ cartCounter }}</span>
-        </Button>
-        <!-- shop button -->
-        <Button link color="secondary" size="small" class="fk-header__btn__shop" :href="navButtonItems[1].url">
-          {{ navButtonItems[1].label }}
-        </Button>
-        <!-- login button -->
-        <Button link color="primary" size="small" class="fk-header__btn__login" :href="navButtonItems[0].url">
-          {{ navButtonItems[0].label }}
-        </Button>
-      </div>
+      <!-- standalone login button -->
+      <Button link color="primary" size="small" class="fk-header__btn-login" :href="navButtonItems[0].url">
+        {{ navButtonItems[0].label }}
+      </Button>
+      <!-- shop button -->
+      <Button link color="secondary" size="small" class="fk-header__btn-shop" :href="navButtonItems[1].url">
+        {{ navButtonItems[1].label }}
+      </Button>
+      <!-- cart button -->
+      <Button link color="secondary" size="small" class="fk-header__btn-cart" :href="navButtonItems[2].url">
+        <Icon icon="basket" />
+        <span v-if="cartCounter > 0" class="fk-header__btn-cart__counter">{{ cartCounter }}</span>
+      </Button>
     </div>
   </header>
 </template>
