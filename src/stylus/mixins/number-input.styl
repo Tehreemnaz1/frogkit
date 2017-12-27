@@ -1,0 +1,66 @@
+$button-skeleton
+  padding: 0
+
+$input-skeleton 
+  margin-top: 1px
+  outline: none
+  border: 1px solid #ccc
+  border-radius: 3px
+  vertical-align: middle
+  text-align: center
+  // hide arrows
+  -moz-appearance: textfield
+  &::-webkit-inner-spin-button
+  &::-webkit-outer-spin-button
+    -webkit-appearance: none
+    margin: 0
+
+small = {
+  height: 28px
+  width: 28px
+  font-size: 16px
+  line-height: 16px
+}
+
+big = {
+  height: 58px
+  width: 58px
+  font-size: 30px
+  line-height: 30px
+}
+
+smallSelect = {
+  width: 64px
+  height: 42px
+  font-size: 20px
+}
+
+bigSelect = {
+  width: 70px
+  height: 38px
+  font-size: 16px
+  line-height: 20px
+}
+
+number-input()
+ & &__select
+   &--small
+     {smallSelect}
+    &--big
+      {bigSelect}
+ & &__button
+    &--small
+      @extends $button-skeleton
+      {small}
+    &--big
+      @extends $button-skeleton
+      {big}
+    
+  & &__input
+    &--small
+      @extends $input-skeleton
+      {small}
+    &--big
+      @extends $input-skeleton
+      {big}
+      
