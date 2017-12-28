@@ -8,8 +8,8 @@
 
 <template>
   <select class="fk-select" :class="classObject" @change="updateValue" @blur="validate">
-    <option value="" :selected="!inputValue">{{placeholder}}</option>
-    <option v-for="option in options" :key="option.value" :value="option.value" :selected="inputValue == option.value">
+    <option v-if="placeholder" value="" :selected="!value">{{placeholder}}</option>
+    <option v-for="option in options" :key="option.value" :value="option.value" :selected="value == option.value">
       {{ option.label }}
     </option>
   </select>
