@@ -7,27 +7,18 @@
 
 <template>
   <div class="fk-number-input">
-    <div v-if="isMobile">
-      <Button color="secondary" :disabled="val === min" :class="buttonClass" @click="decrease">
-        <Icon icon="minus" :size="size"/> 
-      </Button>
-      <input type='number' align="middle" v-model="val" :class="inputClass" @change="handleChange"/>
-      <Button color="secondary" :disabled="val === max" :class="buttonClass" @click="increase" >
-        <Icon icon="plus" :size="size"/> 
-      </Button>
-    </div>
-    <div v-else>
-      <Select :options="options" v-model="strVal" :class="selectClass" />
-    </div>
+    <Button color="secondary" :disabled="val === min" :class="buttonClass" @click="decrease">
+      <Icon icon="minus" :size="size"/> 
+    </Button>
+    <Input type="number" v-model="val" :class="inputClass" @input="handleChange"/>
+    <Button color="secondary" :disabled="val === max" :class="buttonClass" @click="increase" >
+      <Icon icon="plus" :size="size"/> 
+    </Button>
   </div>
 </template>
 <script>
-  import Button from '@/components/button'
-  import Icon from '@/components/icon'
-  import Select from '@/components/select'
   export default {
     name: 'number-input',
-    components: {Button, Icon, Select},
     props: {
       min: {
         type: Number,
@@ -44,10 +35,6 @@
       size: {
         type: String,
         default: 'small'
-      },
-      isMobile: {
-        type: Boolean,
-        default: true
       }
     },
     computed: {
@@ -64,33 +51,26 @@
         } 
       },
       options () {
-        return [...Array(this.max - this.min + 1).keys()].map((el) => ({label: el + this.min, value: el + this.min}))
-      },
-      selectClass() {
-        return {
-          'fk-number-input__select--small': this.size === 'small',
-          'fk-number-input__select--big': this.size === 'big'
-        } 
+        return [...Array(this.max - this.min + 1).keys()]
+                  .map((el) => ({label: el + this.min, value: el + this.min}))
       }
     },
     data () {
       return {
-        val: this.value,
-        strVal: this.value.toString()
+        val: this.value
       }
     },
     methods: {
       decrease () {
-        console.log(this.val)
-        this.$emit('input', Math.max(this.min, this.val--))
+        this.$emit('input', --this.val)
       },
       increase () {
-        this.$emit('input', Math.min(this.max, this.val++))
+        this.$emit('input', ++this.val)
       },
       handleChange() {
         if (!this.val) this.val = this.min
         // Assure input in range [min..max]
-        this.val = this.val < this.min ? this.min : (this.val > this.max ? this.max : this.val)
+        this.val = Math.max(Math.min(this.val, this.max), this.min)
       }
     }
   }
