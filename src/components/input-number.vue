@@ -10,15 +10,16 @@
     <Button color="secondary" :disabled="value <= min" :class="buttonClass" @click="decrease">
       <Icon icon="minus" :size="size"/> 
     </Button>
-    <Input type="number" :max="max" :min="min" :value="value" :class="inputClass" @input="handleChange" />
+    <Input type="number" :value="value" :class="inputClass" @input="handleChange" />
     <Button color="secondary" :disabled="value >= max" :class="buttonClass" @click="increase" >
       <Icon icon="plus" :size="size"/> 
     </Button>
   </div>
 </template>
+
 <script>
   export default {
-    name: 'input-number',
+    name: 'Input-Number',
     props: {
       min: {
         type: Number,
@@ -59,8 +60,12 @@
         this.$emit('input', this.value+1)
       },
       handleChange (value) {
-        if(!value) return this.$emit('input', this.value)
-        this.$emit('input', Math.max(Math.min(this.max, value), this.min))
+        let num = Number(value) || 0
+        this.$emit('input', num)
+        num =  Math.max(Math.min(this.max, num), this.min)
+        this.$nextTick(() => {
+          this.$emit('input', num)
+        })
       }
     }
   }

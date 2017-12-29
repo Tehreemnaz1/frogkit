@@ -1,14 +1,14 @@
 import { storiesOf } from '@storybook/vue'
 import { number, select, boolean } from '@storybook/addon-knobs'
 
-import inputNumber from '@/components/input-number'
+import responsiveInputNumber from '@/components/responsive-input-number'
 
-const stories = storiesOf('Input Number', module)
+const stories = storiesOf('Resonsive Input Number', module)
 
 
-stories.addCodeExampleStory('kitchen sink', () => ({
+stories.addCodeExampleStory('responsive view', () => ({
   template:
-  `<div><Input-Number :min="min" :max="max" v-model="value" :size="size" />
+  `<div><Responsive-Input-Number :min="min" :max="max" v-model="value" :size="size" />
   <br/><span>Value: {{value}}</span></div>`,
   data() {
     return {
@@ -18,4 +18,4 @@ stories.addCodeExampleStory('kitchen sink', () => ({
       size: select('Size', ['small', 'big'], 'small')
     }
   }
-}), inputNumber)
+}), responsiveInputNumber)

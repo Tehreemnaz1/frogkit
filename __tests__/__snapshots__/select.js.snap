@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Select component should render component and match snapshot 1`] = `<select class="fk-select"><option value=""></option> </select>`;
+exports[`Select component should render component and match snapshot 1`] = `<select class="fk-select"><!----> </select>`;
 
 exports[`Select component should render disabled select 1`] = `
-<select class="fk-select"><option value=""></option> <option value="Value 1">
+<select class="fk-select"><option value="">{
+  "placeholder": "jest"
+}</option> <option value="Value 1">
     Option 1
   </option><option value="Value 2">
     Option 2

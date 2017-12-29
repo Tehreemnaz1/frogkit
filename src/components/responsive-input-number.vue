@@ -7,14 +7,14 @@
 
 <template>
   <section class="fk-responsive-input">
-    <input-number class="fk-responsive-input__input" :min="min" :max="max" :size="size" :value="value" @input="handleInput"/>
+    <Input-Number class="fk-responsive-input__input" :min="min" :max="max" :size="size" :value="value" @input="handleInput"/>
     <Select :class="selectClass" :options="options" :value="value" @input="handleInput" />
   </section>
 </template>
 
 <script>
   export default {
-    name: 'responsive-input-number',
+    name: 'Responsive-Input-Number',
     computed: {
       options () {
         const length = this.max - this.min + 1
