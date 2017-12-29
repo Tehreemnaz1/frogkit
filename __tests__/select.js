@@ -25,7 +25,7 @@ describe('Select component', () => {
   describe('Select component | required', () => {
     it('should render with error', () => {
       const wrapper = mount(Select, { propsData : { value:'', required: true, options, placeholder } })
-      wrapper.findAll('select').at(0).trigger('change')
+      wrapper.findAll('option').at(0).trigger('change')
       expect(wrapper.hasClass('fk-select--error')).toBe(true)
     })
 
