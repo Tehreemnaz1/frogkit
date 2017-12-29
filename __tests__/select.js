@@ -18,19 +18,19 @@ describe('Select component', () => {
   })
 
   it('should render disabled select', () => {
-    const wrapper = mount(Select, { propsData: { disabled: true, options, placeholder } })
+    const wrapper = mount(Select, { propsData: { disabled: true, options, ...placeholder } })
     expect(wrapper.html()).toMatchSnapshot()
   })
 
   describe('Select component | required', () => {
     it('should render with error', () => {
-      const wrapper = mount(Select, { propsData : { value:'', required: true, options, placeholder } })
+      const wrapper = mount(Select, { propsData : { value:'', required: true, options, ...placeholder } })
       wrapper.findAll('option').at(0).trigger('change')
       expect(wrapper.hasClass('fk-select--error')).toBe(true)
     })
 
     it('should render without error', () => {
-      const wrapper = mount(Select, { propsData : { value:'tada', required: true, options, placeholder } })
+      const wrapper = mount(Select, { propsData : { value:'tada', required: true, options, ...placeholder } })
       wrapper.findAll('option').at(1).trigger('change')
       expect(wrapper.hasClass('fk-select--error')).toBe(false)
     })
