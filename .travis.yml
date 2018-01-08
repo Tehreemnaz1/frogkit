@@ -36,6 +36,6 @@ deploy:
   api_key:
     secure: $NPM_TOKEN
   on:
-    repo: frogcam/webshop
+    repo: frogcam/frogkit
     branch: development
   skip_cleanup: true
