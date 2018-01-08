@@ -29,3 +29,13 @@ notifications:
   email: false
   slack:
     secure: "w0Zes3G9MXx88KD+QMf8aniQwCvRRmO+STO5ToyKh5DplGTasirRg4gp9IXmlW4Ac8vziIDE7v710xIxLyLzs8d19MmNjVQbvIweIoR6cN3fnOcrtSz1PLcZNZoBdcgI8CZGe2lCQ5VkzPUz+VSKJZb6NDKeZbqevZZDxoMeK4b8AFlDr/FlEdVpIFzkRskDH/dlJj7+hGUSJUp35ueVvEDIMhkWu8Os9Cs3gbK7ReI2dSjhWai21VSMU2XPXAOS4NnXmgczFF2YbwKtjLEn+IyIHK8U54wryysxSCeGEoLtZQrf/I3UmlNGZUk4SQ0a6zJbCCntCfK3iOcqP26vqOT5OT1uD1OAKTZIofpb2eUDHzvSODMHEqUHGnrUlkB6pSPPtrKxFjl87lO1VXE4ZbJlGvgBgOsQN2niQGFatA4o6SHCuSM2sUPljxgvNJ3xKDWoRczhX0Y/YNI2kMo1ae9e7QCyGZCD1viyWb17tlqbIwbDQL7sLPneC6iZkdHwJF8H8D5urFU+6EcHgOdRm3Zy2WQaEtJYsRKFY7Nfd3+dm1zH8es5GEriYMjaZT4XIvJRHtbAXT0yjt7xL740YyayoyBWEkjZw6RPESrzvB+fhQR4hGWGr6u05IQ4kJYyDWCxFvmmL7yjGtuuSMfWWxeuCovXggEHmfIOSxPYR2g="
+
+deploy:
+  provider: npm
+  email: devops@smartfrog.com
+  api_key:
+    secure: $NPM_TOKEN
+  on:
+    repo: frogcam/webshop
+    branch: development
+  skip_cleanup: true
