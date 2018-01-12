@@ -22,6 +22,7 @@ export default {
 'instagram': () => import('./instagram.vue'),
 'mail': () => import('./mail.vue'),
 'mic': () => import('./mic.vue'),
+'minus': () => import('./minus.vue'),
 'night-vision': () => import('./night-vision.vue'),
 'phone': () => import('./phone.vue'),
 'plus': () => import('./plus.vue'),

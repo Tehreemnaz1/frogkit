@@ -1,0 +1,31 @@
+@require '../_vars'
+
+$select-skeleton
+  line-height: unset
+  @media(max-width $bp-sm)
+    display none
+
+small = {
+  padding-right: 12px
+  width: 65px
+  height: 44px
+}
+
+big = {
+  padding: 6px 12px 6px 9px
+  height: 40px
+  width: 74px
+  font-size: 16px
+}
+
+responsive-input()
+  & &__input
+      @media(min-width $bp-sm)
+        display none
+  & &__select
+      &--small
+        @extends $select-skeleton
+        {small}
+      &--big
+        @extends $select-skeleton
+        {big}
