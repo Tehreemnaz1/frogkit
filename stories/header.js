@@ -10,7 +10,7 @@ const navMainItems = [
   { label: 'Einsatzbereiche', url: 'https://www.smartfrog.com/de-de/einsatzbereiche/' },
   { label: 'So geht\'s', url: 'https://www.smartfrog.com/de-de/so-gehts/' }
 ]
-const navButtonItems = [
+const navExtraItems = [
   { label: 'Login', url: 'https://app.smartfrog.com/de-de/login' },
   { label: 'Shop', url: 'https://www.smartfrog.com/de-de/shop/products' },
   { label: 'Warenkorb', url: 'https://www.smartfrog.com/de-de/shop/cart' }
@@ -18,7 +18,6 @@ const navButtonItems = [
 const formItems = {
   emailPlaceholder: 'E-Mail Adresse',
   passwordPlaceholder: 'Passwort',
-  buttonLabel: 'Login',
   registerLabel: 'Noch kein Benutzerkonto?',
   registerUrl: 'https://www.smartfrog.com//de-de/shop/register',
   retriveLabel: 'Passwort vergessen?',
@@ -26,11 +25,11 @@ const formItems = {
 }
 
 stories.addCodeExampleStory('Kitchen Sink', () => ({
-  template: `<Header :navMainItems="navMainItems" :navButtonItems="navButtonItems" :cartCounter="cartCounter" :formItems="formItems" @login="onLogin" />`,
+  template: `<Header :navMainItems="navMainItems" :navExtraItems="navExtraItems" :cartCounter="cartCounter" :formItems="formItems" @login="onLogin" />`,
   data() {
     return {
       navMainItems: navMainItems,
-      navButtonItems: navButtonItems,
+      navExtraItems: navExtraItems,
       cartCounter: number('Cart Items', 0),
       formItems: formItems
     }

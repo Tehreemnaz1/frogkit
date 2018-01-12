@@ -25,7 +25,7 @@
             <a :href="item.url">{{ item.label }}</a>
           </li>
           <!-- links visible only on mobile -->
-          <li v-for="item in navButtonItems">
+          <li v-for="item in navExtraItems">
             <a :href="item.url">{{ item.label }}</a>
           </li>
         </ul> 
@@ -40,18 +40,17 @@
               <Input v-model="password" name="password" type="password" size="small" :placeholder="formItems.passwordPlaceholder"></Input>
               <a :href="formItems.retriveUrl">{{ formItems.retriveLabel }}</a>
           </div>
-          <Button link color="primary" size="small" class="fk-header__form__btn" @click="login">{{ formItems.buttonLabel }}</Button>
       </div>
-      <!-- standalone login button -->
-      <Button link color="primary" size="small" class="fk-header__btn-login" :href="navButtonItems[0].url">
-        {{ navButtonItems[0].label }}
+      <!-- login button -->
+      <Button link color="primary" size="small" class="fk-header__btn-login" @click="login">
+        {{ navExtraItems[0].label }}
       </Button>
       <!-- shop button -->
-      <Button link color="secondary" size="small" class="fk-header__btn-shop" :href="navButtonItems[1].url">
-        {{ navButtonItems[1].label }}
+      <Button link color="secondary" size="small" class="fk-header__btn-shop" :href="navExtraItems[1].url">
+        {{ navExtraItems[1].label }}
       </Button>
       <!-- cart button -->
-      <Button link color="secondary" size="small" class="fk-header__btn-cart" :href="navButtonItems[2].url">
+      <Button link color="secondary" size="small" class="fk-header__btn-cart" :href="navExtraItems[2].url">
         <Icon icon="basket" />
         <span v-if="cartCounter > 0" class="fk-header__btn-cart__counter">{{ cartCounter }}</span>
       </Button>
@@ -71,7 +70,7 @@
         type: Array,
         default: () => []
       },
-      navButtonItems: {
+      navExtraItems: {
         type: Array,
         default: () => []
       },

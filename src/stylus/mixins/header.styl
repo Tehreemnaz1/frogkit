@@ -102,7 +102,7 @@ mobile-nav()
       a
         padding: 10px 15px 11px
         font-size: 2rem
-        color: $navColorMobile 
+        color: $navColorMobile
         line-height: 1.1
         border-bottom: solid 1px $borderColor
 
@@ -157,10 +157,10 @@ cart-btn()
 login-form()
   display: none
   margin-left: auto
-  margin-right: 9px
+  margin-right: 10px
   justify-content: flex-end
   &__field
-    padding-right: 10px
+    padding-left: 10px
     max-width: 160px
     position relative
     a
@@ -178,8 +178,6 @@ login-form()
       width: 150px
     &[type="password"]
       width: 120px
-  &__btn
-    top-btn()
   @media only screen and (min-width: $bp-lg)
     display: flex
 
@@ -203,8 +201,6 @@ header-mixin()
     top-btn()
     desktop-only()
     margin-right: 9px
-    @media only screen and (min-width: $bp-lg)
-      display: none !important
   &__btn-shop
     top-btn()
     desktop-only()
@@ -215,15 +211,3 @@ header-mixin()
     margin-left: auto
   &__form
     login-form()
-
-
-
-
-
-
-
-
-
-
-
-
