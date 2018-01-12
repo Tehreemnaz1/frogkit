@@ -1,9 +1,9 @@
 <style lang="stylus">
   @require '../stylus/mixins/header';
 
-  .fk-header {
-    header-mixin();
-  }
+  .fk-header
+    header-mixin()
+
 </style>
 
 <template>
