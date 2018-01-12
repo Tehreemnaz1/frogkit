@@ -4,7 +4,7 @@ import Soloheader from '@/components/solo-header'
 
 describe('Soloheader component', () => {
   it('should render component and match snapshot', () => {
-    const wrapper = mount(Text, { propsData: { logoUrl: 'https://www.smarfrog.com'} })
+    const wrapper = mount(Soloheader)
     expect(wrapper.html()).toMatchSnapshot()
   })
 })

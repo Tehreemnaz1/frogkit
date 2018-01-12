@@ -58,12 +58,14 @@ $button-skeleton
   &:disabled,
   &[disabled]
     cursor: not-allowed
+  &:hover
+    cursor: pointer
   &&--small
     {small}
-    line-height (@height - (@border-width * 2))
+    line-height: (@height - (@border-width * 2))
   &&--big
     {big}
-    line-height (@height - (@border-width * 2))
+    line-height: (@height - (@border-width * 2))
   &&--block
     width: 100%
     display: block

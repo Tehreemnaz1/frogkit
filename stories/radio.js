@@ -12,7 +12,7 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
               <Radio name="radio-buttons" value="Value 1" v-model="selectedValue">
                 {{slot}}
               </Radio>
-              <h1>Value: {{selectedValue}}</h1>
+              <h1 class="demo-title">Value: {{selectedValue}}</h1>
             </div>`,
   data() {
     return {
@@ -33,7 +33,7 @@ stories.addCodeExampleStory('Multiple radio', () => ({
               <Radio name="radio-buttons" value="Value 3" v-model="selectedValue">
                 {{slot3}}
               </Radio>
-              <h1>Value: {{selectedValue}}</h1>
+              <h1 class="demo-title">Value: {{selectedValue}}</h1>
             </div>`,
   data() {
     return {
@@ -56,7 +56,7 @@ stories.addCodeExampleStory('Multiple radio disabled', () => ({
               <Radio name="radio-buttons" value="Value 3" v-model="selectedValue" :disabled="disabled">
                   {{slot3}}
               </Radio>
-              <h1>Value: {{selectedValue}}</h1>
+              <h1 class="demo-title">Value: {{selectedValue}}</h1>
             </div>`,
   data() {
     return {

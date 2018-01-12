@@ -22,7 +22,7 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
     <div>
       <Checkbox v-model="inputs[3]" true-value="yep" false-value="nope" required>Accept TOS: {{inputs[3]}}</Checkbox>
     </div>
-    <h1>Valid: {{isValid}}</h1>
+    <h1 class="demo-title">Valid: {{isValid}}</h1>
     <Button @click="submit" color="primary" block> Submit </Button>
   </Form>`,
   data() {
