@@ -14,9 +14,18 @@
   export default {
     name: 'AppBadge',
     props: {
-      url: '',
-      name: '',
-      label: ''
+      url: {
+        type: String,
+        default: ''
+      },
+      name: {
+        type: String,
+        default: ''
+      },
+      label: {
+        type: String,
+        default: ''
+      }
     }
   }
 </script>
