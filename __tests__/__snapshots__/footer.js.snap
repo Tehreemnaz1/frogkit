@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component Should render component and match snapshot 1`] = `
+<footer class="fk-footer">
+    <grid>
+        <row>
+            <col xs12="" lg3="">
+            <col xs12="" lg3="">
+            <col xs12="" lg3="">
+            <col xs12="" lg3="">
+        </row>
+    </grid>
+</footer>
+`;

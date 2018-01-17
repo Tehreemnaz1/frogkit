@@ -2,7 +2,6 @@
 
 $white = #fff
 $borderColor = #e7e7e7
-$navColor = #414141
 $navColorPrimary = #f18713
 $navColorSecondary = #2f82c4
 $navColorMobile = #646464
@@ -43,36 +42,34 @@ titles()
 footer-mixin()
   background: $white
   border-top: solid 1px $borderColor
-  padding-top 50px
-  padding-bottom 50px
-  position relative
+  padding: 50px 0
+  position: relative
   @media (max-width: $bp-sm)
-    padding-top 0px
+    padding-top: 0px
   @media (max-width: $bp-lg)
     // padding should contain enough space for social and app-badges comp
-    padding-bottom 220px
+    padding-bottom: 220px
   &__nav
     @media (min-width: $bp-sm) and (max-width: $bp-lg)
-      display flex
-      flex-direction row
-      flex-wrap nowrap
-      justify-content center
-      margin-top 4px
-      margin-bottom 15px
+      display: flex
+      flex-direction: row
+      flex-wrap: nowrap
+      justify-content: center
+      margin-top: 4px
+      margin-bottom: 15px
   &__link
     footerLinks()
   &__app-stores, &__social
     h4
       titles()
     @media (max-width: $bp-lg)
-      display flex
-      position absolute
-      bottom 30px
-      right 0
-      left 0
+      display: flex
+      position: absolute
+      bottom: 30px
+      right: 0
+      left: 0
       justify-content: center
   &__social
-      bottom 120px
-  &__app-stores
-    &__buttons
-      display flex
+      bottom: 120px
+  &__app-stores__buttons
+    display: flex

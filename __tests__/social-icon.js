@@ -1,7 +1,7 @@
-import { storiesOf } from '@storybook/vue'
+import { mount } from 'vue-test-utils'
+import Vue from 'vue'
 import SocialIcon from '@/components/social-icon'
 
-const stories = storiesOf('Social Icon', module)
 const socialItems = {
   headline: 'Smartfrog folgen:',
   icons: [
@@ -28,11 +28,9 @@ const socialItems = {
   ]
 }
 
-stories.addCodeExampleStory('Kitchen Sink', () => ({
-  template: `<div><SocialIcon v-for="icon in socialItems.icons" :href="icon.url" :class="icon.name" label="icon.label" :key="icon.name" /></div>`,
-  data () {
-    return {
-      socialItems: socialItems
-    }
-  }
-}), SocialIcon)
+describe('Social Icon component', () => {
+  it('Should render component and match snapshot', () => {
+    const wrapper = mount(SocialIcon, { propsData: socialItems })
+    expect(wrapper.html()).toMatchSnapshot()
+  })
+})
