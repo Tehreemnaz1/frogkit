@@ -7,9 +7,9 @@
 </style>
 
 <template functional>
-  <component :is="$options.elementTag(props)" class="fk-title"
+  <component v-bind="data.attrs" :is="$options.elementTag(props)" class="fk-title"
   :class="[data.staticClass, data.class, $options.getClasses(props)]"
-  :style="$options.getStyles(props)" v-bind="props">
+  :style="$options.getStyles(props)">
     <slot></slot>
   </component>
 </template>
