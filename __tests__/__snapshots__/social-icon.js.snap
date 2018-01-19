@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Social Icon component Should render component and match snapshot 1`] = `<a href="http://www.facebook.com/smartfrogDE" target="_blank" rel="noopener" class="fk-social-icon facebook">Folgen Sie auf Facebook</a>`;

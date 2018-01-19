@@ -1,0 +1,17 @@
+social-icon-mixin()
+    display inline-block
+    width: 40px
+    height: @width
+    margin-right 4px
+    background: url('../assets/social_links.svg') no-repeat
+    background-size: auto @height
+    overflow: hidden
+    text-indent: -9999px
+    &:last-child
+      margin-right: 0
+    &.twitter
+      background-position: -45px 0
+    &.youtube
+      background-position: -90px 0
+    &.instagram
+      background-position: -135px 0
