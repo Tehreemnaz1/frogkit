@@ -4,7 +4,7 @@
   "description": "Smartfrog Component Framework",
   "scripts": {
     "storybook": "start-storybook -p 5000 -c .storybook",
-    "build-storybook": "build-storybook",
+    "build": "build-storybook -c .storybook -o dist",
     "precommit": "prettier --config .prettierrc '{,!(node_modules)/**/}*.js' --write",
     "test": "jest",
     "icon": "rimraf src/components/icons/* && node build/svg-icon src/assets/icons src/components/icons",
