@@ -72,7 +72,7 @@ stories.addCodeExampleStory('Type Email', () => ({
     return {
       inputValue: '',
       size: select('Size', ['normal', 'small'], 'normal'),
-      cutSide: select('Cut border', ['left', 'right'], 'default'),
+      cutSide: select('Cut border', ['default', 'left', 'right'], 'default'),
       disabled: boolean('Disabled', false),
       block: boolean('Block', false),
       required: boolean('Required', false),
