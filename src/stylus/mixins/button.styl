@@ -39,6 +39,14 @@ big = {
   border-radius: 8px
   font-size: 2.5rem
 }
+$cut-sides = 'left', 'right'
+
+cut-input()
+  for $side in $cut-sides
+    &&--cut-{$side}
+      border-top-{$side}-radius: 0
+      border-bottom-{$side}-radius: 0
+      border-{$side}: 0
 
 $button-skeleton
   {default}
@@ -55,6 +63,7 @@ $button-skeleton
   outline: none
   text-transform: capitalize
   transition: border-color background-color color 300ms
+  cut-input()
   &:disabled,
   &[disabled]
     cursor: not-allowed

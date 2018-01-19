@@ -24,7 +24,8 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
       outline: boolean('Outline', false),
       link: boolean('Link', false),
       size: select('Size', ['small', 'normal', 'big'], 'normal'),
-      color: select('Color', ['default', 'primary', 'secondary'], 'default')
+      color: select('Color', ['default', 'primary', 'secondary'], 'default'),
+      cutSide: select('Cut border', ['default', 'left', 'right'], 'default')
     }
   }
 }), Button)
