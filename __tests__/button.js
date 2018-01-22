@@ -45,6 +45,11 @@ describe('Button component', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
+  it('should render loading button', () => {
+    const wrapper = mount(Button, { slots, propsData: { loading: true } })
+    expect(wrapper.html()).toMatchSnapshot()
+  })
+
   it('Button should emit click event when clicked', () => {
     const stub = jest.fn()
     const wrapper = mount(Button)
