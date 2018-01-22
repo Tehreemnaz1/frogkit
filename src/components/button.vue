@@ -36,6 +36,10 @@
         type: Boolean,
         default: false
       },
+      cutSide: {
+        type: String,
+        default: ''
+      }
     },
     methods: {
       clicked () {
@@ -51,6 +55,8 @@
           'fk-btn--block': !!this.block,
           'fk-btn--primary': this.color == 'primary',
           'fk-btn--secondary': this.color == 'secondary',
+          'fk-btn--cut-left': this.cutSide === 'left',
+          'fk-btn--cut-right': this.cutSide === 'right',
         }
       },
       elementTag() {
