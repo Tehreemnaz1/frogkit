@@ -8,6 +8,8 @@ exports[`Button component should render component and match snapshot 1`] = `<but
 
 exports[`Button component should render disabled button 1`] = `<button rel="noopener noreferrer" class="fk-btn"><span>click me</span></button>`;
 
+exports[`Button component should render loading button 1`] = `<button rel="noopener noreferrer" class="fk-btn fk-btn--loading"><span>click me</span></button>`;
+
 exports[`Button component should render outline button 1`] = `<button rel="noopener noreferrer" class="fk-btn fk-btn--outline"><span>click me</span></button>`;
 
 exports[`Button component should render primary button 1`] = `<button rel="noopener noreferrer" class="fk-btn fk-btn--primary"><span>click me</span></button>`;
