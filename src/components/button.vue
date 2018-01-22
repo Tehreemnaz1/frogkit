@@ -39,10 +39,15 @@
       cutSide: {
         type: String,
         default: ''
+      },
+      loading: {
+        type: Boolean,
+        default: false
       }
     },
     methods: {
       clicked () {
+        if (this.loading) return
         this.$emit('click')
       }
     },
@@ -53,6 +58,7 @@
           'fk-btn--big': this.size == 'big',
           'fk-btn--outline': !!this.outline,
           'fk-btn--block': !!this.block,
+          'fk-btn--loading': !!this.loading,
           'fk-btn--primary': this.color == 'primary',
           'fk-btn--secondary': this.color == 'secondary',
           'fk-btn--cut-left': this.cutSide === 'left',

@@ -78,9 +78,17 @@ $button-skeleton
   &&--block
     width: 100%
     display: block
+  &&--loading
+    background-image: url('../assets/button-loader.svg')
+    background-repeat: no-repeat
+    background-size: 50% 50%
+    background-position: center
+    color: transparent !important
+
+
 
 button-outline($color)
-  background: transparent
+  background-color: transparent
   color: $color.base
   border: $color.base 2px solid
   &:hover,
@@ -96,8 +104,8 @@ button-variation($color)
   color: #ffffff
   background-color: $color.base
   border-color: $color.base
-  &:hover,
-  &:focus
+  &:hover:not(^[-1]--loading),
+  &:focus:not(^[-1]--loading)
     background-color: $color.dark
     border-color: $color.dark
   &:disabled,
