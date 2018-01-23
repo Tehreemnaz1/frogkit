@@ -1,0 +1,64 @@
+/**
+  * style variables
+*/
+$noOfSlides            = 5
+$carouselHeight        = 320px
+$carouselWidth         = 320px
+$carouselIndicatorSize = 12px
+$slideTransition       = .5s
+
+
+/**
+  * Control & indicator mixin
+*/
+.carousel
+  position  relative
+  width 100%
+  // width      $carouselWidth
+  padding-bottom $carouselIndicatorSize
+  margin auto
+  overflow: hidden;
+
+  /**
+    Slides
+  */
+  &__track
+    width 100%
+    display block
+    padding-bottom 100%
+    transition transform $slideTransition ease 0s
+  &__slide
+    width 100%
+    height auto
+    overflow-y auto
+    display block
+    position absolute
+    for num in (1..$noOfSlides)
+      &:nth-of-type({num})
+        transform translateX((num - 1) * 100%)
+
+  /**
+    slide indicators
+  */
+  &__indicators
+    position   absolute
+    bottom     0
+    width      100%
+    text-align center
+    height        $carouselIndicatorSize
+  &__indicator
+    height        $carouselIndicatorSize
+    width         $carouselIndicatorSize
+    border-radius 50%
+    display       inline-block
+    z-index       2
+    cursor        pointer
+    opacity       .5
+    margin        0 2px
+    background-color  #2f82c4
+    &:hover
+      opacity     .75
+    &--active
+      opacity     1
+      
+
