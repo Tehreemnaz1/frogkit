@@ -49,7 +49,7 @@
     computed: {
       styles(){
         return {
-          transform: `translateX(-${this.selected}00%)`
+          transform: `translateX(${this.selected * -100}%)`
         }
       }
     },
