@@ -53,7 +53,6 @@
       }
     },
     click($event, data = {}){
-      console.log(data)
       if (data.on && data.on.click) data.on.click($event)
     }
   }
