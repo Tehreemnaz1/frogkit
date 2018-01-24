@@ -23,11 +23,16 @@ stories.addCodeExampleStory('kitchen sink', () => ({
   // },
   data() {
     return {
-      active: number('Active', 0, {range: true, min: 0, max: 3, step: 1 }),
+      active: number('Active', 0, {min: 0, max: 3, step: 1 }),
       loop: boolean('Loop', false), 
-      slides: Array.from({length: 3}).map((_,i) => `https://unsplash.it/320?random&${i}`)
+      length: number('Slides', 3, {range: true, min: 1, max: 7, step: 1 }),
     }
   },
+  computed:{
+    slides() {
+      return Array.from({length: this.length}).map((_,i) => `https://unsplash.it/320?random&${i}`)
+    }
+  }
 }), Carousel)
 
 stories.addCodeExampleStory('Product page', () => ({

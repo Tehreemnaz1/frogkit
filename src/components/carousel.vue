@@ -1,25 +1,25 @@
 <style lang="stylus">
   @require '../stylus/mixins/carousel'
 
-  // .fk-col
-  //   col-mixin()
-
+  .fk-carousel
+    carousel-mixin()
 
 </style>
 
 <template>
-  <div class="carousel">
+  <section class="fk-carousel">
 
-  <Swipeable @swipeleft="moveTo(selected-1)"  @swiperight="moveTo(selected+1)">
-    <div class="carousel__track" :style="styles">
-      <img v-for="src in slides" class="carousel__slide" :src="src" draggable="false"></img>
-    </div>
-  </Swipeable>
-    <div class="carousel__indicators">
-      <label v-for="_,i in slides" :key="i" class="carousel__indicator" :class="{'carousel__indicator--active': i === selected}" @click="moveTo(i)"></label>
+    <Swipeable @swipeleft="moveTo(selected-1)"  @swiperight="moveTo(selected+1)">
+      <div class="fk-carousel__track" :style="styles">
+        <img v-for="src in slides" class="fk-carousel__slide" :src="src" draggable="false"></img>
+      </div>
+    </Swipeable>
+
+    <div class="fk-carousel__indicators">
+      <label v-for="_,i in slides" :key="i" class="fk-carousel__indicator" :class="{'fk-carousel__indicator--active': i === selected}" @click="moveTo(i)"></label>
     </div>
 
-  </div>
+  </section>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div v-swipeable>
+  <div v-swipeable="50">
     <slot> </slot>
   </div>
 </template>

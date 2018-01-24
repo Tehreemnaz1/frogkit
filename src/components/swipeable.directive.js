@@ -1,5 +1,6 @@
 export default {
   inserted: function (el,binding, vnode) {
+    const threshold = binding.value || 100
     let startPos = null
     el.addEventListener('mousedown', onTouchStart, false)
     el.addEventListener('touchstart', onTouchStart, false)
@@ -12,9 +13,9 @@ export default {
 
     function onTouchEnd(e) {
       const delta = getTouchPos(e) - startPos
-        if (delta < -100 ) {
+        if (delta < -threshold ) {
           vnode.context.$emit('swiperight')
-        } else if (delta > 100) {
+        } else if (delta > threshold) {
           vnode.context.$emit('swipeleft')
         }
         document.removeEventListener('touchend', onTouchEnd);
