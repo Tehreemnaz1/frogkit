@@ -28,6 +28,7 @@ carousel-mixin()
     overflow-y  auto
     display     block
     position    absolute
+    user-select     none
     for num in (1..$maxSlides)
       &:nth-of-type({num})
         transform translateX((num - 1) * 100%)

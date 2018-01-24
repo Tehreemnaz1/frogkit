@@ -44,3 +44,4 @@ describe('Carousel component', () => {
     expect(cmp.vm.styles).toEqual({ transform: 'translateX(-200%)' })
   })
 })
+
