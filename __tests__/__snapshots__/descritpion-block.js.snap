@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Description Block component should render component and match snapshot 1`] = `
+<section class="fk-description-block">
+    <title size="md" color="primary">some title goes here</title>
+    <div class="fk-description-block__slot-wrapper"></div>
+</section>
+`;
