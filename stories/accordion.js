@@ -1,15 +1,13 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { text, boolean } from '@storybook/addon-knobs'
-import Title from '@/components/title'
+import Accordion from '@/components/accordion'
 
 const stories = storiesOf('Accordion', module)
 
 
-stories.add('kitchen sink', () => ({
+stories.addCodeExampleStory('kitchen sink', () => ({
   template: `<Accordion :placeholder="placeholder" :open="open">
-              <Title size="md" color="primary">
-
                 <DescriptionBlock class="m-b-30" title="Smartfrog HD Cam">
                   <Title size="xs" color="primary">A title from slot.</Title>
                   The Smartfrog Cam can easily be connected with your Wi-Fi using the Smartfrog App. It will then 
@@ -23,8 +21,6 @@ stories.add('kitchen sink', () => ({
                     <li>Data Protection<dd>All data is secured with bank-level encryption.</dd></li>
                   </ul>
                 </DescriptionBlock>
-
-              </Title>
             </Accordion>`,
   data(){
     return {
@@ -32,4 +28,4 @@ stories.add('kitchen sink', () => ({
       open: boolean('Open', false)
     }
   }
-}), Title)
+}), Accordion)
