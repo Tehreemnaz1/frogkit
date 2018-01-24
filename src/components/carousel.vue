@@ -10,10 +10,11 @@
 <template>
   <div class="carousel">
 
-    <div v-swipeable @swiperight="onSwipeRight" class="carousel__track" :style="styles">
+  <Swipeable @swipeleft="moveTo(selected-1)"  @swiperight="moveTo(selected+1)">
+    <div class="carousel__track" :style="styles">
       <img v-for="src in slides" class="carousel__slide" :src="src" draggable="false"></img>
     </div>
-
+  </Swipeable>
     <div class="carousel__indicators">
       <label v-for="_,i in slides" :key="i" class="carousel__indicator" :class="{'carousel__indicator--active': i === selected}" @click="moveTo(i)"></label>
     </div>
@@ -22,22 +23,27 @@
 </template>
 
 <script>
-  import swipeable from './swipeable.directive'
 
   export default {
     name: 'Carousel',
-    directives: {
-      swipeable
-    },
     props:{
       slides: {
         type: Array,
         default: () => []
+      },
+      active: {
+        type: Number,
+        default: 0
+      },
+      loop: {
+        type: Boolean,
+        default: false
       }
     },
     data() {
       return {
-        selected: 0
+        selected: this.active,
+        max: this.slides.length - 1
       }
     },
     computed: {
@@ -49,22 +55,11 @@
     },
     methods:{
       moveTo(i) {
-        console.log('i', i)
-        this.selected = i
-      },
-      onSwipeRight() {
-        console.log('onSwipeRight')
-        this.selected = this.selected + 1
-      },
-      onSwipeLeft() {
-        this.selected = this.selected - 1
-      }
-
-    },
-    on:{
-      swiperight() {
-        console.log('onSwipeRight2')
-        
+        if (Math.max(0, Math.min(this.max, i)) === i) {
+          this.selected = i
+        } else if (this.loop) {
+          this.selected = (this.max + 1) - Math.abs(i)
+        }
       }
     }
   }

@@ -1,43 +1,28 @@
 export default {
-  // When the bound element is inserted into the DOM...
   inserted: function (el,binding, vnode) {
-    // Focus the element
-    console.log('swipeable', el)
-    window.el = el
     let startPos = null
-    el.addEventListener('mousedown', _onTouchStart, false)
-    // el.focus()
+    el.addEventListener('mousedown', onTouchStart, false)
+    el.addEventListener('touchstart', onTouchStart, false)
 
-    function _onTouchStart(e) {
-      startPos = _getTouchPos(e);
-      console.log('touch started', startPos)
-
-      document.addEventListener('touchend', _onTouchEnd, false);
-      document.addEventListener('mouseup', _onTouchEnd, false)
+    function onTouchStart(e) {
+      startPos = getTouchPos(e);
+      document.addEventListener('touchend', onTouchEnd, false);
+      document.addEventListener('mouseup', onTouchEnd, false)
     }
 
-    function _getTouchPos(e) {
-      var key = 'pageX'
-      return e.changedTouches ? e.changedTouches[0][key] : e[key]
-    }
-
-    function _onTouchEnd(e) {
-      // this.dragging = false;
-      // this.transitionDuration = this.speed;
-      const delta = _getTouchPos(e) - startPos
-      console.log('touch end', _getTouchPos(e), delta)
+    function onTouchEnd(e) {
+      const delta = getTouchPos(e) - startPos
         if (delta < -100 ) {
-          console.log('prev')
-          vnode.context.$emit('swipeleft')
-            // this.moveTo(this.selected + 1)
-        } else if (delta > 100) {
           vnode.context.$emit('swiperight')
-          
-          console.log('next')
-            // this.moveTo(this.selected - 1)
+        } else if (delta > 100) {
+          vnode.context.$emit('swipeleft')
         }
-        document.removeEventListener('touchend', this._onTouchEnd);
-        document.removeEventListener('mouseup', _onTouchEnd);
+        document.removeEventListener('touchend', onTouchEnd);
+        document.removeEventListener('mouseup', onTouchEnd);
+    }
+
+    function getTouchPos(e) {
+      return e.changedTouches ? e.changedTouches[0].pageX : e.pageX
     }
   }
 }
