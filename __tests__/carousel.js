@@ -1,35 +1,47 @@
 import { mount, shallow } from 'vue-test-utils'
 import Vue from 'vue'
-import Accordion from '@/components/accordion'
+import Carousel from '@/components/carousel'
 
 const propsData = {
-  placeholder: 'Title',
-  open: false
+  slides: Array.from({length: 3}).map((_,i) => `https://unsplash.it/320?random&${i}`),
+  loop: true,
+  active: 1
 }
 
-describe('Accordion component', () => {
+describe('Carousel component', () => {
   it('Should render component and match snapshot', () => {
-    const wrapper = mount(Accordion, { propsData })
+    const wrapper = mount(Carousel, { propsData })
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-
-  it('Should open and close', () => {
-    const cmp = shallow(Accordion, { propsData })
-    expect(cmp.vm.isOpen).toBe(false)
-    cmp.vm.toggle()
-    expect(cmp.vm.isOpen).toBe(true)
-    cmp.vm.toggle()
-    expect(cmp.vm.isOpen).toBe(false)
+  it('Should move to the right slide without looping', () => {
+    const cmp = shallow(Carousel, { propsData: { ...propsData, loop: false } })
+    expect(cmp.vm.selected).toBe(1)
+    cmp.vm.moveTo(2)
+    expect(cmp.vm.selected).toBe(2)
+    cmp.vm.moveTo(propsData.slides.length)
+    expect(cmp.vm.selected).toBe(2)
+    cmp.vm.moveTo(-1)
+    expect(cmp.vm.selected).toBe(2)
   })
 
-  it('Should close and open', () => {
-    const cmp = shallow(Accordion, { propsData: {...propsData, open: true} })
-    expect(cmp.vm.isOpen).toBe(true)
-    cmp.vm.toggle()
-    expect(cmp.vm.isOpen).toBe(false)
-    cmp.vm.toggle()
-    expect(cmp.vm.isOpen).toBe(true)
+  it('Should move to the right slide when looping', () => {
+    const cmp = shallow(Carousel, { propsData })
+    expect(cmp.vm.selected).toBe(propsData.active)
+    cmp.vm.moveTo(2)
+    expect(cmp.vm.selected).toBe(2)
+    cmp.vm.moveTo(propsData.slides.length)
+    expect(cmp.vm.selected).toBe(0)
+    cmp.vm.moveTo(-1)
+    expect(cmp.vm.selected).toBe(propsData.slides.length -1)
   })
 
+  it('Should provide the right styles', () => {
+    const cmp = shallow(Carousel, { propsData })
+    cmp.vm.moveTo(0)
+    expect(cmp.vm.styles).toEqual({ transform: 'translateX(0%)' })
+    cmp.vm.moveTo(2)
+    expect(cmp.vm.styles).toEqual({ transform: 'translateX(-200%)' })
+  })
 })
+
