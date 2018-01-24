@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logistic Badges component should render component and match snapshot 1`] = `<flex align="center" justify="space-around"><img width="142px" src="../assets/images/dhl.svg"> <img width="142px" src="../assets/images/gogreen.svg"></flex>`;

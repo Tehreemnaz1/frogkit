@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Payment Methods component should render component and match snapshot 1`] = `
+<flex align="center" justify="space-around" class="payment-methods"><img src="../assets/payment/visa.svg" class="payment-methods__visa"> <img src="../assets/payment/mastercard.svg" class="payment-methods__masterCard"> <img src="../assets/payment/american_express.svg" class="payment-methods__americanExpress"> <img src="../assets/payment/sepa.svg"
+        class="payment-methods__sepa"> <img src="../assets/payment/klarna.svg" class="payment-methods__klarna"> <img src="../assets/payment/ec.svg" class="payment-methods__ec"> <img src="../assets/payment/paypal.svg" class="payment-methods__paypal"></flex>
+`;
