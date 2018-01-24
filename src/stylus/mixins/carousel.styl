@@ -1,0 +1,59 @@
+$maxSlides             = 5
+$carouselIndicatorSize = 12px
+$carouselIndicatorColor = #2f82c4
+$slideTransition       = .5s
+
+
+/**
+  * Control & indicator mixin
+*/
+carousel-mixin()
+  position    relative
+  width       100%
+  padding-bottom $carouselIndicatorSize + 2px
+  margin      auto
+  overflow    hidden
+
+  /**
+    Slides
+  */
+  &__track
+    width           100%
+    display         block
+    padding-bottom  100%
+    transition      transform $slideTransition ease 0s
+  &__slide
+    width       100%
+    height      auto
+    overflow-y  auto
+    display     block
+    position    absolute
+    for num in (1..$maxSlides)
+      &:nth-of-type({num})
+        transform translateX((num - 1) * 100%)
+
+  /**
+    slide indicators
+  */
+  &__indicators
+    position   absolute
+    bottom     0
+    width      100%
+    text-align center
+    height        $carouselIndicatorSize
+  &__indicator
+    height        $carouselIndicatorSize
+    width         $carouselIndicatorSize
+    border-radius 50%
+    display       inline-block
+    z-index       2
+    cursor        pointer
+    opacity       .5
+    margin        0 2px
+    background-color  $carouselIndicatorColor 
+    &:hover
+      opacity     .75
+    &--active
+      opacity     1
+      
+
