@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Ssl Badge component should render component and match snapshot 1`] = `
-<flex align="center" class="ssl-badge"><img src="../assets/images/ssl.png" class="ssl-badge__img">
-    <div class="ssl-badge__text">Some long text goes here</div>
-</flex>
-`;
