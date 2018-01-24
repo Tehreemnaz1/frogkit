@@ -19,6 +19,9 @@ accordion-mixin()
     fill            $icon-color
     width           20px
     height          20px
+    transition      transform $animation-speed
+  & &__icon--open
+    transform       rotate(45deg)
   & &__content
     padding         $header-padding
     animation       slidein $animation-speed ease
