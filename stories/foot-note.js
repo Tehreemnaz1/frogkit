@@ -6,7 +6,7 @@ const stories = storiesOf('Foot Note', module)
 
 stories.addCodeExampleStory('Kitchen Sink', () => ({
   template: `<FootNote>
-            <div v-html="slot"></div>
+            <template v-html="slot"></template>
             </FootNote>`,
   data () {
     return {
