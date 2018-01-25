@@ -7,7 +7,9 @@
 </style>
 
 <template functional>
-  <div class="fk-flex" :class="[data.staticClass, data.class, $options.classObject(props)]">
+  <div  @click="$options.click($event,data)"
+        :class="[data.staticClass, data.class, $options.classObject(props)]"
+        class="fk-flex">
     <slot></slot>
   </div>
 </template>
@@ -49,6 +51,9 @@
         // 'fk-flex--align-space-around': props.align == 'space-around',
         // 'fk-flex--align-space-between': props.align == 'space-between',
       }
+    },
+    click($event, data = {}){
+      if (data.on && data.on.click) data.on.click($event)
     }
   }
 </script>

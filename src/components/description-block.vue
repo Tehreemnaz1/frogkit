@@ -8,7 +8,7 @@
 <template>
   <section class="fk-description-block">
     <Title size="md" color="primary">{{title}}</Title>
-    <div class="fk-description-block__slot-wrapper">
+    <div class="fk-description-block__content">
       <slot></slot>
     </div>
   </section>
