@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Price Tag component should render component and match snapshot 1`] = `
+<div class="fk-price-tag">
+    <p class="fk-price-tag__price">
+        <b>9,<sup class="fk-price-tag__decimal">59</sup></b> €
+    </p>
+</div>
+`;

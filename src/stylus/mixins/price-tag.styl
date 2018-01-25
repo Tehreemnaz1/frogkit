@@ -1,0 +1,25 @@
+@require '../_vars'
+
+$smalltext-size     =   1.6rem
+$price-color        =   #e30613
+$natural-size       =   8rem
+$decimal-size       =   5rem
+$decimal-position-x =   -12px
+$decimal-position-y =   8px
+
+price-tag-mixin()
+  color           $price-color
+  font-size       $smalltext-size
+  p, sup, b
+    display       inline-block
+  & &__price
+    font-size     $natural-size
+    line-height   @font-size
+    b
+      margin-right  $decimal-position-x
+  & &__decimal
+    font-size     $decimal-size
+    line-height   0
+    transform     translate($decimal-position-x, $decimal-position-y)
+    // vertical-align super
+
