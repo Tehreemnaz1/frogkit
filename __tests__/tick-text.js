@@ -1,15 +1,15 @@
 import { mount } from 'vue-test-utils'
 import Vue from 'vue'
-import CheckList from '@/components/check-list'
+import TickText from '@/components/tick-text'
 
-describe('Check List component', () => {
+describe('Tick Text component', () => {
 
   it('should render component and match snapshot', () => {
-    const wrapper = mount(CheckList, {propsData: {placeholder: 'some text goes here' }})
+    const wrapper = mount(TickText, {propsData: {placeholder: 'some text goes here' }})
     expect(wrapper.html()).toMatchSnapshot()
   })
   it('should render component with bold text', () => {
-    const wrapper = mount(CheckList, {propsData: {placeholder: 'some text goes here', bold: true }})
+    const wrapper = mount(TickText, {propsData: {placeholder: 'some text goes here', bold: true }})
     expect(wrapper.html()).toMatchSnapshot()
   })
 

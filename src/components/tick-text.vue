@@ -1,15 +1,15 @@
 <style lang="stylus">
-  @import '../stylus/mixins/check-list'
-  .fk-check-list
-    check-list-mixin()
+  @import '../stylus/mixins/tick-text'
+  .fk-tick-text
+    tick-text-mixin()
 </style>
 
 <template>
-<section :class="['fk-check-list', getClasses]">
+<section :class="['fk-tick-text', getClasses]">
   <Flex align="top">
-    <Icon class="fk-check-list__icon" icon="checkmark" :color="color" />
+    <Icon class="fk-tick-text__icon" icon="checkmark" :color="color" />
     <Flex column>
-      <component :is="bold ? 'b' : 'p'" class="fk-check-list__placeholder"> {{ placeholder }} </component>
+      <component :is="bold ? 'b' : 'p'" class="fk-tick-text__placeholder"> {{ placeholder }} </component>
       <slot></slot>
     </Flex>
   </Flex>
@@ -19,7 +19,7 @@
 
 <script>
   export default {
-    name: 'CheckList',
+    name: 'TickText',
     props: {
       placeholder: {
          type: String,
@@ -38,8 +38,8 @@
       getClasses() {
         const props = this
         return {
-          [`fk-check-list--${props.color}`]: !!props.color,
-          ['fk-check-list--bold']: !!props.bold,
+          [`fk-tick-text--${props.color}`]: !!props.color,
+          ['fk-tick-text--bold']: !!props.bold,
         }
       }
     }
