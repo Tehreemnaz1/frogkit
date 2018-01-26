@@ -1,13 +1,13 @@
 import { storiesOf } from '@storybook/vue'
-import CheckList from '@/components/check-list'
+import TickText from '@/components/tick-text'
 import { text, boolean, select } from '@storybook/addon-knobs'
 
-const stories = storiesOf('Check List', module)
+const stories = storiesOf('Tick Text', module)
 
 stories.addCodeExampleStory('Kitchen Sink', () => ({
-  template: `<CheckList :color="color" :bold="bold" :placeholder="placeHolder">
+  template: `<TickText :color="color" :bold="bold" :placeholder="placeHolder">
               <div>{{otherText}}</div>
-              </CheckList>`,
+              </TickText>`,
   data () {
     return {
       placeHolder: text('Default Text', 'default text'),
@@ -16,4 +16,4 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
       bold: boolean('Bold', false)
     }
   }
-}), CheckList)
+}), TickText)

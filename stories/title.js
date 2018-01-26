@@ -14,7 +14,7 @@ stories.add('kitchen sink', () => ({
     return {
       slot: text('Text', 'Lorem ipsum dolorem'),
       size: select('Size', ['larger', 'xx-small', '100px', '8px', 'xl', 'lg', 'md', 'sm', 'xs'], 'md'),
-      color: select('Color', ['default', 'primary', 'light'], 'primary'),
+      color: select('Color', ['default', 'primary', 'light', 'secondary'], 'primary'),
       weight: select('Weight', ['default', 'bold', 'slim'])
     }
   }

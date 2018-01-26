@@ -2,7 +2,7 @@
 
 exports[`Description Block component should render component and match snapshot 1`] = `
 <section class="fk-description-block">
-    <title size="md" color="primary">some title goes here</title>
+    <title size="md" color="primary" class="m-b-10">some title goes here</title>
     <div class="fk-description-block__content"></div>
 </section>
 `;

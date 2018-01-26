@@ -7,7 +7,7 @@
 
 <template>
   <section class="fk-description-block">
-    <Title size="md" color="primary">{{title}}</Title>
+    <Title size="md" color="primary" class="m-b-10">{{title}}</Title>
     <div class="fk-description-block__content">
       <slot></slot>
     </div>

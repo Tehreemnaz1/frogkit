@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tick Text component should render component and match snapshot 1`] = `
+<section class="fk-tick-text fk-tick-text--orange">
+    <flex align="top">
+        <icon icon="checkmark" color="orange" class="fk-tick-text__icon"></icon>
+        <flex column="">
+            <p class="fk-tick-text__placeholder"> some text goes here </p>
+        </flex>
+    </flex>
+</section>
+`;
+
+exports[`Tick Text component should render component with bold text 1`] = `
+<section class="fk-tick-text fk-tick-text--orange fk-tick-text--bold">
+    <flex align="top">
+        <icon icon="checkmark" color="orange" class="fk-tick-text__icon"></icon>
+        <flex column=""><b class="fk-tick-text__placeholder"> some text goes here </b> </flex>
+    </flex>
+</section>
+`;
