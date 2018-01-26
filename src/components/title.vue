@@ -41,6 +41,7 @@
         'fk-title--bold': props.weight == 'bold',
         'fk-title--slim': props.weight == 'slim',
         'fk-title--primary': props.color == 'primary',
+        'fk-title--secondary': props.color == 'secondary',
         'fk-title--light': props.color == 'light'
       }
     },
