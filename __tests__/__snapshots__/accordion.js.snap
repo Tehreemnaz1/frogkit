@@ -2,7 +2,7 @@
 
 exports[`Accordion component Should render component and match snapshot 1`] = `
 <section class="fk-accordion">
-    <flex justify="space-between" align="center" class="fk-accordion__header">
+    <flex justify="space-between" align="center" grow="" class="fk-accordion__header">
         <title size="xs"> Title </title>
         <icon icon="plus" class="fk-accordion__icon"></icon>
     </flex>
