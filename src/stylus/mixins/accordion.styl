@@ -4,12 +4,13 @@ $border-color     = #e7e7e7
 $accordian-height = 70px 
 $header-padding   = 15px
 $icon-color       = #f18713
-$animation-speed  = 500ms
+$animation-speed  = 300ms
 
 accordion-mixin()
   background-color  white
   border-top        1px solid $border-color
   border-bottom     1px solid $border-color
+  width             100%
   & &__header
     height          $accordian-height
     padding         $header-padding
@@ -21,7 +22,7 @@ accordion-mixin()
     height          20px
     transition      transform $animation-speed
   & &__icon--open
-    transform       rotate(45deg)
+    transform       rotate(-45deg)
   & &__content
     padding         $header-padding
     animation       slidein $animation-speed ease
