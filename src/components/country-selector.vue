@@ -96,6 +96,7 @@
       updateCountry(code) {
         this.value = code
         this.selectedCountry = this.getCountry(this.value)
+        this.toggleOn = false
         this.$emit('countryChange', this.selectedCountry)
       }
     },
