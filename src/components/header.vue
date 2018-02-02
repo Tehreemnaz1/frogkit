@@ -30,6 +30,14 @@
           </li>
         </ul> 
       </nav>
+      <!-- country selector -->
+      <CountrySelector
+        :countries="countries"
+        :currentCountry="currentCountry"
+        :selectLabel="countrySelectLabel"
+        :selectPlaceholder="countrySelectPlaceholder"
+        :navOn="toggleOn"
+        @countryChange="countryChange" />
       <!-- login form -->
       <div class="fk-header__form">
          <div class="fk-header__form__field">
@@ -81,6 +89,22 @@
       formItems: {
         type: Object,
         default: () => {}
+      },
+      countries: {
+        type: Array,
+        default: () => []
+      },
+      currentCountry: {
+        type: String,
+        default: ''
+      },
+      countrySelectLabel: {
+        type: String,
+        default: ''
+      },
+      countrySelectPlaceholder: {
+        type: String,
+        default: ''
       }
     },
     data() {
@@ -96,7 +120,10 @@
       },
       login() {
         this.$emit('login', this.email, this.password)
+      },
+      countryChange(currentCountry) {
+        this.$emit('countryChange', currentCountry)
       }
-    },
+    }
   }
 </script>

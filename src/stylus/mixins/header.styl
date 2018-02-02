@@ -32,6 +32,7 @@ desktop-only()
 
 // container
 containerResponsive()
+  position relative
   display: flex
   flex: 1
   flex-wrap: wrap
@@ -67,7 +68,6 @@ toggle-nav-icon()
   // https://stackoverflow.com/questions/26672936/cursor-pointer-on-svg-element-is-not-working
   display: flex
   cursor: pointer
-  margin-left: 16px
   margin-right: 15px
   order: 2
   svg
@@ -131,10 +131,16 @@ top-btn()
   width: 60px
 
 cart-btn()
+  display: none !important
   mobile-order(1)
   padding: 0 !important
+  margin-right: 15px
   width: 36px
-  position relative
+  position: relative
+  @media only screen and (min-width: 360px)
+    display: inline-block !important
+  @media only screen and (min-width: $bp-sm)
+    margin-right: 0
   svg
     width: 15px
     height: 15px
@@ -183,7 +189,6 @@ login-form()
 
 header-mixin()
   display: flex
-  min-width: 320px
   background: $white
   border-bottom: 1px solid $borderColor
   z-index 100
@@ -208,6 +213,5 @@ header-mixin()
     margin-right: 2px
   &__btn-cart
     cart-btn()
-    margin-left: auto
   &__form
     login-form()
