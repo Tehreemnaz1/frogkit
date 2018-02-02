@@ -26,11 +26,11 @@ export default {
       default: ''
     },
     value: {
-      type: [String, Number, Object],
+      type: [String, Number],
       required: true
     },
     checked: {
-      type: [String, Number, Object],
+      type: [String, Number],
       default: ''
     },
     disabled: {
