@@ -10,7 +10,8 @@ setOptions({
 
 import Vue from 'vue'
 import '../src/stylus/main.styl'
-import '../src/stylus/demo.styl'
+import '../src/stylus/utils.styl'
+import '../demo/demo.styl'
 
 // import and register all vue component inside components folder
 const req = require.context('../src/components', false, /^\.\/.*\.vue$/)

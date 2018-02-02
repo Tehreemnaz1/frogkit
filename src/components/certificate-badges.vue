@@ -3,6 +3,7 @@
     <img :width="width" src="../assets/images/iso-27001.jpg" />
     <img :width="width" src="../assets/images/tuev.jpg" />
     <img :width="width" src="../assets/images/iso-9001.jpg" />
+    <img :width="width" src="../assets/images/av-test.svg" />
   </Flex>
 </template>
 
