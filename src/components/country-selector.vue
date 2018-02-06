@@ -13,14 +13,14 @@
       align="center"
       justify="space-between"
       class="fk-countries__toggle"
-      :class="{ 'fk-countries__toggle--on': toggleOn }"
-      @click="toggleDropdown">
+      :class="{ 'fk-countries__toggle--on': toggleDropdown }"
+      @click="toggleDropdown = !toggleOn">
         <img :src="flagSrc(selectedCountry.countryCode)">
         <p>{{ selectedCountry.countryName }}</p>
-        <Icon :icon="'angle-' + arrow" />
+        <Icon :icon="'angle-' + (toggleDropdown ? 'up' : 'down')" />
     </Flex>
     <!-- dropdown -->
-    <Flex class="fk-countries__dropdown" :class="{ 'fk-countries__dropdown--on': toggleOn }">
+    <Flex v-if="toggleOn" class="fk-countries__dropdown" :class="{ 'fk-countries__dropdown--on': toggleDropdown }">
       <!-- country list -->
       <Flex
         align="center"
@@ -34,7 +34,6 @@
       <Flex grow align="center" justify="space-between" class="fk-countries__select-box">
         <p>{{ selectLabel }}</p>
         <select @change="updateCountry($event.target.value)">
-          <option value="" :selected="!value">{{selectPlaceholder}}</option>
           <option
             v-for="country in countries"
             :key="country.countryCode"
@@ -54,21 +53,17 @@
     props: {
       countries: {
         type: Array,
-        default: () => []
+        default: () => [{}]
       },
       currentCountry: {
         type: String,
         default: ''
       },
-      navOn: {
+      mobileNavOpen: {
         type: Boolean,
         default: false
       },
       selectLabel: {
-        type: String,
-        default: ''
-      },
-      selectPlaceholder: {
         type: String,
         default: ''
       }
@@ -78,31 +73,38 @@
         prefferedCountries: this.countries.filter(({preferred}) => preferred).sort((i, j) => i.countryName > j.countryName ? 1 : -1 ),
         selectedCountry: this.getCountry(this.currentCountry.toUpperCase()),
         value: this.currentCountry.toUpperCase(),
-        toggleOn: false,
-        arrow: 'down'
+        toggleOn: false
       }
     },
     methods: {
       flagSrc(code) {
-        return require(`../assets/flags/${code}.png`)
+        try {
+          return require(`../assets/flags/${code}.png`)
+
+        } catch (e) {
+          return require(`../assets/flags/_unknown.png`)
+        }
       },
       getCountry(code) {
         return this.countries.find(country => country.countryCode === code)
       },
-      toggleDropdown() {
-        this.toggleOn = !this.toggleOn
-        this.arrow = this.toggleOn ? 'up' : 'down'
-      },
       updateCountry(code) {
         this.value = code
         this.selectedCountry = this.getCountry(this.value)
-        this.toggleOn = false
-        this.$emit('countryChange', this.selectedCountry)
+        this.toggleDropdown = false
+        this.$emit('change', this.selectedCountry)
       }
     },
-    watch: {
-      navOn: function () {
-        if (this.navOn) this.toggleOn = false
+    computed: {
+      toggleDropdown: {
+        get () {
+          if (this.mobileNavOpen) this.toggleOn = false
+          return this.toggleOn
+        },
+        set (toggleStatus) {
+          this.toggleOn = toggleStatus
+          this.$emit('open')
+        }
       }
     }
   }

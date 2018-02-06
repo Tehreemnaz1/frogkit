@@ -1,6 +1,7 @@
-import { mount } from 'vue-test-utils'
+import { mount, shallow } from 'vue-test-utils'
 import Vue from 'vue'
 import Header from '@/components/header'
+import CountrySelector from '@/components/country-selector'
 import countries from '../data/countries'
 
 const navMainItems = [
@@ -23,18 +24,6 @@ const formItems = {
   retriveUrl: '/de-de/shop/resetpassword'
 }
 
-const testCountry = {
-  "countryCode": "IO",
-  "countryName": "British Indian Ocean Territory",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en":"British Indian Ocean Territory"
-  },
-  "preferred": false
-}
-
 const data = {
   navMainItems: navMainItems,
   navExtraItems: navExtraItems,
@@ -42,8 +31,19 @@ const data = {
   formItems: formItems,
   countries: countries,
   currentCountry: 'de',
-  countrySelectLabel: 'Your Country is missing? Click here:',
-  countrySelectPlaceholder: 'Please select a country'
+  countrySelectLabel: 'Your Country is missing? Click here:'
+}
+
+const testCountry = {
+  "countryCode": "AR",
+  "countryName": "Argentina",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Argentina"
+  },
+  "market": "NHW_2",
+  "preferred": true
 }
 
 describe('Header component', () => {
@@ -66,17 +66,13 @@ describe('Header component', () => {
     expect(wrapper.emitted().login[1]).toEqual(['test@test.com', 'test-password'])
   })
 
-  it('Should emit countryChange event when country is changed in Country Selector child component', () => {
-    const wrapper = mount(Header, { propsData: data })
-    wrapper.vm.$emit('countryChange')
-    expect(wrapper.emitted().countryChange).toBeTruthy()
-  })
-
-  it('Should emit the selected country object when country is changed in Country Selector child component', () => {
-    const wrapper = mount(Header, { propsData: data })
-    wrapper.vm.$emit('countryChange')
-    wrapper.vm.$emit('countryChange', testCountry)
-    expect(wrapper.emitted().countryChange.length).toBe(2)
-    expect(wrapper.emitted().countryChange[1]).toEqual([testCountry])
+  it('Should emit countryChange event when countryChange method is called', () => {
+    const cmp = shallow(Header, {
+      propsData: data
+    })
+    const stub = jest.fn()
+    cmp.vm.$on('countryChange', stub)
+    cmp.vm.countryChange(testCountry)
+    expect(stub).toBeCalledWith(testCountry)
   })
 })

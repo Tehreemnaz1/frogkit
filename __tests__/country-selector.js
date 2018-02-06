@@ -1,4 +1,7 @@
-import { mount } from 'vue-test-utils'
+import {
+  mount,
+  shallow
+} from 'vue-test-utils'
 import Vue from 'vue'
 import CountrySelector from '@/components/country-selector'
 import countries from '../data/countries'
@@ -11,36 +14,34 @@ const data = {
 }
 
 const testCountry = {
-  "countryCode": "IO",
-  "countryName": "British Indian Ocean Territory",
-  "market": "NHW_2",
+  "countryCode": "AR",
+  "countryName": "Argentina",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
-    "en":"British Indian Ocean Territory"
+    "en": "Argentina"
   },
-  "preferred": false
+  "market": "NHW_2",
+  "preferred": true
 }
 
 describe('Country Selector component', () => {
 
   it('Should render component and match snapshot', () => {
-    const wrapper = mount(CountrySelector, { propsData: data })
+    const wrapper = mount(CountrySelector, {
+      propsData: data
+    })
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  it('Dropdown items when clicked and select options when chenged should emit countryChange event', () => {
-    const wrapper = mount(CountrySelector, { propsData: data })
-    wrapper.vm.$emit('countryChange')
-    expect(wrapper.emitted().countryChange).toBeTruthy()
-  })
-
-  it('Dropdown items when clicked and select options when chenged should emit the selected country object', () => {
-    const wrapper = mount(CountrySelector, { propsData: data })
-    wrapper.vm.$emit('countryChange')
-    wrapper.vm.$emit('countryChange', testCountry)
-    expect(wrapper.emitted().countryChange.length).toBe(2)
-    expect(wrapper.emitted().countryChange[1]).toEqual([testCountry])
+  it('Should emit change event when updateCountry method is called', () => {
+    const cmp = shallow(CountrySelector, {
+      propsData: data
+    })
+    const stub = jest.fn()
+    cmp.vm.$on('change', stub)
+    cmp.vm.updateCountry('AR')
+    expect(stub).toBeCalledWith(testCountry)
   })
 
 })

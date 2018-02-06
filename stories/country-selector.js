@@ -11,15 +11,13 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
     :countries="countries"
     :currentCountry="currentCountry"
     :selectLabel="selectLabel"
-    :selectPlaceholder="selectPlaceholder"
-    @countryChange="onCountryChange" />
+    @change="onCountryChange" />
   </div>`,
   data() {
     return {
       countries: countries,
       currentCountry: 'de',
-      selectLabel: 'Your Country is missing? Click here:',
-      selectPlaceholder: 'Please select a country'
+      selectLabel: 'Your Country is missing? Click here:'
     }
   },
   methods: {

@@ -14,11 +14,11 @@
         <a :href="logoUrl"><img src="../assets/logo.svg" /></a>
       </h1>
       <!-- burger menu icon -->
-      <span class="fk-header__toggle" @click="toggleNav">
+      <span class="fk-header__toggle" @click="mobileNavOpen = !mobileNavOpen">
         <Icon icon="hamburger-menu" />
       </span>
       <!-- navigation -->
-      <nav class="fk-header__nav" :class="{ 'fk-header__nav--on': toggleOn }">
+      <nav class="fk-header__nav" :class="{ 'fk-header__nav--on': mobileNavOpen }">
         <ul>
           <!-- main links -->
           <li v-for="item in navMainItems">
@@ -35,12 +35,12 @@
         :countries="countries"
         :currentCountry="currentCountry"
         :selectLabel="countrySelectLabel"
-        :selectPlaceholder="countrySelectPlaceholder"
-        :navOn="toggleOn"
-        @countryChange="countryChange" />
+        :mobileNavOpen="mobileNavOpen"
+        @open="mobileNavOpen = false"
+        @change="countryChange" />
       <!-- login form -->
       <div class="fk-header__form">
-         <div class="fk-header__form__field">
+         <div v-if="!hideLogin" class="fk-header__form__field">
             <Input v-model="email" name="email" type="email" size="small" :placeholder="formItems.emailPlaceholder"></Input>
             <a :href="formItems.registerUrl">{{ formItems.registerLabel }}</a>
           </div>
@@ -50,7 +50,7 @@
           </div>
       </div>
       <!-- login button -->
-      <Button link color="primary" size="small" class="fk-header__btn-login" @click="login">
+      <Button v-if="!hideLogin" link color="primary" size="small" class="fk-header__btn-login" @click="login">
         {{ navExtraItems[0].label }}
       </Button>
       <!-- shop button -->
@@ -92,7 +92,7 @@
       },
       countries: {
         type: Array,
-        default: () => []
+        default: () => [{}]
       },
       currentCountry: {
         type: String,
@@ -102,22 +102,19 @@
         type: String,
         default: ''
       },
-      countrySelectPlaceholder: {
-        type: String,
-        default: ''
+      hideLogin: {
+        type: Boolean,
+        default: false
       }
     },
     data() {
       return {
-        toggleOn: false,
+        mobileNavOpen: false,
         email: '',
         password: ''
       }
     },
     methods: {
-      toggleNav() {
-        this.toggleOn = !this.toggleOn
-      },
       login() {
         this.$emit('login', this.email, this.password)
       },
