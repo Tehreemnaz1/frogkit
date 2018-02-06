@@ -1,10 +1,11 @@
 const path = require('path')
 const merge = require('webpack-merge')
 const srcPath = path.resolve(__dirname, '../src')
+const demoPath = path.resolve(__dirname, '../demo')
 
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
-}
+// function resolve (dir) {
+//   return path.join(__dirname, '..', dir)
+// }
 
 const customConfig = {
   module: {
@@ -12,7 +13,7 @@ const customConfig = {
       {
         test: /\.styl$/,
         loader: 'style-loader!css-loader!stylus-loader?resolve url',
-        include: srcPath
+        include: [srcPath, demoPath]
       },
       // {
       //   test: /\.svg$/,
@@ -24,7 +25,8 @@ const customConfig = {
   resolve: {
     extensions: [ '.vue' ],
     alias: {
-      '@': resolve('src')
+      '@': srcPath,
+      '@demo': demoPath
     }
   }
 }

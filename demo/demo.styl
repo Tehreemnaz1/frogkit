@@ -1,5 +1,3 @@
-@require "./utils"
-
 body
   font-size 12px
   background-image: linear-gradient(
@@ -102,3 +100,18 @@ h1.demo-title
   padding 20px
   &>div
     margin 4px 0
+
+.demo-sticker
+  position absolute 
+  right -8px      
+  top -8px      
+  width: 36px
+  height: @width
+  line-height: @width
+  background-color: #e20d00
+  font-size: 14px
+  font-weight: bold
+  color: #ffffff
+  text-align: center
+  transform rotate(-7deg)
+  border-radius 50%

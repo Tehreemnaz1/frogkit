@@ -25,6 +25,7 @@ export default {
 'minus': () => import('./minus.vue'),
 'night-vision': () => import('./night-vision.vue'),
 'phone': () => import('./phone.vue'),
+'plus-bold': () => import('./plus-bold.vue'),
 'plus': () => import('./plus.vue'),
 'print': () => import('./print.vue'),
 'reload': () => import('./reload.vue'),
