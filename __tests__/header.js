@@ -1,6 +1,8 @@
-import { mount } from 'vue-test-utils'
+import { mount, shallow } from 'vue-test-utils'
 import Vue from 'vue'
 import Header from '@/components/header'
+import CountrySelector from '@/components/country-selector'
+import countries from '../data/countries'
 
 const navMainItems = [
   { label: 'Kamera', url: 'https://www.smartfrog.com/de-de/kamera/' },
@@ -26,7 +28,22 @@ const data = {
   navMainItems: navMainItems,
   navExtraItems: navExtraItems,
   cartCounter: 1,
-  formItems: formItems
+  formItems: formItems,
+  countries: countries,
+  currentCountry: 'de',
+  countrySelectLabel: 'Your Country is missing? Click here:'
+}
+
+const testCountry = {
+  "countryCode": "AR",
+  "countryName": "Argentina",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Argentina"
+  },
+  "market": "NHW_2",
+  "preferred": true
 }
 
 describe('Header component', () => {
@@ -47,5 +64,15 @@ describe('Header component', () => {
     wrapper.vm.$emit('login', 'test@test.com', 'test-password')
     expect(wrapper.emitted().login.length).toBe(2)
     expect(wrapper.emitted().login[1]).toEqual(['test@test.com', 'test-password'])
+  })
+
+  it('Should emit countryChange event when countryChange method is called', () => {
+    const cmp = shallow(Header, {
+      propsData: data
+    })
+    const stub = jest.fn()
+    cmp.vm.$on('countryChange', stub)
+    cmp.vm.countryChange(testCountry)
+    expect(stub).toBeCalledWith(testCountry)
   })
 })

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Country Selector component Should render component and match snapshot 1`] = `
+<div class="fk-countries">
+    <flex align="center" justify="space-between" class="fk-countries__toggle"><img src="test-file-stub">
+        <p>Germany</p>
+        <icon icon="angle-down"></icon>
+    </flex>
+    <!---->
+</div>
+`;
