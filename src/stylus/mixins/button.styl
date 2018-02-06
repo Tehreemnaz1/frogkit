@@ -104,8 +104,8 @@ button-variation($color)
   color: #ffffff
   background-color: $color.base
   border-color: $color.base
-  &:hover:not(^[-1]--loading):not(^[-1]--outline),
-  &:focus:not(^[-1]--loading):not(^[-1]--outline)
+  &:hover:not(^[-1]--loading):not(^[-1]--outline):not([disabled]),
+  &:focus:not(^[-1]--loading):not(^[-1]--outline):not([disabled])
     background-color: $color.dark
     border-color: $color.dark
   &:disabled,
