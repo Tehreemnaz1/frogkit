@@ -30,10 +30,6 @@ desktop-only()
   @media only screen and (max-width: $bp-sm)
     display: none !important
 
-navOnly()
-  .nav-only &
-    display none !important
-
 // container
 containerResponsive()
   position relative
@@ -41,6 +37,9 @@ containerResponsive()
   flex: 1
   flex-wrap: wrap
   align-items: center
+  min-width 320px
+  @media only screen and (max-width: $bp-sm)
+    justify-content space-between
   @media only screen and (min-width: $bp-sm)
     flex: none
     width: $container-width.sm
@@ -78,8 +77,6 @@ toggle-nav-icon()
     width: 24px
     height: 20.5px
   mobile-only()
-  .nav-only &
-    margin-left auto
 
 // nav links default
 nav-links-default()
@@ -116,11 +113,8 @@ mobile-nav()
 desktop-nav()
   @media only screen and (min-width: $bp-sm)
     display: flex
-    flex: 1
     justify-content: center
-    .nav-only &
-      justify-content flex-start
-      margin-left 20px
+    margin-left 20px
     li
       display: none
       &:nth-child(-n + {$visibleNavItems})
@@ -136,12 +130,10 @@ desktop-nav()
 
 // buttons styles overriding frogkit default
 top-btn()
-  navOnly()
   padding: 0 !important
   width: 60px
 
 cart-btn()
-  navOnly()
   display: none !important
   mobile-order(1)
   padding: 0 !important
@@ -172,11 +164,9 @@ cart-btn()
 
 // login form
 login-form()
-  navOnly()
   display: none
   margin-left: auto
   margin-right: 10px
-  justify-content: flex-end
   &__field
     padding-left: 10px
     max-width: 160px
@@ -227,5 +217,3 @@ header-mixin()
     cart-btn()
   &__form
     login-form()
-  &.nav-only .fk-countries
-    display none
