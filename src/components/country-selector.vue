@@ -71,7 +71,7 @@
     },
     data() {
       return {
-        prefferedCountries: this.countries.filter(({preferred}) => preferred).sort((i, j) => i.countryName > j.countryName ? 1 : -1 ),
+        prefferedCountries: this.countries.filter(({preferred}) => preferred).sort((i, j) => i.countryCode > j.countryCode ? 1 : -1 ),
         selectedCountry: this.getCountry(this.currentCountry.toUpperCase()),
         value: this.currentCountry.toUpperCase(),
         toggleOn: false
