@@ -37,6 +37,9 @@ containerResponsive()
   flex: 1
   flex-wrap: wrap
   align-items: center
+  min-width 320px
+  @media only screen and (max-width: $bp-sm)
+    justify-content space-between
   @media only screen and (min-width: $bp-sm)
     flex: none
     width: $container-width.sm
@@ -110,8 +113,8 @@ mobile-nav()
 desktop-nav()
   @media only screen and (min-width: $bp-sm)
     display: flex
-    flex: 1
     justify-content: center
+    margin-left 20px
     li
       display: none
       &:nth-child(-n + {$visibleNavItems})
@@ -164,7 +167,6 @@ login-form()
   display: none
   margin-left: auto
   margin-right: 10px
-  justify-content: flex-end
   &__field
     padding-left: 10px
     max-width: 160px
