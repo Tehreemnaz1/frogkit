@@ -29,6 +29,10 @@
       weight: {
         type: String,
         default: ''
+      },
+      center: {
+        type: Boolean,
+        default: false
       }
     },
     getClasses(props) {
@@ -42,7 +46,8 @@
         'fk-title--slim': props.weight == 'slim',
         'fk-title--primary': props.color == 'primary',
         'fk-title--secondary': props.color == 'secondary',
-        'fk-title--light': props.color == 'light'
+        'fk-title--light': props.color == 'light',
+        'fk-title--center': !!props.center
       }
     },
     getStyles(props) {
