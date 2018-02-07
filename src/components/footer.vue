@@ -60,8 +60,16 @@
 </template>
 
 <script>
+
+  import AppBadge from './app-badge'
+  import SocialIcon from './social-icon'
+
   export default {
     name: 'Footer',
+    components: {
+      AppBadge,
+      SocialIcon
+    },
     props: {
       navItems: {
         type: Array,

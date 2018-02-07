@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { number } from '@storybook/addon-knobs'
+import { number, boolean } from '@storybook/addon-knobs'
 import Header from '@/components/header'
 import countries from '../data/countries'
 
@@ -34,6 +34,7 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
       :countries="countries"
       :currentCountry="currentCountry"
       :countrySelectLabel="countrySelectLabel"
+      :hideLogin="hideLogin"
       @login="onLogin"
       @countryChange="onCountryChange" />
     <h1 class="demo-title">Emitted country:
@@ -49,7 +50,8 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
       countries: countries,
       currentCountry: 'de',
       countrySelectLabel: 'Your Country is missing? Click here:',
-      emitted: ''
+      emitted: '',
+      hideLogin: boolean('Hide Login', false)
     }
   },
   methods: {
