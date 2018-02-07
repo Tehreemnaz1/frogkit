@@ -20,7 +20,7 @@
         <Icon :icon="'angle-' + (toggleDropdown ? 'up' : 'down')" />
     </Flex>
     <!-- dropdown -->
-    <Flex v-if="toggleOn" class="fk-countries__dropdown" :class="{ 'fk-countries__dropdown--on': toggleDropdown }">
+    <Flex align="center" v-if="toggleOn" class="fk-countries__dropdown" :class="{ 'fk-countries__dropdown--on': toggleDropdown }">
       <!-- country list -->
       <Flex
         align="center"
@@ -28,7 +28,8 @@
         v-for="country in prefferedCountries"
         :key="country.countryCode"
         @click="updateCountry(country.countryCode)">
-          <img :src="flagSrc(country.countryCode)">  {{ country.countryName }}
+          <img :src="flagSrc(country.countryCode)">  
+          <p>{{ country.countryName }}</p>
       </Flex>
       <!-- select list -->
       <Flex grow align="center" justify="space-between" class="fk-countries__select-box">

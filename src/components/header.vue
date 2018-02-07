@@ -31,7 +31,7 @@
           </ul> 
         </nav>
       <!-- login form -->
-      <Flex grow justify="end" v-if="!navOnly">
+      <Flex v-if="!navOnly" grow justify="end" align="center">
         <!-- country selector -->
         <CountrySelector v-if="countries.length"
           :countries="countries"
