@@ -1,0 +1,77 @@
+@require '../_vars'
+
+$white = #fff
+$bgColor = #eaeaea
+$borderColor = #d2d2d2
+$navColor = #414141
+$navColorPrimary = #f18713
+$navColorSecondary = #2f82c4
+$navColorMobile = #646464
+
+$border-radius = 10px
+
+mobile-only()
+  @media only screen and (min-width: $bp-sm)
+    display: none !important
+
+desktop-only()
+  @media only screen and (max-width: $bp-sm)
+    display: none !important
+
+container()
+  position relative
+  display flex
+  flex 1
+  flex-wrap wrap
+  align-items center
+  height 50px
+  background $bgColor
+  border-bottom-left-radius $border-radius
+  border-bottom-right-radius $border-radius
+  border 1px solid $borderColor
+  border-top none
+
+logo()
+  background $navColorPrimary
+  border-bottom-left-radius $border-radius
+  width 50px
+  height @width
+  display flex
+  align-items center
+  justify-content center
+  flex-shrink 0
+  img
+    min-width 40px
+    width 40px
+    height @width
+
+// toggle navigation icon
+toggle-nav-icon()
+  // wrapper element needed because cursor styles and events handlers don't work if applied to svgs directly
+  // https://stackoverflow.com/questions/26672936/cursor-pointer-on-svg-element-is-not-working
+  cursor pointer
+  margin-left auto
+  margin-right 15px
+  svg
+    width: 21px
+    height: @width
+  mobile-only()
+
+// nav links default
+nav-links-default()
+  a
+    display: block
+    color: $navColor
+    text-decoration: none
+    &:hover
+      color: $navColorPrimary
+
+app-header-mixin()
+  min-width 320px
+  z-index 100
+  &__container
+    container()
+  &__logo
+    logo()
+  &__toggle
+    toggle-nav-icon()

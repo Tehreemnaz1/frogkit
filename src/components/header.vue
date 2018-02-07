@@ -31,7 +31,7 @@
         </ul> 
       </nav>
       <!-- country selector -->
-      <CountrySelector v-if="countries.length"
+      <CountrySelector
         :countries="countries"
         :currentCountry="currentCountry"
         :selectLabel="countrySelectLabel"
@@ -92,7 +92,7 @@
       },
       countries: {
         type: Array,
-        default: () => []
+        default: () => [{}]
       },
       currentCountry: {
         type: String,
