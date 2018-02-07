@@ -7,7 +7,7 @@
 </style>
 
 <template>
-  <header class="fk-header">
+  <header class="fk-header" :class="{ 'nav-only': navOnly }">
     <div class="fk-header__container">
       <!-- logo -->
       <h1 class="fk-header__logo">
@@ -25,7 +25,7 @@
             <a :href="item.url">{{ item.label }}</a>
           </li>
           <!-- links visible only on mobile -->
-          <li v-for="item in navExtraItems">
+          <li v-if="!navOnly" v-for="item in navExtraItems">
             <a :href="item.url">{{ item.label }}</a>
           </li>
         </ul> 
@@ -40,7 +40,7 @@
         @change="countryChange" />
       <!-- login form -->
       <div class="fk-header__form">
-         <div v-if="!hideLogin" class="fk-header__form__field">
+         <div class="fk-header__form__field">
             <Input v-model="email" name="email" type="email" size="small" :placeholder="formItems.emailPlaceholder"></Input>
             <a :href="formItems.registerUrl">{{ formItems.registerLabel }}</a>
           </div>
@@ -50,7 +50,7 @@
           </div>
       </div>
       <!-- login button -->
-      <Button v-if="!hideLogin" link color="primary" size="small" class="fk-header__btn-login" @click="login">
+      <Button link color="primary" size="small" class="fk-header__btn-login" @click="login">
         {{ navExtraItems[0].label }}
       </Button>
       <!-- shop button -->
@@ -102,7 +102,7 @@
         type: String,
         default: ''
       },
-      hideLogin: {
+      navOnly: {
         type: Boolean,
         default: false
       }
