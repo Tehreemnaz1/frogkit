@@ -86,7 +86,7 @@
         }
       },
       getCountry(code) {
-        return this.countries.find(country => country.countryCode === code)
+        return this.countries.find(country => country.countryCode === code) || {}
       },
       updateCountry(code) {
         this.value = code
