@@ -7,7 +7,7 @@
 </style>
 
 <template>
-  <div class="fk-countries">
+  <div class="fk-countries" v-click-outside="closeDropDown">
     <!-- toggle -->
     <Flex
       align="center"
@@ -49,8 +49,12 @@
 </template>
 
 <script>
+  import clickOutside from './clickOutside.directive'
   export default {
     name: 'CountrySelector',
+    directives: {
+      clickOutside
+    },
     props: {
       countries: {
         type: Array,
@@ -95,6 +99,9 @@
         this.selectedCountry = this.getCountry(this.value)
         this.toggleDropdown = false
         this.$emit('change', this.selectedCountry)
+      },
+      closeDropDown () {
+        this.toggleOn = false
       }
     },
     computed: {
