@@ -1,4 +1,5 @@
 export default {
+'account': () => import('./account.vue'),
 'angle-down': () => import('./angle-down.vue'),
 'angle-up': () => import('./angle-up.vue'),
 'arrow-down': () => import('./arrow-down.vue'),
@@ -6,6 +7,7 @@ export default {
 'arrow-right': () => import('./arrow-right.vue'),
 'basket': () => import('./basket.vue'),
 'bell': () => import('./bell.vue'),
+'camera': () => import('./camera.vue'),
 'checkmark': () => import('./checkmark.vue'),
 'close': () => import('./close.vue'),
 'coupon': () => import('./coupon.vue'),
@@ -20,6 +22,7 @@ export default {
 'info-circle': () => import('./info-circle.vue'),
 'info': () => import('./info.vue'),
 'instagram': () => import('./instagram.vue'),
+'logo-small': () => import('./logo-small.vue'),
 'mail': () => import('./mail.vue'),
 'mic': () => import('./mic.vue'),
 'minus': () => import('./minus.vue'),

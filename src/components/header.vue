@@ -18,50 +18,52 @@
         <Icon icon="hamburger-menu" />
       </span>
       <!-- navigation -->
-      <nav class="fk-header__nav" :class="{ 'fk-header__nav--on': mobileNavOpen }">
-        <ul>
-          <!-- main links -->
-          <li v-for="item in navMainItems">
-            <a :href="item.url">{{ item.label }}</a>
-          </li>
-          <!-- links visible only on mobile -->
-          <li v-for="item in navExtraItems">
-            <a :href="item.url">{{ item.label }}</a>
-          </li>
-        </ul> 
-      </nav>
-      <!-- country selector -->
-      <CountrySelector
-        :countries="countries"
-        :currentCountry="currentCountry"
-        :selectLabel="countrySelectLabel"
-        :mobileNavOpen="mobileNavOpen"
-        @open="mobileNavOpen = false"
-        @change="countryChange" />
+        <nav class="fk-header__nav" :class="{ 'fk-header__nav--on': mobileNavOpen }">
+          <ul>
+            <!-- main links -->
+            <li v-for="item in navMainItems">
+              <a :href="item.url">{{ item.label }}</a>
+            </li>
+            <!-- links visible only on mobile -->
+            <li v-if="!navOnly" v-for="item in navExtraItems">
+              <a :href="item.url">{{ item.label }}</a>
+            </li>
+          </ul>
+        </nav>
       <!-- login form -->
-      <div class="fk-header__form">
-         <div v-if="!hideLogin" class="fk-header__form__field">
-            <Input v-model="email" name="email" type="email" size="small" :placeholder="formItems.emailPlaceholder"></Input>
-            <a :href="formItems.registerUrl">{{ formItems.registerLabel }}</a>
-          </div>
+      <Flex v-if="!navOnly" grow justify="end" align="center">
+        <!-- country selector -->
+        <CountrySelector v-if="countries.length"
+          :countries="countries"
+          :currentCountry="currentCountry"
+          :selectLabel="countrySelectLabel"
+          :mobileNavOpen="mobileNavOpen"
+          @open="mobileNavOpen = false"
+          @change="countryChange" />
+        <div class="fk-header__form">
            <div class="fk-header__form__field">
-              <Input v-model="password" name="password" type="password" size="small" :placeholder="formItems.passwordPlaceholder"></Input>
-              <a :href="formItems.retriveUrl">{{ formItems.retriveLabel }}</a>
-          </div>
-      </div>
-      <!-- login button -->
-      <Button v-if="!hideLogin" link color="primary" size="small" class="fk-header__btn-login" @click="login">
-        {{ navExtraItems[0].label }}
-      </Button>
-      <!-- shop button -->
-      <Button link color="secondary" size="small" class="fk-header__btn-shop" :href="navExtraItems[1].url">
-        {{ navExtraItems[1].label }}
-      </Button>
-      <!-- cart button -->
-      <Button link color="secondary" size="small" class="fk-header__btn-cart" :href="navExtraItems[2].url">
-        <Icon icon="basket" />
-        <span v-if="cartCounter > 0" class="fk-header__btn-cart__counter">{{ cartCounter }}</span>
-      </Button>
+              <Input v-model="email" name="email" type="email" size="small" :placeholder="formItems.emailPlaceholder"></Input>
+              <a :href="formItems.registerUrl">{{ formItems.registerLabel }}</a>
+            </div>
+             <div class="fk-header__form__field">
+                <Input v-model="password" name="password" type="password" size="small" :placeholder="formItems.passwordPlaceholder"></Input>
+                <a :href="formItems.retriveUrl">{{ formItems.retriveLabel }}</a>
+            </div>
+        </div>
+        <!-- login button -->
+        <Button link color="primary" size="small" class="fk-header__btn-login" @click="login">
+          {{ navExtraItems[2].label }}
+        </Button>
+        <!-- shop button -->
+        <Button link color="secondary" size="small" class="fk-header__btn-shop" :href="navExtraItems[1].url">
+          {{ navExtraItems[1].label }}
+        </Button>
+        <!-- cart button -->
+        <Button link color="secondary" size="small" class="fk-header__btn-cart" :href="navExtraItems[0].url">
+          <Icon icon="basket" />
+          <span v-if="cartCounter > 0" class="fk-header__btn-cart__counter">{{ cartCounter }}</span>
+        </Button>
+    </Flex>
     </div>
   </header>
 </template>
@@ -92,7 +94,7 @@
       },
       countries: {
         type: Array,
-        default: () => [{}]
+        default: () => []
       },
       currentCountry: {
         type: String,
@@ -102,7 +104,7 @@
         type: String,
         default: ''
       },
-      hideLogin: {
+      navOnly: {
         type: Boolean,
         default: false
       }
@@ -116,7 +118,7 @@
     },
     methods: {
       login() {
-        this.$emit('login', this.email, this.password)
+        this.$emit('login', { username: this.email, password: this.password })
       },
       countryChange(currentCountry) {
         this.$emit('countryChange', currentCountry)

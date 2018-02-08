@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logged-in Header component Should render component and match snapshot 1`] = `
+<header class="fk-app-header">
+    <div class="fk-app-header__container">
+        <h1 class="fk-app-header__logo">
+            <a href="/">
+                <icon icon="logo-small"></icon>
+            </a>
+        </h1>
+        <nav class="fk-app-header__nav">
+            <div class="fk-app-header__cam">
+                <a href="https://app.sf-dev1.com/de-de/" class="active">
+                    <icon icon="camera"></icon> All cameras</a>
+                <div class="fk-app-header__cam__nav"></div>
+            </div>
+            <a href="https://app.sf-dev1.com/de-de/account/overview" class="fk-app-header__account active">
+                <icon icon="account"></icon> My account</a> <button link="" color="secondary" size="small" href="https://www.sf-dev1.com/de-de/shop" class="fk-app-header__btn-shop">
+        Shop
+      </button>
+            <div class="fk-app-header__user"><span>john.doe@lorem.com</span></div>
+            <!---->
+            <div class="fk-app-header__lang">
+                en
+                <icon icon="angle-down"></icon>
+                <!---->
+            </div>
+        </nav>
+    </div>
+</header>
+`;

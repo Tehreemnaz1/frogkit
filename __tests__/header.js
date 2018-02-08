@@ -11,9 +11,9 @@ const navMainItems = [
   { label: 'So geht\'s', url: 'https://www.smartfrog.com/de-de/so-gehts/' }
 ]
 const navExtraItems = [
-  { label: 'Login', url: 'https://app.smartfrog.com/de-de/login' },
+  { label: 'Warenkorb', url: 'https://www.smartfrog.com/de-de/shop/cart' },
   { label: 'Shop', url: 'https://www.smartfrog.com/de-de/shop/products' },
-  { label: 'Warenkorb', url: 'https://www.smartfrog.com/de-de/shop/cart' }
+  { label: 'Login', url: 'https://app.smartfrog.com/de-de/login' }
 ]
 const formItems = {
   emailPlaceholder: 'E-Mail Adresse',
@@ -52,13 +52,17 @@ describe('Header component', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  it('Login button should emit login event when clicked', () => {
-    const wrapper = mount(Header, { propsData: data })
-    wrapper.vm.$emit('login')
-    expect(wrapper.emitted().login).toBeTruthy()
+  it('Should emit login event when login method is called', () => {
+    const cmp = shallow(Header, {
+      propsData: data
+    })
+    const stub = jest.fn()
+    cmp.vm.$on('login', stub)
+    cmp.vm.login()
+    expect(stub).toBeCalled()
   })
 
-  it('Login button should emit email and password values when clicked', () => {
+  it('Should emit email and password values when login event is emitted', () => {
     const wrapper = mount(Header, { propsData: data })
     wrapper.vm.$emit('login')
     wrapper.vm.$emit('login', 'test@test.com', 'test-password')

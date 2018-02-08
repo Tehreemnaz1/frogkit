@@ -11,9 +11,9 @@ const navMainItems = [
   { label: 'So geht\'s', url: 'https://www.smartfrog.com/de-de/so-gehts/' }
 ]
 const navExtraItems = [
-  { label: 'Login', url: 'https://app.smartfrog.com/de-de/login' },
+  { label: 'Warenkorb', url: 'https://www.smartfrog.com/de-de/shop/cart' },
   { label: 'Shop', url: 'https://www.smartfrog.com/de-de/shop/products' },
-  { label: 'Warenkorb', url: 'https://www.smartfrog.com/de-de/shop/cart' }
+  { label: 'Login', url: 'https://app.smartfrog.com/de-de/login' }
 ]
 const formItems = {
   emailPlaceholder: 'E-Mail Adresse',
@@ -34,7 +34,7 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
       :countries="countries"
       :currentCountry="currentCountry"
       :countrySelectLabel="countrySelectLabel"
-      :hideLogin="hideLogin"
+      :navOnly="navOnly"
       @login="onLogin"
       @countryChange="onCountryChange" />
     <h1 class="demo-title">Emitted country:
@@ -51,12 +51,12 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
       currentCountry: 'de',
       countrySelectLabel: 'Your Country is missing? Click here:',
       emitted: '',
-      hideLogin: boolean('Hide Login', false)
+      navOnly: boolean('Show main navigation only', false)
     }
   },
   methods: {
-    onLogin(email, password) {
-      alert(`Email: ${email} - Password: ${password}`)
+    onLogin(login) {
+      alert(`Email: ${login.username} - Password: ${login.password}`)
     },
     onCountryChange(currentCountry) {
       this.emitted = JSON.stringify(currentCountry)

@@ -7,7 +7,7 @@
 </style>
 
 <template>
-  <div class="fk-countries">
+  <div class="fk-countries" v-click-outside="closeDropDown">
     <!-- toggle -->
     <Flex
       align="center"
@@ -16,11 +16,11 @@
       :class="{ 'fk-countries__toggle--on': toggleDropdown }"
       @click="toggleDropdown = !toggleOn">
         <img :src="flagSrc(selectedCountry.countryCode)">
-        <p>{{ selectedCountry.countryName }}</p>
-        <Icon :icon="'angle-' + (toggleDropdown ? 'up' : 'down')" />
+        <p>{{ selectedCountry.displayName }}</p>
+        <Icon icon="angle-down" />
     </Flex>
     <!-- dropdown -->
-    <Flex v-if="toggleOn" class="fk-countries__dropdown" :class="{ 'fk-countries__dropdown--on': toggleDropdown }">
+    <Flex align="center" v-if="toggleOn" class="fk-countries__dropdown" :class="{ 'fk-countries__dropdown--on': toggleDropdown }">
       <!-- country list -->
       <Flex
         align="center"
@@ -28,7 +28,8 @@
         v-for="country in prefferedCountries"
         :key="country.countryCode"
         @click="updateCountry(country.countryCode)">
-          <img :src="flagSrc(country.countryCode)">  {{ country.countryName }}
+          <img :src="flagSrc(country.countryCode)">
+          <p>{{ country.displayName }}</p>
       </Flex>
       <!-- select list -->
       <Flex grow align="center" justify="space-between" class="fk-countries__select-box">
@@ -39,7 +40,7 @@
             :key="country.countryCode"
             :value="country.countryCode"
             :selected="value == country.countryCode">
-              {{country.countryName}}
+              {{country.displayName}}
           </option>
         </select>
       </Flex>
@@ -48,8 +49,12 @@
 </template>
 
 <script>
+  import clickOutside from './clickOutside.directive'
   export default {
     name: 'CountrySelector',
+    directives: {
+      clickOutside
+    },
     props: {
       countries: {
         type: Array,
@@ -70,7 +75,8 @@
     },
     data() {
       return {
-        prefferedCountries: this.countries.filter(({preferred}) => preferred).sort((i, j) => i.countryName > j.countryName ? 1 : -1 ),
+        prefferedCountries: this.countries.filter(({preferred}) => preferred)
+          .sort((i, j) => i.displayName.localeCompare(j.displayName)),
         selectedCountry: this.getCountry(this.currentCountry.toUpperCase()),
         value: this.currentCountry.toUpperCase(),
         toggleOn: false
@@ -93,6 +99,9 @@
         this.selectedCountry = this.getCountry(this.value)
         this.toggleDropdown = false
         this.$emit('change', this.selectedCountry)
+      },
+      closeDropDown () {
+        this.toggleOn = false
       }
     },
     computed: {

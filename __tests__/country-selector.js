@@ -15,9 +15,10 @@ const data = {
 
 const testCountry = {
   "countryCode": "AR",
-  "countryName": "Argentina",
+  "countryName": "Argentinien",
   "currency": "USD",
   "currencySign": "US$",
+  "displayName": "Argentina",
   "languages": {
     "en": "Argentina"
   },
