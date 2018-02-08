@@ -55,8 +55,8 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
     }
   },
   methods: {
-    onLogin(email, password) {
-      alert(`Email: ${email} - Password: ${password}`)
+    onLogin(login) {
+      alert(`Email: ${login.username} - Password: ${login.password}`)
     },
     onCountryChange(currentCountry) {
       this.emitted = JSON.stringify(currentCountry)

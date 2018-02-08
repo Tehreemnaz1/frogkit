@@ -28,7 +28,7 @@
             <li v-if="!navOnly" v-for="item in navExtraItems">
               <a :href="item.url">{{ item.label }}</a>
             </li>
-          </ul> 
+          </ul>
         </nav>
       <!-- login form -->
       <Flex v-if="!navOnly" grow justify="end" align="center">

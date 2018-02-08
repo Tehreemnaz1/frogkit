@@ -52,13 +52,17 @@ describe('Header component', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  it('Login button should emit login event when clicked', () => {
-    const wrapper = mount(Header, { propsData: data })
-    wrapper.vm.$emit('login')
-    expect(wrapper.emitted().login).toBeTruthy()
+  it('Should emit login event when login method is called', () => {
+    const cmp = shallow(Header, {
+      propsData: data
+    })
+    const stub = jest.fn()
+    cmp.vm.$on('login', stub)
+    cmp.vm.login()
+    expect(stub).toBeCalled()
   })
 
-  it('Login button should emit email and password values when clicked', () => {
+  it('Should emit email and password values when login event is emitted', () => {
     const wrapper = mount(Header, { propsData: data })
     wrapper.vm.$emit('login')
     wrapper.vm.$emit('login', 'test@test.com', 'test-password')
