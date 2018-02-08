@@ -118,7 +118,7 @@
     },
     methods: {
       login() {
-        this.$emit('login', this.email, this.password)
+        this.$emit('login', { username: this.email, password: this.password })
       },
       countryChange(currentCountry) {
         this.$emit('countryChange', currentCountry)
