@@ -52,14 +52,14 @@
         </div>
         <!-- login button -->
         <Button link color="primary" size="small" class="fk-header__btn-login" @click="login">
-          {{ navExtraItems[0].label }}
+          {{ navExtraItems[2].label }}
         </Button>
         <!-- shop button -->
         <Button link color="secondary" size="small" class="fk-header__btn-shop" :href="navExtraItems[1].url">
           {{ navExtraItems[1].label }}
         </Button>
         <!-- cart button -->
-        <Button link color="secondary" size="small" class="fk-header__btn-cart" :href="navExtraItems[2].url">
+        <Button link color="secondary" size="small" class="fk-header__btn-cart" :href="navExtraItems[0].url">
           <Icon icon="basket" />
           <span v-if="cartCounter > 0" class="fk-header__btn-cart__counter">{{ cartCounter }}</span>
         </Button>
