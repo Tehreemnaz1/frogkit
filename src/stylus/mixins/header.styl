@@ -19,7 +19,7 @@ $visibleNavItems = 4
 
 // helpers
 mobile-order(n)
-  @media only screen and (max-width: $bp-sm)
+  @media only screen and (max-width: $bp-sm - 1)
     order: n
 
 mobile-only()
@@ -27,7 +27,7 @@ mobile-only()
     display: none !important
 
 desktop-only()
-  @media only screen and (max-width: $bp-sm)
+  @media only screen and (max-width: $bp-sm - 1)
     display: none !important
 
 // container
@@ -38,7 +38,7 @@ containerResponsive()
   flex-wrap: wrap
   align-items: center
   min-width 320px
-  @media only screen and (max-width: $bp-sm)
+  @media only screen and (max-width: $bp-sm - 1)
     justify-content space-between
   @media only screen and (min-width: $bp-sm)
     flex: none
@@ -59,7 +59,7 @@ logo()
   height: 34px
   img
     min-width: 175px
-  @media only screen and (max-width: $bp-sm)
+  @media only screen and (max-width: $bp-sm - 1)
     margin: 12px 15px
   @media only screen and (min-width: $bp-md)
     width: 235px
@@ -90,7 +90,7 @@ nav-links-default()
 // mobile toggle navigation
 mobile-nav()
   mobile-order(4)
-  @media only screen and (max-width: $bp-sm)
+  @media only screen and (max-width: $bp-sm - 1)
     width: 100%
     max-height: 0
     overflow: hidden
@@ -105,7 +105,7 @@ mobile-nav()
       a
         padding: 10px 15px 11px
         font-size: 2rem
-        color: $navColorMobile
+        // color: $navColorMobile
         line-height: 1.1
         border-bottom: solid 1px $borderColor
 

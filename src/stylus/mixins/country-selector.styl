@@ -10,11 +10,11 @@ $toggleArrowColor = #6F6F6F
 $flag-size = 24px
 
 desktop-only()
-  @media only screen and (max-width: $bp-sm)
+  @media only screen and (max-width: $bp-sm - 1)
     display: none !important
 
 small-screen-mixin()
-  @media only screen and (max-width: $bp-sm)
+  @media only screen and (max-width: $bp-sm - 1)
     margin-left: auto
     margin-right: 15px
     &__toggle

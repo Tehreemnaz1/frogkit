@@ -11,9 +11,9 @@ const navMainItems = [
   { label: 'So geht\'s', url: 'https://www.smartfrog.com/de-de/so-gehts/' }
 ]
 const navExtraItems = [
-  { label: 'Login', url: 'https://app.smartfrog.com/de-de/login' },
+  { label: 'Warenkorb', url: 'https://www.smartfrog.com/de-de/shop/cart' },
   { label: 'Shop', url: 'https://www.smartfrog.com/de-de/shop/products' },
-  { label: 'Warenkorb', url: 'https://www.smartfrog.com/de-de/shop/cart' }
+  { label: 'Login', url: 'https://app.smartfrog.com/de-de/login' }
 ]
 const formItems = {
   emailPlaceholder: 'E-Mail Adresse',

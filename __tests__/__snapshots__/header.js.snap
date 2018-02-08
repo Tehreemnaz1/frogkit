@@ -10,9 +10,9 @@ exports[`Header component Should render component and match snapshot 1`] = `
                 <li><a href="https://www.smartfrog.com/de-de/videoaufnahme/">Videoaufnahme</a></li>
                 <li><a href="https://www.smartfrog.com/de-de/einsatzbereiche/">Einsatzbereiche</a></li>
                 <li><a href="https://www.smartfrog.com/de-de/so-gehts/">So geht's</a></li>
-                <li><a href="https://app.smartfrog.com/de-de/login">Login</a></li>
-                <li><a href="https://www.smartfrog.com/de-de/shop/products">Shop</a></li>
                 <li><a href="https://www.smartfrog.com/de-de/shop/cart">Warenkorb</a></li>
+                <li><a href="https://www.smartfrog.com/de-de/shop/products">Shop</a></li>
+                <li><a href="https://app.smartfrog.com/de-de/login">Login</a></li>
             </ul>
         </nav>
         <flex grow="" justify="end" align="center">
