@@ -71,10 +71,16 @@ big-screen-mixin()
     &__item
       flex-basis 33%
       padding: 3px 10px
+      white-space: nowrap
+      overflow: hidden
+      max-height 30px
       img
         height: 24px
         width auto
         margin-right: 6px
+       p
+        text-overflow ellipsis
+        overflow: hidden
     &__select-box
       border-top: 1px solid $navBorderColor
       select
@@ -102,7 +108,7 @@ countries-mixin()
     transition: max-height 420ms ease-out
     &--on
       opacity: 1
-      max-height 100vh
+      max-height 400vh
       overflow: auto
       transition max-height 420ms ease-in-out
   &__item

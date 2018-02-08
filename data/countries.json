@@ -1,53 +1,58 @@
 [{
   "countryCode": "DE",
-  "countryName": "Germany",
+  "countryName": "Deutschland",
   "market": "HW",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "de": "Deutschland"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Deutschland"
 }, {
   "countryCode": "AT",
-  "countryName": "Austria",
+  "countryName": "Österreich",
   "market": "HW",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "de": "Österreich"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Österreich"
 }, {
   "countryCode": "CH",
-  "countryName": "Switzerland",
+  "countryName": "Schweiz",
   "market": "HW",
   "currency": "CHF",
   "currencySign": "Fr.",
   "languages": {
     "de": "Schweiz"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Schweiz"
 }, {
   "countryCode": "IE",
-  "countryName": "Ireland",
+  "countryName": "Irland",
   "market": "HW",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "en": "Ireland"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Ireland"
 }, {
   "countryCode": "GB",
-  "countryName": "United Kingdom",
+  "countryName": "Großbritannien (UK)",
   "market": "HW",
   "currency": "GBP",
   "currencySign": "£",
   "languages": {
     "en": "United Kingdom"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "United Kingdom"
 }, {
   "countryCode": "AF",
   "countryName": "Afghanistan",
@@ -57,37 +62,41 @@
   "languages": {
     "en": "Afghanistan"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Afghanistan"
+}, {
+  "countryCode": "EG",
+  "countryName": "Ägypten",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Egypt"
+  },
+  "preferred": true,
+  "displayName": "Egypt"
 }, {
   "countryCode": "AL",
-  "countryName": "Albania",
+  "countryName": "Albanien",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Albania"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Albania"
 }, {
   "countryCode": "DZ",
-  "countryName": "Algeria",
+  "countryName": "Algerien",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Algeria"
   },
-  "preferred": false
-}, {
-  "countryCode": "AS",
-  "countryName": "American Samoa",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "American Samoa"
-  },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Algeria"
 }, {
   "countryCode": "AD",
   "countryName": "Andorra",
@@ -97,7 +106,8 @@
   "languages": {
     "en": "Andorra"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Andorra"
 }, {
   "countryCode": "AO",
   "countryName": "Angola",
@@ -107,7 +117,8 @@
   "languages": {
     "en": "Angola"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Angola"
 }, {
   "countryCode": "AI",
   "countryName": "Anguilla",
@@ -117,47 +128,63 @@
   "languages": {
     "en": "Anguilla"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Anguilla"
 }, {
   "countryCode": "AQ",
-  "countryName": "Antarctica",
+  "countryName": "Antarktis",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Antarctica"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Antarctica"
 }, {
   "countryCode": "AG",
-  "countryName": "Antigua and Barbuda",
+  "countryName": "Antigua und Barbuda",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Antigua and Barbuda"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Antigua and Barbuda"
+}, {
+  "countryCode": "GQ",
+  "countryName": "Äquatorial Guinea",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Equatorial Guinea"
+  },
+  "preferred": false,
+  "displayName": "Equatorial Guinea"
 }, {
   "countryCode": "AR",
-  "countryName": "Argentina",
+  "countryName": "Argentinien",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Argentina"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Argentina"
 }, {
   "countryCode": "AM",
-  "countryName": "Armenia",
+  "countryName": "Armenien",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Armenia"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Armenia"
 }, {
   "countryCode": "AW",
   "countryName": "Aruba",
@@ -167,27 +194,41 @@
   "languages": {
     "en": "Aruba"
   },
-  "preferred": false
-}, {
-  "countryCode": "AU",
-  "countryName": "Australia",
-  "market": "NHW",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Australia"
-  },
-  "preferred": true
+  "preferred": false,
+  "displayName": "Aruba"
 }, {
   "countryCode": "AZ",
-  "countryName": "Azerbaijan",
+  "countryName": "Aserbaidschan",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Azerbaijan"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Azerbaijan"
+}, {
+  "countryCode": "ET",
+  "countryName": "Äthiopien",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Ethiopia"
+  },
+  "preferred": false,
+  "displayName": "Ethiopia"
+}, {
+  "countryCode": "AU",
+  "countryName": "Australien",
+  "market": "NHW",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Australia"
+  },
+  "preferred": true,
+  "displayName": "Australia"
 }, {
   "countryCode": "BS",
   "countryName": "Bahamas",
@@ -197,7 +238,8 @@
   "languages": {
     "en": "Bahamas"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Bahamas"
 }, {
   "countryCode": "BH",
   "countryName": "Bahrain",
@@ -207,7 +249,8 @@
   "languages": {
     "en": "Bahrain"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Bahrain"
 }, {
   "countryCode": "BD",
   "countryName": "Bangladesh",
@@ -217,7 +260,8 @@
   "languages": {
     "en": "Bangladesh"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Bangladesh"
 }, {
   "countryCode": "BB",
   "countryName": "Barbados",
@@ -227,27 +271,19 @@
   "languages": {
     "en": "Barbados"
   },
-  "preferred": false
-}, {
-  "countryCode": "BY",
-  "countryName": "Belarus",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Belarus"
-  },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Barbados"
 }, {
   "countryCode": "BE",
-  "countryName": "Belgium",
+  "countryName": "Belgien",
   "market": "NHW",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "en": "Belgium"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Belgium"
 }, {
   "countryCode": "BZ",
   "countryName": "Belize",
@@ -257,7 +293,8 @@
   "languages": {
     "en": "Belize"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Belize"
 }, {
   "countryCode": "BJ",
   "countryName": "Benin",
@@ -267,17 +304,19 @@
   "languages": {
     "en": "Benin"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Benin"
 }, {
   "countryCode": "BM",
-  "countryName": "Bermuda",
+  "countryName": "Bermudas",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Bermuda"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Bermuda"
 }, {
   "countryCode": "BT",
   "countryName": "Bhutan",
@@ -287,27 +326,30 @@
   "languages": {
     "en": "Bhutan"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Bhutan"
 }, {
   "countryCode": "BO",
-  "countryName": "Bolivia",
+  "countryName": "Bolivien",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Bolivia"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Bolivia"
 }, {
   "countryCode": "BA",
-  "countryName": "Bosnia and Herzegovina",
+  "countryName": "Bosnien-Herzegowina",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Bosnia and Herzegovina"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Bosnia and Herzegovina"
 }, {
   "countryCode": "BW",
   "countryName": "Botswana",
@@ -317,57 +359,63 @@
   "languages": {
     "en": "Botswana"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Botswana"
 }, {
   "countryCode": "BV",
-  "countryName": "Bouvet Island",
+  "countryName": "Bouvet-Inseln",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Bouvet Island"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Bouvet Island"
 }, {
   "countryCode": "BR",
-  "countryName": "Brazil",
+  "countryName": "Brasilien",
   "market": "NHW",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Brazil"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Brazil"
 }, {
   "countryCode": "IO",
-  "countryName": "British Indian Ocean Territory",
+  "countryName": "Britisch-Indischer Ozean",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "British Indian Ocean Territory"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "British Indian Ocean Territory"
 }, {
   "countryCode": "BN",
-  "countryName": "Brunei Darussalam",
+  "countryName": "Brunei",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Brunei Darussalam"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Brunei Darussalam"
 }, {
   "countryCode": "BG",
-  "countryName": "Bulgaria",
+  "countryName": "Bulgarien",
   "market": "NHW",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "en": "Bulgaria"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Bulgaria"
 }, {
   "countryCode": "BF",
   "countryName": "Burkina Faso",
@@ -377,7 +425,8 @@
   "languages": {
     "en": "Burkina Faso"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Burkina Faso"
 }, {
   "countryCode": "BI",
   "countryName": "Burundi",
@@ -387,77 +436,8 @@
   "languages": {
     "en": "Burundi"
   },
-  "preferred": false
-}, {
-  "countryCode": "KH",
-  "countryName": "Cambodia",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Cambodia"
-  },
-  "preferred": false
-}, {
-  "countryCode": "CM",
-  "countryName": "Cameroon",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Cameroon"
-  },
-  "preferred": false
-}, {
-  "countryCode": "CA",
-  "countryName": "Canada",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Canada"
-  },
-  "preferred": true
-}, {
-  "countryCode": "CV",
-  "countryName": "Cape Verde",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Cape Verde"
-  },
-  "preferred": false
-}, {
-  "countryCode": "KY",
-  "countryName": "Cayman Islands",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Cayman Islands"
-  },
-  "preferred": false
-}, {
-  "countryCode": "CF",
-  "countryName": "Central African Republic",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Central African Republic"
-  },
-  "preferred": false
-}, {
-  "countryCode": "TD",
-  "countryName": "Chad",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Chad"
-  },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Burundi"
 }, {
   "countryCode": "CL",
   "countryName": "Chile",
@@ -467,7 +447,8 @@
   "languages": {
     "en": "Chile"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Chile"
 }, {
   "countryCode": "CN",
   "countryName": "China",
@@ -477,7 +458,8 @@
   "languages": {
     "en": "China"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "China"
 }, {
   "countryCode": "CX",
   "countryName": "Christmas Island",
@@ -487,57 +469,19 @@
   "languages": {
     "en": "Christmas Island"
   },
-  "preferred": false
-}, {
-  "countryCode": "CC",
-  "countryName": "Cocos (Keeling) Islands",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Cocos (Keeling) Islands"
-  },
-  "preferred": false
-}, {
-  "countryCode": "CO",
-  "countryName": "Colombia",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Colombia"
-  },
-  "preferred": false
-}, {
-  "countryCode": "KM",
-  "countryName": "Comoros",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Comoros"
-  },
-  "preferred": false
-}, {
-  "countryCode": "CG",
-  "countryName": "Congo",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Congo"
-  },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Christmas Island"
 }, {
   "countryCode": "CK",
-  "countryName": "Cook Islands",
+  "countryName": "Cook-Inseln",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Cook Islands"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Cook Islands"
 }, {
   "countryCode": "CR",
   "countryName": "Costa Rica",
@@ -547,97 +491,52 @@
   "languages": {
     "en": "Costa Rica"
   },
-  "preferred": false
-}, {
-  "countryCode": "CI",
-  "countryName": "Cote D'Ivoire (Ivory Coast)",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Cote D'Ivoire (Ivory Coast)"
-  },
-  "preferred": false
-}, {
-  "countryCode": "HR",
-  "countryName": "Croatia (Hrvatska)",
-  "market": "NHW",
-  "currency": "EUR",
-  "currencySign": "€",
-  "languages": {
-    "en": "Croatia (Hrvatska)"
-  },
-  "preferred": true
-}, {
-  "countryCode": "CU",
-  "countryName": "Cuba",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Cuba"
-  },
-  "preferred": false
-}, {
-  "countryCode": "CY",
-  "countryName": "Cyprus",
-  "market": "NHW",
-  "currency": "EUR",
-  "currencySign": "€",
-  "languages": {
-    "en": "Cyprus"
-  },
-  "preferred": true
-}, {
-  "countryCode": "CZ",
-  "countryName": "Czech Republic",
-  "market": "NHW",
-  "currency": "EUR",
-  "currencySign": "€",
-  "languages": {
-    "en": "Czech Republic"
-  },
-  "preferred": true
+  "preferred": false,
+  "displayName": "Costa Rica"
 }, {
   "countryCode": "DK",
-  "countryName": "Denmark",
+  "countryName": "Dänemark",
   "market": "NHW",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "en": "Denmark"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Denmark"
 }, {
   "countryCode": "DJ",
-  "countryName": "Djibouti",
+  "countryName": "Djibuti",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Djibouti"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Djibouti"
 }, {
   "countryCode": "DM",
-  "countryName": "Dominica",
+  "countryName": "Dominika",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Dominica"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Dominica"
 }, {
   "countryCode": "DO",
-  "countryName": "Dominican Republic",
+  "countryName": "Dominikanische Republik",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Dominican Republic"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Dominican Republic"
 }, {
   "countryCode": "EC",
   "countryName": "Ecuador",
@@ -647,17 +546,19 @@
   "languages": {
     "en": "Ecuador"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Ecuador"
 }, {
-  "countryCode": "EG",
-  "countryName": "Egypt",
+  "countryCode": "CI",
+  "countryName": "Elfenbeinküste",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
-    "en": "Egypt"
+    "en": "Cote D'Ivoire (Ivory Coast)"
   },
-  "preferred": true
+  "preferred": false,
+  "displayName": "Cote D'Ivoire (Ivory Coast)"
 }, {
   "countryCode": "SV",
   "countryName": "El Salvador",
@@ -667,17 +568,8 @@
   "languages": {
     "en": "El Salvador"
   },
-  "preferred": false
-}, {
-  "countryCode": "GQ",
-  "countryName": "Equatorial Guinea",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Equatorial Guinea"
-  },
-  "preferred": false
+  "preferred": false,
+  "displayName": "El Salvador"
 }, {
   "countryCode": "ER",
   "countryName": "Eritrea",
@@ -687,117 +579,118 @@
   "languages": {
     "en": "Eritrea"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Eritrea"
 }, {
   "countryCode": "EE",
-  "countryName": "Estonia",
+  "countryName": "Estland",
   "market": "NHW",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "en": "Estonia"
   },
-  "preferred": true
-}, {
-  "countryCode": "ET",
-  "countryName": "Ethiopia",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Ethiopia"
-  },
-  "preferred": false
+  "preferred": true,
+  "displayName": "Estonia"
 }, {
   "countryCode": "FK",
-  "countryName": "Falkland Islands (Malvinas)",
+  "countryName": "Falkland-Inseln",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Falkland Islands (Malvinas)"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Falkland Islands (Malvinas)"
 }, {
   "countryCode": "FO",
-  "countryName": "Faroe Islands",
+  "countryName": "Färöer Inseln",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Faroe Islands"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Faroe Islands"
 }, {
   "countryCode": "FJ",
-  "countryName": "Fiji",
+  "countryName": "Fidschi-Inseln",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Fiji"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Fiji"
 }, {
   "countryCode": "FI",
-  "countryName": "Finland",
+  "countryName": "Finnland",
   "market": "NHW",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "en": "Finland"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Finland"
 }, {
   "countryCode": "FR",
-  "countryName": "France",
+  "countryName": "Frankreich",
   "market": "NHW",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "en": "France"
   },
-  "preferred": true
-}, {
-  "countryCode": "GF",
-  "countryName": "French Guiana",
-  "market": "NHW_2",
-  "currency": "EUR",
-  "currencySign": "€",
-  "languages": {
-    "en": "French Guiana"
-  },
-  "preferred": false
-}, {
-  "countryCode": "PF",
-  "countryName": "French Polynesia",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "French Polynesia"
-  },
-  "preferred": false
+  "preferred": true,
+  "displayName": "France"
 }, {
   "countryCode": "TF",
-  "countryName": "French Southern Territories",
+  "countryName": "Französisches Süd-Territorium",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "French Southern Territories"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "French Southern Territories"
+}, {
+  "countryCode": "GF",
+  "countryName": "französisch Guyana",
+  "market": "NHW_2",
+  "currency": "EUR",
+  "currencySign": "€",
+  "languages": {
+    "en": "French Guiana"
+  },
+  "preferred": false,
+  "displayName": "French Guiana"
+}, {
+  "countryCode": "PF",
+  "countryName": "Französisch-Polynesien",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "French Polynesia"
+  },
+  "preferred": false,
+  "displayName": "French Polynesia"
 }, {
   "countryCode": "GA",
-  "countryName": "Gabon",
+  "countryName": "Gabun",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Gabon"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Gabon"
 }, {
   "countryCode": "GM",
   "countryName": "Gambia",
@@ -807,17 +700,19 @@
   "languages": {
     "en": "Gambia"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Gambia"
 }, {
   "countryCode": "GE",
-  "countryName": "Georgia",
+  "countryName": "Georgien",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Georgia"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Georgia"
 }, {
   "countryCode": "GH",
   "countryName": "Ghana",
@@ -827,7 +722,8 @@
   "languages": {
     "en": "Ghana"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Ghana"
 }, {
   "countryCode": "GI",
   "countryName": "Gibraltar",
@@ -837,27 +733,8 @@
   "languages": {
     "en": "Gibraltar"
   },
-  "preferred": false
-}, {
-  "countryCode": "GR",
-  "countryName": "Greece",
-  "market": "NHW",
-  "currency": "EUR",
-  "currencySign": "€",
-  "languages": {
-    "en": "Greece"
-  },
-  "preferred": true
-}, {
-  "countryCode": "GL",
-  "countryName": "Greenland",
-  "market": "NHW",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Greenland"
-  },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Gibraltar"
 }, {
   "countryCode": "GD",
   "countryName": "Grenada",
@@ -867,7 +744,30 @@
   "languages": {
     "en": "Grenada"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Grenada"
+}, {
+  "countryCode": "GR",
+  "countryName": "Griechenland",
+  "market": "NHW",
+  "currency": "EUR",
+  "currencySign": "€",
+  "languages": {
+    "en": "Greece"
+  },
+  "preferred": true,
+  "displayName": "Greece"
+}, {
+  "countryCode": "GL",
+  "countryName": "Grönland",
+  "market": "NHW",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Greenland"
+  },
+  "preferred": false,
+  "displayName": "Greenland"
 }, {
   "countryCode": "GP",
   "countryName": "Guadeloupe",
@@ -877,7 +777,8 @@
   "languages": {
     "en": "Guadeloupe"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Guadeloupe"
 }, {
   "countryCode": "GU",
   "countryName": "Guam",
@@ -887,7 +788,8 @@
   "languages": {
     "en": "Guam"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Guam"
 }, {
   "countryCode": "GT",
   "countryName": "Guatemala",
@@ -897,7 +799,8 @@
   "languages": {
     "en": "Guatemala"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Guatemala"
 }, {
   "countryCode": "GN",
   "countryName": "Guinea",
@@ -907,17 +810,19 @@
   "languages": {
     "en": "Guinea"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Guinea"
 }, {
   "countryCode": "GW",
-  "countryName": "Guinea-Bissau",
+  "countryName": "Guinea Bissau",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Guinea-Bissau"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Guinea-Bissau"
 }, {
   "countryCode": "GY",
   "countryName": "Guyana",
@@ -927,7 +832,8 @@
   "languages": {
     "en": "Guyana"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Guyana"
 }, {
   "countryCode": "HT",
   "countryName": "Haiti",
@@ -937,17 +843,19 @@
   "languages": {
     "en": "Haiti"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Haiti"
 }, {
   "countryCode": "HM",
-  "countryName": "Heard and McDonald Islands",
+  "countryName": "Heard und McDonald Islands",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Heard and McDonald Islands"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Heard and McDonald Islands"
 }, {
   "countryCode": "HN",
   "countryName": "Honduras",
@@ -957,7 +865,8 @@
   "languages": {
     "en": "Honduras"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Honduras"
 }, {
   "countryCode": "HK",
   "countryName": "Hong Kong",
@@ -967,47 +876,41 @@
   "languages": {
     "en": "Hong Kong"
   },
-  "preferred": true
-}, {
-  "countryCode": "HU",
-  "countryName": "Hungary",
-  "market": "NHW",
-  "currency": "EUR",
-  "currencySign": "€",
-  "languages": {
-    "en": "Hungary"
-  },
-  "preferred": true
-}, {
-  "countryCode": "IS",
-  "countryName": "Iceland",
-  "market": "NHW",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Iceland"
-  },
-  "preferred": false
+  "preferred": true,
+  "displayName": "Hong Kong"
 }, {
   "countryCode": "IN",
-  "countryName": "India",
+  "countryName": "Indien",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "India"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "India"
 }, {
   "countryCode": "ID",
-  "countryName": "Indonesia",
+  "countryName": "Indonesien",
   "market": "NHW",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Indonesia"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Indonesia"
+}, {
+  "countryCode": "IQ",
+  "countryName": "Irak",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Iraq"
+  },
+  "preferred": false,
+  "displayName": "Iraq"
 }, {
   "countryCode": "IR",
   "countryName": "Iran",
@@ -1017,17 +920,19 @@
   "languages": {
     "en": "Iran"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Iran"
 }, {
-  "countryCode": "IQ",
-  "countryName": "Iraq",
-  "market": "NHW_2",
+  "countryCode": "IS",
+  "countryName": "Island",
+  "market": "NHW",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
-    "en": "Iraq"
+    "en": "Iceland"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Iceland"
 }, {
   "countryCode": "IL",
   "countryName": "Israel",
@@ -1037,27 +942,30 @@
   "languages": {
     "en": "Israel"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Israel"
 }, {
   "countryCode": "IT",
-  "countryName": "Italy",
+  "countryName": "Italien",
   "market": "NHW",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "en": "Italy"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Italy"
 }, {
   "countryCode": "JM",
-  "countryName": "Jamaica",
+  "countryName": "Jamaika",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Jamaica"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Jamaica"
 }, {
   "countryCode": "JP",
   "countryName": "Japan",
@@ -1067,37 +975,118 @@
   "languages": {
     "en": "Japan"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Japan"
+}, {
+  "countryCode": "YE",
+  "countryName": "Jemen",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Yemen"
+  },
+  "preferred": false,
+  "displayName": "Yemen"
 }, {
   "countryCode": "JO",
-  "countryName": "Jordan",
+  "countryName": "Jordanien",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Jordan"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Jordan"
+}, {
+  "countryCode": "KY",
+  "countryName": "Kaiman-Inseln",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Cayman Islands"
+  },
+  "preferred": false,
+  "displayName": "Cayman Islands"
+}, {
+  "countryCode": "KH",
+  "countryName": "Kambodscha",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Cambodia"
+  },
+  "preferred": false,
+  "displayName": "Cambodia"
+}, {
+  "countryCode": "CM",
+  "countryName": "Kamerun",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Cameroon"
+  },
+  "preferred": false,
+  "displayName": "Cameroon"
+}, {
+  "countryCode": "CA",
+  "countryName": "Kanada",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Canada"
+  },
+  "preferred": true,
+  "displayName": "Canada"
+}, {
+  "countryCode": "CV",
+  "countryName": "Kap Verde",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Cape Verde"
+  },
+  "preferred": false,
+  "displayName": "Cape Verde"
 }, {
   "countryCode": "KZ",
-  "countryName": "Kazakhstan",
+  "countryName": "Kasachstan",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Kazakhstan"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Kazakhstan"
 }, {
   "countryCode": "KE",
-  "countryName": "Kenya",
+  "countryName": "Kenia",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Kenya"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Kenya"
+}, {
+  "countryCode": "KG",
+  "countryName": "Kirgisistan",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Kyrgyzstan"
+  },
+  "preferred": false,
+  "displayName": "Kyrgyzstan"
 }, {
   "countryCode": "KI",
   "countryName": "Kiribati",
@@ -1107,27 +1096,74 @@
   "languages": {
     "en": "Kiribati"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Kiribati"
 }, {
-  "countryCode": "KP",
-  "countryName": "Korea (North)",
+  "countryCode": "CC",
+  "countryName": "Kokosinseln",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
-    "en": "Korea (North)"
+    "en": "Cocos (Keeling) Islands"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Cocos (Keeling) Islands"
 }, {
-  "countryCode": "KR",
-  "countryName": "Korea (South)",
+  "countryCode": "CO",
+  "countryName": "Kolumbien",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
-    "en": "Korea (South)"
+    "en": "Colombia"
   },
-  "preferred": true
+  "preferred": false,
+  "displayName": "Colombia"
+}, {
+  "countryCode": "KM",
+  "countryName": "Komoren",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Comoros"
+  },
+  "preferred": false,
+  "displayName": "Comoros"
+}, {
+  "countryCode": "CG",
+  "countryName": "Kongo",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Congo"
+  },
+  "preferred": false,
+  "displayName": "Congo"
+}, {
+  "countryCode": "HR",
+  "countryName": "Kroatien",
+  "market": "NHW",
+  "currency": "EUR",
+  "currencySign": "€",
+  "languages": {
+    "en": "Croatia (Hrvatska)"
+  },
+  "preferred": true,
+  "displayName": "Croatia (Hrvatska)"
+}, {
+  "countryCode": "CU",
+  "countryName": "Kuba",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Cuba"
+  },
+  "preferred": false,
+  "displayName": "Cuba"
 }, {
   "countryCode": "KW",
   "countryName": "Kuwait",
@@ -1137,17 +1173,8 @@
   "languages": {
     "en": "Kuwait"
   },
-  "preferred": true
-}, {
-  "countryCode": "KG",
-  "countryName": "Kyrgyzstan",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Kyrgyzstan"
-  },
-  "preferred": false
+  "preferred": true,
+  "displayName": "Kuwait"
 }, {
   "countryCode": "LA",
   "countryName": "Laos",
@@ -1157,27 +1184,8 @@
   "languages": {
     "en": "Laos"
   },
-  "preferred": false
-}, {
-  "countryCode": "LV",
-  "countryName": "Latvia",
-  "market": "NHW",
-  "currency": "EUR",
-  "currencySign": "€",
-  "languages": {
-    "en": "Latvia"
-  },
-  "preferred": false
-}, {
-  "countryCode": "LB",
-  "countryName": "Lebanon",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Lebanon"
-  },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Laos"
 }, {
   "countryCode": "LS",
   "countryName": "Lesotho",
@@ -1187,7 +1195,30 @@
   "languages": {
     "en": "Lesotho"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Lesotho"
+}, {
+  "countryCode": "LV",
+  "countryName": "Lettland",
+  "market": "NHW",
+  "currency": "EUR",
+  "currencySign": "€",
+  "languages": {
+    "en": "Latvia"
+  },
+  "preferred": false,
+  "displayName": "Latvia"
+}, {
+  "countryCode": "LB",
+  "countryName": "Libanon",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Lebanon"
+  },
+  "preferred": false,
+  "displayName": "Lebanon"
 }, {
   "countryCode": "LR",
   "countryName": "Liberia",
@@ -1197,17 +1228,19 @@
   "languages": {
     "en": "Liberia"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Liberia"
 }, {
   "countryCode": "LY",
-  "countryName": "Libya",
+  "countryName": "Libyen",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Libya"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Libya"
 }, {
   "countryCode": "LI",
   "countryName": "Liechtenstein",
@@ -1217,57 +1250,52 @@
   "languages": {
     "en": "Liechtenstein"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Liechtenstein"
 }, {
   "countryCode": "LT",
-  "countryName": "Lithuania",
+  "countryName": "Litauen",
   "market": "NHW_2",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "en": "Lithuania"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Lithuania"
 }, {
   "countryCode": "LU",
-  "countryName": "Luxembourg",
+  "countryName": "Luxemburg",
   "market": "NHW",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "en": "Luxembourg"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Luxembourg"
 }, {
   "countryCode": "MO",
-  "countryName": "Macau",
+  "countryName": "Macao",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Macau"
   },
-  "preferred": false
-}, {
-  "countryCode": "MK",
-  "countryName": "Macedonia",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Macedonia"
-  },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Macau"
 }, {
   "countryCode": "MG",
-  "countryName": "Madagascar",
+  "countryName": "Madagaskar",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Madagascar"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Madagascar"
 }, {
   "countryCode": "MW",
   "countryName": "Malawi",
@@ -1277,7 +1305,8 @@
   "languages": {
     "en": "Malawi"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Malawi"
 }, {
   "countryCode": "MY",
   "countryName": "Malaysia",
@@ -1287,17 +1316,19 @@
   "languages": {
     "en": "Malaysia"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Malaysia"
 }, {
   "countryCode": "MV",
-  "countryName": "Maldives",
+  "countryName": "Malediven",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Maldives"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Maldives"
 }, {
   "countryCode": "ML",
   "countryName": "Mali",
@@ -1307,7 +1338,8 @@
   "languages": {
     "en": "Mali"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Mali"
 }, {
   "countryCode": "MT",
   "countryName": "Malta",
@@ -1317,17 +1349,41 @@
   "languages": {
     "en": "Malta"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Malta"
+}, {
+  "countryCode": "MP",
+  "countryName": "Marianen",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Northern Mariana Islands"
+  },
+  "preferred": false,
+  "displayName": "Northern Mariana Islands"
+}, {
+  "countryCode": "MA",
+  "countryName": "Marokko",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Morocco"
+  },
+  "preferred": false,
+  "displayName": "Morocco"
 }, {
   "countryCode": "MH",
-  "countryName": "Marshall Islands",
+  "countryName": "Marshall-Inseln",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Marshall Islands"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Marshall Islands"
 }, {
   "countryCode": "MQ",
   "countryName": "Martinique",
@@ -1337,17 +1393,19 @@
   "languages": {
     "en": "Martinique"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Martinique"
 }, {
   "countryCode": "MR",
-  "countryName": "Mauritania",
+  "countryName": "Mauretanien",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Mauritania"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Mauritania"
 }, {
   "countryCode": "MU",
   "countryName": "Mauritius",
@@ -1357,7 +1415,8 @@
   "languages": {
     "en": "Mauritius"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Mauritius"
 }, {
   "countryCode": "YT",
   "countryName": "Mayotte",
@@ -1367,37 +1426,63 @@
   "languages": {
     "en": "Mayotte"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Mayotte"
+}, {
+  "countryCode": "MK",
+  "countryName": "Mazedonien",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Macedonia"
+  },
+  "preferred": false,
+  "displayName": "Macedonia"
 }, {
   "countryCode": "MX",
-  "countryName": "Mexico",
+  "countryName": "Mexiko",
   "market": "NHW",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Mexico"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Mexico"
 }, {
   "countryCode": "FM",
-  "countryName": "Micronesia",
+  "countryName": "Mikronesien",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Micronesia"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Micronesia"
+}, {
+  "countryCode": "MZ",
+  "countryName": "Mocambique",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Mozambique"
+  },
+  "preferred": false,
+  "displayName": "Mozambique"
 }, {
   "countryCode": "MD",
-  "countryName": "Moldova",
+  "countryName": "Moldavien",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Moldova"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Moldova"
 }, {
   "countryCode": "MC",
   "countryName": "Monaco",
@@ -1407,17 +1492,19 @@
   "languages": {
     "en": "Monaco"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Monaco"
 }, {
   "countryCode": "MN",
-  "countryName": "Mongolia",
+  "countryName": "Mongolei",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Mongolia"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Mongolia"
 }, {
   "countryCode": "ME",
   "countryName": "Montenegro",
@@ -1427,7 +1514,8 @@
   "languages": {
     "en": "Montenegro"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Montenegro"
 }, {
   "countryCode": "MS",
   "countryName": "Montserrat",
@@ -1437,27 +1525,8 @@
   "languages": {
     "en": "Montserrat"
   },
-  "preferred": false
-}, {
-  "countryCode": "MA",
-  "countryName": "Morocco",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Morocco"
-  },
-  "preferred": false
-}, {
-  "countryCode": "MZ",
-  "countryName": "Mozambique",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Mozambique"
-  },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Montserrat"
 }, {
   "countryCode": "MM",
   "countryName": "Myanmar",
@@ -1467,7 +1536,8 @@
   "languages": {
     "en": "Myanmar"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Myanmar"
 }, {
   "countryCode": "NA",
   "countryName": "Namibia",
@@ -1477,7 +1547,8 @@
   "languages": {
     "en": "Namibia"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Namibia"
 }, {
   "countryCode": "NR",
   "countryName": "Nauru",
@@ -1487,7 +1558,8 @@
   "languages": {
     "en": "Nauru"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Nauru"
 }, {
   "countryCode": "NP",
   "countryName": "Nepal",
@@ -1497,37 +1569,30 @@
   "languages": {
     "en": "Nepal"
   },
-  "preferred": false
-}, {
-  "countryCode": "NL",
-  "countryName": "Netherlands",
-  "market": "NHW",
-  "currency": "EUR",
-  "currencySign": "€",
-  "languages": {
-    "en": "Netherlands"
-  },
-  "preferred": true
+  "preferred": false,
+  "displayName": "Nepal"
 }, {
   "countryCode": "NC",
-  "countryName": "New Caledonia",
+  "countryName": "Neukaledonien",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "New Caledonia"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "New Caledonia"
 }, {
   "countryCode": "NZ",
-  "countryName": "New Zealand (Aotearoa)",
+  "countryName": "Neuseeland",
   "market": "NHW",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
-    "en": "New Zealand (Aotearoa)"
+    "en": "New Zealand"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "New Zealand"
 }, {
   "countryCode": "NI",
   "countryName": "Nicaragua",
@@ -1537,7 +1602,19 @@
   "languages": {
     "en": "Nicaragua"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Nicaragua"
+}, {
+  "countryCode": "NL",
+  "countryName": "Niederlande",
+  "market": "NHW",
+  "currency": "EUR",
+  "currencySign": "€",
+  "languages": {
+    "en": "Netherlands"
+  },
+  "preferred": true,
+  "displayName": "Netherlands"
 }, {
   "countryCode": "NE",
   "countryName": "Niger",
@@ -1547,7 +1624,8 @@
   "languages": {
     "en": "Niger"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Niger"
 }, {
   "countryCode": "NG",
   "countryName": "Nigeria",
@@ -1557,7 +1635,8 @@
   "languages": {
     "en": "Nigeria"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Nigeria"
 }, {
   "countryCode": "NU",
   "countryName": "Niue",
@@ -1567,37 +1646,41 @@
   "languages": {
     "en": "Niue"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Niue"
+}, {
+  "countryCode": "KP",
+  "countryName": "Nordkorea",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Korea (North)"
+  },
+  "preferred": false,
+  "displayName": "Korea (North)"
 }, {
   "countryCode": "NF",
-  "countryName": "Norfolk Island",
+  "countryName": "Norfolk-Inseln",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Norfolk Island"
   },
-  "preferred": false
-}, {
-  "countryCode": "MP",
-  "countryName": "Northern Mariana Islands",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Northern Mariana Islands"
-  },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Norfolk Island"
 }, {
   "countryCode": "NO",
-  "countryName": "Norway",
+  "countryName": "Norwegen",
   "market": "NHW",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Norway"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Norway"
 }, {
   "countryCode": "OM",
   "countryName": "Oman",
@@ -1607,7 +1690,8 @@
   "languages": {
     "en": "Oman"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Oman"
 }, {
   "countryCode": "PK",
   "countryName": "Pakistan",
@@ -1617,7 +1701,19 @@
   "languages": {
     "en": "Pakistan"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Pakistan"
+}, {
+  "countryCode": "PS",
+  "countryName": "Palästina",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Palestine"
+  },
+  "preferred": false,
+  "displayName": "Palestine"
 }, {
   "countryCode": "PW",
   "countryName": "Palau",
@@ -1627,17 +1723,8 @@
   "languages": {
     "en": "Palau"
   },
-  "preferred": false
-}, {
-  "countryCode": "PS",
-  "countryName": "Palestine",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Palestine"
-  },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Palau"
 }, {
   "countryCode": "PA",
   "countryName": "Panama",
@@ -1647,17 +1734,19 @@
   "languages": {
     "en": "Panama"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Panama"
 }, {
   "countryCode": "PG",
-  "countryName": "Papua New Guinea",
+  "countryName": "Papua Neuguinea",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Papua New Guinea"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Papua New Guinea"
 }, {
   "countryCode": "PY",
   "countryName": "Paraguay",
@@ -1667,7 +1756,8 @@
   "languages": {
     "en": "Paraguay"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Paraguay"
 }, {
   "countryCode": "PE",
   "countryName": "Peru",
@@ -1677,17 +1767,19 @@
   "languages": {
     "en": "Peru"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Peru"
 }, {
   "countryCode": "PH",
-  "countryName": "Philippines",
+  "countryName": "Philippinen",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Philippines"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Philippines"
 }, {
   "countryCode": "PN",
   "countryName": "Pitcairn",
@@ -1697,17 +1789,19 @@
   "languages": {
     "en": "Pitcairn"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Pitcairn"
 }, {
   "countryCode": "PL",
-  "countryName": "Poland",
+  "countryName": "Polen",
   "market": "NHW",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "en": "Poland"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Poland"
 }, {
   "countryCode": "PT",
   "countryName": "Portugal",
@@ -1717,7 +1811,8 @@
   "languages": {
     "en": "Portugal"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Portugal"
 }, {
   "countryCode": "PR",
   "countryName": "Puerto Rico",
@@ -1727,7 +1822,8 @@
   "languages": {
     "en": "Puerto Rico"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Puerto Rico"
 }, {
   "countryCode": "QA",
   "countryName": "Qatar",
@@ -1737,7 +1833,8 @@
   "languages": {
     "en": "Qatar"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Qatar"
 }, {
   "countryCode": "RE",
   "countryName": "Reunion",
@@ -1747,57 +1844,41 @@
   "languages": {
     "en": "Reunion"
   },
-  "preferred": false
-}, {
-  "countryCode": "RO",
-  "countryName": "Romania",
-  "market": "NHW",
-  "currency": "EUR",
-  "currencySign": "€",
-  "languages": {
-    "en": "Romania"
-  },
-  "preferred": true
-}, {
-  "countryCode": "RU",
-  "countryName": "Russian Federation",
-  "market": "NHW",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Russian Federation"
-  },
-  "preferred": true
+  "preferred": false,
+  "displayName": "Reunion"
 }, {
   "countryCode": "RW",
-  "countryName": "Rwanda",
+  "countryName": "Ruanda",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Rwanda"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Rwanda"
 }, {
-  "countryCode": "GS",
-  "countryName": "S. Georgia and S. Sandwich Isls.",
-  "market": "NHW_2",
+  "countryCode": "RO",
+  "countryName": "Rumänien",
+  "market": "NHW",
+  "currency": "EUR",
+  "currencySign": "€",
+  "languages": {
+    "en": "Romania"
+  },
+  "preferred": true,
+  "displayName": "Romania"
+}, {
+  "countryCode": "RU",
+  "countryName": "Russland",
+  "market": "NHW",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
-    "en": "S. Georgia and S. Sandwich Isls."
+    "en": "Russian Federation"
   },
-  "preferred": false
-}, {
-  "countryCode": "KN",
-  "countryName": "Saint Kitts and Nevis",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Saint Kitts and Nevis"
-  },
-  "preferred": false
+  "preferred": true,
+  "displayName": "Russian Federation"
 }, {
   "countryCode": "LC",
   "countryName": "Saint Lucia",
@@ -1807,17 +1888,30 @@
   "languages": {
     "en": "Saint Lucia"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Saint Lucia"
 }, {
-  "countryCode": "VC",
-  "countryName": "Saint Vincent and the Grenadines",
+  "countryCode": "ZM",
+  "countryName": "Sambia",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
-    "en": "Saint Vincent and the Grenadines"
+    "en": "Zambia"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Zambia"
+}, {
+  "countryCode": "AS",
+  "countryName": "Samoa",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "American Samoa"
+  },
+  "preferred": false,
+  "displayName": "American Samoa"
 }, {
   "countryCode": "WS",
   "countryName": "Samoa",
@@ -1827,7 +1921,8 @@
   "languages": {
     "en": "Samoa"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Samoa"
 }, {
   "countryCode": "SM",
   "countryName": "San Marino",
@@ -1837,27 +1932,41 @@
   "languages": {
     "en": "San Marino"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "San Marino"
 }, {
   "countryCode": "ST",
-  "countryName": "Sao Tome and Principe",
+  "countryName": "Sao Tome",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Sao Tome and Principe"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Sao Tome and Principe"
 }, {
   "countryCode": "SA",
-  "countryName": "Saudi Arabia",
+  "countryName": "Saudi-Arabien",
   "market": "NHW",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Saudi Arabia"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Saudi Arabia"
+}, {
+  "countryCode": "SE",
+  "countryName": "Schweden",
+  "market": "NHW",
+  "currency": "EUR",
+  "currencySign": "€",
+  "languages": {
+    "en": "Sweden"
+  },
+  "preferred": true,
+  "displayName": "Sweden"
 }, {
   "countryCode": "SN",
   "countryName": "Senegal",
@@ -1867,27 +1976,30 @@
   "languages": {
     "en": "Senegal"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Senegal"
 }, {
   "countryCode": "RS",
-  "countryName": "Serbia",
+  "countryName": "Serbien",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Serbia"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Serbia"
 }, {
   "countryCode": "SC",
-  "countryName": "Seychelles",
+  "countryName": "Seychellen",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Seychelles"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Seychelles"
 }, {
   "countryCode": "SL",
   "countryName": "Sierra Leone",
@@ -1897,37 +2009,41 @@
   "languages": {
     "en": "Sierra Leone"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Sierra Leone"
 }, {
   "countryCode": "SG",
-  "countryName": "Singapore",
+  "countryName": "Singapur",
   "market": "NHW",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Singapore"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Singapore"
 }, {
   "countryCode": "SK",
-  "countryName": "Slovak Republic",
+  "countryName": "Slowakei (Slowakische Republik)",
   "market": "NHW",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "en": "Slovak Republic"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Slovak Republic"
 }, {
   "countryCode": "SI",
-  "countryName": "Slovenia",
+  "countryName": "Slowenien",
   "market": "NHW",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "en": "Slovenia"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Slovenia"
 }, {
   "countryCode": "Sb",
   "countryName": "Solomon Islands",
@@ -1937,7 +2053,8 @@
   "languages": {
     "en": "Solomon Islands"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Solomon Islands"
 }, {
   "countryCode": "SO",
   "countryName": "Somalia",
@@ -1947,27 +2064,30 @@
   "languages": {
     "en": "Somalia"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Somalia"
 }, {
-  "countryCode": "ZA",
-  "countryName": "South Africa",
+  "countryCode": "GS",
+  "countryName": "South Georgia und South Sandwich Islands",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
-    "en": "South Africa"
+    "en": "S. Georgia and S. Sandwich Isls."
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "S. Georgia and S. Sandwich Isls."
 }, {
   "countryCode": "ES",
-  "countryName": "Spain",
+  "countryName": "Spanien",
   "market": "NHW",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "en": "Spain"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Spain"
 }, {
   "countryCode": "LK",
   "countryName": "Sri Lanka",
@@ -1977,7 +2097,8 @@
   "languages": {
     "en": "Sri Lanka"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Sri Lanka"
 }, {
   "countryCode": "SH",
   "countryName": "St. Helena",
@@ -1987,17 +2108,52 @@
   "languages": {
     "en": "St. Helena"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "St. Helena"
+}, {
+  "countryCode": "KN",
+  "countryName": "St. Kitts Nevis Anguilla",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Saint Kitts and Nevis"
+  },
+  "preferred": false,
+  "displayName": "Saint Kitts and Nevis"
 }, {
   "countryCode": "PM",
-  "countryName": "St. Pierre and Miquelon",
+  "countryName": "St. Pierre und Miquelon",
   "market": "NHW_2",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "en": "St. Pierre and Miquelon"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "St. Pierre and Miquelon"
+}, {
+  "countryCode": "VC",
+  "countryName": "St. Vincent",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Saint Vincent and the Grenadines"
+  },
+  "preferred": false,
+  "displayName": "Saint Vincent and the Grenadines"
+}, {
+  "countryCode": "ZA",
+  "countryName": "Südafrika",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "South Africa"
+  },
+  "preferred": false,
+  "displayName": "South Africa"
 }, {
   "countryCode": "SD",
   "countryName": "Sudan",
@@ -2007,57 +2163,74 @@
   "languages": {
     "en": "Sudan"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Sudan"
+}, {
+  "countryCode": "KR",
+  "countryName": "Südkorea",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Korea (South)"
+  },
+  "preferred": true,
+  "displayName": "Korea (South)"
 }, {
   "countryCode": "SR",
-  "countryName": "Suriname",
+  "countryName": "Surinam",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Suriname"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Suriname"
 }, {
   "countryCode": "SJ",
-  "countryName": "Svalbard and Jan Mayen Islands",
+  "countryName": "Svalbard und Jan Mayen Islands",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Svalbard and Jan Mayen Islands"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Svalbard and Jan Mayen Islands"
 }, {
   "countryCode": "SZ",
-  "countryName": "Swaziland",
+  "countryName": "Swasiland",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Swaziland"
   },
-  "preferred": false
-}, {
-  "countryCode": "SE",
-  "countryName": "Sweden",
-  "market": "NHW",
-  "currency": "EUR",
-  "currencySign": "€",
-  "languages": {
-    "en": "Sweden"
-  },
-  "preferred": true
+  "preferred": false,
+  "displayName": "Swaziland"
 }, {
   "countryCode": "SY",
-  "countryName": "Syria",
+  "countryName": "Syrien",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Syria"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Syria"
+}, {
+  "countryCode": "TJ",
+  "countryName": "Tadschikistan",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Tajikistan"
+  },
+  "preferred": false,
+  "displayName": "Tajikistan"
 }, {
   "countryCode": "TW",
   "countryName": "Taiwan",
@@ -2067,27 +2240,19 @@
   "languages": {
     "en": "Taiwan"
   },
-  "preferred": true
-}, {
-  "countryCode": "TJ",
-  "countryName": "Tajikistan",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Tajikistan"
-  },
-  "preferred": false
+  "preferred": true,
+  "displayName": "Taiwan"
 }, {
   "countryCode": "TZ",
-  "countryName": "Tanzania",
+  "countryName": "Tansania",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Tanzania"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Tanzania"
 }, {
   "countryCode": "TH",
   "countryName": "Thailand",
@@ -2097,7 +2262,8 @@
   "languages": {
     "en": "Thailand"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Thailand"
 }, {
   "countryCode": "TG",
   "countryName": "Togo",
@@ -2107,7 +2273,8 @@
   "languages": {
     "en": "Togo"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Togo"
 }, {
   "countryCode": "TK",
   "countryName": "Tokelau",
@@ -2117,7 +2284,8 @@
   "languages": {
     "en": "Tokelau"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Tokelau"
 }, {
   "countryCode": "TO",
   "countryName": "Tonga",
@@ -2127,37 +2295,63 @@
   "languages": {
     "en": "Tonga"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Tonga"
 }, {
   "countryCode": "TT",
-  "countryName": "Trinidad and Tobago",
+  "countryName": "Trinidad Tobago",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Trinidad and Tobago"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Trinidad and Tobago"
+}, {
+  "countryCode": "TD",
+  "countryName": "Tschad",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Chad"
+  },
+  "preferred": false,
+  "displayName": "Chad"
+}, {
+  "countryCode": "CZ",
+  "countryName": "Tschechische Republik",
+  "market": "NHW",
+  "currency": "EUR",
+  "currencySign": "€",
+  "languages": {
+    "en": "Czech Republic"
+  },
+  "preferred": true,
+  "displayName": "Czech Republic"
 }, {
   "countryCode": "TN",
-  "countryName": "Tunisia",
+  "countryName": "Tunesien",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Tunisia"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Tunisia"
 }, {
   "countryCode": "TR",
-  "countryName": "Turkey",
+  "countryName": "Türkei",
   "market": "NHW",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Turkey"
   },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Turkey"
 }, {
   "countryCode": "TM",
   "countryName": "Turkmenistan",
@@ -2167,17 +2361,19 @@
   "languages": {
     "en": "Turkmenistan"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Turkmenistan"
 }, {
   "countryCode": "TC",
-  "countryName": "Turks and Caicos Islands",
+  "countryName": "Turks- und Kaikos-Inseln",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Turks and Caicos Islands"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Turks and Caicos Islands"
 }, {
   "countryCode": "TV",
   "countryName": "Tuvalu",
@@ -2187,7 +2383,8 @@
   "languages": {
     "en": "Tuvalu"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Tuvalu"
 }, {
   "countryCode": "UG",
   "countryName": "Uganda",
@@ -2197,7 +2394,8 @@
   "languages": {
     "en": "Uganda"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Uganda"
 }, {
   "countryCode": "UA",
   "countryName": "Ukraine",
@@ -2207,27 +2405,19 @@
   "languages": {
     "en": "Ukraine"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Ukraine"
 }, {
-  "countryCode": "AE",
-  "countryName": "United Arab Emirates",
+  "countryCode": "HU",
+  "countryName": "Ungarn",
   "market": "NHW",
-  "currency": "USD",
-  "currencySign": "US$",
+  "currency": "EUR",
+  "currencySign": "€",
   "languages": {
-    "en": "United Arab Emirates"
+    "en": "Hungary"
   },
-  "preferred": true
-}, {
-  "countryCode": "US",
-  "countryName": "United States",
-  "market": "NHW",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "United States"
-  },
-  "preferred": true
+  "preferred": true,
+  "displayName": "Hungary"
 }, {
   "countryCode": "UY",
   "countryName": "Uruguay",
@@ -2237,17 +2427,19 @@
   "languages": {
     "en": "Uruguay"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Uruguay"
 }, {
   "countryCode": "UZ",
-  "countryName": "Uzbekistan",
+  "countryName": "Usbekistan",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Uzbekistan"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Uzbekistan"
 }, {
   "countryCode": "VU",
   "countryName": "Vanuatu",
@@ -2257,17 +2449,19 @@
   "languages": {
     "en": "Vanuatu"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Vanuatu"
 }, {
   "countryCode": "VA",
-  "countryName": "Vatican City State (Holy See)",
+  "countryName": "Vatikan",
   "market": "NHW_2",
   "currency": "EUR",
   "currencySign": "€",
   "languages": {
     "en": "Vatican City State (Holy See)"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Vatican City State (Holy See)"
 }, {
   "countryCode": "VE",
   "countryName": "Venezuela",
@@ -2277,77 +2471,107 @@
   "languages": {
     "en": "Venezuela"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Venezuela"
+}, {
+  "countryCode": "AE",
+  "countryName": "Vereinigte Arabische Emirate",
+  "market": "NHW",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "United Arab Emirates"
+  },
+  "preferred": true,
+  "displayName": "United Arab Emirates"
+}, {
+  "countryCode": "US",
+  "countryName": "Vereinigte Staaten von Amerika",
+  "market": "NHW",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "United States"
+  },
+  "preferred": true,
+  "displayName": "United States"
 }, {
   "countryCode": "VN",
-  "countryName": "Viet Nam",
+  "countryName": "Vietnam",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Viet Nam"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Viet Nam"
 }, {
   "countryCode": "VG",
-  "countryName": "Virgin Islands (British)",
+  "countryName": "Virgin Island (Brit.)",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Virgin Islands (British)"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Virgin Islands (British)"
 }, {
   "countryCode": "VI",
-  "countryName": "Virgin Islands (U.S.)",
+  "countryName": "Virgin Island (USA)",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Virgin Islands (U.S.)"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Virgin Islands (U.S.)"
 }, {
   "countryCode": "WF",
-  "countryName": "Wallis and Futuna Islands",
+  "countryName": "Wallis et Futuna",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Wallis and Futuna Islands"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Wallis and Futuna Islands"
+}, {
+  "countryCode": "BY",
+  "countryName": "Weißrussland",
+  "market": "NHW_2",
+  "currency": "USD",
+  "currencySign": "US$",
+  "languages": {
+    "en": "Belarus"
+  },
+  "preferred": false,
+  "displayName": "Belarus"
 }, {
   "countryCode": "EH",
-  "countryName": "Western Sahara",
+  "countryName": "Westsahara",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
     "en": "Western Sahara"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Western Sahara"
 }, {
-  "countryCode": "YE",
-  "countryName": "Yemen",
+  "countryCode": "CF",
+  "countryName": "Zentralafrikanische Republik",
   "market": "NHW_2",
   "currency": "USD",
   "currencySign": "US$",
   "languages": {
-    "en": "Yemen"
+    "en": "Central African Republic"
   },
-  "preferred": false
-}, {
-  "countryCode": "ZM",
-  "countryName": "Zambia",
-  "market": "NHW_2",
-  "currency": "USD",
-  "currencySign": "US$",
-  "languages": {
-    "en": "Zambia"
-  },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Central African Republic"
 }, {
   "countryCode": "ZW",
   "countryName": "Zimbabwe",
@@ -2357,5 +2581,17 @@
   "languages": {
     "en": "Zimbabwe"
   },
-  "preferred": false
+  "preferred": false,
+  "displayName": "Zimbabwe"
+}, {
+  "countryCode": "CY",
+  "countryName": "Zypern",
+  "market": "NHW",
+  "currency": "EUR",
+  "currencySign": "€",
+  "languages": {
+    "en": "Cyprus"
+  },
+  "preferred": true,
+  "displayName": "Cyprus"
 }]
