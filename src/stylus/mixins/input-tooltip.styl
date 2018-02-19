@@ -1,3 +1,14 @@
+$status-color := {
+  success: #2f82c4
+  warning: #f0ad4e
+  danger: #d9534f
+}
+
+$condition-color := {
+  invalid: #a94442,
+  valid: green
+}
+
 input-tooltip-mixin()
   display flex
   align-items center
@@ -17,9 +28,8 @@ input-tooltip-mixin()
     background #fff
     &:after
       arrow-mixin()
-
-
-
+  &__content
+    content-mixin()
 
 arrow-mixin()
     content: ''
@@ -35,5 +45,35 @@ arrow-mixin()
     box-shadow: -1px 1px #ccc
 
 
+status-mixin($status)
+  background: $status-color[$status]
+  padding-bottom: 4px
+  margin: 8px 0 14px 0
+  color: white
+  border-radius: 4px 
+  font-weight: 700
+  text-align: center
+
 content-mixin()
   padding: 9px 14px
+  font-size: 16px
+  &__title
+    margin: 8px 0 14px 0
+    font-weight: 700
+    line-height 18px
+  ul
+    line-height 22px
+    list-style-type: circle
+    padding: 0 0 0 20px
+    margin: 10px 0
+  &--invalid
+    color: $condition-color[invalid]
+  &--valid
+    color: $condition-color[valid]
+  &__status
+    &--danger
+       status-mixin(danger)
+    &--warning
+      status-mixin(warning)
+    &--success
+      status-mixin(success)

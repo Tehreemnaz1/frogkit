@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Tooltip component Should render component and match snapshot 1`] = `
+<section class="input-tooltip"><input type="password" class="fk-input">
+    <!---->
+</section>
+`;
+
+exports[`Input Tooltip component Should render component and match snapshot 2`] = `
+<section class="input-tooltip"><input type="password" class="fk-input">
+    <!---->
+</section>
+`;
