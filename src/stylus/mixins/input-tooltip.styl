@@ -10,13 +10,10 @@ $condition-color := {
 }
 
 input-tooltip-mixin()
-  display flex
-  align-items center
-  position relative
   &__info-bubble
-    position relative
+    position absolute
+    z-index 1
     padding: 4px 8px
-    display inline-flex
     max-width: 276px
     font-size: 14px
     min-height 42px

@@ -6,9 +6,9 @@
 </style>
 
 <template>
-  <section class="input-tooltip">
+  <section class="input-tooltip" v-click-outside="hideToolTip">
     <slot></slot>
-    <div v-if="show" class="input-tooltip__info-bubble" v-click-outside="hideToolTip"> 
+    <div v-if="show" :style="bubbleStyle" ref="bubble" class="input-tooltip__info-bubble" > 
       <div class="input-tooltip__content">
         <div class="input-tooltip__content__title">{{title}}</div>
         <ul>
@@ -23,6 +23,9 @@
 
 <script>
   import clickOutside from './clickOutside.directive'
+
+  let updateStyleEventListener
+
   export default {
     name: 'InputTooltip',
     directives: {clickOutside},
@@ -55,11 +58,19 @@
       return {
         show: this.__test__ ? true : false,
         invalidCondition: {},
-        status: 'danger'
+        status: 'danger',
+        bubbleStyle: null
       }
     },
     mounted () {
-      this.bindToInput()
+      this.$input = this.bindToInput()
+      // updateStyleEventListener = this.updateStyle.bind(this)
+      // window.addEventListener('scroll', updateStyleEventListener)
+      // window.addEventListener('resize', updateStyleEventListener)
+    },
+    destroyed() {
+      // window.removeEventListener('scroll', updateStyleEventListener)
+      // window.removeEventListener('resize', updateStyleEventListener)
     },
     methods: {
       updateStatus (input) {
@@ -89,11 +100,12 @@
         input.$el.addEventListener('input', () => {
           this.updateStatus(input)
         })
+        return input.$el
       },
       showToolTip (event) {
         this.show = true
         this.updateStatus()
-        event.stopPropagation()
+        this.updateStyle()
       },
       hideToolTip () {
         this.show = false
@@ -106,6 +118,20 @@
         if (/[A-Z]/.test(password)) { score++ }
         if ((/[()\[\]{}?!$%&\/=*\+~,\.;:<>\-_#]/g).test(password)) { score++ }
         return score
+      },
+      updateStyle() {
+        const vm = this
+        
+        vm.$nextTick(() => {
+          const bubble = vm.$refs.bubble && vm.$refs.bubble.getBoundingClientRect()  || {}
+          const slot = vm.$input &&  vm.$input.getBoundingClientRect() || {}
+          const styles = {
+            top: `${(slot.top + slot.height/2) + window.scrollY - (bubble.height / 2)}px`,
+            left: `${slot.left + + window.scrollX + slot.width}px`
+          }
+          vm.bubbleStyle = styles
+
+        })
       }
     }
   }

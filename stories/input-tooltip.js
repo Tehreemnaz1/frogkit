@@ -58,3 +58,35 @@ stories.addCodeExampleStory('phone number input', () => ({
     }
   }
 }), inputTooltip)
+
+stories.addCodeExampleStory('Full form', () => ({
+  template:
+  `<Form v-model="isValid" class="form-demo m-t-60">
+      <InputTooltip  :title="emailTitle" :conditions="generalCondition" >
+        <Input block v-model="value[0]" type="email" placeholder="email"/>  
+      </InputTooltip>
+      <InputTooltip  :title="passtitle" :conditions="passConditions" :status-txt="statusTxt" >
+        <Input  v-model="value[1]" type="password" placeholder="passsword"  />  
+      </InputTooltip>
+      <InputTooltip  :title="passtitle" :conditions="passConditions" :status-txt="statusTxt" >
+        <Input  v-model="value[2]" type="password" placeholder=" repeat passsword"  />  
+      </InputTooltip>
+
+      <InputTooltip  :title="phoneTitle" :conditions="generalCondition" >
+        <Input block v-model="value[3]" type="phone" placeholder="phone"/>  
+      </InputTooltip>
+  </Form>`,
+  data () {
+    return {
+      isValid: true,
+      emailTitle: 'Email must:',
+      passtitle: 'Password must have:',
+      phoneTitle: 'Phone must:',
+      passConditions: {'min': 'min 6 chars', 'max': 'max 64 chars'},
+      generalCondition: {'valid': 'be valid'},
+      status: 'warning',
+      statusTxt: 'weak password',
+      value: ['', '', '', '']
+    }
+  }
+}), inputTooltip)
