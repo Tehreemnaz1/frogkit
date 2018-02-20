@@ -6,8 +6,17 @@ exports[`Input Tooltip component Should render component and match snapshot 1`] 
 </section>
 `;
 
-exports[`Input Tooltip component Should render component and match snapshot 2`] = `
+exports[`Input Tooltip should validate input Should render component and match snapshot 1`] = `
 <section class="input-tooltip"><input type="password" class="fk-input">
-    <!---->
+    <div class="input-tooltip__info-bubble">
+        <div class="input-tooltip__content">
+            <div class="input-tooltip__content__title">Password must have:</div>
+            <ul>
+                <li>min 6 chars</li>
+                <li>max 64 chars</li>
+            </ul>
+            <!---->
+        </div>
+    </div>
 </section>
 `;

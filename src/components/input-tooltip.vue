@@ -96,7 +96,7 @@
         event.stopPropagation()
       },
       hideToolTip () {
-        // this.show = false
+        this.show = false
       },
       getScore(password) {
         let score = 0 
