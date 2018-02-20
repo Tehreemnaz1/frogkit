@@ -84,8 +84,7 @@ stories.addCodeExampleStory('Full form', () => ({
       phoneTitle: 'Phone must:',
       passConditions: {'min': 'min 6 chars', 'max': 'max 64 chars'},
       generalCondition: {'valid': 'be valid'},
-      status: 'warning',
-      statusTxt: 'weak password',
+      statusTxt: {'danger': 'weak password', 'warning': 'good password', 'success': 'strong password'},
       value: ['', '', '', '']
     }
   }

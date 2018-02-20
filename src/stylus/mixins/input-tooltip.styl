@@ -1,76 +1,68 @@
-$status-color := {
-  success: #2f82c4
+$status-color = {
+  success: #5cb85c
   warning: #f0ad4e
   danger: #d9534f
 }
 
-$condition-color := {
-  invalid: #a94442,
-  valid: green
+$condition-color = {
+  invalid: $status-color.danger,
+  valid: $status-color.success
 }
 
 input-tooltip-mixin()
-  &__info-bubble
+  &__bubble
     position absolute
     z-index 1
-    padding: 4px 8px
-    max-width: 276px
-    font-size: 14px
-    min-height 42px
     border 1px solid #ccc
     color #414141
     margin-left 10px
     border-radius: 5px
     box-shadow 0 0 5px rgba(0,0,0,.2)
     background #fff
+    padding: 10px 15px
+    font-size: 1.6rem
     &:after
       arrow-mixin()
-  &__content
-    content-mixin()
+    ul
+      line-height 22px
+      list-style-type circle
+      padding: 0 0 0 20px
+      margin: 10px 0
+  &__title
+    // font-size: 1.6rem
+    margin: 8px 0 14px 0
+    font-weight: 700
+    line-height 1.6rem
+  &--invalid
+    color: $condition-color.invalid
+  &--valid
+    color: $condition-color.valid
+  &__status
+    line-height 2.4rem
+    margin: 8px 0
+    color: white
+    border-radius: 4px 
+    font-weight: 700
+    text-align: center
+    text-transform: capitalize
+    &--danger
+      background: $status-color.danger
+    &--warning
+      background: $status-color.warning
+    &--success
+      background: $status-color.success
+
 
 arrow-mixin()
     content: ''
-    box-sizing: border-box;
+    position: absolute
+    top: 50%
+    left: 0px
+    box-sizing: border-box
     border: 7px solid 
     border-color: transparent transparent #fff #fff
     transform-origin: 0 0
     transform: rotate(45deg)
-    position: absolute
-    top: 50%
+   
     margin-top: -10px
-    left: 0px
     box-shadow: -1px 1px #ccc
-
-
-status-mixin($status)
-  background: $status-color[$status]
-  padding-bottom: 4px
-  margin: 8px 0 14px 0
-  color: white
-  border-radius: 4px 
-  font-weight: 700
-  text-align: center
-
-content-mixin()
-  padding: 9px 14px
-  font-size: 16px
-  &__title
-    margin: 8px 0 14px 0
-    font-weight: 700
-    line-height 18px
-  ul
-    line-height 22px
-    list-style-type: circle
-    padding: 0 0 0 20px
-    margin: 10px 0
-  &--invalid
-    color: $condition-color[invalid]
-  &--valid
-    color: $condition-color[valid]
-  &__status
-    &--danger
-       status-mixin(danger)
-    &--warning
-      status-mixin(warning)
-    &--success
-      status-mixin(success)
