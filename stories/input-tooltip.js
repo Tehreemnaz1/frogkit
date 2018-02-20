@@ -8,7 +8,7 @@ const stories = storiesOf('Input Tooltip', module)
 
 stories.addCodeExampleStory('password input', () => ({
   template:
-  `<Form>
+  `<Form class="form-demo">
     <InputTooltip :title="title" :conditions="conditions" :status-txt="statusTxt">
       <Input v-model="value" type="password" placeholder="passsword" />  
     </InputTooltip>
@@ -19,7 +19,7 @@ stories.addCodeExampleStory('password input', () => ({
       title: 'Password must have:',
       conditions: {'min': 'min 6 chars', 'max': 'max 64 chars'},
       status: 'warning',
-      statusTxt: 'weak password',
+      statusTxt: {'danger': 'weak password', 'warning': 'good password', 'success': 'strong password'},
       value: ''
     }
   }
@@ -27,7 +27,7 @@ stories.addCodeExampleStory('password input', () => ({
 
 stories.addCodeExampleStory('email input', () => ({
   template:
-  `<Form>
+  `<Form class="form-demo">
     <InputTooltip :title="title" :conditions="conditions">
       <Input v-model="value" type="email" placeholder="email" />  
     </InputTooltip>
@@ -44,7 +44,7 @@ stories.addCodeExampleStory('email input', () => ({
 
 stories.addCodeExampleStory('phone number input', () => ({
   template:
-  `<Form>
+  `<Form class="form-demo">
     <InputTooltip :title="title" :conditions="conditions">
       <Input v-model="value" type="phone" placeholder="phone" />  
     </InputTooltip>
