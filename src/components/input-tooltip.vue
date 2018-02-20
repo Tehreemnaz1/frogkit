@@ -64,13 +64,6 @@
     },
     mounted () {
       this.$input = this.bindToInput()
-      // updateStyleEventListener = this.updateStyle.bind(this)
-      // window.addEventListener('scroll', updateStyleEventListener)
-      // window.addEventListener('resize', updateStyleEventListener)
-    },
-    destroyed() {
-      // window.removeEventListener('scroll', updateStyleEventListener)
-      // window.removeEventListener('resize', updateStyleEventListener)
     },
     methods: {
       updateStatus (input) {
@@ -121,7 +114,6 @@
       },
       updateStyle() {
         const vm = this
-        
         vm.$nextTick(() => {
           const bubble = vm.$refs.bubble && vm.$refs.bubble.getBoundingClientRect()  || {}
           const slot = vm.$input &&  vm.$input.getBoundingClientRect() || {}
