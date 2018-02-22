@@ -8,7 +8,7 @@
 
 <template functional>
   <div  @click="$options.click($event,data)"
-        :class="[data.staticClass, data.class, $options.classObject(props, $options)]"
+        :class="[data.staticClass, data.class, $options.classObject(props)]"
         class="fk-flex">
     <slot></slot>
   </div>
@@ -35,8 +35,7 @@
         default: false
       }
     },
-    classObject(props, $options) {
-      console.log('props', $options)
+    classObject(props) {
       return {
         'fk-flex--column': props.column,
         'fk-flex--grow': props.grow,

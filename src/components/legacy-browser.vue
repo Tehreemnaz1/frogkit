@@ -6,7 +6,7 @@
 </style>
 
 <template>
-  <DarkLayer :show="show">
+  <DarkLayer :show="show" @click="$emit('click')">
     <Flex @click.stop="() => {}" justify="space-around" align="center" column  class="legacy-browser" >
       <div class="m-b-10">
         <p class="legacy-browser__title" >{{title}}</p>

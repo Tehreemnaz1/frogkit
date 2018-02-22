@@ -7,8 +7,13 @@ const stories = storiesOf('Dark Layer', module)
 stories.addCodeExampleStory('Demo', () => ({
   template: ` 
         <div class="dark-bg">
-        <DarkLayer show>
+        <DarkLayer :show="show" @click="show = false">
           <div class="layer-content">Some text in the layer</div>
         </DarkLayer>
         </div>`,
+  data () {
+    return {
+      show: true
+    }
+  }
 }), DarkLayer)

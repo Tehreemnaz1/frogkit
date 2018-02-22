@@ -7,4 +7,11 @@ describe('Dark Layer', () => {
     const wrapper = mount(DarkLayer)
     expect(wrapper.html()).toMatchSnapshot()
   })
+  it('Dark Layer should emit click event when clicked', () => {
+    const stub = jest.fn()
+    const wrapper = mount(DarkLayer)
+    wrapper.vm.$on('click', stub)
+    wrapper.trigger('click')
+    expect(stub).toBeCalled()
+  })
 })

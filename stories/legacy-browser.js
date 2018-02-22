@@ -7,7 +7,7 @@ const stories = storiesOf('Legacy Browser', module)
 stories.addCodeExampleStory('Demo', () => ({
   template: ` 
         <div class="dark-bg">
-        <LegacyBrowser :show="show" :title="title" :content="content" :linkLabel="linkLabel"/>
+        <LegacyBrowser :show="show" @click="show = false" :title="title" :content="content" :linkLabel="linkLabel"/>
         </div>`,
   data () {
     return {
