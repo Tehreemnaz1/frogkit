@@ -18,8 +18,8 @@ async function createComponent(filename, inputPath, outputPath) {
 }
 
 function componentTemplate(content) {
-  return `<template functional>${content}</template>`
-  // return `<template>${content}</template>`
+  // return `<template functional>${content}</template>`
+  return `<template>${content}</template>`
 }
 
 module.exports = createComponent
