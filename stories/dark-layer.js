@@ -6,10 +6,9 @@ const stories = storiesOf('Dark Layer', module)
 
 stories.addCodeExampleStory('Demo', () => ({
   template: ` 
-        <div>
-        <img src="https://picsum.photos/1200/800" />  
-        <DarkLayer>
-          <div>Some text in the layer</div>
+        <div class="dark-bg">
+        <DarkLayer show>
+          <div class="layer-content">Some text in the layer</div>
         </DarkLayer>
         </div>`,
 }), DarkLayer)

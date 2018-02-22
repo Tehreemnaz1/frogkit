@@ -6,16 +6,19 @@
 
 <template>
   <section v-if="show" class="dark-layer" @click="show = false">
-    <slot></slot>
+    <Flex column align="center" justify="center" grow>
+      <slot></slot>
+    </Flex>
   </section>
 </template>
 
 <script>
   export default {
     name: 'DarkLayer',
-    data () {
-      return {
-        show: true
+    props: {
+      show: {
+        type: Boolean,
+        default: false
       }
     }
   }
