@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dark Layer should render component and match snapshot 1`] = `
+exports[`Legacy Browser should render component and match snapshot 1`] = `
 <darklayer>
     <flex justify="space-around" align="center" column="" class="legacy-browser">
         <div class="m-b-10">

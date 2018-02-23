@@ -5,7 +5,7 @@
 </style>
 
 <template>
-  <section v-if="show" class="dark-layer" @click="handleClick">
+  <section v-if="show" class="dark-layer" @click="$emit('click')">
     <Flex column align="center" justify="center" grow>
       <slot></slot>
     </Flex>
@@ -19,11 +19,6 @@
       show: {
         type: Boolean,
         default: false
-      }
-    },
-    methods: {
-      handleClick() {
-        this.$emit('click')
       }
     }
   }
