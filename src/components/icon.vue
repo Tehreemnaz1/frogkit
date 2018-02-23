@@ -8,6 +8,7 @@
 
 <template >
   <component :is="icon" :class="['fk-icon', getClasses]"/>
+  <!-- <b>*</b> -->
 </template>
 
 <script>

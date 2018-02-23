@@ -6,47 +6,50 @@ const clean = new Svgo({
   //   pretty: true,
   //   indent: '  '
   // },
-  plugins: [{
-      mergePaths: {}
+  plugins: [
+    {
+      mergePaths: {},
     },
     {
-      transformsWithOnePath: {}
+      transformsWithOnePath: {},
     },
     {
-      removeTitle: {}
+      removeTitle: {},
     },
     {
-      removeXMLNS: {}
+      removeXMLNS: {},
     },
     {
-      removeDimensions: {}
+      removeDimensions: {},
     },
     {
-      sortAttrs: {}
+      sortAttrs: {},
     },
     {
-      removeStyleElement: {}
+      removeStyleElement: {},
     },
     {
-      removeScriptElement: {}
+      removeScriptElement: {},
     },
     {
-      removeViewBox: false
+      removeViewBox: false,
     },
     {
       removeAttrs: {
-        attrs: ['xmlns', 'stroke', 'fill', 'style', 'xmlns:xlink']
-      }
-    }
-  ]
+        attrs: ['xmlns', 'stroke', 'fill', 'style', 'xmlns:xlink'],
+      },
+    },
+  ],
 })
 
 const arrange = new Svgo({
-  plugins: [{
-    addAttributesToSVGElement: {
-      attributes: [`v-bind="props"`, `:class="[data.staticClass, data.class]"`]
-    }
-  }]
+  plugins: [
+    {
+      addAttributesToSVGElement: {
+        // attributes: [`v-bind="props"`, `:class="[data.staticClass, data.class]"`]
+      },
+    },
+  ],
 })
 
 async function main(content) {
