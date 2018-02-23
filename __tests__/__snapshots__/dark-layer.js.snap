@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dark Layer should render component and match snapshot 1`] = `
-<section class="dark-layer">
+<section class="fk-dark-layer">
     <flex column="" align="center" justify="center" grow=""><span>Some text here</span></flex>
 </section>
 `;

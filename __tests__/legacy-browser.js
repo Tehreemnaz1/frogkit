@@ -11,7 +11,7 @@ describe('Legacy Browser', () => {
     const stub = jest.fn()
     const wrapper = mount(LegacyBrowser)
       wrapper.vm.$on('click', stub)
-      wrapper.vm.$el.querySelector('.legacy-browser').click()
+      wrapper.vm.$el.querySelector('.fk-legacy-browser').click()
       expect(stub).not.toBeCalled()
   })
 })

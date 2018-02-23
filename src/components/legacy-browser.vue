@@ -1,15 +1,15 @@
 <style lang="stylus">
   @import '../stylus/mixins/legacy-browser'
   
-  .legacy-browser
+  .fk-legacy-browser
     legacy-browser-mixin()
 </style>
 
 <template>
   <DarkLayer :show="show" @click="$emit('click')">
-    <Flex @click.stop="() => {}" justify="space-around" align="center" column  class="legacy-browser" >
+    <Flex @click.stop="() => {}" justify="space-around" align="center" column  class="fk-legacy-browser" >
       <div class="m-b-10">
-        <p class="legacy-browser__title" >{{title}}</p>
+        <p class="fk-legacy-browser__title" >{{title}}</p>
         <p>{{content | fromhtml}}</p>
       </div>
         <img class="m-b-10" src="../assets/images/chrome.svg" />
