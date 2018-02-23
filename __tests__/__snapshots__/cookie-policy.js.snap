@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it should render and match snapShot should render component and match snapshot 1`] = `
+<flex justify="space-between" class="cookie-policy">
+    <p class="cookie-policy__content">Durch die Nutzung dieser Website stimmst du der Verwendung von Cookies zu. Weitere Informationen und Hinweise zur Änderung deiner Cookie-Einstellungen findest du in unseren <a href="#">Cookie-Richtlinien</a>.</p>
+    <div class="cookie-policy__close">
+        <icon color="white" icon="close"></icon>
+    </div>
+</flex>
+`;
