@@ -9,7 +9,7 @@ export default {
     }
     document.body.addEventListener('click', el.__vueClickOutside__)
   },
-  unbind: function (el, binding, vNode) {
+  unbind: function (el) {
     // Remove Event Listeners
     document.body.removeEventListener('click', el.__vueClickOutside__)
     el.__vueClickOutside__ = null

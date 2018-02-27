@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Legacy Browser should render component and match snapshot 1`] = `
+<darklayer>
+    <flex justify="space-around" align="center" column="" class="fk-legacy-browser">
+        <div class="m-b-10">
+            <p class="fk-legacy-browser__title"></p>
+            <p></p>
+        </div> <img src="../assets/images/chrome.svg" class="m-b-10"> <button link="" color="secondary" target="_blank" href="https://www.google.com/chrome/browser/desktop/"></button></flex>
+</darklayer>
+`;
