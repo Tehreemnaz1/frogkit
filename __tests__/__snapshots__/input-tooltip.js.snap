@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Tooltip component Should render component and match snapshot 1`] = `
+<section class="input-tooltip"><input type="password" class="fk-input">
+    <!---->
+</section>
+`;
+
+exports[`Input Tooltip should validate input Should render component and match snapshot 1`] = `
+<section class="input-tooltip"><input type="password" class="fk-input">
+    <div class="input-tooltip__bubble"><b class="input-tooltip__title">Password must have:</b>
+        <ul>
+            <li>min 6 chars</li>
+            <li>max 64 chars</li>
+        </ul>
+        <!---->
+    </div>
+</section>
+`;

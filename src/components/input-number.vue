@@ -6,15 +6,17 @@
 </style>
 
 <template>
-  <div class="fk-number-input">
+  <Flex class="fk-number-input">
     <Button color="secondary" :disabled="value <= min" :class="buttonClass" @click="decrease">
       <Icon icon="minus" :size="size"/> 
     </Button>
+    <!-- -->
     <Input type="number" :value="value" :class="inputClass" @input="handleChange" />
+    <!-- -->
     <Button color="secondary" :disabled="value >= max" :class="buttonClass" @click="increase" >
       <Icon icon="plus" :size="size"/> 
     </Button>
-  </div>
+  </Flex>
 </template>
 
 <script>
