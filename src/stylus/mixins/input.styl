@@ -44,7 +44,8 @@ set-size($size = 'default')
   font-size: $sizes[$size].font
   padding: 0 $sizes[$size].padding
   height: $sizes[$size].height
-  line-height: @height
+  // NOTE this causes an issue with Safari, big typing cursor 
+  // line-height: @height
   border-radius: 4px
 
 cut-input()
@@ -71,7 +72,8 @@ $input-skeleton
   font-family: $body-font-family
   font-weight: 400
   display: inline-block
-  user-select: none
+  // NOTE this creates an issue with safari
+  // user-select: none
   outline: none
   box-shadow none
   placeholder()
