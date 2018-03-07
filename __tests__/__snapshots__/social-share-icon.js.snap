@@ -1,3 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Social Sharing Icons component Should render component and match snapshot 1`] = `<div></div>`;
+exports[`Social Sharing Icons component Should render component and match snapshot 1`] = `
+<div><a href="https://www.facebook.com/sharer/sharer.php?u=https://www.smartfrog.com/de-de/ebooks/kindersicherheit/" target="_blank" rel="noopener" class="fk-social-icon facebook"></a><a href="https://twitter.com/home?status=https://www.smartfrog.com/de-de/ebooks/kindersicherheit/"
+        target="_blank" rel="noopener" class="fk-social-icon twitter"></a><a href="https://plus.google.com/share?url=https://www.smartfrog.com/de-de/ebooks/kindersicherheit/" target="_blank" rel="noopener" class="fk-social-icon gplus"></a></div>
+`;

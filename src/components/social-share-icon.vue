@@ -30,8 +30,11 @@
     },
     data () {
       return {
-        networks: Object.keys(this.$attrs).filter(i => sharer[i])
+        networks: []
       }
+    },
+    mounted() {
+      this.networks = Object.keys(this.$attrs).filter(i => sharer[i])
     },
     methods: {
       shareUrl(network){

@@ -13,10 +13,15 @@ describe('Social Sharing Icons component', () => {
     gplus: ''
   }
   it('Should render component and match snapshot', () => {
+
     const wrapper = mount(ShareIcons, {
       propsData,
-      attrs
-    })
+      attrs,
+      attachToDocument: true
+     })
+
+    wrapper.update()
+
     expect(wrapper.html()).toMatchSnapshot()
   })
 })
