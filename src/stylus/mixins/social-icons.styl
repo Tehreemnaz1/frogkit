@@ -4,14 +4,19 @@ social-icon-mixin()
     height: @width
     margin-right 4px
     background: url('../assets/social_links.svg') no-repeat
+    background-position: -100%
     background-size: auto @height
     overflow: hidden
     text-indent: -9999px
     &:last-child
       margin-right: 0
+    &.facebook
+      background-position: left top
     &.twitter
       background-position: -45px 0
     &.youtube
       background-position: -90px 0
     &.instagram
       background-position: -135px 0
+    &.gplus
+      background: url('../assets/gplus-icon.svg') no-repeat
