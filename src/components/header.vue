@@ -40,7 +40,7 @@
           :mobileNavOpen="mobileNavOpen"
           @open="mobileNavOpen = false"
           @change="countryChange" />
-        <div class="fk-header__form">
+        <form class="fk-header__form">
            <div class="fk-header__form__field">
               <Input v-model="email" name="email" type="email" size="small" :placeholder="formItems.emailPlaceholder"></Input>
               <a :href="formItems.registerUrl">{{ formItems.registerLabel }}</a>
@@ -49,7 +49,7 @@
                 <Input v-model="password" name="password" type="password" size="small" :placeholder="formItems.passwordPlaceholder"></Input>
                 <a :href="formItems.retriveUrl">{{ formItems.retriveLabel }}</a>
             </div>
-        </div>
+        </form>
         <!-- login button -->
         <Button link color="primary" size="small" class="fk-header__btn-login" @click="login">
           {{ navExtraItems[2].label }}
