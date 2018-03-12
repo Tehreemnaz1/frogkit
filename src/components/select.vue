@@ -16,8 +16,11 @@
 </template>
 
 <script>
+import validator from './validator.mixin'
+
 export default {
   name: 'Select',
+  mixins: [ validator() ],
   props: {
     placeholder: {
       type: String,
@@ -44,7 +47,7 @@ export default {
     classObject() {
       return {
         'fk-select--block': !!this.block,
-        'fk-select--error': !!this.error
+        'fk-select--error': !!this.invalid && !!this.touched
       }
     }
   },
@@ -58,13 +61,7 @@ export default {
     updateValue(e) {
       this.inputValue = e.target.value
       this.$emit('input', this.inputValue)
-      this.validate()
-    },
-    validate() {
-      this.error = false
-      if (this.required && !this.inputValue.length) {
-        this.error = true
-      }
+      this.touched = true
     }
   }
 }
