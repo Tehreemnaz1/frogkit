@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="showError">
+  <form @submit.prevent="displayError">
     <slot></slot>
   </form>
 </template>
@@ -11,6 +11,15 @@
       value: {
         type: Boolean,
         default: false
+      },
+      showError: {
+        type: Boolean,
+        default: false
+      }
+    },
+    watch:{
+      showError() {
+        this.displayError()
       }
     },
     data () {
@@ -35,7 +44,7 @@
         this.isValid = this.inputs.every(input => input.valid)
         this.$emit('input', this.isValid)
       },
-      showError() {
+      displayError() {
         this.inputs.forEach(input => {
           input.touched = true
         })
