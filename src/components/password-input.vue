@@ -44,6 +44,7 @@
     },
     mounted () {
       this.$nextTick(() => {
+        this.computePosition()
         window.addEventListener('resize', this.computePosition)
       })
     },
@@ -59,15 +60,15 @@
         else this.inputType = 'password'
       },
       show () {
-        this.computePosition()
         this.passwordToggle = true
+        this.computePosition()
       },
       computePosition () {
-        if (!this.$refs.input) return
+        if (!this.$refs.input ) return
         const input = this.$refs.input.$el
         const {height, width} = input.getBoundingClientRect()
         const left = input.offsetLeft + width - 35
-        const top = height / 2 + input.offsetTop - 22 + window.scrollY 
+        const top = height / 2 + input.offsetTop - 22
         this.iconStyle = {left: `${left}px`, top: `${top}px`}
       }
     }
