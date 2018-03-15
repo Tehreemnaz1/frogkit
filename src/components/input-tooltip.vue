@@ -8,7 +8,7 @@
 <template>
   <section class="input-tooltip" v-click-outside="hideToolTip">
     <slot></slot>
-    <div v-if="show" :style="bubbleStyle" ref="bubble" class="input-tooltip__bubble" > 
+    <div v-show="show" :style="bubbleStyle" ref="bubble" class="input-tooltip__bubble" > 
         <b class="input-tooltip__title">{{title}}</b>
         <ul>
           <li v-for="condition, key in conditions" :class="invalidCondition[key]">{{condition}}</li>
@@ -63,19 +63,28 @@
         invalidCondition: {},
         score: 0,
         bubbleStyle: null,
-        $input: null
+        $input: null,
+        inputType: ''
       }
     },
     mounted() {
-      this.$input = this.$children.find(({ _vnode }) => _vnode.tag === 'input')
-      this.bindToInput()
+      this.$nextTick(() => {
+        this.$input = this.findInput(this)
+        this.inputType = this.$input.$el.type.toLowerCase()
+        this.bindToInput()
+      })
     },
     methods: {
+      findInput (node) {
+        const input = node.$children.find(({ _vnode }) => _vnode.tag === 'input')
+        if(input) return input
+        return node.$children.map(node => this.findInput(node))[0]
+      },
       updateStatus() {
-        const input = this.$input
+        const input = this.$input = this.findInput(this)
         if (!input) return
         const value = input.$el.value
-        if (input.$el.type.toLowerCase() === 'password') {
+        if (this.inputType === 'password') {
           this.invalidCondition['min'] = input.errors.lengthError === 'min' ? 'input-tooltip--invalid' : ''
           this.invalidCondition['max'] = input.errors.lengthError === 'max' ? 'input-tooltip--invalid' : ''
           this.getScore(value)
@@ -85,7 +94,8 @@
         }
       },
       bindToInput() {
-        if (!this.$input) return
+        // if (!this.$input) 
+        this.$input = this.findInput(this)
         this.$input.$el.addEventListener('click', this.showToolTip)
         this.$input.$el.addEventListener('input', this.updateStatus)
       },
@@ -111,11 +121,12 @@
       updateStyle() {
         this.$nextTick(() => {
           const bubble = this.$refs.bubble && this.$refs.bubble.getBoundingClientRect()
-          const slot = this.$input && this.$input.$el.getBoundingClientRect()
+          const slot = this.$input && this.$input.$el
+          const {height, width} = slot.getBoundingClientRect()
           if (!bubble || !slot) return
           this.bubbleStyle  = {
-            top: `${(slot.top + slot.height/2) + window.scrollY - (bubble.height / 2)}px`,
-            left: `${slot.left + + window.scrollX + slot.width}px`
+            top: `${(slot.offsetTop + height/2) - (bubble.height / 2)}px`,
+            left: `${slot.offsetLeft + width}px`
           }
         })
       }

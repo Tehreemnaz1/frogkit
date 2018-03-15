@@ -44,7 +44,7 @@
     },
     mounted () {
       this.$nextTick(() => {
-        this.computePosition()
+        this.passwordToggle = false
         window.addEventListener('resize', this.computePosition)
       })
     },
