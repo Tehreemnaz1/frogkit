@@ -22,6 +22,8 @@
 </template>
 
 <script>
+  let positionEventListner
+
   export default {
     name: 'PasswordInput',
     props: {
@@ -45,11 +47,12 @@
     mounted () {
       this.$nextTick(() => {
         this.passwordToggle = false
-        window.addEventListener('resize', this.computePosition)
+        positionEventListner = this.computePosition
+        window.addEventListener('resize', positionEventListner)
       })
     },
     beforeDestroy() {
-      window.removeEventListener('resize', this.computePosition)
+      window.removeEventListener('resize', positionEventListner)
     },
     methods: {
       onInput(val) {

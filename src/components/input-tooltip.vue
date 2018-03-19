@@ -21,7 +21,7 @@
 <script>
   import clickOutside from './clickOutside.directive'
 
-  let updateStyleEventListener
+  let updateStyleEventListener, showToolTipEventListner, updateStatusEventListner
 
   export default {
     name: 'InputTooltip',
@@ -41,11 +41,15 @@
         type: Object,
         default: () => {}
       },
+      inputType: {
+        type: String,
+        default: ''
+      }
     },
     computed: {
       type() {
-        if (!this.$input) return ''
-        return this.$input.$el && this.$input.$el.type.toLowerCase()
+        if (!this.$input && !this.inputType) return ''
+        return this.inputType || this.$input.$el && this.$input.$el.type.toLowerCase()
       },
       statusClass() {
         if (!this.type || this.type !== 'password') return ''
@@ -64,15 +68,27 @@
         score: 0,
         bubbleStyle: null,
         $input: null,
-        inputType: ''
       }
     },
     mounted() {
       this.$nextTick(() => {
         this.$input = this.findInput(this)
-        this.inputType = this.$input.$el.type.toLowerCase()
         this.bindToInput()
+        updateStyleEventListener = this.updateStyle
+        window.addEventListener('resize', updateStyleEventListener)
       })
+    },
+    updated() {      
+      if(this.inputType) {
+        const input = this.findInput(this)
+        this.$input.$el.removeEventListener('click', showToolTipEventListner)
+        this.$input.$el.removeEventListener('input', updateStatusEventListner)
+        this.$input = input 
+        this.bindToInput()
+      }
+    },
+    beforeDestroy() {
+       window.removeEventListener('resize', updateStyleEventListener)
     },
     methods: {
       findInput (node) {
@@ -81,12 +97,13 @@
         return node.$children.map(node => this.findInput(node))[0]
       },
       updateStatus() {
-        const input = this.$input = this.findInput(this)
+        const input = this.$input
         if (!input) return
         const value = input.$el.value
-        if (this.inputType === 'password') {
-          this.invalidCondition['min'] = input.errors.lengthError === 'min' ? 'input-tooltip--invalid' : ''
-          this.invalidCondition['max'] = input.errors.lengthError === 'max' ? 'input-tooltip--invalid' : ''
+        if (this.type === 'password') {
+          const errors = input.validate(value, 'password')
+          this.invalidCondition['min'] = errors.lengthError === 'min' ? 'input-tooltip--invalid' : ''
+          this.invalidCondition['max'] = errors.lengthError === 'max' ? 'input-tooltip--invalid' : ''
           this.getScore(value)
         } else {
           const { pattern } = input.validate(value) || {}
@@ -94,10 +111,11 @@
         }
       },
       bindToInput() {
-        // if (!this.$input) 
-        this.$input = this.findInput(this)
-        this.$input.$el.addEventListener('click', this.showToolTip)
-        this.$input.$el.addEventListener('input', this.updateStatus)
+        if (!this.$input) return 
+        showToolTipEventListner = this.showToolTip
+        updateStatusEventListner = this.updateStatus
+        this.$input.$el.addEventListener('click', showToolTipEventListner)
+        this.$input.$el.addEventListener('input', updateStatusEventListner)
       },
       showToolTip(event) {
         if (this.show) return
@@ -124,9 +142,16 @@
           const slot = this.$input && this.$input.$el
           const {height, width} = slot.getBoundingClientRect()
           if (!bubble || !slot) return
-          this.bubbleStyle  = {
-            top: `${(slot.offsetTop + height/2) - (bubble.height / 2)}px`,
-            left: `${slot.offsetLeft + width}px`
+          if (window.innerWidth >= 768) {
+            this.bubbleStyle  = {
+              top: `${(slot.offsetTop + height/2) - (bubble.height / 2)}px`,
+              left: `${slot.offsetLeft + width}px`
+            }
+          } else {
+             this.bubbleStyle  = {
+              top: `${(slot.offsetTop - bubble.height) - 10}px`,
+              left: `${slot.offsetLeft + width/2 - 10 - bubble.width/2 }px`
+            }
           }
         })
       }
