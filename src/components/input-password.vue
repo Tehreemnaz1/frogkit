@@ -1,23 +1,15 @@
 <style lang="stylus">
-  .password-input
-    &__img
-      display: block
-      position: absolute
-      height: 30px
-      width: 30px
-      background: center center no-repeat
-      cursor pointer
-      background-image url('../assets/images/password-visible.png') 
-    &__show-pass
-      background-position: 8px -35px
-    &__hide-pass
-      background-position: 6px 17px
+  @import '../stylus/mixins/input-password'
+  
+  .fk-input-password
+    input-password-mixin()
+
 </style>
 
 <template>
-  <section class="password-input" @mouseover="show" @mouseout="passwordToggle = false" >
+  <section class="fk-input-password" @mouseover="show" @mouseout="passwordToggle = false" >
     <Input :type="inputType" :value="value" @input="onInput" placeholder="password" ref="input" block/>
-    <div :class="['password-input__img', iconClass]" :style="iconStyle" v-show="passwordToggle" @click="toggle"></div>
+    <div :class="['fk-input-password__img', iconClass]" :style="iconStyle" v-show="passwordToggle" @click="toggle"></div>
   </section>
 </template>
 
@@ -25,7 +17,7 @@
   let positionEventListner
 
   export default {
-    name: 'PasswordInput',
+    name: 'InputPassword',
     props: {
       value: {
         type: String,
@@ -41,7 +33,7 @@
     },
     computed: {
       iconClass () {
-        return this.inputType === 'password' ? 'password-input__show-pass' : 'password-input__hide-pass'
+        return this.inputType === 'password' ? 'fk-input-password__show-pass' : 'fk-input-password__hide-pass'
       }
     },
     mounted () {

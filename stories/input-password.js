@@ -1,13 +1,13 @@
 import { storiesOf } from '@storybook/vue'
-import PasswordInput from '@/components/password-input'
+import InputPassword from '@/components/input-password'
 import { text } from '@storybook/addon-knobs'
 
-const stories = storiesOf('Password Input', module)
+const stories = storiesOf('Input Password', module)
 
 stories.addCodeExampleStory('Kitchen Sink', () => ({
   template: `<div>
   <Form>
-    <PasswordInput v-model="password"/>
+    <InputPassword v-model="password"/>
   </Form>
   <h1>value: {{password}}</h1></div>`,
   data () {
@@ -15,4 +15,4 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
       password: ''
     }
   }
-}), PasswordInput)
+}), InputPassword)

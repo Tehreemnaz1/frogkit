@@ -1,21 +1,20 @@
 <style lang="stylus">
   @require '../stylus/mixins/input-tooltip'
-  .input-tooltip
+  .fk-input-tooltip
     input-tooltip-mixin()
-
 </style>
 
 <template>
-  <section class="input-tooltip" v-click-outside="hideToolTip">
+  <section class="fk-input-tooltip" v-click-outside="hideToolTip">
     <div @focusout="hideToolTip" @focusin="showToolTip" @input="updateStatus">
       <slot></slot>
     </div>
-    <div v-show="show" :style="bubbleStyle" ref="bubble" class="input-tooltip__bubble" > 
-        <b class="input-tooltip__title">{{title}}</b>
+    <div v-show="show" :style="bubbleStyle" ref="bubble" class="fk-input-tooltip__bubble" > 
+        <b class="fk-input-tooltip__title">{{title}} here {{type}}</b>
         <ul>
           <li v-for="condition, key in conditions" :class="invalidCondition[key]">{{condition}}</li>
         </ul>
-        <p v-if="type === 'password'" class="input-tooltip__status" :class="statusClass">{{statusTxt[status]}}</p>
+        <p v-if="type === 'password'" class="fk-input-tooltip__status" :class="statusClass">{{statusTxt[status]}}</p>
       </div>
   </section>
 </template>
@@ -49,13 +48,9 @@
       }
     },
     computed: {
-      type() {
-        if (!this.$input && !this.inputType) return ''
-        return this.inputType || this.$input.$el && this.$input.$el.type.toLowerCase()
-      },
       statusClass() {
         if (!this.type || this.type !== 'password') return ''
-        return `input-tooltip__status--${this.status}`
+        return `fk-input-tooltip__status--${this.status}`
       },
       status() {
         if (this.score >= 4) return 'success'
@@ -70,10 +65,12 @@
         score: 0,
         bubbleStyle: null,
         $input: null,
+        type: ''
       }
     },
     mounted() {
       this.$input = this.findInput(this)
+      this.type = this.inputType || this.$input.$el.type.toLowerCase()
       updateStyleEventListener = this.updateStyle
       window.addEventListener('resize', updateStyleEventListener)
     },
@@ -92,12 +89,12 @@
         const value = input.$el.value
         if (this.type === 'password') {
           const errors = input.validate(value, 'password')
-          this.invalidCondition['min'] = errors.lengthError === 'min' ? 'input-tooltip--invalid' : ''
-          this.invalidCondition['max'] = errors.lengthError === 'max' ? 'input-tooltip--invalid' : ''
+          this.invalidCondition['min'] = errors.lengthError === 'min' ? 'fk-input-tooltip--invalid' : ''
+          this.invalidCondition['max'] = errors.lengthError === 'max' ? 'fk-input-tooltip--invalid' : ''
           this.getScore(value)
         } else {
           const { pattern } = input.validate(value) || {}
-          this.invalidCondition['valid'] = !pattern ? 'input-tooltip--valid' : 'input-tooltip--invalid'
+          this.invalidCondition['valid'] = !pattern ? 'fk-input-tooltip--valid' : 'fk-input-tooltip--invalid'
         }
       },
       showToolTip(event) {
