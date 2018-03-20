@@ -10,7 +10,7 @@
       <slot></slot>
     </div>
     <div v-show="show" :style="bubbleStyle" ref="bubble" class="fk-input-tooltip__bubble" > 
-        <b class="fk-input-tooltip__title">{{title}} here {{type}}</b>
+        <b class="fk-input-tooltip__title">{{title}}</b>
         <ul>
           <li v-for="condition, key in conditions" :class="invalidCondition[key]">{{condition}}</li>
         </ul>

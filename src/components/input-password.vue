@@ -51,7 +51,7 @@
         this.$emit('input', val)
       },
       toggle () {
-        if (this.inputType === 'password') this.inputType = 'input'
+        if (this.inputType === 'password') this.inputType = 'text'
         else this.inputType = 'password'
       },
       show () {
