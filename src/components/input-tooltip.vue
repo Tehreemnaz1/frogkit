@@ -73,11 +73,9 @@
       }
     },
     mounted() {
-      this.$nextTick(() => {
-        this.$input = this.findInput(this)
-        updateStyleEventListener = this.updateStyle
-        window.addEventListener('resize', updateStyleEventListener)
-      })
+      this.$input = this.findInput(this)
+      updateStyleEventListener = this.updateStyle
+      window.addEventListener('resize', updateStyleEventListener)
     },
     beforeDestroy() {
        window.removeEventListener('resize', updateStyleEventListener)

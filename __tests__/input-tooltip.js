@@ -26,7 +26,7 @@ describe('Input Tooltip should validate input', () => {
 
 describe('Input Tooltip component with shown tooltip', () => {
   it('Should validate password', () => {
-    const wrapper = mount(InputToolTip, {...defaultSlot(Input, {type: 'password', value: ''}), propsData,  mocks: {__test__: true }})
+    const wrapper = mount(InputToolTip, {...defaultSlot(Input, {type: 'password', value: ''}), propsData: {...propsData, inputType: 'password'},  mocks: {__test__: true }})
     const input = wrapper.find(Input)
     wrapper.setData({ $input: input.vm})
     // Short password (< 6 chars)
@@ -44,7 +44,7 @@ describe('Input Tooltip component with shown tooltip', () => {
   })
 
   it('Should calculate correct password score', () => {
-    const wrapper = mount(InputToolTip, {...defaultSlot(Input, {type: 'password', value: ''}), propsData,  mocks: {__test__: true }})
+    const wrapper = mount(InputToolTip, {...defaultSlot(Input, {type: 'password', value: ''}), propsData: {...propsData, inputType: 'password'},  mocks: {__test__: true }})
     const input = wrapper.find(Input)
     wrapper.setData({ $input: input.vm})
     // Weak password
