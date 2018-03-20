@@ -27,7 +27,7 @@
     data () {
       return {
         inputType: 'password',
-        passwordToggle: true,
+        passwordToggle: false,
         iconStyle: null
       }
     },
@@ -38,7 +38,6 @@
     },
     mounted () {
       this.$nextTick(() => {
-        this.passwordToggle = false
         positionEventListner = this.computePosition
         window.addEventListener('resize', positionEventListner)
       })
@@ -51,8 +50,7 @@
         this.$emit('input', val)
       },
       toggle () {
-        if (this.inputType === 'password') this.inputType = 'text'
-        else this.inputType = 'password'
+        this.inputType = this.inputType === 'password' ? 'text' : 'password'
       },
       show () {
         this.passwordToggle = true
