@@ -7,7 +7,9 @@
 
 <template>
   <section class="input-tooltip" v-click-outside="hideToolTip">
-    <slot></slot>
+    <div @focusout="hideToolTip" @focusin="showToolTip" @input="updateStatus">
+      <slot></slot>
+    </div>
     <div v-show="show" :style="bubbleStyle" ref="bubble" class="input-tooltip__bubble" > 
         <b class="input-tooltip__title">{{title}}</b>
         <ul>
@@ -21,7 +23,7 @@
 <script>
   import clickOutside from './clickOutside.directive'
 
-  let updateStyleEventListener, showToolTipEventListner, updateStatusEventListner
+  let updateStyleEventListener
 
   export default {
     name: 'InputTooltip',
@@ -73,19 +75,9 @@
     mounted() {
       this.$nextTick(() => {
         this.$input = this.findInput(this)
-        this.bindToInput()
         updateStyleEventListener = this.updateStyle
         window.addEventListener('resize', updateStyleEventListener)
       })
-    },
-    updated() {      
-      if(this.inputType) {
-        const input = this.findInput(this)
-        this.$input.$el.removeEventListener('click', showToolTipEventListner)
-        this.$input.$el.removeEventListener('input', updateStatusEventListner)
-        this.$input = input 
-        this.bindToInput()
-      }
     },
     beforeDestroy() {
        window.removeEventListener('resize', updateStyleEventListener)
@@ -109,13 +101,6 @@
           const { pattern } = input.validate(value) || {}
           this.invalidCondition['valid'] = !pattern ? 'input-tooltip--valid' : 'input-tooltip--invalid'
         }
-      },
-      bindToInput() {
-        if (!this.$input) return 
-        showToolTipEventListner = this.showToolTip
-        updateStatusEventListner = this.updateStatus
-        this.$input.$el.addEventListener('click', showToolTipEventListner)
-        this.$input.$el.addEventListener('input', updateStatusEventListner)
       },
       showToolTip(event) {
         if (this.show) return
@@ -144,13 +129,13 @@
           if (!bubble || !slot) return
           if (window.innerWidth >= 768) {
             this.bubbleStyle  = {
-              top: `${(slot.offsetTop + height/2) - (bubble.height / 2)}px`,
+              top: `${(slot.offsetTop + height / 2 ) - (bubble.height / 2)}px`,
               left: `${slot.offsetLeft + width}px`
             }
           } else {
              this.bubbleStyle  = {
               top: `${(slot.offsetTop - bubble.height) - 10}px`,
-              left: `${slot.offsetLeft + width/2 - 10 - bubble.width/2 }px`
+              left: `${(slot.offsetLeft + width / 2 - 10) - (bubble.width / 2)}px`
             }
           }
         })
