@@ -40,17 +40,22 @@ export default function validator (model = 'value') {
       runValidation() {
         this.errors = this.validate(this[model])
       },
-      validate(value) {
+      validate(value, type='') {
         const errors = {}
         if (this.disabled) return errors
+        if(this.match) {
+          errors.pattern = value !== this.match
+          return errors
+        }
         errors.required = this.required && (typeof value === 'string' ? !value.length : !value)
         errors.pattern = this.pattern && !this.pattern.test(value)
-        if (this.type === 'password') {
-          if (this.value.length < 6) errors.lengthError = 'min'
-          else if (this.value.length > 64) errors.lengthError = 'max'
+        const inputType = type || this.type 
+        if (inputType === 'password') {
+          if (value.length < 6) errors.lengthError = 'min'
+          else if (value.length > 64) errors.lengthError = 'max'
           else  errors.lengthError = ''
         }
-        
+
         return errors
       }
     }

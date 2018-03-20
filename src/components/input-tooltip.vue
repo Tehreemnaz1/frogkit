@@ -1,19 +1,20 @@
 <style lang="stylus">
   @require '../stylus/mixins/input-tooltip'
-  .input-tooltip
+  .fk-input-tooltip
     input-tooltip-mixin()
-
 </style>
 
 <template>
-  <section class="input-tooltip" v-click-outside="hideToolTip">
-    <slot></slot>
-    <div v-if="show" :style="bubbleStyle" ref="bubble" class="input-tooltip__bubble" > 
-        <b class="input-tooltip__title">{{title}}</b>
+  <section class="fk-input-tooltip" v-click-outside="hideToolTip">
+    <div @focusout="hideToolTip" @focusin="showToolTip" @input="updateStatus">
+      <slot></slot>
+    </div>
+    <div v-show="show" :style="bubbleStyle" ref="bubble" class="fk-input-tooltip__bubble" > 
+        <b class="fk-input-tooltip__title">{{title}}</b>
         <ul>
           <li v-for="condition, key in conditions" :class="invalidCondition[key]">{{condition}}</li>
         </ul>
-        <p v-if="type === 'password'" class="input-tooltip__status" :class="statusClass">{{statusTxt[status]}}</p>
+        <p v-if="type === 'password'" class="fk-input-tooltip__status" :class="statusClass">{{statusTxt[status]}}</p>
       </div>
   </section>
 </template>
@@ -41,15 +42,15 @@
         type: Object,
         default: () => {}
       },
+      inputType: {
+        type: String,
+        default: ''
+      }
     },
     computed: {
-      type() {
-        if (!this.$input) return ''
-        return this.$input.$el && this.$input.$el.type.toLowerCase()
-      },
       statusClass() {
         if (!this.type || this.type !== 'password') return ''
-        return `input-tooltip__status--${this.status}`
+        return `fk-input-tooltip__status--${this.status}`
       },
       status() {
         if (this.score >= 4) return 'success'
@@ -63,31 +64,38 @@
         invalidCondition: {},
         score: 0,
         bubbleStyle: null,
-        $input: null
+        $input: null,
+        type: ''
       }
     },
     mounted() {
-      this.$input = this.$children.find(({ _vnode }) => _vnode.tag === 'input')
-      this.bindToInput()
+      this.$input = this.findInput(this)
+      this.type = this.inputType || this.$input.$el.type.toLowerCase()
+      updateStyleEventListener = this.updateStyle
+      window.addEventListener('resize', updateStyleEventListener)
+    },
+    beforeDestroy() {
+       window.removeEventListener('resize', updateStyleEventListener)
     },
     methods: {
+      findInput (node) {
+        const input = node.$children.find(({ _vnode }) => _vnode.tag === 'input')
+        if(input) return input
+        return node.$children.map(node => this.findInput(node))[0]
+      },
       updateStatus() {
         const input = this.$input
         if (!input) return
         const value = input.$el.value
-        if (input.$el.type.toLowerCase() === 'password') {
-          this.invalidCondition['min'] = input.errors.lengthError === 'min' ? 'input-tooltip--invalid' : ''
-          this.invalidCondition['max'] = input.errors.lengthError === 'max' ? 'input-tooltip--invalid' : ''
+        if (this.type === 'password') {
+          const errors = input.validate(value, 'password')
+          this.invalidCondition['min'] = errors.lengthError === 'min' ? 'fk-input-tooltip--invalid' : ''
+          this.invalidCondition['max'] = errors.lengthError === 'max' ? 'fk-input-tooltip--invalid' : ''
           this.getScore(value)
         } else {
           const { pattern } = input.validate(value) || {}
-          this.invalidCondition['valid'] = !pattern ? 'input-tooltip--valid' : 'input-tooltip--invalid'
+          this.invalidCondition['valid'] = !pattern ? 'fk-input-tooltip--valid' : 'fk-input-tooltip--invalid'
         }
-      },
-      bindToInput() {
-        if (!this.$input) return
-        this.$input.$el.addEventListener('click', this.showToolTip)
-        this.$input.$el.addEventListener('input', this.updateStatus)
       },
       showToolTip(event) {
         if (this.show) return
@@ -111,11 +119,19 @@
       updateStyle() {
         this.$nextTick(() => {
           const bubble = this.$refs.bubble && this.$refs.bubble.getBoundingClientRect()
-          const slot = this.$input && this.$input.$el.getBoundingClientRect()
+          const slot = this.$input && this.$input.$el
+          const {height, width} = slot.getBoundingClientRect()
           if (!bubble || !slot) return
-          this.bubbleStyle  = {
-            top: `${(slot.top + slot.height/2) + window.scrollY - (bubble.height / 2)}px`,
-            left: `${slot.left + + window.scrollX + slot.width}px`
+          if (window.innerWidth >= 768) {
+            this.bubbleStyle  = {
+              top: `${(slot.offsetTop + height / 2 ) - (bubble.height / 2)}px`,
+              left: `${slot.offsetLeft + width}px`
+            }
+          } else {
+             this.bubbleStyle  = {
+              top: `${(slot.offsetTop - bubble.height) - 10}px`,
+              left: `${(slot.offsetLeft + width / 2 - 10) - (bubble.width / 2)}px`
+            }
           }
         })
       }

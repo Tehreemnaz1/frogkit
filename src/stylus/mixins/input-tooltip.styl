@@ -1,3 +1,4 @@
+@import '../_vars'
 $status-color = {
   success: #5cb85c
   warning: #f0ad4e
@@ -54,6 +55,7 @@ input-tooltip-mixin()
 
 
 arrow-mixin()
+  @media(min-width $bp-sm)
     content: ''
     position: absolute
     top: 50%
@@ -63,6 +65,22 @@ arrow-mixin()
     border-color: transparent transparent #fff #fff
     transform-origin: 0 0
     transform: rotate(45deg)
-   
+  
     margin-top: -10px
     box-shadow: -1px 1px #ccc
+  
+  @media(max-width $bp-sm - 1)
+    content: ''
+    position: absolute
+    bottom: -14px
+    left: 50% - 7px
+    box-sizing: border-box
+    border: 7px solid 
+    border-color: transparent transparent #fff #fff
+    transform-origin: 0 0
+    transform: rotate(315deg)
+  
+    margin-top: -10px
+    box-shadow: -1px 1px #ccc
+
+

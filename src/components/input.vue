@@ -44,6 +44,10 @@
       disabled: {
         type: Boolean,
         default: false
+      },
+      match: {
+        type: String,
+        default: ''
       }
     },
     computed: {
