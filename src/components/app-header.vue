@@ -12,7 +12,7 @@
     <header class="fk-app-header">
       <div class="fk-app-header__container">
         <!-- logo -->
-        <h1 class="fk-app-header__logo">
+        <h1 class="fk-app-header__logo" pid="header_button_home">
           <a :href="logoUrl">
             <Icon icon="logo-small" />
           </a>
@@ -20,7 +20,7 @@
         <!-- navigation -->
         <nav class="fk-app-header__nav">
           <!-- all cameras -->
-          <div class="fk-app-header__cam">
+          <div class="fk-app-header__cam" pid="header_button_all_cameras">
             <a v-if="navigations[0]" :href="navigations[0].url">
               <Icon icon="camera" /> {{ navigations[0].label }}</a>
             <div class="fk-app-header__cam__nav">
@@ -44,10 +44,10 @@
             </div>
           </div>
           <!-- my account -->
-          <a v-if="navigations[1]" :href="navigations[1].url" class="fk-app-header__account">
+          <a v-if="navigations[1]" :href="navigations[1].url" class="fk-app-header__account" pid="header_button_my_account">
             <Icon icon="account" /> {{ navigations[1].label }}</a>
           <!-- shop button -->
-          <Button v-if="navigations[2]" link color="secondary" size="small" class="fk-app-header__btn-shop" :href="navigations[2].url">
+          <Button v-if="navigations[2]" link color="secondary" size="small" class="fk-app-header__btn-shop" :href="navigations[2].url" pid="header_button_shop">
             {{ navigations[2].label }}
           </Button>
           <!-- current user -->
