@@ -1,6 +1,6 @@
 {
   "name": "@smartfrog/frogkit",
-  "version": "0.8.11",
+  "version": "0.8.12",
   "description": "Smartfrog Component Framework",
   "scripts": {
     "storybook": "start-storybook -p 5000 -c .storybook",
