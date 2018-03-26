@@ -48,7 +48,7 @@ export default function validator (model = 'value') {
           return errors
         }
         errors.required = this.required && (typeof value === 'string' ? !value.length : !value)
-        errors.pattern = this.pattern && !this.pattern.test(value)
+        errors.pattern = this.required && this.pattern && !this.pattern.test(value) || !value.trim().length
         const inputType = type || this.type 
         if (inputType === 'password') {
           if (value.length < 6) errors.lengthError = 'min'
