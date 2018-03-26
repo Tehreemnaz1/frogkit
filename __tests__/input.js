@@ -55,18 +55,18 @@ describe('Input component', () => {
 
   describe('Input component | type phone', () => {
     it('should render fine', () => {
-      const wrapper = mount(Input, { propsData: { type: 'phone' } })
+      const wrapper = mount(Input, { propsData: { type: 'phone', required: true } })
       expect(wrapper.html()).toMatchSnapshot()
     })
 
     it('should render invalid phone', () => {
-      const wrapper = mount(Input, { propsData : { value:'+2', type: 'phone' } })
+      const wrapper = mount(Input, { propsData : { value:'+2', type: 'phone', required: true } })
       wrapper.trigger('input')
       expect(wrapper.hasClass('fk-input--invalid')).toBe(true)
     })
 
     it('should render valid phone', () => {
-      const wrapper = mount(Input, { propsData : { value:'+25', type: 'phone' } })
+      const wrapper = mount(Input, { propsData : { value:'+25', type: 'phone', required: true } })
       wrapper.trigger('input')
       expect(wrapper.hasClass('fk-input--invalid')).toBe(false)
     })
@@ -74,18 +74,18 @@ describe('Input component', () => {
 
   describe('Input component | type email', () => {
     it('should render fine', () => {
-      const wrapper = mount(Input, { propsData: { type: 'email' } })
+      const wrapper = mount(Input, { propsData: { type: 'email', required: true } })
       expect(wrapper.html()).toMatchSnapshot()
     })
 
     it('should render invalid email', () => {
-      const wrapper = mount(Input, { propsData : { value:'invalid@email', type: 'email' } })
+      const wrapper = mount(Input, { propsData : { value:'invalid@email', type: 'email', required: true } })
       wrapper.trigger('input')
       expect(wrapper.hasClass('fk-input--invalid')).toBe(true)
     })
 
     it('should render valid email', () => {
-      const wrapper = mount(Input, { propsData : { value:'valid@email.com', type: 'email' } })
+      const wrapper = mount(Input, { propsData : { value:'valid@email.com', type: 'email', required: true } })
       wrapper.trigger('input')
       expect(wrapper.hasClass('fk-input--invalid')).toBe(false)
     })

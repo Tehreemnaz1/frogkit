@@ -7,8 +7,11 @@ const propsData = {
   title: 'Password must have:',
   conditions: {'min': 'min 6 chars', 'max': 'max 64 chars'},
   statusTxt: {'danger': 'weak password', 'warning': 'good password', 'success': 'strong password'},
-  value: ''
+  value: '',
+  required: true
 }
+
+const required = true
 
 describe('Input Tooltip component', () => {
   it('Should render component and match snapshot', () => {
@@ -26,7 +29,7 @@ describe('Input Tooltip should validate input', () => {
 
 describe('Input Tooltip component with shown tooltip', () => {
   it('Should validate password', () => {
-    const wrapper = mount(InputToolTip, {...defaultSlot(Input, {type: 'password', value: ''}), propsData: propsData,  mocks: {__test__: true }})
+    const wrapper = mount(InputToolTip, {...defaultSlot(Input, {type: 'password', value: '', required}), propsData: propsData,  mocks: {__test__: true }})
     const input = wrapper.find(Input)
     wrapper.setData({ $input: input.vm})
     // Short password (< 6 chars)
@@ -44,7 +47,7 @@ describe('Input Tooltip component with shown tooltip', () => {
   })
 
   it('Should calculate correct password score', () => {
-    const wrapper = mount(InputToolTip, {...defaultSlot(Input, {type: 'password', value: ''}), propsData: propsData,  mocks: {__test__: true }})
+    const wrapper = mount(InputToolTip, {...defaultSlot(Input, {type: 'password', value: '', required}), propsData: propsData,  mocks: {__test__: true }})
     const input = wrapper.find(Input)
     wrapper.setData({ $input: input.vm})
     // Weak password
@@ -62,7 +65,7 @@ describe('Input Tooltip component with shown tooltip', () => {
   })
 
   it('Should validate email', () => {
-    const wrapper = mount(InputToolTip, {...defaultSlot(Input, {type: 'email', value: ''}), propsData,  mocks: {__test__: true}})
+    const wrapper = mount(InputToolTip, {...defaultSlot(Input, {type: 'email', value: '', required}), propsData,  mocks: {__test__: true}})
     const input = wrapper.find(Input)
     wrapper.setData({ $input: input.vm})
     // Invalid email
@@ -76,7 +79,7 @@ describe('Input Tooltip component with shown tooltip', () => {
     expect(wrapper.vm.invalidCondition['valid']).toBe('fk-input-tooltip--valid')
   })
   it('Should validate phone number', () => {
-    const wrapper = mount(InputToolTip, {...defaultSlot(Input, {type: 'phone', value: ''}), propsData,  mocks: {__test__: true }})
+    const wrapper = mount(InputToolTip, {...defaultSlot(Input, {type: 'phone', value: '', required}), propsData,  mocks: {__test__: true }})
     const input = wrapper.find(Input)
     wrapper.setData({ $input: input.vm})
     // Invalid phone number
