@@ -95,7 +95,7 @@
         } else {
           const { pattern } = input.validate(value) || {}
           this.invalidCondition['valid'] = !pattern ? 'fk-input-tooltip--valid' : 'fk-input-tooltip--invalid'
-        }        
+        }
       },
       showToolTip(event) {
         if (this.show) return
