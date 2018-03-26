@@ -41,7 +41,7 @@ describe('Input component', () => {
     })
 
     it('should render invalid password', () => {
-      const wrapper = mount(Input, { propsData : { value:'123', type: 'password' } })
+      const wrapper = mount(Input, { propsData : { value:'123', type: 'password', required: true } })
       wrapper.trigger('input')
       expect(wrapper.hasClass('fk-input--invalid')).toBe(true)
     })
