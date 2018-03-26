@@ -8,7 +8,7 @@
 
 <template>
   <section class="fk-input-password" @mouseover="show" @mouseout="passwordToggle = false" >
-    <Input :type="inputType" :value="value" @input="onInput" placeholder="password" ref="input" block/>
+    <Input :type="inputType" :value="value" @input="onInput" ref="input" block :placeholder="placeholder"/>
     <div :class="['fk-input-password__img', iconClass]" :style="iconStyle" v-show="passwordToggle" @click="toggle"></div>
   </section>
 </template>
@@ -20,6 +20,10 @@
     name: 'InputPassword',
     props: {
       value: {
+        type: String,
+        default: ''
+      },
+      placeholder: {
         type: String,
         default: ''
       }
