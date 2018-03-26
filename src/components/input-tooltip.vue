@@ -88,7 +88,7 @@
         if (!input) return
         const value = input.$el.value
         if (this.type === 'password') {
-          const errors = input.validate(value, 'password')
+          const errors = input.errors = input.validate(value, 'password')
           this.invalidCondition['min'] = errors.lengthError === 'min' ? 'fk-input-tooltip--invalid' : ''
           this.invalidCondition['max'] = errors.lengthError === 'max' ? 'fk-input-tooltip--invalid' : ''
           this.getScore(value)

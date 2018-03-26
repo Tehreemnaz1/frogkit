@@ -47,13 +47,15 @@ export default function validator (model = 'value') {
           errors.pattern = value !== this.match
           return errors
         }
-        errors.required = this.required && (typeof value === 'string' ? !value.length : !value)
-        errors.pattern = this.required && this.pattern && !this.pattern.test(value) || (typeof value === 'string' && !value.trim().length)
-        const inputType = type || this.type 
-        if (inputType === 'password') {
-          if (value.length < 6) errors.lengthError = 'min'
-          else if (value.length > 64) errors.lengthError = 'max'
-          else  errors.lengthError = ''
+        if (this.required) {
+          errors.required = typeof value === 'string' ? !value.length : !value
+          errors.pattern = this.pattern && !this.pattern.test(value) || (typeof value === 'string' && !value.trim().length)
+          const inputType = type || this.type 
+          if (inputType === 'password') {
+            if (value.length < 6) errors.lengthError = 'min'
+            else if (value.length > 64) errors.lengthError = 'max'
+            else  errors.lengthError = ''
+          }
         }
 
         return errors
