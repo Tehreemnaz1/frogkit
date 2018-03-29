@@ -1,0 +1,95 @@
+@import '../_vars'
+
+$orange = #f18713
+$grey = #d5d5d5
+
+desktop-view($color)
+  border 2px solid $color
+  border-radius 5px
+  min-height 600px
+  flex-basis 100%
+  align-items unset !important
+  flex-wrap: wrap
+  justify-content: space-between
+
+mobile-view()
+  min-height 600px
+  flex-basis 100%
+  align-items unset !important
+  flex-wrap: wrap
+  justify-content: space-between
+
+feature-mixin($color)
+  background-color $color
+  padding 15px 0
+
+mobile-title-mixin()
+  padding: 10px 5px
+  max-height: 250px
+  font-size 20px
+  line-height: 22px
+  color: white
+  position: relative
+
+
+product-bundle-mixin()
+  min-width 320px
+  &__info
+    margin-top auto
+    padding 0 40px 20px 40px
+    a
+      color #3180ca
+      text-decoration none
+      font-size 16px
+
+  @media(min-width $bp-sm)
+    max-width 370px
+    &__title
+      margin 5px 0 10px 0
+    &__mobile
+      display none !important
+      &--active
+        display none !important
+    &__hw
+      desktop-view($orange)
+      &__features
+        feature-mixin($orange)
+    &__nhw
+      desktop-view($grey)
+      &__features
+        feature-mixin($grey)
+
+  @media(max-width $bp-sm - 1)
+    // max-width 100%
+    &__title
+      display: none
+    &__price
+      font-size: 26px
+      line-height: 26px
+    &__suffix
+      font-size: 16px
+      line-height: 16px
+    &__mobile
+      background-color: #98bfe4 
+      mobile-title-mixin()
+      &--active
+        mobile-title-mixin()
+        background-color #2f82c4
+        &:after
+          content: ''
+          position: absolute
+          left: 50%
+          bottom: 0
+          border-left: 10px solid transparent
+          border-right: 10px solid transparent
+          border-top: 10px solid #fff
+          transform: rotate(180deg)
+          margin-left: -10px
+    &__hw
+      mobile-view()
+      &__features
+        feature-mixin($orange)
+    &__nhw
+      mobile-view()
+      &__features
+        feature-mixin($grey)
