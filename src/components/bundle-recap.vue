@@ -1,13 +1,13 @@
 <style lang="stylus">
+  @import '../stylus/_vars'
   .fk-bundle-recap
     background-color white
-    min-width 300px
     padding 10px
     & &__icon
       width 20px
       height 20px
     & &__item
-      width 80px
+      width 20%
       position relative
       img
         max-height 100px
@@ -16,7 +16,6 @@
     & &__label
       font-size: 1.6rem
       text-align: center
-      // color #414141
 </style>
 
 <template>

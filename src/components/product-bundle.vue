@@ -6,31 +6,26 @@
 </style>
 
 <template>
-  <Flex class="fk-product-bundle">
-    <Flex :class="bundleClass" column>
+  <Flex  v-if="show" class="fk-product-bundle">
+    <Flex :class="containerClass" column>
       <Title size="xs" color="primary" class="fk-product-bundle__title" center>{{product.title}}</Title>
-      <Flex align="center" justify="center" :class="mobileClass" column @click="$emit('select')">
-        <p class="m-b-10">{{product.title}}</p>
-        <p class="fk-product-bundle__price">{{product.price.amount}} {{product.price.currency}}</p>
-        <p class="fk-product-bundle__suffix m-b-10">{{product.price.suffix}}</p>
-      </Flex>
-      <BundleRecap v-if="show" :bundle="product.bundle" />
-      <Flex v-if="show" align="center" :class="featureClass" column>
+      <BundleRecap :bundle="product.bundle" />
+      <Flex align="center" :class="featureClass" column>
         <div>
-          <TickText :color="tickColor" v-for="feature, index in product.features" :key="index" :placeholder="feature.placeholder">
+          <TickText bold :color="tickColor" class="fk-product-bundle__feature-item" v-for="feature, index in product.features" :key="index" :placeholder="feature.placeholder">
             <p v-if="feature.description">{{feature.description}}</p>
           </TickText>
         </div>
       </Flex>
-      <Flex v-if="show" align="center" column>
+      <Flex align="center" class="m-b-10" column>
         <div>
-          <TickText v-for="feature, index in product.additional" :key="index" :placeholder="feature" />
+          <TickText v-for="feature, index in product.additional" :key="index" :placeholder="feature" class="fk-product-bundle__feature-item" />
         </div>
       </Flex>
-      <Flex v-if="show" align="center" class="fk-product-bundle__info" column>
-        <a :href="product.link.href">{{product.link.text}}</a>
+      <Flex align="center" class="fk-product-bundle__info" column>
+        <a :href="product.link.href" class="m-b-10">{{product.link.text}}</a>
         <p class="m-b-15">
-          <PriceTag v-if="product.price" :value="product.price.amount" :code="product.price.currency">
+          <PriceTag v-if="product.price" :value="product.price.amount" :code="product.price.currency" class="fk-product-bundle__price">
             <p slot="prefix" v-html="product.price.prefix"></p>
             <p slot="suffix" v-html="product.price.suffix"></p>
           </PriceTag>
@@ -42,6 +37,7 @@
 </template>
 
 <script>
+  let updateShowListner
   export default {
     name: 'ProductBundle',
     props: {
@@ -58,36 +54,38 @@
         default: false
       }
     },
-    // data () {
-    //   return {
-    //     show: false
-    //   }
-    // },
+    data () {
+      return {
+        show: false
+      }
+    },
+    watch: {
+      active() {
+        this.updateShow()
+      } 
+    },
     mounted () {
-      // this.updateShow()
-      window.addEventListener('resize', this.$forceUpdate)
+      updateShowListner = this.updateShow
+      this.updateShow()
+      window.addEventListener('resize', updateShowListner)
+    },
+    destroyed () {
+      window.removeEventListener('resize', updateShowListner)
     },
     methods: {
-      // updateShow () {
-      //   this.show = this.active || window.innerWidth > 767
-      // }
+      updateShow () {
+        this.show = this.active || window.innerWidth > 767
+      }
     },
     computed: {
-      bundleClass() {
-        return this.hw ? 'fk-product-bundle__hw' : 'fk-product-bundle__nhw' 
+      containerClass() {
+        return this.hw ? 'fk-product-bundle__container' : 'fk-product-bundle__container--nhw'
       },
       featureClass() {
-        return this.hw ? 'fk-product-bundle__hw__features' : 'fk-product-bundle__nhw__features'
+        return this.hw ? 'fk-product-bundle__features' : 'fk-product-bundle__features--nhw'
       },
       tickColor() {
         return this.hw ? 'white' : 'orange'
-      },
-      mobileClass() {
-        return this.active ? 'fk-product-bundle__mobile--active' : 'fk-product-bundle__mobile'
-      },
-      show() {
-        return this.active || window.innerWidth > 767
-
       }
     }
   }

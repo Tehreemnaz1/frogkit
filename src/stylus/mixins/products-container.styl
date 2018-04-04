@@ -1,0 +1,45 @@
+@import '../_vars'
+
+mobile-title-mixin()
+  @media(max-width $bp-sm - 1)
+    padding: 10px 5px
+    max-height: 250px
+    font-size 20px
+    line-height: 22px
+    color: white
+    position: relative
+    border-left 4px solid white
+    &:last-child
+      border-right 4px solid white
+    &__price
+      font-size: 26px
+      line-height: 26px
+    &__suffix
+      font-size: 16px
+      line-height: 16px
+    @media(max-width 360px)
+      font-size 18px
+      & &__price
+      & &__suffix
+        font-size 16px
+  @media(min-width $bp-sm)
+    display none !important
+
+
+products-container-mixin()
+  min-width 320px
+  &__container
+    background-color: #98bfe4
+    mobile-title-mixin()
+    &&--active
+      background-color #2f82c4
+      &:after
+        content: ''
+        position: absolute
+        left: 50%
+        bottom: 0
+        border-left: 10px solid transparent
+        border-right: 10px solid transparent
+        border-top: 10px solid #fff
+        transform: rotate(180deg)
+        margin-left: -10px

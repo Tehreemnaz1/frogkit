@@ -58,14 +58,22 @@ stories.addCodeExampleStory('Default', () => ({
 }))
 
 stories.addCodeExampleStory('Multiple products', () => ({
-  template: `<Flex justify="space-around" grow>
-    <ProductBundle v-for="product, index in products" :key="index" :product="product.product" :hw="hw" :active="active === index" @select="active = index" />
-  </Flex>`,
+  template: `<div>
+    <ProductsContainer :products="products" :active="active" @select="handleSelect" />
+    <Flex justify="space-between" >
+    <ProductBundle v-for="product, index in products" :key="index" :product="product" :hw="hw" :active="active === index" />
+    </Flex>
+    </div>
+    `,
+  methods: {
+    handleSelect(index) {
+      this.active = index
+    }
+  },
   data() {
     return { 
       products: [
         {
-          product: {
           title: 'product 1',
           bundle: [
             { 
@@ -101,15 +109,13 @@ stories.addCodeExampleStory('Multiple products', () => ({
           },
           price: {
             prefix: 'nur',
-            amount: '4.95',
+            amount: '149',
             currency: 'EUR',
             suffix: 'einmalg'
           },
           action: 'Jetzt kaufen'
-        }
       },
           {
-            product: {
             title: 'product 2',
             bundle: [
               { 
@@ -150,10 +156,8 @@ stories.addCodeExampleStory('Multiple products', () => ({
               suffix: 'einmalg'
             },
             action: 'Jetzt kaufen'
-          }
         },
         {
-          product: {
           title: 'product 3',
           bundle: [
             { 
@@ -194,7 +198,6 @@ stories.addCodeExampleStory('Multiple products', () => ({
             suffix: 'einmalg'
           },
           action: 'Jetzt kaufen'
-        }
       },
       ],
       hw: boolean('hardware country', true),

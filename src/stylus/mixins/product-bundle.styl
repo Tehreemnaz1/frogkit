@@ -2,94 +2,91 @@
 
 $orange = #f18713
 $grey = #d5d5d5
+$bp-large = 1120px
+$bp-medium = 822px
 
-desktop-view($color)
-  border 2px solid $color
-  border-radius 5px
-  min-height 600px
-  flex-basis 100%
-  align-items unset !important
-  flex-wrap: wrap
-  justify-content: space-between
+responsive-mixin()
+  @media(min-width $bp-large)
+    max-width 370px
+    &__info
+      padding 0 40px 20px 40px
 
-mobile-view()
-  min-height 600px
-  flex-basis 100%
-  align-items unset !important
-  flex-wrap: wrap
-  justify-content: space-between
+  @media(max-width $bp-large - 1)
+    max-width 300px
+    font-size 1.2rem
+    &__info
+      padding 0 30px 20px 30px
+    &__price
+      font-size 0.85rem !important
 
-feature-mixin($color)
+  @media(max-width $bp-md)
+    max-width 270px
+    font-size 1.8rem
+    &__info
+      padding 0 25px 20px 25px
+    &__price
+      font-size 0.8rem !important
+    &__feature-item
+      font-size 1.1rem !important
+
+  @media(max-width $bp-medium)
+    max-width 250px
+    font-size 1.5rem
+    &__info
+      padding 0 15px 20px 15px
+    &__price
+      font-size 0.78rem !important
+    &__feature-item
+      font-size 1rem !important
+
+features-mixin($color)
   background-color $color
-  padding 15px 0
+  
 
-mobile-title-mixin()
-  padding: 10px 5px
-  max-height: 250px
-  font-size 20px
-  line-height: 22px
-  color: white
-  position: relative
-
+mobile-view($color)
+  min-height 600px
+  flex-basis 100%
+  align-items unset !important
+  min-width 320px
+  &__features
+    background-color $color
 
 product-bundle-mixin()
-  min-width 320px
+  background-color white
   &__info
     margin-top auto
-    padding 0 40px 20px 40px
     a
       color #3180ca
       text-decoration none
       font-size 16px
-
+  &__features, &__features--nhw
+    padding 15px 0
   @media(min-width $bp-sm)
-    max-width 370px
+    border-radius 5px
+    min-height 600px
+    responsive-mixin()
     &__title
       margin 5px 0 10px 0
-    &__mobile
-      display none !important
-      &--active
-        display none !important
-    &__hw
-      desktop-view($orange)
-      &__features
-        feature-mixin($orange)
-    &__nhw
-      desktop-view($grey)
-      &__features
-        feature-mixin($grey)
+    &__container, &__container--nhw
+      flex-basis 100%
+      align-items unset !important
+      flex-wrap: wrap
+      justify-content: space-between
+      border 2px solid $orange
+      &--nhw
+        border 2px solid $grey
+    &__features
+      background-color $orange
+      &--nhw
+        background-color $grey
 
   @media(max-width $bp-sm - 1)
-    // max-width 100%
+    min-width: 320px
+    width 100%
     &__title
       display: none
-    &__price
-      font-size: 26px
-      line-height: 26px
-    &__suffix
-      font-size: 16px
-      line-height: 16px
-    &__mobile
-      background-color: #98bfe4 
-      mobile-title-mixin()
-      &--active
-        mobile-title-mixin()
-        background-color #2f82c4
-        &:after
-          content: ''
-          position: absolute
-          left: 50%
-          bottom: 0
-          border-left: 10px solid transparent
-          border-right: 10px solid transparent
-          border-top: 10px solid #fff
-          transform: rotate(180deg)
-          margin-left: -10px
-    &__hw
-      mobile-view()
-      &__features
-        feature-mixin($orange)
-    &__nhw
-      mobile-view()
-      &__features
-        feature-mixin($grey)
+    &__container
+      mobile-view($orange)
+    &__container--nhw
+      mobile-view($grey)
+
