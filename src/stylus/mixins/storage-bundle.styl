@@ -1,9 +1,10 @@
 @import '../_vars'
 
-$orange = #f18713
 $grey = #d5d5d5
 $bp-large = 1200px
 $bp-medium = 822px
+$image-height = 140px
+$image-width = 180px
 
 responsive-mixin()
   @media(min-width $bp-large)
@@ -15,6 +16,12 @@ responsive-mixin()
     max-width 320px
     &__info
       padding 0 30px 20px 30px
+    &__action
+      font-size 2.2rem !important
+    &__history
+      font-size 1.6rem
+    &__period__label
+      font-size 1.6rem
 
   @media(max-width $bp-md)
     max-width 270px
@@ -22,6 +29,8 @@ responsive-mixin()
       padding 0 25px 20px 25px
     &__price
       font-size 0.7rem !important
+    &__action
+      font-size 1.8rem !important
 
   @media(max-width $bp-medium)
     max-width 250px
@@ -29,51 +38,50 @@ responsive-mixin()
       padding 0 15px 20px 15px
     &__price
       font-size 0.7rem !important
-    &__feature-item
-      font-size 1rem !important
 
-product-bundle-mixin()
+
+storage-bundle-mixin()
   background-color white
   align-items unset !important
   &__info
     margin-top auto
-    a
-      color #3180ca
-      text-decoration none
-      font-size 16px
-  &__features, &__features--nhw
-    padding 5px 0
-  &__features
-    background-color $orange
-    &--nhw
-      background-color $grey
   &__price
     font-size 0.8rem !important
+  &__icon
+    background: url('../assets/images/sf-cloud.svg') no-repeat
+    background-size: $image-height $image-width
+    height: $image-height
+    width: $image-width
+    background-position: center center
+  &__for
+    font-size 15px
+    margin-bottom: 10px
+  &__devices
+    width: 80% !important
+  &__period
+    margin-bottom: 5px
+    &__label
+      padding-left 10px
+  &__history
+    margin 10px 0
+    font-size 2rem
 
   @media(min-width $bp-sm)
     min-height 600px
     responsive-mixin()
     &__title
       margin 5px 0 10px 0
-    &__container, &__container--nhw
-      width: 100%
-      flex-basis 100%
+    &__container
+      flex-basis: 100%
       border-radius 5px
-      border 2px solid $orange
-      align-items unset !important
-      &--nhw
-        border 2px solid $grey
-
+      border 2px solid $grey
+    &__info
+      padding 0 15px
 
   @media(max-width $bp-sm - 1)
     min-width: 320px
     width 100%
     &__title
       display: none
-    &__container, &__container--nhw
-      flex-basis 100%
-      align-items unset !important
-    &__feature-item
-      font-size 1.2rem !important
-    &__info
-      padding 0 15px
+    &__container
+      flex-basis: 100%

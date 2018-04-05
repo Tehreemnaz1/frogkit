@@ -59,17 +59,9 @@ stories.addCodeExampleStory('Default', () => ({
 
 stories.addCodeExampleStory('Multiple products', () => ({
   template: `<div>
-    <ProductsContainer :products="products" :active="active" @select="handleSelect" />
-    <Flex justify="space-between" >
-    <ProductBundle v-for="product, index in products" :key="index" :product="product" :hw="hw" :active="active === index" />
-    </Flex>
+    <ProductsContainer :products="products" :active="active" />
     </div>
     `,
-  methods: {
-    handleSelect(index) {
-      this.active = index
-    }
-  },
   data() {
     return { 
       products: [

@@ -6,13 +6,18 @@
 </style>
 
 <template>
-  <Flex justify="space-around" class="fk-products-container">
-    <Flex column grow align="center" v-for="product, index in products" :key="index" @click="$emit('select', index)" :class="['fk-products-container__container', mobileClass(index)]">
-      <p class="m-b-10">{{product.title}}</p>
-      <p class="fk-products-container__price">{{product.price.amount}} {{product.price.currency}}</p>
-      <p class="fk-products-container__suffix m-b-10">{{product.price.suffix}}</p>
+  <section>
+    <Flex justify="space-around" class="fk-products-container">
+      <Flex column grow align="center" v-for="product, index in products" :key="index" @click="active = index" :class="['fk-products-container__container', mobileClass(index)]">
+        <p class="m-b-10">{{product.title}}</p>
+        <p class="fk-products-container__price">{{product.price.amount}} {{product.price.currency}}</p>
+        <p class="fk-products-container__suffix m-b-10">{{product.price.suffix}}</p>
+      </Flex>
     </Flex>
-  </Flex>
+    <Flex justify="space-between" >
+      <ProductBundle v-for="product, index in products" :key="index" :product="product" :hw="hw" :active="active === index" />
+    </Flex>
+  </section>
 </template>
 
 <script>
@@ -23,9 +28,14 @@
         type: Array,
         default: () => []
       },
-      active: {
-        type: Number,
-        default: 0
+      hw: {
+        type: Boolean,
+        default: true
+      }
+    },
+    data () {
+      return {
+        active: 0
       }
     },
     methods: {

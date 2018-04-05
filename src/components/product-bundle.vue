@@ -7,7 +7,7 @@
 
 <template>
   <Flex  v-if="show" class="fk-product-bundle">
-    <Flex :class="containerClass" column>
+    <Flex :class="containerClass" align="center" column>
       <Title size="xs" color="primary" class="fk-product-bundle__title" center>{{product.title}}</Title>
       <BundleRecap :bundle="product.bundle" />
       <Flex align="center" :class="featureClass" column>
@@ -17,7 +17,7 @@
           </TickText>
         </div>
       </Flex>
-      <Flex align="center" class="m-b-10" column>
+      <Flex align="center" class="m-b-10 m-t-10" column>
         <div>
           <TickText v-for="feature, index in product.additional" :key="index" :placeholder="feature" class="fk-product-bundle__feature-item" />
         </div>

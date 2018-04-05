@@ -1,0 +1,53 @@
+<style lang="stylus">
+  @import '../stylus/mixins/storage-bundle'
+
+  .fk-storage-bundle
+    storage-bundle-mixin()
+</style>
+
+<template>
+  <Flex  v-if="show" class="fk-storage-bundle">
+    <Flex class="fk-storage-bundle__container" align="center" column>
+      <Title size="xs" color="primary" class="fk-storage-bundle__title" center>{{storage.title}}</Title>
+      <div class="fk-storage-bundle__icon">
+      </div>
+      <p class="fk-storage-bundle__for">{{storage.for}}</p>
+      <Select class="fk-storage-bundle__devices" :options="storage.devices" :selected="storage.devices[0]"></Select>
+      <p class="fk-storage-bundle__history">{{storage.history}}</p>
+      <div>
+        <Radio class="fk-storage-bundle__period" v-for="period in storage.periods" :value="period.value" :key="period.value" v-model="selectedPeriod">
+          <p class="fk-storage-bundle__period__label">{{period.label}}<sup>2</sup></p>
+        </Radio>
+      </div>
+      <Flex align="center" class="fk-storage-bundle__info" column>
+        <p class="m-b-15">
+          <PriceTag v-if="storage.price" :value="storage.price.amount" :code="storage.price.currency" class="fk-storage-bundle__price">
+            <p slot="prefix" v-html="storage.price.prefix"></p>
+            <p slot="suffix" v-html="storage.price.suffix"></p>
+          </PriceTag>
+        </p>
+        <Button color="secondary" size="big" class="fk-storage-bundle__action" @click="$emit('click')" block>{{storage.action}}</Button>
+      </Flex>
+    </Flex>
+  </Flex>
+</template>
+
+<script>
+  export default {
+    name: 'StorageBundle',
+    computed: {
+      show: () => true 
+    },
+    props: {
+      storage: {
+        type: Object,
+        default: () => {{}}
+      }
+    },
+    data() {
+      return {
+        selectedPeriod: ''
+      }
+    }
+  }
+</script>
