@@ -7,24 +7,24 @@ $bp-medium = 822px
 
 responsive-mixin()
   @media(min-width $bp-large)
-    max-width 370px
+    width 370px
     &__info
       padding 0 40px 20px 40px
 
   @media(max-width $bp-large - 1)
-    max-width 320px
+    width 320px
     &__info
       padding 0 30px 20px 30px
 
   @media(max-width $bp-md)
-    max-width 270px
+    width 270px
     &__info
       padding 0 25px 20px 25px
     &__price
       font-size 0.7rem !important
 
   @media(max-width $bp-medium)
-    max-width 250px
+    width 250px
     &__info
       padding 0 15px 20px 15px
     &__price
@@ -35,6 +35,8 @@ responsive-mixin()
 product-bundle-mixin()
   background-color white
   align-items unset !important
+  &__container, &__container--nhw
+    flex-wrap: unset !important
   &__info
     margin-top auto
     a
@@ -55,12 +57,16 @@ product-bundle-mixin()
     responsive-mixin()
     &__title
       margin 5px 0 10px 0
+    &__price
+      &__prefix, &__suffix
+        max-width 50px
     &__container, &__container--nhw
       width: 100%
       flex-basis 100%
       border-radius 5px
       border 2px solid $orange
       align-items unset !important
+      flex-wrap: nowrap
       &--nhw
         border 2px solid $grey
 

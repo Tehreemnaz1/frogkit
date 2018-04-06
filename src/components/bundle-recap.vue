@@ -1,6 +1,7 @@
 <style lang="stylus">
   @import '../stylus/_vars'
   .fk-bundle-recap
+    flex-wrap: nowrap !important
     background-color white
     padding 10px
     & &__icon
@@ -41,7 +42,7 @@
 
     <Flex align="center" justify="space-between">
       <div v-for="(item, i) in bundle" :key="i" class="fk-bundle-recap__item">
-        <p class="fk-bundle-recap__label">{{item.label}}</p>
+        <p class="fk-bundle-recap__label" v-html="item.label"></p>
       </div>
     </Flex>
   </section>

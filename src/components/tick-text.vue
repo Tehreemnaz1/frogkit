@@ -9,7 +9,7 @@
   <Flex align="top">
     <Icon class="fk-tick-text__icon" icon="checkmark" :color="color" />
     <Flex column>
-      <component :is="bold ? 'b' : 'p'" class="fk-tick-text__placeholder"> {{ placeholder }} </component>
+      <component :is="bold ? 'b' : 'p'" class="fk-tick-text__placeholder" v-html="placeholder"></component>
       <slot></slot>
     </Flex>
   </Flex>

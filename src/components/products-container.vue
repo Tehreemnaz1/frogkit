@@ -7,14 +7,14 @@
 
 <template>
   <section>
-    <Flex justify="space-around" class="fk-products-container">
-      <Flex column grow align="center" v-for="product, index in products" :key="index" @click="active = index" :class="['fk-products-container__container', mobileClass(index)]">
-        <p class="m-b-10">{{product.title}}</p>
-        <p class="fk-products-container__price">{{product.price.amount}} {{product.price.currency}}</p>
-        <p class="fk-products-container__suffix m-b-10">{{product.price.suffix}}</p>
+    <Flex class="fk-products-container">
+      <Flex column align="center" v-for="product, index in products" :key="index" @click="active = index" :class="['fk-products-container__container', mobileClass(index)]">
+        <p class="m-b-10 fk-products-container__container__title"  v-html="product.titleMobile"></p>
+        <b class="fk-products-container__price" v-if="product.price" >{{product.price.mobilePrice}}</b>
+        <p class="fk-products-container__suffix m-b-10" v-if="product.price">{{product.price.suffix}}</p>
       </Flex>
     </Flex>
-    <Flex justify="space-between" >
+    <Flex justify="space-around" >
       <ProductBundle v-for="product, index in products" :key="index" :product="product" :hw="hw" :active="active === index" />
     </Flex>
   </section>

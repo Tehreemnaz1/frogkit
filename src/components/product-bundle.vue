@@ -26,8 +26,8 @@
         <a :href="product.link.href" class="m-b-10">{{product.link.text}}</a>
         <p class="m-b-15">
           <PriceTag v-if="product.price" :value="product.price.amount" :code="product.price.currency" class="fk-product-bundle__price">
-            <p slot="prefix" v-html="product.price.prefix"></p>
-            <p slot="suffix" v-html="product.price.suffix"></p>
+            <p slot="prefix" class="fk-product-bundle__price__prefix">{{product.price.prefix}}</p>
+            <p slot="suffix" class="fk-product-bundle__price__suffix">{{product.price.suffix}}<sup v-if="product.subscription">1</sup></p>
           </PriceTag>
         </p>
         <Button color="secondary" size="big" @click="$emit('click')" block>{{product.action}}</Button>

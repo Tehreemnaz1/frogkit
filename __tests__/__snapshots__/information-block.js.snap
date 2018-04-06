@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Information Block component should render component and match snapshot 1`] = `
+<section class="fk-information-block">
+    <title size="xs" class="fk-information-block__title m-b-10">some title goes here</title>
+    <div class="fk-information-block__content"></div>
+</section>
+`;
