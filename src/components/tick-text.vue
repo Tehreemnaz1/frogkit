@@ -6,7 +6,7 @@
 
 <template>
 <section :class="['fk-tick-text', getClasses]">
-  <Flex align="top">
+  <Flex align="top" class="fk-tick-text__container">
     <Icon class="fk-tick-text__icon" icon="checkmark" :color="color" />
     <Flex column>
       <component :is="bold ? 'b' : 'p'" class="fk-tick-text__placeholder" v-html="placeholder"></component>

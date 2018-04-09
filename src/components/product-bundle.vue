@@ -6,9 +6,9 @@
 </style>
 
 <template>
-  <Flex  v-if="show" class="fk-product-bundle">
-    <Flex :class="containerClass" align="center" column>
+    <Flex v-if="show" class="fk-product-bundle" :class="containerClass(product.topSeller)" align="center" column>
       <Title size="xs" color="primary" class="fk-product-bundle__title" center>{{product.title}}</Title>
+      <div v-if="product.topSeller" class="fk-product-bundle__top-seller"><b>{{product.topSeller}}</b></div>
       <BundleRecap :bundle="product.bundle" />
       <Flex align="center" :class="featureClass" column>
         <div>
@@ -33,7 +33,6 @@
         <Button color="secondary" size="big" @click="$emit('click')" block>{{product.action}}</Button>
       </Flex>
     </Flex>
-  </Flex>
 </template>
 
 <script>
@@ -75,12 +74,13 @@
     methods: {
       updateShow () {
         this.show = this.active || window.innerWidth > 767
+      },
+      containerClass(topSeller) {
+        if(this.hw) return 'fk-product-bundle__container'
+        return topSeller ? 'fk-product-bundle__container--nhw-top' : 'fk-product-bundle__container--nhw'
       }
     },
     computed: {
-      containerClass() {
-        return this.hw ? 'fk-product-bundle__container' : 'fk-product-bundle__container--nhw'
-      },
       featureClass() {
         return this.hw ? 'fk-product-bundle__features' : 'fk-product-bundle__features--nhw'
       },

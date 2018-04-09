@@ -32,6 +32,8 @@ mobile-title-mixin()
 products-container-mixin()
   min-width 320px
   &__container
+    @media(min-width $bp-sm)
+      display none
     background-color: #98bfe4
     mobile-title-mixin()
     &&--active

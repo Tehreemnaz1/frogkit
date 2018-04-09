@@ -11,8 +11,9 @@ color-variation()
 tick-text-mixin()
   color: $text-color
   font-size 1em
-  // line-height 2rem
   color-variation()
+  &__container
+    flex-wrap: nowrap !important
   & &__icon
     width 20px
     height 16px

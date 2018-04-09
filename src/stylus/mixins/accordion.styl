@@ -8,13 +8,13 @@ $animation-speed  = 300ms
 
 accordion-mixin()
   background-color  white
-  border-top        1px solid $border-color
+  // border-top        1px solid $border-color
   border-bottom     1px solid $border-color
   width             100%
   &__title
-    max-width 90%
+    max-width       85%
   & &__header
-    height          $accordian-height
+    min-height          $accordian-height
     padding         $header-padding
     cursor          pointer
     user-select     none

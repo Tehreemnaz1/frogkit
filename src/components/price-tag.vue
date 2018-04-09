@@ -38,7 +38,7 @@
         
         const config = currencyFormatter.findCurrency(this.code)
         const natural = Math.trunc(float)
-        const decimal = float === natural ? null : (float - natural).toFixed(config.decimalDigits).toString().split(".")[1]
+        const decimal = (float && float === natural) ? null : (float - natural).toFixed(config.decimalDigits).toString().split(".")[1]
 
         let head = '' 
         let tail = ''
