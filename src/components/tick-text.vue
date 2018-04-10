@@ -9,7 +9,7 @@
   <Flex align="top" class="fk-tick-text__container">
     <Icon class="fk-tick-text__icon" icon="checkmark" :color="color" />
     <Flex column>
-      <component :is="bold ? 'b' : 'p'" class="fk-tick-text__placeholder" v-html="placeholder"></component>
+      <div :class="textClass" v-html="placeholder"></div>
       <slot></slot>
     </Flex>
   </Flex>
@@ -41,6 +41,9 @@
           [`fk-tick-text--${props.color}`]: !!props.color,
           ['fk-tick-text--bold']: !!props.bold,
         }
+      },
+      textClass() {
+        return !!this.bold ? 'fk-tick-text__placeholder--bold' : 'fk-tick-text__placeholder'
       }
     }
   }

@@ -19,8 +19,14 @@ tick-text-mixin()
     height 16px
     margin 5px
     display block
-  &__placeholder
+  &__placeholder, &__placeholder--bold
     font-size 1.6em
     line-height 1.3em 
     // text-transform capitalize
     margin-bottom 2px
+  &__placeholder--bold
+    *
+      font-weight 400
+      font-size 0.8em
+    &:first-child
+      font-weight 700

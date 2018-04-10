@@ -7,22 +7,25 @@
     & &__icon
       width 20px
       height 20px
-    & &__item
-      width 20%
+    &__item, &__item--small
+      width 25%
       position relative
       img
         max-height 100px
         display: block
         margin: 0 auto
+    &__item--small
+      img
+        max-height 45px
     & &__label
-      font-size: 1.6rem
+      font-size: 1.5rem
       text-align: center
 </style>
 
 <template>
   <section class="fk-bundle-recap">
     <Flex align="center" justify="space-between" class="m-b-10">
-      <div v-if="bundle[0]" class="fk-bundle-recap__item">
+      <div v-if="bundle[0]" :class="itemClass">
         <img :src="bundle[0].image" align="middle" />
       </div>
 
@@ -35,7 +38,7 @@
 
       <Icon v-if="bundle[2]" icon="plus-bold" color="orange" class="fk-bundle-recap__icon"/>
 
-      <div v-if="bundle[2]" class="fk-bundle-recap__item">
+      <div v-if="bundle[2]" :class="itemClass">
         <img :src="bundle[2].image" align="middle" />
       </div>
     </Flex>
@@ -55,6 +58,15 @@
       bundle:{
         type: Array,
         required: true
+      },
+      small: {
+        type: Boolean,
+        default: false
+      }
+    },
+    computed: {
+      itemClass() {
+        return !!this.small ? 'fk-bundle-recap__item--small' : 'fk-bundle-recap__item' 
       }
     }
   }

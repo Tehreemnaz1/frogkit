@@ -9,28 +9,28 @@
     <Flex v-if="show" class="fk-product-bundle" :class="containerClass(product.topSeller)" align="center" column>
       <Title size="xs" color="primary" class="fk-product-bundle__title" center>{{product.title}}</Title>
       <div v-if="product.topSeller" class="fk-product-bundle__top-seller"><b>{{product.topSeller}}</b></div>
-      <BundleRecap :bundle="product.bundle" />
-      <Flex align="center" :class="featureClass" column>
+      <BundleRecap small :bundle="product.bundle" />
+      <div :class="featureClass">
         <div>
           <TickText bold :color="tickColor" class="fk-product-bundle__feature-item" v-for="feature, index in product.features" :key="index" :placeholder="feature.placeholder">
             <p v-if="feature.description">{{feature.description}}</p>
           </TickText>
         </div>
-      </Flex>
-      <Flex align="center" class="m-b-10 m-t-10" column>
+      </div>
+      <div class="fk-product-bundle__additional-features m-b-10 m-t-10">
         <div>
           <TickText v-for="feature, index in product.additional" :key="index" :placeholder="feature" class="fk-product-bundle__feature-item" />
         </div>
-      </Flex>
+      </div>
       <Flex align="center" class="fk-product-bundle__info" column>
         <a :href="product.link.href" class="m-b-10">{{product.link.text}}</a>
         <p class="m-b-15">
           <PriceTag v-if="product.price" :value="product.price.amount" :code="product.price.currency" class="fk-product-bundle__price">
             <p slot="prefix" class="fk-product-bundle__price__prefix">{{product.price.prefix}}</p>
-            <p slot="suffix" class="fk-product-bundle__price__suffix">{{product.price.suffix}}<sup v-if="product.subscription">1</sup></p>
+            <p slot="suffix" class="fk-product-bundle__price__suffix">{{product.price.suffix}}<sup v-if="product.subscription && !product.free">1</sup></p>
           </PriceTag>
         </p>
-        <Button color="secondary" size="big" @click="$emit('click')" block>{{product.action}}</Button>
+        <Button color="secondary" size="big" @click="$emit('click')" block class="fk-product-bundle__action">{{product.action}}</Button>
       </Flex>
     </Flex>
 </template>

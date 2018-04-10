@@ -7,42 +7,50 @@ $image-height = 140px
 $image-width = 180px
 
 responsive-mixin()
+  min-height 600px
+  &__title
+    margin 5px 0 10px 0
+  &__container
+    flex-basis: 100%
+    border-radius 5px
+    border 2px solid $grey
+
   @media(min-width $bp-large)
-    max-width 370px
+    &__price
+      font-size 0.8rem !important
     &__info
-      padding 0 40px 20px 40px
+      padding 0 25px 20px 25px
 
   @media(max-width $bp-large - 1)
-    max-width 320px
     &__info
       padding 0 30px 20px 30px
     &__action
-      font-size 2.2rem !important
+      font-size 1.8rem !important
     &__history
       font-size 1.6rem
     &__period__label
       font-size 1.6rem
+    &__price
+      font-size 0.76rem !important
 
   @media(max-width $bp-md)
-    max-width 270px
-    &__info
-      padding 0 25px 20px 25px
-    &__price
-      font-size 0.7rem !important
-    &__action
-      font-size 1.8rem !important
-
-  @media(max-width $bp-medium)
-    max-width 250px
     &__info
       padding 0 15px 20px 15px
     &__price
-      font-size 0.7rem !important
+      font-size 0.65rem !important
+    &__action
+      font-size 1.6rem !important
+
+  @media(max-width $bp-medium)
+    &__info
+      padding 0 15px 20px 15px
+    &__price
+      font-size 0.65rem !important
 
 
 storage-bundle-mixin()
   background-color white
-  align-items unset !important
+  padding 0 !important
   &__info
     margin-top auto
   &__price
@@ -65,18 +73,12 @@ storage-bundle-mixin()
   &__history
     margin 10px 0
     font-size 2rem
+  &__container
+    height 100%
 
   @media(min-width $bp-sm)
-    min-height 600px
     responsive-mixin()
-    &__title
-      margin 5px 0 10px 0
-    &__container
-      flex-basis: 100%
-      border-radius 5px
-      border 2px solid $grey
-    &__info
-      padding 0 15px
+
 
   @media(max-width $bp-sm - 1)
     min-width: 320px
@@ -85,3 +87,6 @@ storage-bundle-mixin()
       display: none
     &__container
       flex-basis: 100%
+    &__info
+      width 100%
+      padding 15px

@@ -48,7 +48,6 @@
         } else {
           tail = (config.spaceBetweenAmountAndSymbol ? ' ' : '') + config.symbol
         }
-
         return { head, natural, decimal, tail, separator: config.decimalSeparator }
       }
     }
