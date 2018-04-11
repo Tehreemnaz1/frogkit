@@ -13,7 +13,7 @@ mobile-title-mixin()
     &:last-child
       border-right 4px solid white
     &__price
-      font-size: 26px
+      font-size: 2.5rem
       line-height: 26px
     &__suffix
       font-size: 16px
@@ -30,16 +30,11 @@ mobile-title-mixin()
 
 
 products-container-mixin()
-  // &__product
-  //   padding 0 !important
-  // &__product:not(:first-child)
-  //   margin-left 5px
   &__mobile
     min-width 320px
     align-items unset !important
     &__container
-      @media(min-width $bp-sm)
-        display none
+      min-height 126px
       background-color: #98bfe4
       mobile-title-mixin()
       &&--active

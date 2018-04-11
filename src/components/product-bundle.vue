@@ -9,15 +9,15 @@
     <Flex v-if="show" class="fk-product-bundle" :class="containerClass(product.topSeller)" align="center" column>
       <Title size="xs" color="primary" class="fk-product-bundle__title" center>{{product.title}}</Title>
       <div v-if="product.topSeller" class="fk-product-bundle__top-seller"><b>{{product.topSeller}}</b></div>
-      <BundleRecap small :bundle="product.bundle" />
-      <div :class="featureClass">
-        <div>
-          <TickText bold :color="tickColor" class="fk-product-bundle__feature-item" v-for="feature, index in product.features" :key="index" :placeholder="feature.placeholder">
-            <p v-if="feature.description">{{feature.description}}</p>
-          </TickText>
+      <BundleRecap :small="small" :bundle="product.bundle" />
+      <div class="fk-product-bundle__features">
+        <div :class="featureClass">
+          <div>
+            <TickText bold :color="tickColor" class="fk-product-bundle__feature-item" v-for="feature, index in product.features" :key="index" :placeholder="feature.placeholder">
+              <p v-if="feature.description">{{feature.description}}</p>
+            </TickText>
+          </div>
         </div>
-      </div>
-      <div class="fk-product-bundle__additional-features m-b-10 m-t-10">
         <div>
           <TickText v-for="feature, index in product.additional" :key="index" :placeholder="feature" class="fk-product-bundle__feature-item" />
         </div>
@@ -81,11 +81,14 @@
       }
     },
     computed: {
+      small () {
+        return this.product.bundle.length > 2
+      },
       featureClass() {
-        return this.hw ? 'fk-product-bundle__features' : 'fk-product-bundle__features--nhw'
+        return this.hw ? 'fk-product-bundle__features__highlited' : 'fk-product-bundle__features__highlited--nhw'
       },
       tickColor() {
-        return this.hw ? 'white' : 'orange'
+        return this.hw ? 'white' : 'black'
       }
     }
   }

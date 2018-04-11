@@ -24,7 +24,7 @@
 
 <template>
   <section class="fk-bundle-recap">
-    <Flex align="center" justify="space-between" class="m-b-10">
+    <Flex align="center" :justify="justify" class="m-b-10">
       <div v-if="bundle[0]" :class="itemClass">
         <img :src="bundle[0].image" align="middle" />
       </div>
@@ -43,7 +43,7 @@
       </div>
     </Flex>
 
-    <Flex align="center" justify="space-between">
+    <Flex align="center" :justify="labelJustify">
       <div v-for="(item, i) in bundle" :key="i" class="fk-bundle-recap__item">
         <p class="fk-bundle-recap__label" v-html="item.label"></p>
       </div>
@@ -67,6 +67,12 @@
     computed: {
       itemClass() {
         return !!this.small ? 'fk-bundle-recap__item--small' : 'fk-bundle-recap__item' 
+      },
+      justify() {
+        return !!this.small ? 'space-between' : 'space-evenly'
+      },
+      labelJustify() {
+        return !!this.small ? 'space-between' : 'space-around'
       }
     }
   }

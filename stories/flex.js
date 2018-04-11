@@ -18,7 +18,7 @@ stories.addCodeExampleStory('kitchen Sink', () => ({
   data(){
     return {
       column: boolean('Column', false),
-      justify: select('Justify', ['start', 'center', 'end', 'space-around', 'space-between'], 'start'),
+      justify: select('Justify', ['start', 'center', 'end', 'space-around', 'space-between', 'space-evenly'], 'start'),
       align: select('Align', ['start', 'center', 'end', 'stretch'], 'start')
     }
   }
@@ -36,7 +36,7 @@ stories.addCodeExampleStory('Nested Flex', () => ({
     return {
       column: boolean('Column', false),
       grow: boolean('Grow', false),
-      justify: select('Justify', ['start', 'center', 'end', 'space-around', 'space-between'], 'start'),
+      justify: select('Justify', ['start', 'center', 'end', 'space-around', 'space-between', 'space-evenly'], 'start'),
       align: select('Align', ['start', 'center', 'end', 'stretch'], 'start')
     }
   }

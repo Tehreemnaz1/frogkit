@@ -11,8 +11,8 @@
     <Flex class="fk-products-container__mobile">
       <Flex column align="center" v-for="product in products" :key="product.id" @click="active = product.id" :class="['fk-products-container__mobile__container', mobileClass(product.id)]" grow>
           <p class="m-b-10 fk-products-container__mobile__container__title"  v-html="product.titleMobile"></p>
-          <b class="fk-products-container__mobile__price" v-if="product.price" >{{product.price.mobilePrice}}</b>
-          <p class="fk-products-container__mobile__suffix m-b-10" v-if="product.price && !product.storage">{{product.price.suffix}}</p>
+          <b class="fk-products-container__mobile__container__price" v-if="product.price" >{{product.price.mobilePrice}}</b>
+          <p class="fk-products-container__mobile__container__suffix m-b-10" v-if="product.price && !product.storage && hw">{{product.price.suffix}}</p>
       </Flex>
     </Flex>
     <Flex justify="center" align="stretch" grow>
