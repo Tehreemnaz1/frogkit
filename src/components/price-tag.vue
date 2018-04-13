@@ -46,7 +46,7 @@
         if (config.symbolOnLeft) {
           head = config.symbol + (config.spaceBetweenAmountAndSymbol ? ' ' : '')
         } else {
-          tail = (config.spaceBetweenAmountAndSymbol ? ' ' : '') + config.symbol
+          tail = config.symbol
         }
         return { head, natural, decimal, tail, separator: config.decimalSeparator }
       }
