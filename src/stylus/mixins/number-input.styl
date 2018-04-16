@@ -1,6 +1,8 @@
 $button-skeleton
   padding: 0
-  line-height:  initial
+  line-height: initial
+  // line-height unset is not supported for ios 10 and prior versions
+  line-height: unset
   margin 0
 
 
@@ -12,6 +14,8 @@ $input-skeleton
   vertical-align: middle
   border: 1px solid #ccc
   line-height: initial
+  // line-height unset is not supported for ios 10 and prior versions
+  line-height: unset
   
   // hide arrows
   -moz-appearance: textfield
