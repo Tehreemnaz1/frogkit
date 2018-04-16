@@ -15,12 +15,16 @@
           <p class="fk-products-container__mobile__container__suffix m-b-10" v-if="product.price && !product.storage && hw">{{product.price.suffix}}</p>
       </Flex>
     </Flex>
-    <Flex justify="center" align="stretch" grow>
-      <Col sm4 xs12 v-for="product in products" :key="product.id" class="fk-products-container__product" >
-        <StorageBundle v-if="product.storage" :storage="product" :active="active === product.id" :selectedDevice="selectedDevice"  :canceled-camera="canceledCamera"
-          :selectedUpgrade="selectedUpgrade" @select="handleSelect" @change="handleChange" @upgrade="$emit('upgrade')" :upgrades="upgrades"/>
-        <ProductBundle v-else :product="product" :hw="hw" :active="active === product.id" @click="handleClick"/>
-      </Col>
+    <Flex justify="center" align="stretch" >
+      <template v-for="product, index in products">
+        <Col sm4 xs12 v-if="index === storageIndex && storage.devices.length" class="fk-products-container__product" >
+          <StorageBundle :storage="storage" :active="active === storage.id" :selectedDevice="selectedDevice"
+            :selectedUpgrade="selectedUpgrade" @select="handleSelect" @change="handleChange" @upgrade="$emit('upgrade')"/>
+        </Col>
+        <Col sm4 xs12 class="fk-products-container__product" >
+          <ProductBundle :product="product" :hw="hw" :active="active === product.id" @click="handleClick"/>
+        </Col>
+      </template>
     </Flex>
   </Col>
 </template>
@@ -45,18 +49,19 @@
         type: Object,
         default: () => {{}}
       },
-      upgrades: {
-        type: Array,
-        default: () => []
-      },
-      canceledCamera: {
-        type: Boolean,
-        default: false
+      storage: {
+        type: Object,
+        default: () => { return {}}
       }
     },
     data () {
       return {
         active: this.products.length && this.products[0].id
+      }
+    },
+    computed:{
+      storageIndex () {
+        return this.products ? this.products.length / 2 : 0
       }
     },
     methods: {

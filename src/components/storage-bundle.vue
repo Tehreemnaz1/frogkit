@@ -12,19 +12,19 @@
       </div>
       <p class="fk-storage-bundle__for">{{storage.for}}</p>
       <Select class="fk-storage-bundle__devices" :options="storage.devices" :value="selectedDevice.value" @input="handleSelect"></Select>
-      <div v-if="!!canceledCamera" class="fk-storage-bundle__canceled">
+      <div v-if="storage.canceledCamera" class="fk-storage-bundle__canceled">
           {{storage.cancelText}}
       </div>
       <template v-else>
         <p class="fk-storage-bundle__history">{{storage.history}}</p>
         <div>
-          <Radio class="fk-storage-bundle__period" v-for="upgrade in upgrades" :value="upgrade.value" :key="upgrade.value" :checked="selectedUpgrade.value" @change="handleChange">
+          <Radio class="fk-storage-bundle__period" v-for="upgrade in storage.upgrades" :value="upgrade.value" :key="upgrade.value" :checked="selectedUpgrade.value" @change="handleChange">
             <p class="fk-storage-bundle__period__label">{{upgrade.label}}<sup>2</sup></p>
           </Radio>
         </div>
         <Flex align="center" class="fk-storage-bundle__info" column>
           <p class="m-b-15">
-            <PriceTag v-if="storage.price" :value="selectedUpgrade.price" :code="storage.price.currency" class="fk-storage-bundle__price">
+            <PriceTag v-if="storage.price" :value="storage.price.amount" :code="storage.price.currency" class="fk-storage-bundle__price">
               <p slot="prefix">{{storage.price.prefix}}</p>
               <p slot="suffix">{{storage.price.suffix}}<sup>2</sup></p>
             </PriceTag>
@@ -58,14 +58,6 @@
         default: () => {{}}
       },
       active: {
-        type: Boolean,
-        default: false
-      },
-      upgrades: {
-        type: Array,
-        default: () => []
-      },
-      canceledCamera: {
         type: Boolean,
         default: false
       }
