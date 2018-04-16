@@ -12,21 +12,26 @@
       </div>
       <p class="fk-storage-bundle__for">{{storage.for}}</p>
       <Select class="fk-storage-bundle__devices" :options="storage.devices" :value="selectedDevice.value" @input="handleSelect"></Select>
-      <p class="fk-storage-bundle__history">{{storage.history}}</p>
-      <div>
-        <Radio class="fk-storage-bundle__period" v-for="upgrade in upgrades" :value="upgrade.value" :key="upgrade.value" :checked="selectedUpgrade.value" @change="handleChange">
-          <p class="fk-storage-bundle__period__label">{{upgrade.label}}<sup>2</sup></p>
-        </Radio>
+      <div v-if="!!canceledCamera" class="fk-storage-bundle__canceled">
+          {{storage.cancelText}}
       </div>
-      <Flex align="center" class="fk-storage-bundle__info" column>
-        <p class="m-b-15">
-          <PriceTag v-if="storage.price" :value="selectedUpgrade.price" :code="storage.price.currency" class="fk-storage-bundle__price">
-            <p slot="prefix">{{storage.price.prefix}}</p>
-            <p slot="suffix">{{storage.price.suffix}}<sup>2</sup></p>
-          </PriceTag>
-        </p>
-        <Button color="secondary" size="big" class="fk-storage-bundle__action" @click="$emit('upgrade')" block>{{storage.action}}</Button>
-      </Flex>
+      <template v-else>
+        <p class="fk-storage-bundle__history">{{storage.history}}</p>
+        <div>
+          <Radio class="fk-storage-bundle__period" v-for="upgrade in upgrades" :value="upgrade.value" :key="upgrade.value" :checked="selectedUpgrade.value" @change="handleChange">
+            <p class="fk-storage-bundle__period__label">{{upgrade.label}}<sup>2</sup></p>
+          </Radio>
+        </div>
+        <Flex align="center" class="fk-storage-bundle__info" column>
+          <p class="m-b-15">
+            <PriceTag v-if="storage.price" :value="selectedUpgrade.price" :code="storage.price.currency" class="fk-storage-bundle__price">
+              <p slot="prefix">{{storage.price.prefix}}</p>
+              <p slot="suffix">{{storage.price.suffix}}<sup>2</sup></p>
+            </PriceTag>
+          </p>
+          <Button color="secondary" size="big" class="fk-storage-bundle__action" @click="$emit('upgrade')" block>{{storage.action}}</Button>
+        </Flex>
+      </template>
     </Flex>
 </template>
 
@@ -59,6 +64,10 @@
       upgrades: {
         type: Array,
         default: () => []
+      },
+      canceledCamera: {
+        type: Boolean,
+        default: false
       }
     },
     watch: {

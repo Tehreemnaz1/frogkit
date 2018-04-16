@@ -17,7 +17,7 @@
     </Flex>
     <Flex justify="center" align="stretch" grow>
       <Col sm4 xs12 v-for="product in products" :key="product.id" class="fk-products-container__product" >
-        <StorageBundle v-if="product.storage" :storage="product" :active="active === product.id":selectedDevice="selectedDevice" 
+        <StorageBundle v-if="product.storage" :storage="product" :active="active === product.id" :selectedDevice="selectedDevice"  :canceled-camera="canceledCamera"
           :selectedUpgrade="selectedUpgrade" @select="handleSelect" @change="handleChange" @upgrade="$emit('upgrade')" :upgrades="upgrades"/>
         <ProductBundle v-else :product="product" :hw="hw" :active="active === product.id" @click="handleClick"/>
       </Col>
@@ -48,6 +48,10 @@
       upgrades: {
         type: Array,
         default: () => []
+      },
+      canceledCamera: {
+        type: Boolean,
+        default: false
       }
     },
     data () {
