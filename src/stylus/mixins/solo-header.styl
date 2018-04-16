@@ -11,7 +11,6 @@ $container-width := {
 
 soloheader-mixin()
   display: flex
-  flex: 0 1 100%
   width: 100%
   background: $white
   border-bottom: 1px solid $borderColor
@@ -22,8 +21,6 @@ soloheader-mixin()
     align-items: center
     display: flex
     width: 100%
-    @media only screen and (max-width: $bp-sm)
-      display none
     @media only screen and (min-width: $bp-sm)
       width: $container-width.sm
       height: 120px
