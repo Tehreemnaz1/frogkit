@@ -12,7 +12,7 @@ responsive-mixin()
     &__info
       padding 0 25px 20px 25px
     &__features>div
-      padding 5px 0 8px 48px
+      padding 5px 0 0 48px
     
   @media(max-width $bp-large - 1)
     &__info
@@ -22,8 +22,7 @@ responsive-mixin()
     &__price
       font-size 0.76rem !important
     &__features>div
-      padding 7px 7px 8px 5%
-      font-size 1rem
+      padding 7px 0 0 5%
 
   @media(max-width $bp-md)
     &__info
@@ -55,14 +54,15 @@ product-bundle-mixin()
       font-size 16px
 
   &__features
+    width 100%
+    >div
+      font-size 1.2rem !important
     &__highlited
       background-color $orange
       &--nhw
         background-color $grey
   &__additional-features
     margin-top 5px
-  &__feature-item
-      font-size 1.2rem !important
   &__title
     margin 5px 0 10px 0
   &__price
@@ -106,9 +106,8 @@ product-bundle-mixin()
     position relative
     &__title
       display: none
-    
     &__features
-      &>div:not(&__highlited), &__highlited>div
+      &>div:not(&__highlited):not(&__highlited--nhw), &__highlited>div, &__highlited--nhw>div
         width 320px
         margin: 0 auto
     &__container
