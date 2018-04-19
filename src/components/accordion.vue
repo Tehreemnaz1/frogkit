@@ -8,7 +8,7 @@
 <template>
   <section class="fk-accordion">
     <Flex @click="toggle" class="fk-accordion__header" justify="space-between" align="center">
-      <Title size="xs"> {{placeholder}} </Title>
+      <Title size="xs" class="fk-accordion__title"> {{placeholder}} </Title>
       <Icon class="fk-accordion__icon" :class="{'fk-accordion__icon--open' : isOpen}" icon="plus"/>
     </Flex>
 

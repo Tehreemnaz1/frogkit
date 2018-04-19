@@ -11,8 +11,11 @@ accordion-mixin()
   border-top        1px solid $border-color
   border-bottom     1px solid $border-color
   width             100%
+  &__title
+    max-width       85%
   & &__header
-    height          $accordian-height
+    flex-wrap:       nowrap
+    min-height          $accordian-height
     padding         $header-padding
     cursor          pointer
     user-select     none

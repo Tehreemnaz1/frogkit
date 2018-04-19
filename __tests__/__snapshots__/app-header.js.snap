@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Logged-in Header component Should render component and match snapshot 1`] = `
-<grid>
-    <col xs12="">
-</grid>
+<flex>
+    <grid>
+        <col xs12="">
+    </grid>
+</flex>
 `;

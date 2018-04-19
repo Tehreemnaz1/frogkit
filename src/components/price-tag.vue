@@ -10,7 +10,7 @@
   <div class="fk-price-tag" >
     <slot name="prefix"></slot>
     <p class="fk-price-tag__price">
-      {{price.head}}<b>{{price.natural}}{{price.separator}}<sup class="fk-price-tag__decimal">{{price.decimal}}</sup></b>{{price.tail}}
+      {{price.head}}<b>{{price.natural}}<template v-if="price.decimal">{{price.separator}}<sup class="fk-price-tag__decimal">{{price.decimal}}</sup></template></b>{{price.tail}}
     </p>
     <slot name="suffix"></slot>
   </div>
@@ -38,7 +38,7 @@
         
         const config = currencyFormatter.findCurrency(this.code)
         const natural = Math.trunc(float)
-        const [,decimal] = (float - natural).toFixed(config.decimalDigits).toString().split(".")
+        const decimal = (float && float === natural) ? null : (float - natural).toFixed(config.decimalDigits).toString().split(".")[1]
 
         let head = '' 
         let tail = ''
@@ -46,9 +46,8 @@
         if (config.symbolOnLeft) {
           head = config.symbol + (config.spaceBetweenAmountAndSymbol ? ' ' : '')
         } else {
-          tail = (config.spaceBetweenAmountAndSymbol ? ' ' : '') + config.symbol
+          tail = config.symbol
         }
-
         return { head, natural, decimal, tail, separator: config.decimalSeparator }
       }
     }

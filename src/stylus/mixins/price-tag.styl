@@ -1,25 +1,28 @@
 @require '../_vars'
 
-$smalltext-size     =   1.6rem
+$smalltext-size     =   10px
 $price-color        =   #e30613
-$natural-size       =   8rem
-$decimal-size       =   5rem
+$natural-size       =   8em
+$decimal-size       =   0.8em
 $decimal-position-x =   -12px
 $decimal-position-y =   8px
+$text-size          =   1.6em
 
 price-tag-mixin()
   color           $price-color
-  font-size       $smalltext-size
-  p, sup, b
+  font-size       1em //$smalltext-size
+  p
     display       inline-block
+    font-size     $text-size
+  sup, b
+    display       inline-block
+    font-size     1em
   & &__price
     font-size     $natural-size
-    line-height   @font-size
-    b
-      margin-right  $decimal-position-x
   & &__decimal
     font-size     $decimal-size
     line-height   0
     transform     translate($decimal-position-x, $decimal-position-y)
+    margin-right  $decimal-position-x
     // vertical-align super
 

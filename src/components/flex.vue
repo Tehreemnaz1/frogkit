@@ -44,6 +44,7 @@
         'fk-flex--justify-end': props.justify == 'end',
         'fk-flex--justify-space-around': props.justify == 'space-around',
         'fk-flex--justify-space-between': props.justify == 'space-between',
+        'fk-flex--justify-space-evenly': props.justify == 'space-evenly',
 
         'fk-flex--align-center': props.align == 'center',
         'fk-flex--align-end': props.align == 'end',

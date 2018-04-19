@@ -7,6 +7,7 @@
     a
       color: $link-color
       cursor pointer
+      text-decoration none
 </style>
 
 <template>
