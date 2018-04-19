@@ -8,7 +8,7 @@
 
 <template>
   <section class="fk-input-password" @mouseover="show" @mouseout="passwordToggle = false" >
-    <Input :type="inputType" :value="value" @input="onInput" ref="input" block :placeholder="placeholder" :required="required"/>
+    <Input :type="inputType" :value="value" @input="onInput" ref="input" block :placeholder="placeholder" :required="required" pid="input_password"/>
     <div :class="['fk-input-password__img', iconClass]" :style="iconStyle" v-show="passwordToggle" @click="toggle"></div>
   </section>
 </template>
