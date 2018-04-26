@@ -30,7 +30,7 @@
             <p slot="suffix" class="fk-product-bundle__price__suffix">{{product.price.suffix}}<sup v-if="product.subscription && !product.free">1</sup></p>
           </PriceTag>
         </p>
-        <Button color="secondary" size="big" @click="$emit('click', product.uuid)" block class="fk-product-bundle__action">{{product.action}}</Button>
+        <Button color="secondary" size="big" @click="$emit('click', {uuid: product.uuid, free: product.free})" block class="fk-product-bundle__action">{{product.action}}</Button>
       </Flex>
     </Flex>
 </template>
