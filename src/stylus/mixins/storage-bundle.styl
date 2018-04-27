@@ -1,8 +1,6 @@
 @import '../_vars'
 
 $grey = #d5d5d5
-$bp-large = 1200px
-$bp-medium = 822px
 $image-height = 140px
 $image-width = 180px
 
@@ -15,13 +13,13 @@ responsive-mixin()
     border-radius 5px
     border 2px solid $grey
 
-  @media(min-width $bp-large)
+  @media(min-width $bp-lg)
     &__price
       font-size 0.8rem !important
     &__info
       padding 0 25px 20px 25px
 
-  @media(max-width $bp-large - 1)
+  @media(max-width $bp-lg - 1)
     &__info
       padding 0 30px 20px 30px
     &__action
@@ -41,18 +39,13 @@ responsive-mixin()
     &__action
       font-size 1.6rem !important
 
-  @media(max-width $bp-medium)
-    &__info
-      padding 0 15px 20px 15px
-    &__price
-      font-size 0.65rem !important
-
 
 storage-bundle-mixin()
   background-color white
   padding 0 !important
   &__info
     margin-top auto
+    width 100%
   &__price
     font-size 0.8rem !important
   &__icon

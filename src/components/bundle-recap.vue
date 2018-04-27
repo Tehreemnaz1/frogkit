@@ -1,57 +1,29 @@
 <style lang="stylus">
-  @import '../stylus/_vars'
+  @import '../stylus/mixins/bundle-recap'
   .fk-bundle-recap
-    background-color white
-    width 100%
-    padding 10px
-    & &__icon
-      width 20px
-      height 20px
-    & &__item, &__item--small
-      width 80px
-      position relative
-      img
-        max-height 100px
-        display: block
-        margin: 0 auto
-    &__item--small
-      @media(min-width $bp-sm)
-        width 25%
-        img 
-          max-width 45px
-    & &__label, &__label--small
-      font-size: 1.6rem
-      text-align: center
-    &__label--small
-      font-size: 1.4rem
-    &__label-container
-      flex-wrap nowrap !important
+    bundle-recap-mixin()
+
 </style>
 
 <template>
   <section class="fk-bundle-recap">
-    <Flex align="center" justify="space-between" class="m-b-10">
-      <div v-if="bundle[0]" :class="itemClass">
-        <img :src="bundle[0].image" align="middle" />
-      </div>
+    <Flex align="center" :justify="justify" class="m-b-10">
 
-      <Icon v-if="bundle[1]" icon="plus-bold" color="orange" class="fk-bundle-recap__icon"/>
-
-      <div v-if="bundle[1]" :class="itemClass">
-        <slot name="sticker"></slot>
-        <img :src="bundle[1].image" align="middle" />
-      </div>
-
-      <Icon v-if="bundle[2]" icon="plus-bold" color="orange" class="fk-bundle-recap__icon"/>
-
-      <div v-if="bundle[2]" :class="itemClass">
-        <img :src="bundle[2].image" align="middle" />
+      <div  v-for="(item, i) in bundleItems" :key="i" >
+        <Icon v-if="item.type === 'icon'" icon="plus-bold" color="orange" class="fk-bundle-recap__icon"/>
+        <Flex align="center" v-else :class="['fk-bundle-recap__cadre', cadreClass]">
+          <slot v-if="i === 2" name="sticker"></slot>
+          <img  :src="item.image" align="middle" :class="['fk-bundle-recap__item', itemClass]"/>
+        </Flex>
       </div>
     </Flex>
 
-    <Flex align="center" justify="space-between" class="fk-bundle-recap__label-container">
-      <div v-for="(item, i) in bundle" :key="i" class="fk-bundle-recap__item">
-        <p :class="labelClass" v-html="item.label"></p>
+    <Flex align="center" :justify="justify" class="fk-bundle-recap__label-container">
+      <div  v-for="(item, i) in bundleItems" :key="i" >
+        <p v-if="item.type === 'icon'" class="fk-bundle-recap__icon" ></p>
+        <Flex v-else align="center" :class="['fk-bundle-recap__cadre', cadreClass]">
+          <p :class="['fk-bundle-recap__label', labelClass]" v-html="item.label"></p>
+        </Flex>
       </div>
     </Flex>
   </section>
@@ -72,10 +44,23 @@
     },
     computed: {
       itemClass() {
-        return !!this.small ? 'fk-bundle-recap__item--small' : 'fk-bundle-recap__item'
+        return !!this.small ? 'fk-bundle-recap__item--small' : ''
+      },
+      cadreClass() {
+        return !!this.small || this.bundle.length <= 2 ? 'fk-bundle-recap__cadre--small' : ''
       },
       labelClass() {
-        return !!this.small ? 'fk-bundle-recap__label--small' : 'fk-bundle-recap__label'
+        return !!this.small ? 'fk-bundle-recap__label--small' : ''
+      },
+      justify() {
+        return this.bundle.length > 2 ? 'space-between' : 'space-evenly'
+      },
+      bundleItems() {
+        const icon = {type: 'icon'}
+        return this.bundle.reduce((acc, i, k, a ) => {
+          if (k < a.length -1) return [...acc, i, icon]
+          else return [...acc, i]
+        }, [])
       }
     }
   }

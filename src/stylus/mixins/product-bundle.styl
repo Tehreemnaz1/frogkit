@@ -2,83 +2,79 @@
 
 $orange = #f18713
 $grey = #d5d5d5
-$bp-large = 1200px
-$bp-medium = 822px
 
 responsive-mixin()
-  @media(min-width $bp-large)
-    &__price
-      font-size 0.8rem !important
-    &__info
+  @media(min-width $bp-lg)
+    & &__price
+      font-size 0.8rem
+    & &__info
       padding 0 25px 20px 25px
-    &__features>div
+    & &__features-container
       padding 5px 0 0 48px
     
-  @media(max-width $bp-large - 1)
-    &__info
+  @media(max-width $bp-lg - 1)
+    & &__info
       padding 0 30px 20px 30px
-    &__action
-      font-size 1.8rem !important
-    &__price
-      font-size 0.76rem !important
-    &__features>div
+    & &__action
+      font-size 1.8rem
+    & &__price
+      font-size 0.76rem
+    & &__features-container
       padding 7px 0 0 5%
 
   @media(max-width $bp-md)
-    &__info
+    & &__info
       padding 0 15px 20px 15px
-    &__price
-      font-size 0.65rem !important
-    &__action
-      font-size 1.6rem !important
-    &__features>div
+    & &__price
+      font-size 0.65rem
+    & &__action
+      font-size 1.6rem
+    & &__features-container
       padding 7px 0 5px 6%
-      font-size 1rem !important
+      font-size 1rem
 
-  @media(max-width $bp-medium)
-    &__info
-      padding 0 15px 20px 15px
-    &__price
-      font-size 0.65rem !important
 
 product-bundle-mixin()
-  &__container
-    &, &--nhw, &--nhw-top
-      flex-wrap: unset !important
-      background-color white
-  &__info
+  & &__info
+    width 100%
     margin-top auto
     a
       color #3180ca
       text-decoration none
       font-size 16px
 
-  &__features
+  & &__features-container
+    font-size 1.2rem
     width 100%
-    >div
-      font-size 1.2rem !important
-    &__highlited
+
+  
+  & &__features-highlited
       background-color $orange
+      width 100%
       &--nhw
         background-color $grey
+  
   &__additional-features
     margin-top 5px
+  
   &__title
     margin 5px 0 10px 0
+  
   &__price
-    &__prefix, &__suffix
+    &__prefix
+    &__suffix
       max-width 62px
+  
   &__container
-    &, &--nhw, &--nhw-top
-      width: 100%
-      height 100%
-      flex-basis 100%
-      border-radius 5px
-      border 2px solid $orange
-      align-items unset !important
-      flex-wrap: nowrap
-  &__container--nhw
+    background-color white
+    width: 100%
+    height 100%
+    flex-basis 100%
+    border-radius 5px
+    border 2px solid $orange    
+    &--nhw
       border 2px solid $grey
+  
   @media(min-width $bp-sm)
     min-height 600px
     position relative
@@ -101,30 +97,32 @@ product-bundle-mixin()
         left: 1px
 
   @media(max-width $bp-sm - 1)
+    margin-bottom 40px
     min-width: 320px
     width 100%
     position relative
     &__title
       display: none
-    &__features
-      &>div:not(&__highlited):not(&__highlited--nhw), &__highlited>div, &__highlited--nhw>div
-        width 320px
-        margin: 0 auto
+    & &__features-container
+      width 260px
+      margin: 0 auto
+      padding-top 5px
+      font-size 1.25rem
+
     &__container
-      &, &--nhw, &--nhw-top
-        flex-basis 100%
-        align-items unset !important
-        border 0
-    &__price
-      font-size 0.8rem !important
+      flex-basis 100%
+      border 0
+    & &__price
+      font-size 0.8rem
     &__info
+      margin-top 25px
       padding 0 15px
     &__top-seller
       color: white
       width: 65px
       height: 65px
       position: absolute
-      right: 15px
+      right: 10px
       bottom: 120px
       border-radius: 50%
       background-color: #e30613
@@ -136,7 +134,9 @@ product-bundle-mixin()
           content: 'Top-seller'
           position absolute
           transform rotate(-15deg)
-          top: 8px
-          font-size: 20px
+          top: 5px
           display: block
-          left: 10px
+          left: 12px
+          font-size 20px
+          line-height 22px
+          font-weight 600
