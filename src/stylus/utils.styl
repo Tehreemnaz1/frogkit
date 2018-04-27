@@ -1,3 +1,5 @@
+@require './_vars'
+
 margin-mixin($margin)
   .m-{$margin}
     margin: $margin
@@ -17,3 +19,16 @@ margin-factory(n)
 
 margin-factory(5)
 margin-mixin(15px)
+
+
+media-mobile()
+  @media (max-width: $under-sm)
+    {block}
+
+media-tablet()
+  @media (min-width: $bp-sm) and (max-width: $under-md)
+    {block}
+
+media-desktop()
+  @media (min-width: $bp-lg)
+    {block}
