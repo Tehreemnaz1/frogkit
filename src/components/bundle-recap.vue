@@ -8,17 +8,22 @@
     &__icon
       width 20px
       height 20px
-    &__cadre, &__cadre--small
-      position relative
-      max-width 90px
+
+    &__cadre
       @media(max-width $bp-md)
         width 55px
+      &, &--small
+        position relative
+        max-width 90px
+    
     &__cadre--small
       width 90px
       @media(max-width $bp-large)
         width 75px
       @media(max-width $bp-md)
         width 50px
+      @media(max-width $bp-sm - 1)
+        width 100% 
 
     &__item, &__item--small
       max-height 100px
@@ -28,21 +33,13 @@
       @media(min-width $bp-sm + 1)
         max-width 20%        
         max-width 45px
-    & &__label, &__label--small, &__label--big
+    &__label, &__label--small
       width 100%
       min-width 60px
       font-size: 1.6rem
       text-align: center
-    &__label--big
-      min-width 80px
     &__label--small
       font-size: 1.4rem
-      min-width unset
-    &__label-container
-      flex-wrap nowrap !important
-      &>div
-        min-height 20px
-        min-width 20px
 
 </style>
 
@@ -105,7 +102,7 @@
         return !!this.small ? 'fk-bundle-recap__item--small' : 'fk-bundle-recap__item'
       },
       cadreClass() {
-        return this.bundle.length > 2 ? 'fk-bundle-recap__cadre--small' : 'fk-bundle-recap__cadre'
+        return !!this.small || this.bundle.length <= 2 ? 'fk-bundle-recap__cadre--small' : 'fk-bundle-recap__cadre'
       },
       labelClass() {
         return !!this.small ? 'fk-bundle-recap__label--small' : 'fk-bundle-recap__label'
