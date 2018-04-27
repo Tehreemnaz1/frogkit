@@ -2,11 +2,9 @@
 
 $orange = #f18713
 $grey = #d5d5d5
-$bp-large = 1200px
-$bp-medium = 822px
 
 responsive-mixin()
-  @media(min-width $bp-large)
+  @media(min-width $bp-lg)
     &__price
       font-size 0.8rem !important
     &__info
@@ -14,7 +12,7 @@ responsive-mixin()
     &__features__container
       padding 5px 0 0 48px
     
-  @media(max-width $bp-large - 1)
+  @media(max-width $bp-lg - 1)
     &__info
       padding 0 30px 20px 30px
     &__action
@@ -35,11 +33,6 @@ responsive-mixin()
       padding 7px 0 5px 6%
       font-size 1rem !important
 
-  @media(max-width $bp-medium)
-    &__info
-      padding 0 15px 20px 15px
-    &__price
-      font-size 0.65rem !important
 
 product-bundle-mixin()
   &__container
