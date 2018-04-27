@@ -7,7 +7,7 @@ exports[`Product Bundle component should render component and match snapshot 1`]
     <bundlerecap small="true" bundle="[object Object],[object Object],[object Object]"></bundlerecap>
     <div class="fk-product-bundle__features">
         <div class="fk-product-bundle__features__highlited">
-            <div>
+            <div class="fk-product-bundle__features__container">
                 <ticktext bold="" color="white" placeholder="Live-Video rund um die Uhr" class="fk-product-bundle__feature-item">
                     <!---->
                 </ticktext>
@@ -16,7 +16,7 @@ exports[`Product Bundle component should render component and match snapshot 1`]
                 </ticktext>
             </div>
         </div>
-        <div>
+        <div class="fk-product-bundle__features__container">
             <ticktext placeholder="Kein Abo" class="fk-product-bundle__feature-item"></ticktext>
             <ticktext placeholder="Keine Einrichtungskosten" class="fk-product-bundle__feature-item"></ticktext>
             <ticktext placeholder="Zzgl. Versandkosten" class="fk-product-bundle__feature-item"></ticktext>
