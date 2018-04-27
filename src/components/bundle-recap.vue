@@ -54,32 +54,15 @@
           <img  :src="item.image" align="middle" :class="itemClass"/>
         </Flex>
       </div>
-
-      <!-- <Icon v-if="bundle[1]" icon="plus-bold" color="orange" class="fk-bundle-recap__icon"/>
-
-      <div v-if="bundle[1]" :class="itemClass" class="fk-bundle-recap__cadre">
-        <slot name="sticker"></slot>
-        <img :src="bundle[1].image" align="middle" />
-      </div>
-
-      <Icon v-if="bundle[2]" icon="plus-bold" color="orange" class="fk-bundle-recap__icon"/>
-
-      <div v-if="bundle[2]" :class="itemClass">
-        <img :src="bundle[2].image" align="middle" />
-      </div> -->
     </Flex>
 
     <Flex align="center" :justify="justify" class="fk-bundle-recap__label-container">
-
       <div  v-for="(item, i) in bundleItems" :key="i" >
         <p v-if="item.type === 'icon'" class="fk-bundle-recap__icon" ></p>
         <Flex v-else align="center" :class="cadreClass">
           <p :class="labelClass" v-html="item.label"></p>
         </Flex>
       </div>
-      <!-- <div v-for="(item, i) in bundle" :key="i" class="fk-bundle-recap__item">
-        <p :class="labelClass" v-html="item.label"></p>
-      </div> -->
     </Flex>
   </section>
 </template>
@@ -109,9 +92,6 @@
       },
       justify() {
         return this.bundle.length > 2 ? 'space-between' : 'space-evenly'
-      },
-      labelsIterator() {
-        return Array.from(Array(this.bundle.length * 2 - 1).keys())
       },
       bundleItems() {
         const icon = {type: 'icon'}
