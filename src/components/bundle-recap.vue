@@ -4,41 +4,41 @@
     background-color white
     width 100%
     padding 10px
-    &__icon
+    & &__icon
       width 20px
       height 20px
 
-    &__cadre
+    & &__cadre
+      position relative
+      max-width 90px
       @media(max-width $bp-md)
         width 55px
-      &, &--small
-        position relative
-        max-width 90px
-    
-    &__cadre--small
-      width 90px
-      @media(max-width $bp-lg)
-        width 75px
-      @media(max-width $bp-md)
-        width 50px
-      @media(max-width $bp-sm - 1)
-        width 100% 
+        
+      &--small
+        width 90px
+        @media(max-width $bp-lg)
+          width 75px
+        @media(max-width $bp-md)
+          width 50px
+        @media(max-width $bp-sm - 1)
+          width 100% 
 
-    &__item, &__item--small
+    & &__item
       max-height 100px
       display: block
       margin: 0 auto
-    &__item--small
-      @media(min-width $bp-sm)
-        max-width 20%        
-        max-width 45px
-    &__label, &__label--small
+      &--small
+        @media(min-width $bp-sm)
+          max-width 20%        
+          max-width 45px
+    
+    & &__label
       width 100%
       min-width 60px
       font-size: 1.6rem
       text-align: center
-    &__label--small
-      font-size: 1.4rem
+      &--small
+        font-size: 1.4rem
 
 </style>
 
@@ -48,9 +48,9 @@
 
       <div  v-for="(item, i) in bundleItems" :key="i" >
         <Icon v-if="item.type === 'icon'" icon="plus-bold" color="orange" class="fk-bundle-recap__icon"/>
-        <Flex align="center" v-else :class="cadreClass">
+        <Flex align="center" v-else :class="['fk-bundle-recap__cadre', cadreClass]">
           <slot v-if="i === 2" name="sticker"></slot>
-          <img  :src="item.image" align="middle" :class="itemClass"/>
+          <img  :src="item.image" align="middle" :class="['fk-bundle-recap__item', itemClass]"/>
         </Flex>
       </div>
     </Flex>
@@ -58,8 +58,8 @@
     <Flex align="center" :justify="justify" class="fk-bundle-recap__label-container">
       <div  v-for="(item, i) in bundleItems" :key="i" >
         <p v-if="item.type === 'icon'" class="fk-bundle-recap__icon" ></p>
-        <Flex v-else align="center" :class="cadreClass">
-          <p :class="labelClass" v-html="item.label"></p>
+        <Flex v-else align="center" :class="['fk-bundle-recap__cadre', cadreClass]">
+          <p :class="['fk-bundle-recap__label', labelClass]" v-html="item.label"></p>
         </Flex>
       </div>
     </Flex>
@@ -81,13 +81,13 @@
     },
     computed: {
       itemClass() {
-        return !!this.small ? 'fk-bundle-recap__item--small' : 'fk-bundle-recap__item'
+        return !!this.small ? 'fk-bundle-recap__item--small' : ''
       },
       cadreClass() {
-        return !!this.small || this.bundle.length <= 2 ? 'fk-bundle-recap__cadre--small' : 'fk-bundle-recap__cadre'
+        return !!this.small || this.bundle.length <= 2 ? 'fk-bundle-recap__cadre--small' : ''
       },
       labelClass() {
-        return !!this.small ? 'fk-bundle-recap__label--small' : 'fk-bundle-recap__label'
+        return !!this.small ? 'fk-bundle-recap__label--small' : ''
       },
       justify() {
         return this.bundle.length > 2 ? 'space-between' : 'space-evenly'

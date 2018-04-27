@@ -6,21 +6,19 @@
 </style>
 
 <template>
-    <Flex v-if="show" class="fk-product-bundle" :class="containerClass(product.topSeller)" align="center" column>
+    <Flex v-if="show" class="fk-product-bundle" :class="['fk-product-bundle__container', containerClass(product.topSeller)]" align="center" column>
       <Title size="xs" color="primary" class="fk-product-bundle__title" center>{{product.title}}</Title>
       <div v-if="product.topSeller" class="fk-product-bundle__top-seller"><b>{{product.topSeller}}</b></div>
       <BundleRecap :small="small" :bundle="product.bundle" />
-      <div class="fk-product-bundle__features">
-        <div :class="featureClass">
-          <div class="fk-product-bundle__features__container">
-            <TickText bold :color="tickColor" class="fk-product-bundle__feature-item" v-for="feature, index in product.features" :key="index" :placeholder="feature.placeholder">
-              <p v-if="feature.description">{{feature.description}}</p>
-            </TickText>
-          </div>
+      <div :class="['fk-product-bundle__features-highlited', featureClass]">
+        <div class="fk-product-bundle__features-container">
+          <TickText bold :color="tickColor" class="fk-product-bundle__feature-item" v-for="feature, index in product.features" :key="index" :placeholder="feature.placeholder">
+            <p v-if="feature.description">{{feature.description}}</p>
+          </TickText>
         </div>
-        <div class="fk-product-bundle__features__container">
-          <TickText v-for="feature, index in product.additional" :key="index" :placeholder="feature" class="fk-product-bundle__feature-item" />
-        </div>
+      </div>
+      <div class="fk-product-bundle__features-container">
+        <TickText v-for="feature, index in product.additional" :key="index" :placeholder="feature" class="fk-product-bundle__feature-item" />
       </div>
       <Flex align="center" class="fk-product-bundle__info" column>
         <a :href="product.link.href" class="m-b-10">{{product.link.text}}</a>
@@ -76,8 +74,8 @@
         this.show = this.active || window.innerWidth > 767
       },
       containerClass(topSeller) {
-        if(this.hw) return 'fk-product-bundle__container'
-        return topSeller ? 'fk-product-bundle__container--nhw-top' : 'fk-product-bundle__container--nhw'
+        // if(this.hw) return 'fk-product-bundle__container'
+        return !(this.hw || topSeller) ? 'fk-product-bundle__container--nhw' : ''
       }
     },
     computed: {
@@ -85,7 +83,7 @@
         return this.product.bundle.length > 2
       },
       featureClass() {
-        return this.hw ? 'fk-product-bundle__features__highlited' : 'fk-product-bundle__features__highlited--nhw'
+        return !this.hw ? 'fk-product-bundle__features-highlited--nhw' : ''
       },
       tickColor() {
         return this.hw ? 'white' : 'black'
