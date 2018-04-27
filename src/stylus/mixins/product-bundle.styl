@@ -11,7 +11,7 @@ responsive-mixin()
       font-size 0.8rem !important
     &__info
       padding 0 25px 20px 25px
-    &__features>div
+    &__features__container
       padding 5px 0 0 48px
     
   @media(max-width $bp-large - 1)
@@ -21,7 +21,7 @@ responsive-mixin()
       font-size 1.8rem !important
     &__price
       font-size 0.76rem !important
-    &__features>div
+    &__features__container
       padding 7px 0 0 5%
 
   @media(max-width $bp-md)
@@ -31,7 +31,7 @@ responsive-mixin()
       font-size 0.65rem !important
     &__action
       font-size 1.6rem !important
-    &__features>div
+    &__features__container
       padding 7px 0 5px 6%
       font-size 1rem !important
 
@@ -44,23 +44,25 @@ responsive-mixin()
 product-bundle-mixin()
   &__container
     &, &--nhw, &--nhw-top
-      flex-wrap: unset !important
       background-color white
   &__info
+    width 100%
     margin-top auto
     a
       color #3180ca
       text-decoration none
       font-size 16px
 
+  &__features__container
+    font-size 1.2rem !important
+  
   &__features
     width 100%
-    >div
-      font-size 1.2rem !important
     &__highlited
       background-color $orange
       &--nhw
         background-color $grey
+  
   &__additional-features
     margin-top 5px
   &__title
@@ -75,8 +77,6 @@ product-bundle-mixin()
       flex-basis 100%
       border-radius 5px
       border 2px solid $orange
-      align-items unset !important
-      flex-wrap: nowrap
   &__container--nhw
       border 2px solid $grey
   @media(min-width $bp-sm)
@@ -107,21 +107,15 @@ product-bundle-mixin()
     position relative
     &__title
       display: none
-    &__features
-      &>div:not(&__highlited):not(&__highlited--nhw), &__highlited>div, &__highlited--nhw>div
-        width 260px
-        margin: 0 auto
-        padding-top 5px
-        font-size 1.25rem !important
-        *
-          line-height 2rem !important
-          margin-bottom 2px
-
+    &__features__container
+      width 260px
+      margin: 0 auto
+      padding-top 5px
+      font-size 1.25rem !important
 
     &__container
       &, &--nhw, &--nhw-top
         flex-basis 100%
-        align-items unset !important
         border 0
     &__price
       font-size 0.8rem !important

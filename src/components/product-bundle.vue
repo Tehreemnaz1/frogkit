@@ -12,13 +12,13 @@
       <BundleRecap :small="small" :bundle="product.bundle" />
       <div class="fk-product-bundle__features">
         <div :class="featureClass">
-          <div>
+          <div class="fk-product-bundle__features__container">
             <TickText bold :color="tickColor" class="fk-product-bundle__feature-item" v-for="feature, index in product.features" :key="index" :placeholder="feature.placeholder">
               <p v-if="feature.description">{{feature.description}}</p>
             </TickText>
           </div>
         </div>
-        <div>
+        <div class="fk-product-bundle__features__container">
           <TickText v-for="feature, index in product.additional" :key="index" :placeholder="feature" class="fk-product-bundle__feature-item" />
         </div>
       </div>

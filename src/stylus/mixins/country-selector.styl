@@ -40,13 +40,6 @@ small-screen-mixin()
       select
         width: 100%
 
-image-rendering-mixin()
-  image-rendering: -moz-crisp-edges;         /* Firefox */
-  image-rendering:   -o-crisp-edges;         /* Opera */
-  image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
-
 big-screen-mixin()
   @media only screen and (min-width: $bp-sm)
     position absolute
@@ -105,7 +98,7 @@ countries-mixin()
     background: $white
     cursor: pointer
     img
-      image-rendering-mixin()
+      image-rendering pixelated
       height $flag-size
       width auto
     p, svg
