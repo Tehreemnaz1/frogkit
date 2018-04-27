@@ -1,19 +1,23 @@
-$maxSlides             = 5
-$carouselIndicatorSize = 12px
+@require '../_vars'
+@require '../utils'
+// $bp-sm
+$maxSlides              = 5
+$carouselIndicatorSize  = 12px
 $carouselIndicatorColor = #2f82c4
-$slideTransition       = .5s
-
+// $slideTransition        = 100ms
+$carouselPreviewSmall   = 64px
+$carouselPreviewLarge   = 104px
 
 /**
   * Control & indicator mixin
 */
 carousel-mixin()
-  position    relative
-  width       100%
+  position       relative
+  width          100%
   padding-bottom $carouselIndicatorSize + 2px
-  margin-left      auto
-  margin-right      auto
-  overflow    hidden
+  margin-left    auto
+  margin-right   auto
+  overflow       hidden
 
   /**
     Slides
@@ -22,14 +26,14 @@ carousel-mixin()
     width           100%
     display         block
     padding-bottom  100%
-    transition      transform $slideTransition ease 0s
+    // transition      transform $slideTransition linear 0s
   &__slide
     width       100%
     height      auto
     overflow-y  auto
     display     block
     position    absolute
-    user-select     none
+    user-select none
     for num in (1..$maxSlides)
       &:nth-of-type({num})
         transform translateX((num - 1) * 100%)
@@ -37,12 +41,15 @@ carousel-mixin()
   /**
     slide indicators
   */
-  &__indicators
-    position   absolute
-    bottom     0
-    width      100%
-    text-align center
-    height        $carouselIndicatorSize
+  & &__indicators
+    position    absolute
+    bottom      0
+    width       100%
+    text-align  center
+    height      $carouselIndicatorSize
+    display     none
+    +media-mobile()
+      display   block
   &__indicator
     height        $carouselIndicatorSize
     width         $carouselIndicatorSize
@@ -58,4 +65,25 @@ carousel-mixin()
     &--active
       opacity     1
       
+
+  /**
+    slide previews
+  */
+  & &__previews
+    width          100%
+    margin-top     10px
+    +media-mobile()
+      display      none
+  &__preview
+    width          30%
+    max-width      $carouselPreviewSmall
+    height         auto
+    border         1px solid #dadada
+    cursor         pointer
+    +media-desktop()
+      max-width    $carouselPreviewLarge
+    &:hover
+      border       2px solid #f08900
+    &--active
+      border       2px solid #f08900
 

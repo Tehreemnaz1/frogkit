@@ -7,5 +7,7 @@ exports[`Carousel component Should render component and match snapshot 1`] = `
                 class="fk-carousel__slide"></div>
     </swipeable>
     <div class="fk-carousel__indicators"><label class="fk-carousel__indicator"></label><label class="fk-carousel__indicator fk-carousel__indicator--active"></label><label class="fk-carousel__indicator"></label></div>
+    <flex justify="space-evenly" class="fk-carousel__previews"><img src="https://unsplash.it/320?random&amp;0" draggable="false" class="fk-carousel__preview"><img src="https://unsplash.it/320?random&amp;1" draggable="false" class="fk-carousel__preview fk-carousel__preview--active"><img src="https://unsplash.it/320?random&amp;2"
+            draggable="false" class="fk-carousel__preview"></flex>
 </section>
 `;
