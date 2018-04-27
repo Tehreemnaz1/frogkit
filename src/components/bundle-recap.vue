@@ -1,5 +1,4 @@
 <style lang="stylus">
-  $bp-large = 1200px
   @import '../stylus/_vars'
   .fk-bundle-recap
     background-color white
@@ -18,7 +17,7 @@
     
     &__cadre--small
       width 90px
-      @media(max-width $bp-large)
+      @media(max-width $bp-lg)
         width 75px
       @media(max-width $bp-md)
         width 50px
@@ -30,7 +29,7 @@
       display: block
       margin: 0 auto
     &__item--small
-      @media(min-width $bp-sm + 1)
+      @media(min-width $bp-sm)
         max-width 20%        
         max-width 45px
     &__label, &__label--small
