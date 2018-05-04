@@ -1,13 +1,13 @@
 <style lang="stylus">
   @import '../stylus/_vars'
   .fk-information-accordion__content
-    @media(max-width $bp-sm)
+    @media(max-width $bp-sm - 1)
       color: #7a7a7a
       font-size: 20px
 </style>
 
 <template>
-<component :is="windowWidth > breakPoint ? 'InformationBlock' : 'Accordion'" :placeholder="title" :title="title" class="fk-information-accordion">
+<component :is="windowWidth > breakPoint ? 'InformationBlock' : 'Accordion'" :hide="hide" :placeholder="title" :title="title" class="fk-information-accordion">
   <div class="fk-information-accordion__content">
     <slot></slot>
   </div>
@@ -40,6 +40,10 @@
       title: {
         type: String,
         default: ''
+      },
+      hide: {
+        type: Boolean,
+        default: false
       }
     }
   }

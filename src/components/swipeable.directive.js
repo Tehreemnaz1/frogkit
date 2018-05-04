@@ -1,20 +1,22 @@
+const listenerOptions = {passive: true, capture: false}
+
 export default {
   inserted: function(el, binding, vnode) {
     const threshold = binding.value || 100
     let elWidth = 0
     let startPos = null
-    el.addEventListener('mousedown', onTouchStart, false)
-    el.addEventListener('touchstart', onTouchStart, false)
+    el.addEventListener('mousedown', onTouchStart, listenerOptions)
+    el.addEventListener('touchstart', onTouchStart, listenerOptions)
 
     function onTouchStart(e) {
       startPos = getTouchPos(e)
       elWidth = el.clientWidth
 
-      document.addEventListener('touchend', onTouchEnd, false)
-      document.addEventListener('mouseup', onTouchEnd, false)
+      document.addEventListener('touchend', onTouchEnd, listenerOptions)
+      document.addEventListener('mouseup', onTouchEnd, listenerOptions)
 
-      document.addEventListener('touchmove', onTouchMove, false)
-      document.addEventListener('mousemove', onTouchMove, false)
+      document.addEventListener('touchmove', onTouchMove, listenerOptions)
+      document.addEventListener('mousemove', onTouchMove, listenerOptions)
     }
 
     function onTouchEnd(e) {
@@ -29,12 +31,12 @@ export default {
       document.removeEventListener('touchend', onTouchEnd)
       document.removeEventListener('mouseup', onTouchEnd)
 
-      document.removeEventListener('touchmove', onTouchMove, false)
-      document.removeEventListener('mousemove', onTouchMove, false)
+      document.removeEventListener('touchmove', onTouchMove)
+      document.removeEventListener('mousemove', onTouchMove)
     }
 
     function onTouchMove(e) {
-      e.preventDefault()
+      // e.preventDefault()
       const delta = getTouchPos(e) - startPos
       const relativeDelta = delta / elWidth
       vnode.context.$emit('swiping', relativeDelta)
