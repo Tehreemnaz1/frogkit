@@ -1,6 +1,10 @@
+@import '../_vars'
 $text-color = #414141
 
 description-block-mixin()
+  & &--hide
+    @media(max-width $bp-sm - 1)
+      display none
   &__content
     font-size       20px
     line-height     30px

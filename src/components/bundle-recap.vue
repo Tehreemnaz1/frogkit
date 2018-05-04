@@ -53,7 +53,7 @@
         return !!this.small ? 'fk-bundle-recap__label--small' : ''
       },
       justify() {
-        return this.bundle.length > 2 ? 'space-between' : 'space-evenly'
+        return this.bundle.length > 2 ? 'space-between' : 'space-around'
       },
       bundleItems() {
         const icon = {type: 'icon'}

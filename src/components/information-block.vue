@@ -11,7 +11,7 @@
 
 <template>
   <section class="fk-information-block">
-    <Title size="xs" class="fk-information-block__title m-b-10">{{title}}</Title>
+    <Title v-if="!hide" size="xs" class="fk-information-block__title m-b-10">{{title}}</Title>
     <div class="fk-information-block__content">
       <slot></slot>
     </div>
@@ -25,6 +25,10 @@
       title: {
         type: String,
         default: ''
+      },
+      hide: {
+        type: Boolean,
+        default: false
       }
     }
   }

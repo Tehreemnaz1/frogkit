@@ -7,7 +7,7 @@
 <template>
   <Flex class="cookie-policy" justify="space-between">
     <p class="cookie-policy__content">{{content[lang]}} <a :href="link">{{linkTitle[lang]}}</a>.</p>
-    <div class="cookie-policy__close" @click="handleClick" ><Icon color="white" icon="close"  /></div>
+    <div class="cookie-policy__close" @click="$emit('close')" ><Icon color="white" icon="close"  /></div>
   </Flex>
 </template>
 
@@ -34,11 +34,6 @@ export default {
         'de': 'Cookie-Richtlinien',
         'en': 'cookies policy'
       }
-    }
-  },
-  methods: {
-    handleClick () {
-      this.$emit('close')
     }
   }
 }
