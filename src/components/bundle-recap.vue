@@ -64,8 +64,8 @@
       }
     },
     methods: {
-      storageClass($index) {
-        return this.small && $index === this.bundleItems.length - 1 ? 'fk-bundle-recap__storage' : ''
+      storageClass(index) {
+        return this.small && index === this.bundleItems.length - 1 ? 'fk-bundle-recap__storage' : ''
       }
     }
   }
