@@ -13,7 +13,7 @@
         <Icon v-if="item.type === 'icon'" icon="plus-bold" color="orange" class="fk-bundle-recap__icon"/>
         <Flex align="center" v-else :class="['fk-bundle-recap__cadre', cadreClass]">
           <slot v-if="i === 2" name="sticker"></slot>
-          <img  :src="item.image" align="middle" :class="['fk-bundle-recap__item', itemClass]"/>
+          <img  :src="item.image" align="middle" :class="['fk-bundle-recap__item', itemClass, storageClass(i)]"/>
         </Flex>
       </div>
     </Flex>
@@ -61,6 +61,11 @@
           if (k < a.length -1) return [...acc, i, icon]
           else return [...acc, i]
         }, [])
+      }
+    },
+    methods: {
+      storageClass(index) {
+        return this.small && index === this.bundleItems.length - 1 ? 'fk-bundle-recap__storage' : ''
       }
     }
   }
