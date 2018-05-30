@@ -38,7 +38,7 @@
     },
     methods: {
       watchInputs () {
-        this.inputs = (this.$children)
+        this.inputs = search(this.$children)
         this.inputs.forEach(input => input.$watch('valid', this.validate))
         this.validate()
       },
