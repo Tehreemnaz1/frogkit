@@ -39,7 +39,6 @@
     methods: {
       watchInputs () {
         this.inputs = (this.$children)
-        console.log('inputs', this.inputs)
         this.inputs.forEach(input => input.$watch('valid', this.validate))
         this.validate()
       },
