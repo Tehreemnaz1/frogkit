@@ -44,7 +44,7 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
 
 stories.addCodeExampleStory('Auto Scroll to Error', () => ({
   template:
-  `<Form v-model="isValid" class="form-demo" scrollOnError>
+  `<Form v-model="isValid" class="form-demo">
     <div>
       <Input v-model="inputs[0]" name="username" type="text" placeholder="username" :disabled="disabled" required block></Input>
     </div>

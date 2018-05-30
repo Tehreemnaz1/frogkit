@@ -15,10 +15,6 @@
       showError: {
         type: Boolean,
         default: false
-      },
-      scrollOnError: {
-        type: Boolean,
-        default: false
       }
     },
     watch:{
@@ -48,7 +44,7 @@
       },
       displayError() {
         this.inputs.forEach(input => (input.touched = true))
-        if (this.scrollOnError) this.scrollToError()
+        this.scrollToError()
       },
       scrollToError() {
         if (this.isValid) return
