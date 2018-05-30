@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import validator from './validator.mixin'
+import validator from '../mixins/validator'
 
 export default {
   name: 'Select',
