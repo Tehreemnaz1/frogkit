@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import swipeable from './swipeable.directive'
+  import swipeable from '../directives/swipeable'
 
   export default {
     name: 'Swipeable',

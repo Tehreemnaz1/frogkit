@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import clickOutside from './clickOutside.directive'
+  import clickOutside from '../directives/click-outside'
 
   let updateStyleEventListener
 
