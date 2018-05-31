@@ -35,6 +35,7 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
       :currentCountry="currentCountry"
       :countrySelectLabel="countrySelectLabel"
       :navOnly="navOnly"
+      :wrongInput="wrongInput"
       @login="onLogin"
       @countryChange="onCountryChange" />
     <h1 class="demo-title">Emitted country:
@@ -51,7 +52,8 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
       currentCountry: 'de',
       countrySelectLabel: 'Your Country is missing? Click here:',
       emitted: '',
-      navOnly: boolean('Show main navigation only', false)
+      navOnly: boolean('Show main navigation only', false),
+      wrongInput: boolean('Show login error', false)
     }
   },
   methods: {
