@@ -11,16 +11,19 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
   template:
   `<Form v-model="isValid" class="form-demo">
     <div>
-      <Input v-model="inputs[0]" name="username" type="text" placeholder="username" :disabled="disabled" required block></Input>
+      <Select v-model="inputs[4]" :disabled="disabled" block placeholder="Title" :options="options" :wrong="wrong" required></Select>
     </div>
     <div>
-      <Input v-model="inputs[1]" type="password" placeholder="password" :disabled="disabled" required block></Input>
+      <Input v-model="inputs[0]" name="username" type="text" placeholder="username" :disabled="disabled" :wrong="wrong" required block></Input>
     </div>
     <div>
-      <Input v-model="inputs[2]" type="phone" placeholder="phone" :disabled="disabled" required block></Input>
+      <Input v-model="inputs[1]" type="password" placeholder="password" :disabled="disabled" :wrong="wrong" required block></Input>
     </div>
     <div>
-      <Checkbox v-model="inputs[3]" true-value="yep" false-value="nope" required>Accept TOS: {{inputs[3]}}</Checkbox>
+      <Input v-model="inputs[2]" type="phone" placeholder="phone" :disabled="disabled" :wrong="wrong" required block></Input>
+    </div>
+    <div>
+      <Checkbox v-model="inputs[3]" true-value="yep" false-value="nope" :wrong="wrong" required>Accept TOS: {{inputs[3]}}</Checkbox>
     </div>
     <h1 class="demo-title">Valid: {{isValid}}</h1>
     <Button @click="submit" color="primary" block> Submit </Button>
@@ -29,7 +32,8 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
     return {
       inputs: Array.from({length: 5}),
       disabled: boolean('Disabled', false),
-      inputValue: text('Text', 'tada'),
+      wrong: boolean('Wrong', false),
+      options: [{value: 'Mr', label: 'Mr'}, {value: 'Mrs', label: 'Mrs'}],
       isValid: null
     }
   },
@@ -71,7 +75,6 @@ stories.addCodeExampleStory('Auto Scroll to Error', () => ({
     return {
       inputs: Array.from({length: 5}),
       disabled: boolean('Disabled', false),
-      inputValue: text('Text', 'tada'),
       isValid: null
     }
   },

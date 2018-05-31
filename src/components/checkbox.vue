@@ -49,8 +49,8 @@ export default {
   computed: {
     classObject() {
       return {
-        'fk-checkbox--disabled': !!this.disabled,
-        'fk-checkbox--invalid': !!this.invalid && !!this.touched
+        'fk-checkbox--disabled': this.disabled,
+        'fk-checkbox--invalid': this.invalid
       }
     },
     isChecked() {
