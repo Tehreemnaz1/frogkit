@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import validator from './validator.mixin'
+import validator from '../mixins/validator'
 
 export default {
   name: 'Select',
@@ -47,20 +47,19 @@ export default {
     classObject() {
       return {
         'fk-select--block': !!this.block,
-        'fk-select--error': !!this.invalid && !!this.touched
+        'fk-select--error': this.invalid
       }
     }
   },
   data() {
     return {
-      inputValue: this.value,
       error: false
     }
   },
   methods: {
     updateValue(e) {
-      this.inputValue = e.target.value
-      this.$emit('input', this.inputValue)
+      const value = e.target.value
+      this.$emit('input', value)
       this.touched = true
     }
   }

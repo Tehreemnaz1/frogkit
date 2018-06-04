@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import validator from './validator.mixin'
+  import validator from '../mixins/validator'
 
   export default {
     name: 'Input',
@@ -57,7 +57,7 @@
           'fk-input--cut-left': this.cutSide === 'left',
           'fk-input--cut-right': this.cutSide === 'right',
           'fk-input--block': !!this.block,
-          'fk-input--invalid': !!this.invalid && !!this.touched
+          'fk-input--invalid': this.invalid
         }
       }
     },

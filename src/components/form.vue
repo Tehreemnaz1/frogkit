@@ -35,32 +35,33 @@
     methods: {
       watchInputs () {
         this.inputs = search(this.$children)
-        this.inputs.forEach(input => {
-          input.$watch('valid', this.validate)
-        })
+        this.inputs.forEach(input => input.$watch('errone', this.validate))
         this.validate()
       },
       validate() {
-        this.isValid = this.inputs.every(input => input.valid)
+        this.isValid = !this.inputs.some(input => input.errone)
         this.$emit('input', this.isValid)
       },
       displayError() {
-        this.inputs.forEach(input => {
-          input.touched = true
-        })
+        this.inputs.forEach(input => (input.touched = true))
+        this.scrollToError()
+      },
+      scrollToError() {
+        if (this.isValid) return
+        const firstInvalid = this.inputs.find(input => input.errone)
+        firstInvalid.$el.scrollIntoView({ behavior: 'smooth', block: 'nearest'})
       }
     }
   }
 
-  function search (children = [], depth = 0, results = []) {
-    children.forEach(child => {
+  function search(children = []) {
+    return children.reduce((acc, child) => {
       if (child.validatorElement !== undefined) {
-        results.push(child)
+        return acc.concat(child)
       } else {
-        search(child.$children, depth + 1, results)
+        return acc.concat(search(child.$children))
       }
-    })
-
-    if (depth === 0) return results
+    }, [])
   }
+
 </script>

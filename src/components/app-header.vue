@@ -82,7 +82,7 @@
 </template>
 
 <script>
-import clickOutside from './clickOutside.directive'
+import clickOutside from '../directives/click-outside'
 
   export default {
     name: 'AppHeader',

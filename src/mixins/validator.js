@@ -1,13 +1,19 @@
 const regex = {
   text: /.*/,
+  houseNumber: /^[0-9a-zA-Z ]+$/,
   phone: /^[0-9 \\+\\-\\(\\)\\/]{3,32}$/,
   password: /^[0-9a-zA-Z!*^?+-_@#$%&<>§±'":;.,/=~\[\]\{\}\`\(\)\|\\ ]{6,64}$/,
   email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  // email: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 }
 
 export default function validator (model = 'value') {
   return {
+    props:{ 
+      wrong: {
+        type: Boolean,
+        default: false
+      }
+    },
     data() {
       return {
         validatorElement: true,
@@ -21,15 +27,16 @@ export default function validator (model = 'value') {
       }
     },
     computed: {
-      valid() {
-        return Object.values(this.errors || {}).every(error => !error)
+      errone() {
+        return Object.values(this.errors || {}).some(Boolean)
       },
       invalid() {
-        return !this.valid
+        return this.wrong || this.errone && this.touched
       }
     },
     watch: {
       [model]() {
+        this.touched = true
         this.runValidation()
       }
     },

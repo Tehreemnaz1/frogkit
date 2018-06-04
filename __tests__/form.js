@@ -17,7 +17,7 @@ describe('Input component', () => {
     )
     const input = wrapper.find(Input)
     expect(wrapper.vm.isValid).toBe(false)
-    expect(input.vm.valid).toBe(false)
+    expect(input.vm.errone).toBe(true)
   })
 
   it('should be valid with input is valid', () => {
@@ -25,11 +25,10 @@ describe('Input component', () => {
       defaultSlot(Input, { required: true, value: '' })
     )
     const input = wrapper.find(Input)
-
-    expect(input.vm.valid).toBe(false)
+    expect(input.vm.errone).toBe(true)
     expect(wrapper.vm.isValid).toBe(false)
     input.setProps({ value: 'tada' })
-    expect(input.vm.valid).toBe(true)
+    expect(input.vm.errone).toBe(false)
     Vue.nextTick(() => {
       expect(wrapper.vm.isValid).toBe(true)
     })
@@ -41,7 +40,7 @@ describe('Input component', () => {
     )
     const checkbox = wrapper.find(Checkbox)
     expect(wrapper.vm.isValid).toBe(false)
-    expect(checkbox.vm.valid).toBe(false)
+    expect(checkbox.vm.errone).toBe(true)
   })
 
   it('should be valid when checkbox is valid', () => {
@@ -50,10 +49,10 @@ describe('Input component', () => {
     )
     const checkbox = wrapper.find(Checkbox)
     expect(wrapper.vm.isValid).toBe(false)
-    expect(checkbox.vm.valid).toBe(false)
+    expect(checkbox.vm.errone).toBe(true)
     checkbox.setProps({ checked: true })
     Vue.nextTick(() => {
-      expect(checkbox.vm.valid).toBe(true)
+      expect(checkbox.vm.errone).toBe(false)
       expect(wrapper.vm.isValid).toBe(true)
     })
   })
