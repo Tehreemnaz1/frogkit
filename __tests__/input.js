@@ -105,4 +105,18 @@ describe('Input component', () => {
     })
   })
 
+  describe('Input component | uk zip', () => {
+    it('should render without error', () => {
+      const wrapper = mount(Input, { propsData : { value:'WC2H 7LT', required: true, type: 'ukZip' } })
+      wrapper.trigger('input')
+      expect(wrapper.hasClass('fk-input--invalid')).toBe(false)
+    })
+
+    it('should render with error', () => {
+      const wrapper = mount(Input, { propsData : { value:'aWC2H 7LT', required: true, type: 'ukZip' } })
+      wrapper.trigger('input')
+      expect(wrapper.hasClass('fk-input--invalid')).toBe(true)
+    })
+  })
+
 })
