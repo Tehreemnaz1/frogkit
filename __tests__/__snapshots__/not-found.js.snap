@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Not Found component should render component and match snapshot: lang de 1`] = `
+<flex align="center" justify="center" column="" class="fk-not-found">
+    <icon icon="exclamation-circle" color="orange" class="fk-not-found__exclamation m-b-30"></icon>
+    <title color="primary" size="xl" class="m-b-40">Ein Fehler ist aufgetreten</title>
+    <p class="fk-not-found__content m-b-40">
+        Es tut uns leid, wir konnten die angeforderte Seite nicht finden. <br> Bitte die Internetadresse (URL) auf Fehler überprüfen. <br></p> <button href="#" size="big" color="secondary" link="" outline="" class="fk-not-found__button">
+    Zur Startseite <icon icon="arrow-right" color="secondary"></icon></button></flex>
+`;
+
+exports[`Not Found component should render component and match snapshot: lang en 1`] = `
+<flex align="center" justify="center" column="" class="fk-not-found">
+    <icon icon="exclamation-circle" color="orange" class="fk-not-found__exclamation m-b-30"></icon>
+    <title color="primary" size="xl" class="m-b-40">An error has occured</title>
+    <p class="fk-not-found__content m-b-40">
+        We're sorry, we couldn't find the page you requested. <br> Please check the internet address (URL) for errors. <br></p> <button href="#" size="big" color="secondary" link="" outline="" class="fk-not-found__button">
+    Go to homepage <icon icon="arrow-right" color="secondary"></icon></button></flex>
+`;
