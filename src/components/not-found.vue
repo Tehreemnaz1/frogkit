@@ -18,14 +18,11 @@
 <template>
   <Flex class="fk-not-found" align="center" justify="center" column>
     <Icon class="fk-not-found__exclamation m-b-30" icon="exclamation-circle" color="orange" />
-    <Title class="m-b-40" color="primary" size="xl">{{title[lang]}}</Title>
-    <p class="fk-not-found__content m-b-40">
-      <template  v-for="text, i in content[lang]">
-        {{text}} <br v-if="i < content[lang].length" />
-      </template>
+    <Title class="m-b-40" color="primary" size="xl">{{title}}</Title>
+    <p class="fk-not-found__content m-b-40" v-html="content">
     </p>
     <Button class="fk-not-found__button" :href="link"  size="big" color="secondary" link outline>
-      {{button[lang]}} <Icon icon="arrow-right" color="secondary"/>
+      {{button}} <Icon icon="arrow-right" color="secondary"/>
     </Button>
   </Flex>
 </template>
@@ -34,26 +31,21 @@
   export default {
     name: 'NotFound',
     props: {
-      lang: {
+      title: {
         type: String,
-        default: 'de',
-        validator: function (val) {
-          return ['de', 'en'].includes(val)
-        }
+        default: ''
+      },
+      content: {
+        type: String,
+        default: ''
+      },
+      button: {
+        type: String,
+        default: ''
       },
       link: {
         type: String,
         default: '#'
-      }
-    },
-    data () {
-      return {
-        title: {de: 'Ein Fehler ist aufgetreten', en: 'An error has occured'},
-        content: {
-          de: ['Es tut uns leid, wir konnten die angeforderte Seite nicht finden.', ' Bitte die Internetadresse (URL) auf Fehler überprüfen.'], 
-          en: ['We\'re sorry, we couldn\'t find the page you requested.', ' Please check the internet address (URL) for errors.']
-        },
-        button: {de: 'Zur Startseite', en: 'Go to homepage'}
       }
     }
   }
