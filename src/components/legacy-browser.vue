@@ -1,6 +1,6 @@
 <style lang="stylus">
   @import '../stylus/mixins/legacy-browser'
-  
+
   .fk-legacy-browser
     legacy-browser-mixin()
 </style>

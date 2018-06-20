@@ -9,6 +9,7 @@ export default {
 'bell': () => import('./bell.vue').then(m => m.default || m),
 'camera': () => import('./camera.vue').then(m => m.default || m),
 'checkmark': () => import('./checkmark.vue').then(m => m.default || m),
+'close-light': () => import('./close-light.vue').then(m => m.default || m),
 'close': () => import('./close.vue').then(m => m.default || m),
 'coupon': () => import('./coupon.vue').then(m => m.default || m),
 'credit-card': () => import('./credit-card.vue').then(m => m.default || m),
