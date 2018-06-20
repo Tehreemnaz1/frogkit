@@ -16,7 +16,7 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
   data() {
     return {
       inputValue: text('Text', 'tada'),
-      inputType: select('Input Type', ['text', 'email', 'phone', 'password'], 'text'),
+      inputType: select('Input Type', ['text', 'email', 'phone', 'password', 'ukZip'], 'text'),
       size: select('Size', ['normal', 'small'], 'normal'),
       cutSide: select('Cut border', ['default', 'left', 'right'], 'default'),
       disabled: boolean('Disabled', false),
