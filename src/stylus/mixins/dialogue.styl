@@ -1,9 +1,8 @@
 @require '../_vars'
 
-
 $overlay-light-bg := rgba(255, 255, 255, 0.5)
 $overlay-dark-bg := rgba(0, 0, 0, 0.5)
-
+$overlay-animation-time := 300ms
 
 dialogue-mixin()
   position:  fixed
@@ -30,3 +29,31 @@ dialogue-mixin()
     >svg
       width: 24px
       height: 24px
+  &&__animation-in
+    animation: fadein $overlay-animation-time ease
+    & ^[0]__frame
+      animation: slidedown $overlay-animation-time ease
+  &&__animation-out
+    animation: fadein $overlay-animation-time reverse
+    & ^[0]__frame
+      animation: slidedown $overlay-animation-time reverse
+
+/**** ANIMATIONS ****/
+
+@keyframes fadein {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes slidedown {
+  0% {
+    transform: translateY(-100px)
+  }
+  100% {
+    transform: translateY(0)
+  }
+}
