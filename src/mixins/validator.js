@@ -6,12 +6,12 @@ const regex = {
   email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
   // NOTE: uk zip code is provided by goverment
   // ukZip: /^(([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))\s?[0-9][A-Za-z]{2}))$/
-  ukZip: /^(([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))\s[0-9][A-Za-z]{2}))$/
+  ukZip: /^(([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))\s?[0-9][A-Za-z]{2}))$/
 }
 
 export default function validator (model = 'value') {
   return {
-    props:{ 
+    props:{
       wrong: {
         type: Boolean,
         default: false
@@ -60,7 +60,7 @@ export default function validator (model = 'value') {
         if (this.required) {
           errors.required = typeof value === 'string' ? !value.length : !value
           errors.pattern = this.pattern && !this.pattern.test(value) || (typeof value === 'string' && !value.trim().length)
-          const inputType = type || this.type 
+          const inputType = type || this.type
           if (inputType === 'password') {
             if (value.length < 6) errors.lengthError = 'min'
             else if (value.length > 64) errors.lengthError = 'max'
