@@ -12,6 +12,7 @@
 
 <script>
   import validator from '../mixins/validator'
+  import { formatUkZip } from '../services/helper'
 
   export default {
     name: 'Input',
@@ -64,7 +65,8 @@
     methods: {
       onInput(e) {
         const value = e.target.value
-        this.$emit('input', value)
+        if(this.type === 'ukZip') this.$emit('input', formatUkZip(value))
+        else this.$emit('input', value)
         this.touched = true
       }
     }
