@@ -1,14 +1,25 @@
 export function formatUkZip (zip = '') {
-  switch (zip.length) {
+  const tmp = zip.replace(/^\s+|\s+$/g, '')
+  switch (tmp.length) {
     case 5:
-      return zip.slice(0, 2).concat(' ').concat(zip.slice(2))
+      /* if it contains spaces return it as it is */
+      if(tmp.includes(' ')) return tmp
+      return tmp.slice(0, 2).concat(' ').concat(tmp.slice(2))
     case 6:
-      if (zip[2] === ' ') return zip
-      return zip.slice(0, 3).concat(' ').concat(zip.slice(3))
+      /* To prevent reformating zip code with 5 chars: XX XXX  */
+      if (tmp[2] === ' ') return tmp
+      /* Format code to the right format: XXX XX => XX XXX */
+      if(tmp[3] === ' ') return tmp.slice(0, 2).concat(' ').concat(tmp.slice(2,3)).concat(tmp.slice(4))
+      /* Format code to right format with 6 chars: XXXXXX => XXX XXX */
+      return tmp.slice(0, 3).concat(' ').concat(tmp.slice(3))
     case 7:
-      if (zip[3] === ' ') return zip
-      return zip.slice(0, 4).concat(' ').concat(zip.slice(4))
+      /* To prevent reformating zip code with  chars: XXX XXX  */
+      if (tmp[3] === ' ') return tmp
+      /* Format code to the right format: XXXX XX => XXX XXX */
+      if(tmp[4] === ' ') return tmp.slice(0,3).concat(' ').concat(tmp.slice(3,4)).concat(tmp.slice(5))
+      /* Format code to right format with 6 chars: XXXXXXX => XXXX XXX */
+      return tmp.slice(0, 4).concat(' ').concat(tmp.slice(4))
     default:
-      return zip
+      return tmp
   }
 }
