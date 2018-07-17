@@ -70,8 +70,8 @@
       },
       formatUkZip (zip = '') {
         const tmp = zip.replace(/\s+/g, '')
-        if (tmp.length > 4) return tmp.slice(0, -3).concat(' ').concat(tmp.slice(-3))
-        return tmp
+        if (tmp.length < 5) return tmp
+        return tmp.slice(0, -3).concat(' ').concat(tmp.slice(-3))
       }
     }
   }
