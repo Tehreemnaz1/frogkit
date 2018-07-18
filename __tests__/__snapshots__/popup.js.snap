@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popup component should render component and match snapshot 1`] = `
+<section class="fk-popup">
+    <title color="primary" class="fk-popup__title">Hiergeblieben!</title> <img src="test-file-stub" class="fk-popup__img">
+    <p class="fk-popup__txt">Smartfrog schenkt dir den ersten Monat!</p>
+    <p class="fk-popup__txt">
+        Gutscheincode:
+        <span class="fk-popup__txt__code">FREE1</span></p> <button link="" size="big" block="true" color="secondary" class="fk-popup__btn"><span>Jetzt einlösen</span> <icon icon="arrow-right"></icon></button> <span class="fk-popup__close">Jetzt nicht</span></section>
+`;
