@@ -6,5 +6,5 @@ exports[`Popup component should render component and match snapshot 1`] = `
     <p class="fk-popup__txt">Smartfrog schenkt dir den ersten Monat!</p>
     <p class="fk-popup__txt">
         Gutscheincode:
-        <span class="fk-popup__txt__code">FREE1</span></p> <button link="" size="big" block="true" color="secondary" class="fk-popup__btn"><span>Jetzt einlösen</span> <icon icon="arrow-right"></icon></button> <span class="fk-popup__close">Jetzt nicht</span></section>
+        <span class="fk-popup__txt__code">FREE1</span></p> <button size="big" block="true" color="secondary" link="" class="fk-popup__btn"><span>Jetzt einlösen</span> <icon icon="arrow-right"></icon></button> <span class="fk-popup__close">Jetzt nicht</span></section>
 `;

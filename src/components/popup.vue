@@ -12,14 +12,14 @@
     <img :src="img" class="fk-popup__img" />
     <p class="fk-popup__txt">{{ text }}</p>
     <p class="fk-popup__txt">
-      {{ codeLabel }}
+      {{ codeText }}
       <span class="fk-popup__txt__code">{{ code }}</span>
     </p>
-    <Button class="fk-popup__btn" size="big" :block="true" color="secondary" @click="useVoucher" link>
-    <span>{{ btnLabel }}</span>
+    <Button class="fk-popup__btn" size="big" :block="true" color="secondary" @click="usePromo" link>
+    <span>{{ btnText }}</span>
     <Icon icon="arrow-right" />
     </Button>
-    <span class="fk-popup__close" @click="noVoucher">{{ noVoucherLabel }}</span>
+    <span class="fk-popup__close" @click="noPromo">{{ noText }}</span>
   </section>
 </template>
 
@@ -43,15 +43,15 @@
         type: String,
         default: ''
       },
-      codeLabel:  {
+      codeText:  {
         type: String,
         default: ''
       },
-      btnLabel:  {
+      btnText:  {
         type: String,
         default: ''
       },
-      noVoucherLabel:  {
+      noText:  {
         type: String,
         default: ''
       }
@@ -62,11 +62,11 @@
       }
     },
     methods: {
-      useVoucher() {
-        this.$emit('useVoucher', this.code)
+      usePromo() {
+        this.$emit('usePromo', this.code)
       },
-      noVoucher() {
-        this.$emit('noVoucher')
+      noPromo() {
+        this.$emit('noPromo')
       }
     }
   }

@@ -6,10 +6,10 @@ const propsData = {
   lang: 'de',
   title: 'Hiergeblieben!',
   text: 'Smartfrog schenkt dir den ersten Monat!',
-  codeLabel: 'Gutscheincode:',
+  codeText: 'Gutscheincode:',
   code: 'FREE1',
-  btnLabel: 'Jetzt einlösen',
-  noVoucherLabel: 'Jetzt nicht'
+  btnText: 'Jetzt einlösen',
+  noText: 'Jetzt nicht'
 }
 
 describe('Popup component', () => {
@@ -18,19 +18,19 @@ describe('Popup component', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  it('Should emit useVoucher event when useVoucher method is called', () => {
+  it('Should emit usePromo event when usePromo method is called', () => {
     const cmp = shallow(Popup, { propsData })
     const stub = jest.fn()
-    cmp.vm.$on('useVoucher', stub)
-    cmp.vm.useVoucher()
+    cmp.vm.$on('usePromo', stub)
+    cmp.vm.usePromo()
     expect(stub).toBeCalled()
   })
 
-  it('Should emit noVoucher event when noVoucher method is called', () => {
+  it('Should emit noPromo event when noPromo method is called', () => {
     const cmp = shallow(Popup, { propsData })
     const stub = jest.fn()
-    cmp.vm.$on('noVoucher', stub)
-    cmp.vm.noVoucher()
+    cmp.vm.$on('noPromo', stub)
+    cmp.vm.noPromo()
     expect(stub).toBeCalled()
   })
 })
