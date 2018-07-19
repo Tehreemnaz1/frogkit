@@ -1,31 +1,31 @@
 <style lang="stylus">
-  @require '../stylus/mixins/popup'
+  @require '../stylus/mixins/coupon-popup'
 
-  .fk-popup
-    popup-mixin()
+  .fk-coupon-popup
+    coupon-popup-mixin()
 
 </style>
 
 <template>
-  <section class="fk-popup">
-    <Title class="fk-popup__title" color="primary">{{ title }}</Title>
-    <img :src="img" class="fk-popup__img" />
-    <p class="fk-popup__txt">{{ text }}</p>
-    <p class="fk-popup__txt">
-      {{ codeText }}
-      <span class="fk-popup__txt__code">{{ code }}</span>
-    </p>
-    <Button class="fk-popup__btn" size="big" :block="true" color="secondary" @click="usePromo" link>
+<section class="fk-coupon-popup">
+  <Title class="fk-coupon-popup__title" color="primary">{{ title }}</Title>
+  <img :src="img" class="fk-coupon-popup__img" />
+  <p class="fk-coupon-popup__txt">{{ text }}</p>
+  <p class="fk-coupon-popup__txt">
+    {{ codeText }}
+    <span class="fk-coupon-popup__txt__code">{{ code }}</span>
+  </p>
+  <Button class="fk-coupon-popup__btn" size="big" :block="true" color="secondary" @click="usePromo" link>
     <span>{{ btnText }}</span>
     <Icon icon="arrow-right" />
     </Button>
-    <span class="fk-popup__close" @click="noPromo">{{ noText }}</span>
-  </section>
+  <span class="fk-coupon-popup__close" @click="noPromo">{{ noText }}</span>
+</section>
 </template>
 
 <script>
   export default {
-    name: 'Popup',
+    name: 'CouponPopup',
     props: {
       lang: {
         type: String,
@@ -39,25 +39,25 @@
         type: String,
         default: ''
       },
-      code:  {
+      code: {
         type: String,
         default: ''
       },
-      codeText:  {
+      codeText: {
         type: String,
         default: ''
       },
-      btnText:  {
+      btnText: {
         type: String,
         default: ''
       },
-      noText:  {
+      noText: {
         type: String,
         default: ''
       }
     },
     data() {
-        return {
+      return {
         img: require(`../assets/popup/one-month-free-${this.lang}.svg`)
       }
     },

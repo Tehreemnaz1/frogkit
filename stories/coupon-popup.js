@@ -1,19 +1,17 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { text, boolean, select } from '@storybook/addon-knobs'
+import { text, select, boolean } from '@storybook/addon-knobs'
 
 import Dialogue from '@/components/dialogue'
+import CouponPopup from '@/components/coupon-popup'
 
-const stories = storiesOf('Dialogue', module)
+const stories = storiesOf('Coupon Popup', module)
 
 
 stories.addCodeExampleStory('Kitchen Sink', () => ({
   template:
   `
-    <Dialogue
-      :visible="visible"
-      :dark="dark"
-      :requireAction="requireAction"
+    <CouponPopup
       :lang="lang"
       :title="title"
       :text="text"
@@ -21,13 +19,11 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
       :code="code"
       :btnText="btnText"
       :noText="noText"
-      @usePromo="onUsePromo" />
+      @usePromo="onUsePromo"
+      @noPromo="onNoPromo" />
   `,
   data() {
     return {
-      visible: boolean('Visible', true),
-      dark: boolean('Dark', true),
-      requireAction: boolean('Require Action', false),
       lang: select('Language', ['de', 'en'], 'de'),
       title: text('Title', 'Hiergeblieben!'),
       text: text('Text', 'Smartfrog schenkt dir den ersten Monat!'),
@@ -40,6 +36,9 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
   methods: {
     onUsePromo(code) {
       alert(`Voucher code: ${code}`)
+    },
+    onNoPromo() {
+      alert(this.noText)
     }
   }
-}), Dialogue)
+}), CouponPopup)

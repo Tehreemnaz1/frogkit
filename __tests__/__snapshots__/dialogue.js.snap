@@ -6,6 +6,7 @@ exports[`Dialogue component should render component and match snapshot 1`] = `
         <a class="fk-dialogue__close">
             <icon icon="close-light" color="orange"></icon>
         </a>
+        <couponpopup lang="de" title="Hiergeblieben!" text="Smartfrog schenkt dir den ersten Monat!" codetext="Gutscheincode:" code="FREE1" btntext="Jetzt einlösen" notext="Jetzt nicht"></couponpopup>
     </section>
 </flex>
 `;
