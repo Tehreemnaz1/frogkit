@@ -7,20 +7,20 @@
 </style>
 
 <template>
-<section class="fk-coupon-popup">
-  <Title class="fk-coupon-popup__title" color="primary">{{ title }}</Title>
-  <img :src="img" class="fk-coupon-popup__img" />
-  <p class="fk-coupon-popup__txt">{{ text }}</p>
-  <p class="fk-coupon-popup__txt">
-    {{ codeText }}
-    <span class="fk-coupon-popup__txt__code">{{ code }}</span>
-  </p>
-  <Button class="fk-coupon-popup__btn" size="big" :block="true" color="secondary" @click="usePromo" link>
-    <span>{{ btnText }}</span>
-    <Icon icon="arrow-right" />
+  <section class="fk-coupon-popup">
+    <Title class="fk-coupon-popup__title" color="primary">{{ title }}</Title>
+    <img :src="img" class="fk-coupon-popup__img" />
+    <p class="fk-coupon-popup__txt">{{ text }}</p>
+    <p class="fk-coupon-popup__txt">
+      {{ codeText }}
+      <span class="fk-coupon-popup__txt__code">{{ code }}</span>
+    </p>
+    <Button class="fk-coupon-popup__btn" size="big" :block="true" color="secondary" @click="usePromo" link>
+      <span>{{ btnText }}</span>
+      <Icon icon="arrow-right" />
     </Button>
-  <span class="fk-coupon-popup__close" @click="noPromo">{{ noText }}</span>
-</section>
+    <span class="fk-coupon-popup__close" @click="noPromo">{{ noText }}</span>
+  </section>
 </template>
 
 <script>
