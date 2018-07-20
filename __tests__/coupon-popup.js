@@ -1,8 +1,12 @@
 import { mount, shallow } from 'vue-test-utils'
 import Vue from 'vue'
+import Dialogue from '@/components/dialogue'
 import CouponPopup from '@/components/coupon-popup'
 
 const propsData = {
+  visible: true,
+  dark: true,
+  requiredAction: false,
   lang: 'de',
   title: 'Hiergeblieben!',
   text: 'Smartfrog schenkt dir den ersten Monat!',
@@ -16,21 +20,5 @@ describe('Popup component', () => {
   it('should render component and match snapshot', () => {
     const wrapper = mount(CouponPopup, { propsData })
     expect(wrapper.html()).toMatchSnapshot()
-  })
-
-  it('Should emit usePromo event when usePromo method is called', () => {
-    const cmp = shallow(CouponPopup, { propsData })
-    const stub = jest.fn()
-    cmp.vm.$on('usePromo', stub)
-    cmp.vm.usePromo()
-    expect(stub).toBeCalled()
-  })
-
-  it('Should emit noPromo event when noPromo method is called', () => {
-    const cmp = shallow(CouponPopup, { propsData })
-    const stub = jest.fn()
-    cmp.vm.$on('noPromo', stub)
-    cmp.vm.noPromo()
-    expect(stub).toBeCalled()
   })
 })

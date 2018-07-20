@@ -13,16 +13,7 @@
         <a v-if="!requireAction" @click="dismiss" class="fk-dialogue__close">
           <Icon icon="close-light" color="orange" />
         </a>
-        <CouponPopup
-          :lang="lang"
-          :title="title"
-          :text="text"
-          :codeText="codeText"
-          :code="code"
-          :btnText="btnText"
-          :noText="noText"
-          @usePromo="onUsePromo"
-          @noPromo="close" />
+        <slot :emitHandler="emitSlotEvent" :closeHandler="close" />
       </section>
     </Flex>
   </transition>
@@ -48,34 +39,6 @@
       requireAction: {
         type: Boolean,
         default: false
-      },
-      lang: {
-        type: String,
-        default: ''
-      },
-      title: {
-        type: String,
-        default: ''
-      },
-      text: {
-        type: String,
-        default: ''
-      },
-      code: {
-        type: String,
-        default: ''
-      },
-      codeText: {
-        type: String,
-        default: ''
-      },
-      btnText: {
-        type: String,
-        default: ''
-      },
-      noText: {
-        type: String,
-        default: ''
       }
     },
     data() {
@@ -100,8 +63,8 @@
           this.close()
         }
       },
-      onUsePromo() {
-        this.$emit('usePromo', this.code)
+      emitSlotEvent(emitEvent, emitValue) {
+        this.$emit(emitEvent, emitValue)
         this.close()
       }
     }

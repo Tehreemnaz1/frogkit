@@ -5,14 +5,12 @@ import Dialogue from '@/components/dialogue'
 const propsData = {
   visible: true,
   dark: true,
-  requiredAction: false,
-  lang: 'de',
-  title: 'Hiergeblieben!',
-  text: 'Smartfrog schenkt dir den ersten Monat!',
-  codeText: 'Gutscheincode:',
-  code: 'FREE1',
-  btnText: 'Jetzt einlösen',
-  noText: 'Jetzt nicht'
+  requiredAction: false
+}
+
+const slotData = {
+  emitEvent: 'testEvent',
+  emitValue: 'xxx'
 }
 
 describe('Dialogue component', () => {
@@ -21,19 +19,19 @@ describe('Dialogue component', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  it('Should emit usePromo event when onUsePromo method is called', () => {
-    const cmp = shallow(Dialogue, { propsData })
-    const stub = jest.fn()
-    cmp.vm.$on('usePromo', stub)
-    cmp.vm.onUsePromo()
-    expect(stub).toBeCalled()
-  })
-
   it('Should emit closed event when close method is called', () => {
     const cmp = shallow(Dialogue, { propsData })
     const stub = jest.fn()
     cmp.vm.$on('closed', stub)
     cmp.vm.close()
+    expect(stub).toBeCalled()
+  })
+
+  it('Should emit testEvent event when emitSlotEvent method is called', () => {
+    const cmp = shallow(Dialogue, { propsData })
+    const stub = jest.fn()
+    cmp.vm.$on(slotData.emitEvent, stub)
+    cmp.vm.emitSlotEvent(slotData.emitEvent, slotData.emitValue)
     expect(stub).toBeCalled()
   })
 })
