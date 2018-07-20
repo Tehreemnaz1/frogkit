@@ -1,3 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Popup component should render component and match snapshot 1`] = `<dialogue visible="visible" dark="true"></dialogue>`;
+exports[`Coupon Popup component should render component and match snapshot 1`] = `
+<dialogue visible="visible">
+    <div class="fk-coupon-popup">
+        <title color="primary" class="fk-coupon-popup__title">Hiergeblieben!</title> <img src="test-file-stub" class="fk-coupon-popup__img">
+        <p class="fk-coupon-popup__txt">Smartfrog schenkt dir den ersten Monat!</p>
+        <p class="fk-coupon-popup__txt">
+            Gutscheincode:
+            <span class="fk-coupon-popup__txt__code">FREE1</span></p> <button size="big" block="true" color="secondary" link="" class="fk-coupon-popup__btn"><span>Jetzt einlösen</span> <icon icon="arrow-right"></icon></button> <span class="fk-coupon-popup__close">Jetzt nicht</span></div>
+</dialogue>
+`;

@@ -16,9 +16,25 @@ const propsData = {
   noText: 'Jetzt nicht'
 }
 
-describe('Popup component', () => {
+describe('Coupon Popup component', () => {
   it('should render component and match snapshot', () => {
     const wrapper = mount(CouponPopup, { propsData })
     expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  it('Should emit change event when close method is called', () => {
+    const cmp = shallow(CouponPopup, { propsData })
+    const stub = jest.fn()
+    cmp.vm.$on('change', stub)
+    cmp.vm.close()
+    expect(stub).toBeCalled()
+  })
+
+  it('Should emit usePromo event when usePromo method is called', () => {
+    const cmp = shallow(CouponPopup, { propsData })
+    const stub = jest.fn()
+    cmp.vm.$on('usePromo', stub)
+    cmp.vm.usePromo()
+    expect(stub).toBeCalled()
   })
 })

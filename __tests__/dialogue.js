@@ -19,19 +19,11 @@ describe('Dialogue component', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  it('Should emit closed event when close method is called', () => {
+  it('Should emit change event when close method is called', () => {
     const cmp = shallow(Dialogue, { propsData })
     const stub = jest.fn()
-    cmp.vm.$on('closed', stub)
+    cmp.vm.$on('change', stub)
     cmp.vm.close()
-    expect(stub).toBeCalled()
-  })
-
-  it('Should emit testEvent event when emitSlotEvent method is called', () => {
-    const cmp = shallow(Dialogue, { propsData })
-    const stub = jest.fn()
-    cmp.vm.$on(slotData.emitEvent, stub)
-    cmp.vm.emitSlotEvent(slotData.emitEvent, slotData.emitValue)
     expect(stub).toBeCalled()
   })
 })
