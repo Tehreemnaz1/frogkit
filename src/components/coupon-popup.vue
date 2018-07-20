@@ -7,8 +7,8 @@
 </style>
 
 <template>
-  <Dialogue :visible="visible" :dark="dark" :requireAction="requireAction">
-    <div class="fk-coupon-popup" slot-scope="{ emitHandler, closeHandler }">
+  <Dialogue :visible="visible" @change="value => $emit('change', value)">
+    <div class="fk-coupon-popup">
       <Title class="fk-coupon-popup__title" color="primary">{{ title }}</Title>
       <img :src="img" class="fk-coupon-popup__img" />
       <p class="fk-coupon-popup__txt">{{ text }}</p>
@@ -16,11 +16,11 @@
         {{ codeText }}
         <span class="fk-coupon-popup__txt__code">{{ code }}</span>
       </p>
-      <Button class="fk-coupon-popup__btn" size="big" :block="true" color="secondary" @click="emitHandler('usePromo', code)" link>
+      <Button class="fk-coupon-popup__btn" size="big" :block="true" color="secondary" @click="$emit('usePromo', code)" link>
         <span>{{ btnText }}</span>
         <Icon icon="arrow-right" />
       </Button>
-      <span class="fk-coupon-popup__close" @click="closeHandler">{{ noText }}</span>
+      <span class="fk-coupon-popup__close" @click="$emit('change', false)">{{ noText }}</span>
     </div>
   </Dialogue>
 </template>
@@ -28,46 +28,47 @@
 <script>
   export default {
     name: 'CouponPopup',
+    model: {
+      prop: 'visible',
+      event: 'change'
+    },
     props: {
       visible: {
         type: Boolean,
         default: false
       },
-      dark: {
-        type: Boolean,
-        default: false
-      },
-      requireAction: {
-        type: Boolean,
-        default: false
-      },
       lang: {
         type: String,
-        default: ''
+        required: true
       },
       title: {
         type: String,
-        default: ''
+        required: true
       },
       text: {
         type: String,
-        default: ''
+        required: true
       },
       code: {
         type: String,
-        default: ''
+        required: true
       },
       codeText: {
         type: String,
-        default: ''
+        required: true
       },
       btnText: {
         type: String,
-        default: ''
+        required: true
       },
       noText: {
         type: String,
-        default: ''
+        required: true
+      }
+    },
+    computed: {
+      showDialogue() {
+        return this.visible
       }
     },
     data() {

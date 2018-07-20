@@ -12,9 +12,7 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
   template:
   `
     <CouponPopup
-      :visible="visible"
-      :dark="dark"
-      :requireAction="requireAction"
+      v-model="visible"
       :lang="lang"
       :title="title"
       :text="text"
@@ -26,8 +24,6 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
   data() {
     return {
       visible: boolean('Visible', true),
-      dark: boolean('Dark', false),
-      requireAction: boolean('Require Action', false),
       lang: select('Language', ['de', 'en'], 'de'),
       title: text('Title', 'Hiergeblieben!'),
       text: text('Text', 'Smartfrog schenkt dir den ersten Monat!'),

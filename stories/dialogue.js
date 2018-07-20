@@ -11,7 +11,7 @@ const stories = storiesOf('Dialogue', module)
 stories.addCodeExampleStory('Kitchen Sink', () => ({
   template:
   `
-    <Dialogue :visible="visible" :dark="dark" :requireAction="requireAction">
+    <Dialogue v-model="visible" :dark="dark" :requireAction="requireAction">
       <h1 class="demo-title">Hello</h1>
     </Dialogue>
   `,
