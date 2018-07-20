@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialogue component should render component and match snapshot 1`] = `
+<flex justify="center" align="center" class="fk-dialogue fk-dialogue--dark v-enter fk-dialogue__animation-in">
+    <section class="fk-dialogue__frame">
+        <a class="fk-dialogue__close">
+            <icon icon="close-light" color="orange"></icon>
+        </a>
+    </section>
+</flex>
+`;

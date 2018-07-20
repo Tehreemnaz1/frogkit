@@ -8,12 +8,12 @@
 
 <template>
   <transition appear enter-active-class="fk-dialogue__animation-in" leave-active-class="fk-dialogue__animation-out">
-    <Flex v-if="show" justify="center" align="center" class="fk-dialogue" :class="classObject">
+    <Flex v-if="visible" justify="center" align="center" class="fk-dialogue" :class="classObject">
       <section class="fk-dialogue__frame" v-click-outside="dismiss">
         <a v-if="!requireAction" @click="dismiss" class="fk-dialogue__close">
           <Icon icon="close-light" color="orange" />
         </a>
-        <slot/>
+        <slot />
       </section>
     </Flex>
   </transition>
@@ -24,7 +24,13 @@
 
   export default {
     name: 'Dialogue',
-    directives: {clickOutside},
+    directives: {
+      clickOutside
+    },
+    model: {
+      prop: 'visible',
+      event: 'change'
+    },
     props: {
       visible: {
         type: Boolean,
@@ -39,11 +45,6 @@
         default: false
       }
     },
-    data() {
-      return {
-        show: this.visible
-      }
-    },
     computed: {
       classObject() {
         return {
@@ -53,8 +54,7 @@
     },
     methods: {
       close() {
-        this.show = false
-        this.$emit('closed')
+        this.$emit('change', false)
       },
       dismiss() {
         if (!this.requireAction) {
