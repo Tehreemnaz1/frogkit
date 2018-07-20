@@ -7,7 +7,7 @@
 </style>
 
 <template>
-  <Dialogue :visible="visible" @change="value => $emit('change', value)">
+  <Dialogue :visible="visible" @change="close">
     <div class="fk-coupon-popup">
       <Title class="fk-coupon-popup__title" color="primary">{{ title }}</Title>
       <img :src="img" class="fk-coupon-popup__img" />
@@ -16,11 +16,11 @@
         {{ codeText }}
         <span class="fk-coupon-popup__txt__code">{{ code }}</span>
       </p>
-      <Button class="fk-coupon-popup__btn" size="big" :block="true" color="secondary" @click="$emit('usePromo', code)" link>
+      <Button class="fk-coupon-popup__btn" size="big" :block="true" color="secondary" @click="usePromo" link>
         <span>{{ btnText }}</span>
         <Icon icon="arrow-right" />
       </Button>
-      <span class="fk-coupon-popup__close" @click="$emit('change', false)">{{ noText }}</span>
+      <span class="fk-coupon-popup__close" @click="close">{{ noText }}</span>
     </div>
   </Dialogue>
 </template>
@@ -74,6 +74,15 @@
     data() {
       return {
         img: require(`../assets/popup/one-month-free-${this.lang}.svg`)
+      }
+    },
+    methods: {
+      close() {
+        this.$emit('change', false)
+      },
+      usePromo() {
+        this.$emit('usePromo', this.code)
+        this.close()
       }
     }
   }
