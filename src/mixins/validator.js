@@ -1,7 +1,7 @@
 const regex = {
   text: /.*/,
   houseNumber: /^[0-9a-zA-Z ]+$/,
-  phone: /^[0-9 \\+\\-\\(\\)\\/]{3,32}$/,
+  phone: /^[0-9 \\+\\-\\(\\)\\/]{3,20}$/,
   password: /^[0-9a-zA-Z!*^?+-_@#$%&<>§±'":;.,/=~\[\]\{\}\`\(\)\|\\ ]{6,64}$/,
   email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
   // NOTE: uk zip code is provided by goverment
@@ -57,7 +57,8 @@ export default function validator (model = 'value') {
           errors.pattern = value !== this.match
           return errors
         }
-        if (this.required) {
+
+        if (this.required || this.requireValidation) {
           errors.required = typeof value === 'string' ? !value.length : !value
           errors.pattern = this.pattern && !this.pattern.test(value) || (typeof value === 'string' && !value.trim().length)
           const inputType = type || this.type
