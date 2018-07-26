@@ -48,6 +48,10 @@
       match: {
         type: String,
         default: ''
+      },
+      requireValidation: {
+        type: Boolean,
+        default: false
       }
     },
     computed: {
