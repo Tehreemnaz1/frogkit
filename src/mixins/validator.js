@@ -58,7 +58,7 @@ export default function validator (model = 'value') {
           return errors
         }
 
-        if (this.required || this.requireValidation) {
+        if (this.required || (this.requireValidation && value)) {
           errors.required = typeof value === 'string' ? !value.length : !value
           errors.pattern = this.pattern && !this.pattern.test(value) || (typeof value === 'string' && !value.trim().length)
           const inputType = type || this.type
