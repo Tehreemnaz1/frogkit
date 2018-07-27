@@ -8,15 +8,15 @@ import CouponPopup from '@/components/coupon-popup'
 
 const propsData = {
   visible: true,
-  dark: true,
-  requiredAction: false,
-  lang: 'de',
-  title: 'Hiergeblieben!',
-  text: 'Smartfrog schenkt dir den ersten Monat!',
-  codeText: 'Gutscheincode:',
-  code: 'FREE1',
-  btnText: 'Jetzt einlösen',
-  noText: 'Jetzt nicht'
+  config: {
+    title: 'Hiergeblieben!',
+    headline: 'Smartfrog schenkt dir den ersten Monat!',
+    label: 'Gutscheincode:',
+    code: 'FREE1',
+    accept: 'Jetzt einlösen',
+    reject: 'Jetzt nicht'
+  }
+
 }
 
 describe('Coupon Popup component', () => {

@@ -18,22 +18,19 @@ const stories = storiesOf('Coupon Popup', module)
 
 stories.addCodeExampleStory('Kitchen Sink', () => ({
   template: `
-    <CouponPopup
-      v-model="visible"
-      :lang="lang"
-      :config="config" />
+    <CouponPopup v-model="visible" :config="config" />
   `,
   data() {
     return {
       visible: boolean('Visible', true),
       config: {
         title: text('Title', 'Hiergeblieben!'),
-        text: text('Text', 'Smartfrog schenkt dir den ersten Monat!'),
-        codeText: text('Coupon code label', 'Gutscheincode:'),
-        code: text('Coupon code', 'FREE1'),
-        btnText: text('Button Label', 'Jetzt einlösen'),
-        noText: text('Close Label', 'Jetzt nicht'),
         image: select('Image', [require('@demo/popup/gift.svg'), require('@demo/popup/geschenk.svg')], require('@demo/popup/gift.svg')),
+        headline: text('Headline', 'Smartfrog schenkt dir den ersten Monat!'),
+        label: text('Voucher label', 'Gutscheincode:'),
+        code: text('Voucher code', 'FREE1'),
+        accept: text('Accept Label', 'Jetzt einlösen'),
+        reject: text('Reject Label', 'Jetzt nicht'),
       }
     }
   }

@@ -11,16 +11,16 @@
     <div class="fk-coupon-popup">
       <Title class="fk-coupon-popup__title" color="primary">{{ config.title }}</Title>
       <img :src="config.image" class="fk-coupon-popup__img" />
-      <p class="fk-coupon-popup__txt">{{ config.text }}</p>
+      <p class="fk-coupon-popup__txt">{{ config.headline }}</p>
       <p class="fk-coupon-popup__txt">
-        {{ config.codeText }}
+        {{ config.label }}
         <span class="fk-coupon-popup__txt__code">{{ config.code }}</span>
       </p>
       <Button class="fk-coupon-popup__btn" size="big" :block="true" color="secondary" @click="proceed" link>
-        <span>{{ config.btnText }}</span>
+        <span>{{ config.accept }}</span>
         <Icon icon="arrow-right" />
       </Button>
-      <span class="fk-coupon-popup__close" @click="close">{{ config.noText }}</span>
+      <span class="fk-coupon-popup__close" @click="close">{{ config.reject }}</span>
     </div>
   </Dialogue>
 </template>
