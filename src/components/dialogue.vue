@@ -22,7 +22,7 @@
 <script>
   import clickOutside from '../directives/click-outside'
 
-  export default {
+export default {
     name: 'Dialogue',
     directives: {
       clickOutside

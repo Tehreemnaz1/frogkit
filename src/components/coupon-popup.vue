@@ -1,89 +1,66 @@
 <style lang="stylus">
-  @require '../stylus/mixins/coupon-popup'
+  @require '../stylus/mixins/coupon-popup';
 
-  .fk-coupon-popup
-    coupon-popup-mixin()
-
+  .fk-coupon-popup {
+    coupon-popup-mixin();
+  }
 </style>
 
 <template>
   <Dialogue :visible="visible" @change="close">
     <div class="fk-coupon-popup">
-      <Title class="fk-coupon-popup__title" color="primary">{{ title }}</Title>
-      <img :src="img" class="fk-coupon-popup__img" />
-      <p class="fk-coupon-popup__txt">{{ text }}</p>
+      <Title class="fk-coupon-popup__title" color="primary">{{ config.title }}</Title>
+      <img :src="config.image" class="fk-coupon-popup__img" />
+      <p class="fk-coupon-popup__txt">{{ config.text }}</p>
       <p class="fk-coupon-popup__txt">
-        {{ codeText }}
-        <span class="fk-coupon-popup__txt__code">{{ code }}</span>
+        {{ config.codeText }}
+        <span class="fk-coupon-popup__txt__code">{{ config.code }}</span>
       </p>
-      <Button class="fk-coupon-popup__btn" size="big" :block="true" color="secondary" @click="usePromo" link>
-        <span>{{ btnText }}</span>
+      <Button class="fk-coupon-popup__btn" size="big" :block="true" color="secondary" @click="proceed" link>
+        <span>{{ config.btnText }}</span>
         <Icon icon="arrow-right" />
       </Button>
-      <span class="fk-coupon-popup__close" @click="close">{{ noText }}</span>
+      <span class="fk-coupon-popup__close" @click="close">{{ config.noText }}</span>
     </div>
   </Dialogue>
 </template>
 
 <script>
+  import Dialogue from './dialogue'
+
   export default {
     name: 'CouponPopup',
+    components: {
+      Dialogue,
+    },
     model: {
       prop: 'visible',
-      event: 'change'
+      event: 'change',
     },
     props: {
       visible: {
         type: Boolean,
-        default: false
+        default: false,
       },
-      lang: {
-        type: String,
-        required: true
+      config: {
+        type: Object,
+        required: true,
+        default: () => ({}),
       },
-      title: {
-        type: String,
-        required: true
-      },
-      text: {
-        type: String,
-        required: true
-      },
-      code: {
-        type: String,
-        required: true
-      },
-      codeText: {
-        type: String,
-        required: true
-      },
-      btnText: {
-        type: String,
-        required: true
-      },
-      noText: {
-        type: String,
-        required: true
-      }
     },
     computed: {
       showDialogue() {
         return this.visible
-      }
-    },
-    data() {
-      return {
-        img: require(`../assets/popup/one-month-free-${this.lang}.svg`)
-      }
+      },
     },
     methods: {
       close() {
         this.$emit('change', false)
       },
-      usePromo() {
-        this.$emit('usePromo', this.code)
+      proceed() {
+        this.$emit('proceed', this.config.code)
         this.close()
-      }
-    }
+      },
+    },
   }
 </script>
