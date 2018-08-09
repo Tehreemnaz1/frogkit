@@ -1,15 +1,14 @@
 <style lang="stylus">
-  @require '../stylus/mixins/coupon-popup';
+  @require '../stylus/mixins/coupon-popup'
 
-  .fk-coupon-popup {
-    coupon-popup-mixin();
-  }
+  .fk-coupon-popup
+    coupon-popup-mixin()
 </style>
 
 <template>
   <Dialogue :visible="visible" @change="close">
     <div class="fk-coupon-popup">
-      <Title class="fk-coupon-popup__title" color="primary">{{ config.title }}</Title>
+      <Title class="fk-coupon-popup__title" color="primary" size="xl">{{ config.title }}</Title>
       <img :src="config.image" class="fk-coupon-popup__img" />
       <p class="fk-coupon-popup__txt">{{ config.headline }}</p>
       <p class="fk-coupon-popup__txt">

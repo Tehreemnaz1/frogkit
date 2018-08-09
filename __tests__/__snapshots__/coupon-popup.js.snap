@@ -7,7 +7,7 @@ exports[`Coupon Popup component should render component and match snapshot 1`] =
             <icon icon="close-light" color="orange"></icon>
         </a>
         <div class="fk-coupon-popup">
-            <title color="primary" class="fk-coupon-popup__title">Hiergeblieben!</title> <img class="fk-coupon-popup__img">
+            <title color="primary" size="xl" class="fk-coupon-popup__title">Hiergeblieben!</title> <img class="fk-coupon-popup__img">
             <p class="fk-coupon-popup__txt">Smartfrog schenkt dir den ersten Monat!</p>
             <p class="fk-coupon-popup__txt">
                 Gutscheincode:
