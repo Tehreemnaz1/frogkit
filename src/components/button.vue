@@ -43,6 +43,10 @@
       loading: {
         type: Boolean,
         default: false
+      },
+      capitalize: {
+        type: Boolean,
+        default: false
       }
     },
     methods: {
@@ -63,6 +67,7 @@
           'fk-btn--secondary': this.color == 'secondary',
           'fk-btn--cut-left': this.cutSide === 'left',
           'fk-btn--cut-right': this.cutSide === 'right',
+          'fk-btn--capitalize': this.capitalize
         }
       },
       elementTag() {

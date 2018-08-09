@@ -49,7 +49,11 @@
       scrollToError() {
         if (this.isValid) return
         const firstInvalid = this.inputs.find(input => input.errone)
-        firstInvalid.$el.scrollIntoView({ behavior: 'smooth', block: 'nearest'})
+        try {
+          firstInvalid.$el.scrollIntoView({ behavior: 'smooth', block: 'nearest'})
+        } catch (e) {
+          firstInvalid.$el.scrollIntoView()
+        }
       }
     }
   }

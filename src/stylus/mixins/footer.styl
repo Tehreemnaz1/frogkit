@@ -44,13 +44,13 @@ footer-mixin()
   border-top: solid 1px $borderColor
   padding: 50px 0
   position: relative
-  @media (max-width: $bp-sm)
+  @media (max-width: $under-sm)
     padding-top: 0px
-  @media (max-width: $bp-lg)
+  @media (max-width: $under-lg)
     // padding should contain enough space for social and app-badges comp
     padding-bottom: 220px
   &__nav
-    @media (min-width: $bp-sm) and (max-width: $bp-lg)
+    @media (min-width: $bp-sm) and (max-width: $under-lg)
       display: flex
       flex-direction: row
       flex-wrap: nowrap
@@ -62,7 +62,7 @@ footer-mixin()
   &__app-stores, &__social
     h4
       titles()
-    @media (max-width: $bp-lg)
+    @media (max-width: $under-lg)
       display: flex
       position: absolute
       bottom: 30px

@@ -61,7 +61,6 @@ $button-skeleton
   line-height: (@height - (@border-width * 2))
   vertical-align: middle
   outline: none
-  text-transform: capitalize
   transition: border-color background-color color 300ms
   cut-button()
   &:disabled,
@@ -84,6 +83,8 @@ $button-skeleton
     background-size: 50% 50%
     background-position: center
     color: transparent !important
+  &&--capitalize
+    text-transform: capitalize
 
 
 

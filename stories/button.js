@@ -12,7 +12,7 @@ const stories = storiesOf('Button', module)
 
 stories.addCodeExampleStory('Kitchen Sink', () => ({
   template:
-  `<Button @click="action" :link="link" :disabled="disabled" :size="size" :loading="loading" :cut-side="cutSide" :block="block" :outline="outline" :color="color">
+  `<Button @click="action" :link="link" :disabled="disabled" :capitalize="capitalize" :size="size" :loading="loading" :cut-side="cutSide" :block="block" :outline="outline" :color="color">
     {{slot}}
   </Button>`,
   methods: { action: action('button-click') },
@@ -24,6 +24,7 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
       outline: boolean('Outline', false),
       loading: boolean('Loading', false),
       link: boolean('Link', false),
+      capitalize: boolean('Capitalize', false),
       size: select('Size', ['small', 'normal', 'big'], 'normal'),
       color: select('Color', ['default', 'primary', 'secondary'], 'default'),
       cutSide: select('Cut border', ['', 'left', 'right'], '')
@@ -33,7 +34,7 @@ stories.addCodeExampleStory('Kitchen Sink', () => ({
 
 
 stories.addCodeExampleStory('Link as a button', () => ({
-  template: `<Button link :disabled="disabled" :size="size" :block="block" :loading="loading" :outline="outline" :cut-side="cutSide" :color="color" :href="href" target="_blank">
+  template: `<Button link :disabled="disabled" :size="size" :block="block" :capitalize="capitalize" :loading="loading" :outline="outline" :cut-side="cutSide" :color="color" :href="href" target="_blank">
               {{slot}}
             </Button>`,
   data(){
@@ -43,6 +44,7 @@ stories.addCodeExampleStory('Link as a button', () => ({
       block: boolean('Full Width', false),
       outline: boolean('Outline', false),
       loading: boolean('Loading', false),
+      capitalize: boolean('Capitalize', false),
       href: text('href', '//smartfrog.com'),
       size: select('Size', ['small', 'normal', 'big'], 'normal'),
       color: select('Color', ['default', 'primary', 'secondary'], 'primary'),
@@ -52,7 +54,7 @@ stories.addCodeExampleStory('Link as a button', () => ({
 }))
 
 stories.addCodeExampleStory('Button with icon on the left', () => ({
-  template: `<Button link :disabled="disabled" :size="size" :block="block" :loading="loading" :cut-side="cutSide" :outline="outline" :color="color">
+  template: `<Button link :disabled="disabled" :size="size" :block="block" :capitalize="capitalize" :loading="loading" :cut-side="cutSide" :outline="outline" :color="color">
               <Icon :icon="icon" :size="size"/>
               <span>{{slot}}</span>
             </Button>`,
@@ -64,6 +66,7 @@ stories.addCodeExampleStory('Button with icon on the left', () => ({
       block: boolean('Full Width', false),
       outline: boolean('Outline', false),
       loading: boolean('Loading', false),
+      capitalize: boolean('Capitalize', false),
       size: select('Size', ['small', 'normal', 'big'], 'normal'),
       color: select('Color', ['default', 'primary', 'secondary'], 'primary'),
       cutSide: select('Cut border', ['', 'left', 'right'], '')
@@ -72,7 +75,7 @@ stories.addCodeExampleStory('Button with icon on the left', () => ({
 }))
 
 stories.addCodeExampleStory('Button with icon on the right', () => ({
-  template: `<Button link :disabled="disabled" :size="size" :block="block" :loading="loading" :cut-side="cutSide" :outline="outline" :color="color">
+  template: `<Button link :disabled="disabled" :size="size" :block="block" :capitalize="capitalize" :loading="loading" :cut-side="cutSide" :outline="outline" :color="color">
               <span>{{slot}}</span>
               <Icon :icon="icon" />
             </Button>`,
@@ -84,6 +87,7 @@ stories.addCodeExampleStory('Button with icon on the right', () => ({
       block: boolean('Full Width', false),
       outline: boolean('Outline', false),
       loading: boolean('Loading', false),
+      capitalize: boolean('Capitalize', false),
       size: select('Size', ['small', 'normal', 'big'], 'normal'),
       color: select('Color', ['default', 'primary', 'secondary'], 'primary'),
       cutSide: select('Cut border', ['', 'left', 'right'], '')
