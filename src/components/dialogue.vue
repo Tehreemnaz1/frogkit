@@ -4,6 +4,8 @@
   .fk-dialogue
     dialogue-mixin()
 
+  .noscroll
+    overflow hidden
 </style>
 
 <template>
@@ -13,7 +15,9 @@
         <a v-if="!requireAction" @click="dismiss" class="fk-dialogue__close">
           <Icon icon="close-light" color="orange" />
         </a>
-        <slot />
+        <!-- <Flex column justify="start" align="center" > -->
+          <slot />
+        <!-- </Flex> -->
       </section>
     </Flex>
   </transition>
@@ -25,32 +29,38 @@
   export default {
     name: 'Dialogue',
     directives: {
-      clickOutside
+      clickOutside,
     },
     model: {
       prop: 'visible',
-      event: 'change'
+      event: 'change',
     },
     props: {
       visible: {
         type: Boolean,
-        default: false
+        default: false,
       },
       dark: {
         type: Boolean,
-        default: false
+        default: false,
       },
       requireAction: {
         type: Boolean,
-        default: false
-      }
+        default: false,
+      },
     },
     computed: {
       classObject() {
         return {
-          'fk-dialogue--dark': !!this.dark
+          'fk-dialogue--dark': !!this.dark,
         }
-      }
+      },
+    },
+    mounted() {
+      document.body.classList.toggle('noscroll', true)
+    },
+    destroyed() {
+      document.body.classList.toggle('noscroll', false)
     },
     methods: {
       close() {
@@ -60,7 +70,7 @@
         if (!this.requireAction) {
           this.close()
         }
-      }
-    }
+      },
+    },
   }
 </script>
