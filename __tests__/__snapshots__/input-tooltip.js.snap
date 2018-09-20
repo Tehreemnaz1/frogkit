@@ -5,8 +5,9 @@ exports[`Input Tooltip component Should render component and match snapshot 1`] 
     <div><input type="password" class="fk-input"></div>
     <div class="fk-input-tooltip__bubble" style="display: none;"><b class="fk-input-tooltip__title">Password must have:</b>
         <ul>
-            <li>min 6 chars</li>
-            <li>max 64 chars</li>
+            <li class="fk-input-tooltip--valid">8 or more characters</li>
+            <li class="fk-input-tooltip--valid">Upper &amp; lowercase letters</li>
+            <li class="fk-input-tooltip--valid">At least one number</li>
         </ul>
         <!---->
     </div>
@@ -18,8 +19,9 @@ exports[`Input Tooltip should validate input Should render component and match s
     <div><input type="password" class="fk-input"></div>
     <div class="fk-input-tooltip__bubble"><b class="fk-input-tooltip__title">Password must have:</b>
         <ul>
-            <li>min 6 chars</li>
-            <li>max 64 chars</li>
+            <li class="fk-input-tooltip--valid">8 or more characters</li>
+            <li class="fk-input-tooltip--valid">Upper &amp; lowercase letters</li>
+            <li class="fk-input-tooltip--valid">At least one number</li>
         </ul>
         <!---->
     </div>
