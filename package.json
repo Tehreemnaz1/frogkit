@@ -62,5 +62,8 @@
     ],
     "testRegex": "(/__tests__/.*|(\\.|/)(spec))\\.jsx?$",
     "mapCoverage": true
+  },
+  "dependencies": {
+    "@smartfrog/password": "0.1.0"
   }
 }

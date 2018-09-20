@@ -6,6 +6,10 @@
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/@hypnosphi/fuse.js/-/fuse.js-3.0.9.tgz#ea99f6121b4a8f065b4c71f85595db2714498807"
 
+"@smartfrog/password@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@smartfrog/password/-/password-0.1.0.tgz#0b1903d836900721b734315f4650f91e72c0fc52"
+
 "@storybook/addon-actions@3.2.16", "@storybook/addon-actions@^3.2.16":
   version "3.2.16"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-3.2.16.tgz#dc53d48dc8035b426a02628687c6cb0601b933b9"
