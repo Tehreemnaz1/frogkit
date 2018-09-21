@@ -1,14 +1,13 @@
 {
   "name": "@smartfrog/frogkit",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "Smartfrog Component Framework",
   "scripts": {
     "storybook": "start-storybook -p 5000 -c .storybook",
     "build": "build-storybook -c .storybook -o dist",
     "precommit": "prettier --config .prettierrc '{,!(node_modules)/**/}*.js' --write",
     "test": "jest",
-    "icon":
-      "rimraf src/components/icons/* && node build/svg-icon src/assets/icons src/components/icons",
+    "icon": "rimraf src/components/icons/* && node build/svg-icon src/assets/icons src/components/icons",
     "release": "bash build/release.sh"
   },
   "author": "Mouafa Ahmed (https://github.com/mouafa)",
@@ -42,20 +41,27 @@
     "webpack-merge": "4.1.1",
     "@smartfrog/password": "^1.0.0"
   },
-  "files": ["src/"],
+  "files": [
+    "src/"
+  ],
   "jest": {
     "verbose": true,
-    "moduleFileExtensions": ["js", "json", "vue"],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
     "transform": {
       ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
     },
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1",
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-        "<rootDir>/__mocks__/fileMock.js"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js"
     },
-    "snapshotSerializers": ["<rootDir>/node_modules/jest-serializer-vue"],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/jest-serializer-vue"
+    ],
     "testRegex": "(/__tests__/.*|(\\.|/)(spec))\\.jsx?$",
     "mapCoverage": true
   }
