@@ -51,7 +51,7 @@ describe('Input Tooltip component with shown tooltip', () => {
     // Accepted password
     input.setProps({ value: 'testtestr' })
     wrapper.vm.updateStatus()
-    expect(wrapper.vm.invalidCondition['length']).toBe(false)
+    expect(wrapper.vm.invalidCondition['length']).toBe(undefined)
     // Long password (> 64 chars)
     input.setProps({
       value: 'testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest',
