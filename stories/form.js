@@ -30,7 +30,10 @@ stories.addCodeExampleStory(
       <Input v-model="inputs[2]" type="phone" placeholder="phone" :disabled="disabled" :wrong="wrong" required block></Input>
     </div>
     <div>
-      <Checkbox v-model="inputs[3]" true-value="yep" false-value="nope" :wrong="wrong" required>Accept TOS: {{inputs[3]}}</Checkbox>
+      <Input v-model="inputs[3]" type="houseNumber" placeholder="house number" :wrong="wrong" required block></Input>
+    </div>
+    <div>
+      <Checkbox v-model="inputs[4]" true-value="yep" false-value="nope" :wrong="wrong" required>Accept TOS: {{inputs[3]}}</Checkbox>
     </div>
     <h1 class="demo-title">Valid: {{isValid}}</h1>
     <Button @click="submit" color="primary" block> Submit </Button>
@@ -72,22 +75,22 @@ stories.addCodeExampleStory(
     <div>
       <Input v-model="inputs[0]" name="username" type="text" placeholder="username" :disabled="disabled" required block></Input>
     </div>
-    <div class="space-demo" /> 
-    
+    <div class="space-demo" />
+
     <div>
       <Input v-model="inputs[1]" type="password" placeholder="password" :disabled="disabled" required block></Input>
     </div>
-    <div class="space-demo" /> 
-    
+    <div class="space-demo" />
+
     <div>
       <Input v-model="inputs[2]" type="phone" placeholder="phone" :disabled="disabled" required block></Input>
     </div>
-    <div class="space-demo" /> 
-    
+    <div class="space-demo" />
+
     <div>
       <Checkbox v-model="inputs[3]" true-value="yep" false-value="nope" required>Accept TOS: {{inputs[3]}}</Checkbox>
     </div>
-    <div class="space-demo" /> 
+    <div class="space-demo" />
     <h1 class="demo-title">Valid: {{isValid}}</h1>
     <Button @click="submit" color="primary" block> Submit </Button>
   </Form>`,
